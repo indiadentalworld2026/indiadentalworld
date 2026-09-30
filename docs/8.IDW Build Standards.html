@@ -1,0 +1,487 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>IDW Build Standards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-base:#0A1714; --bg-surface:#0F2019; --bg-card:#142A20; --bg-elevated:#1A3428;
+  --teal:#00C4A7; --teal-bg:rgba(0,196,167,0.08); --teal-border:rgba(0,196,167,0.25);
+  --rose:#F06A6A; --rose-bg:rgba(240,106,106,0.10);
+  --amber:#F5A623; --amber-bg:rgba(245,166,35,0.10);
+  --green:#34D399; --green-bg:rgba(52,211,153,0.10);
+  --text-primary:#E8F5F2; --text-secondary:#A8C8BF; --text-muted:#6B9B8E; --text-faint:#3D6B5F;
+  --border:rgba(0,196,167,0.12); --border-mid:rgba(0,196,167,0.25);
+  --font:'Plus Jakarta Sans',system-ui,sans-serif; --mono:'JetBrains Mono',monospace;
+  --radius:12px; --shadow:0 2px 8px rgba(0,0,0,0.4),0 8px 32px rgba(0,0,0,0.3);
+  color-scheme:dark;
+}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){
+  --bg-base:#F0FAF7; --bg-surface:#fff; --bg-card:#fff; --bg-elevated:#F7FDFB;
+  --teal:#00A38A; --teal-bg:rgba(0,163,138,0.07); --teal-border:rgba(0,163,138,0.25);
+  --rose:#D44F4F; --rose-bg:rgba(212,79,79,0.08);
+  --amber:#C4800A; --amber-bg:rgba(196,128,10,0.08);
+  --green:#15875A; --green-bg:rgba(21,135,90,0.08);
+  --text-primary:#0A2219; --text-secondary:#24584A; --text-muted:#5A8A7C; --text-faint:#9BBFB6;
+  --border:rgba(0,163,138,0.12); --border-mid:rgba(0,163,138,0.25);
+  --shadow:0 2px 8px rgba(0,0,0,0.08),0 8px 32px rgba(0,0,0,0.06);
+  color-scheme:light;
+}}
+:root[data-theme="light"]{
+  --bg-base:#F0FAF7; --bg-surface:#fff; --bg-card:#fff; --bg-elevated:#F7FDFB;
+  --teal:#00A38A; --teal-bg:rgba(0,163,138,0.07); --teal-border:rgba(0,163,138,0.25);
+  --text-primary:#0A2219; --text-secondary:#24584A; --text-muted:#5A8A7C;
+  --border:rgba(0,163,138,0.12); color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:var(--bg-base);color:var(--text-primary);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+a{color:var(--teal);text-decoration:none;}
+
+/* HEADER */
+.site-header{position:sticky;top:0;z-index:100;background:rgba(10,23,20,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-weight:800;font-size:16px;color:var(--teal);letter-spacing:-0.3px;}
+.logo span{color:var(--text-primary);}
+.header-right{display:flex;align-items:center;gap:12px;}
+.btn-theme{width:32px;height:32px;border-radius:8px;background:var(--bg-card);border:1px solid var(--border);color:var(--text-secondary);display:flex;align-items:center;justify-content:center;cursor:pointer;}
+.version-badge{font-size:11px;font-weight:700;background:var(--teal-bg);border:1px solid var(--teal-border);color:var(--teal);padding:3px 10px;border-radius:20px;}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--bg-surface) 0%,var(--bg-base) 100%);border-bottom:1px solid var(--border);padding:48px 24px 40px;}
+.hero-inner{max-width:900px;margin:0 auto;text-align:center;}
+.hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--teal);margin-bottom:12px;}
+.hero-title{font-size:clamp(28px,5vw,42px);font-weight:800;color:var(--text-primary);letter-spacing:-0.5px;line-height:1.15;margin-bottom:14px;}
+.hero-title span{color:var(--teal);}
+.hero-sub{font-size:15px;color:var(--text-secondary);max-width:560px;margin:0 auto 24px;line-height:1.7;}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+.hero-tag{background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;color:var(--text-secondary);}
+
+/* NAV */
+.sticky-nav{position:sticky;top:56px;z-index:90;background:rgba(10,23,20,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:900px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none;padding:0 24px;}
+.nav-inner::-webkit-scrollbar{display:none;}
+.nav-link{padding:13px 16px;font-size:13px;font-weight:600;color:var(--text-muted);white-space:nowrap;border-bottom:2px solid transparent;transition:0.15s;}
+.nav-link:hover{color:var(--text-primary);}
+.nav-link.active{color:var(--teal);border-bottom-color:var(--teal);}
+
+/* MAIN */
+.main{max-width:900px;margin:0 auto;padding:40px 24px 80px;}
+.section{margin-bottom:56px;scroll-margin-top:120px;}
+.section-header{margin-bottom:24px;}
+.section-number{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--teal);letter-spacing:1px;margin-bottom:6px;}
+.section-title{font-size:22px;font-weight:800;color:var(--text-primary);letter-spacing:-0.3px;margin-bottom:6px;}
+.section-desc{font-size:13px;color:var(--text-muted);line-height:1.6;}
+
+/* STANDARD CARDS */
+.standards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;}
+.std-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;transition:0.15s;}
+.std-card:hover{border-color:var(--border-mid);box-shadow:var(--shadow);}
+.std-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:12px;}
+.std-name{font-size:15px;font-weight:700;color:var(--text-primary);margin-bottom:6px;}
+.std-def{font-size:12px;color:var(--text-secondary);line-height:1.6;margin-bottom:10px;}
+.std-practice{font-size:11px;font-family:var(--mono);color:var(--teal);background:var(--teal-bg);border:1px solid var(--teal-border);border-radius:6px;padding:6px 10px;line-height:1.5;}
+
+/* TEST BOX */
+.test-box{background:var(--bg-card);border:2px solid var(--teal-border);border-radius:var(--radius);padding:24px;margin:24px 0;}
+.test-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:var(--teal);margin-bottom:16px;}
+.test-list{display:flex;flex-direction:column;gap:10px;}
+.test-item{display:flex;align-items:flex-start;gap:12px;font-size:13px;color:var(--text-secondary);}
+.test-num{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#0A1714;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+
+/* TABLES */
+.std-table{width:100%;border-collapse:collapse;font-size:13px;}
+.std-table th{text-align:left;padding:10px 14px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-muted);border-bottom:1px solid var(--border);background:var(--bg-elevated);}
+.std-table td{padding:11px 14px;border-bottom:1px solid var(--border);color:var(--text-secondary);vertical-align:top;}
+.std-table tr:last-child td{border-bottom:none;}
+.std-table tr:hover td{background:var(--teal-bg);}
+.table-wrap{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:16px;overflow-x:auto;}
+.tag{display:inline-flex;align-items:center;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;white-space:nowrap;}
+.tag-teal{background:var(--teal-bg);border:1px solid var(--teal-border);color:var(--teal);}
+.tag-rose{background:var(--rose-bg);border:1px solid rgba(240,106,106,0.25);color:var(--rose);}
+.tag-amber{background:var(--amber-bg);border:1px solid rgba(245,166,35,0.25);color:var(--amber);}
+.tag-green{background:var(--green-bg);border:1px solid rgba(52,211,153,0.25);color:var(--green);}
+
+/* REVENUE TIERS */
+.tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px;}
+.tier-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;}
+.tier-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:8px;}
+.tier-name{font-size:16px;font-weight:800;color:var(--text-primary);margin-bottom:6px;}
+.tier-desc{font-size:12px;color:var(--text-muted);line-height:1.5;}
+
+/* PRINCIPLE BOX */
+.principle{background:linear-gradient(135deg,var(--teal-bg),transparent);border:1px solid var(--teal-border);border-radius:var(--radius);padding:20px 24px;margin:20px 0;}
+.principle-text{font-size:15px;font-weight:600;color:var(--text-primary);line-height:1.6;font-style:italic;}
+.principle-text span{color:var(--teal);}
+
+/* SESSION STARTER */
+.starter-box{background:var(--bg-elevated);border:1px solid var(--border-mid);border-radius:var(--radius);padding:24px;margin-top:16px;}
+.starter-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:var(--teal);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.starter-text{font-family:var(--mono);font-size:12px;color:var(--text-secondary);line-height:1.8;white-space:pre-wrap;}
+.copy-btn{margin-top:14px;padding:9px 18px;background:var(--teal);color:#0A1714;font-size:12px;font-weight:800;border-radius:8px;border:none;cursor:pointer;transition:0.15s;font-family:var(--font);}
+.copy-btn:hover{background:#00D9B8;}
+.copy-success{display:none;margin-top:8px;font-size:12px;color:var(--green);}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--border);margin:48px 0;}
+
+/* FOOTER */
+footer{background:var(--bg-surface);border-top:1px solid var(--border);padding:24px;text-align:center;font-size:12px;color:var(--text-faint);}
+footer strong{color:var(--teal);}
+
+@media(max-width:600px){
+  .standards-grid{grid-template-columns:1fr;}
+  .tier-grid{grid-template-columns:1fr;}
+  .hero{padding:32px 16px 28px;}
+  .main{padding:28px 16px 60px;}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo">India<span>DentalWorld</span></div>
+  <div class="header-right">
+    <span class="version-badge">v1.0 · Sep 2026</span>
+    <button class="btn-theme" id="themeBtn" aria-label="Toggle theme">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Master Reference Document</p>
+    <h1 class="hero-title">IDW <span>Build Standards</span><br>& Session Starter</h1>
+    <p class="hero-sub">The complete operational framework for building IndiaDentalWorld — five standing standards every page, feature, and decision must satisfy.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">🔍 Found</span>
+      <span class="hero-tag">🛡️ Trusted</span>
+      <span class="hero-tag">⚡ Fast</span>
+      <span class="hero-tag">📌 Cited</span>
+      <span class="hero-tag">📈 Scalable</span>
+      <span class="hero-tag">💰 Revenue-ready</span>
+      <span class="hero-tag">⚖️ GoI Compliant</span>
+      <span class="hero-tag">🌍 Globally applicable</span>
+    </div>
+  </div>
+</div>
+
+<nav class="sticky-nav">
+  <div class="nav-inner">
+    <a href="#s1" class="nav-link active">Build Standard</a>
+    <a href="#s2" class="nav-link">4-Way Test</a>
+    <a href="#s3" class="nav-link">Revenue Framework</a>
+    <a href="#s4" class="nav-link">Compliance</a>
+    <a href="#s5" class="nav-link">Founder Workflow</a>
+    <a href="#s6" class="nav-link">Session Starter</a>
+  </div>
+</nav>
+
+<main class="main">
+
+  <!-- S1: BUILD STANDARD -->
+  <section class="section" id="s1">
+    <div class="section-header">
+      <div class="section-number">STANDARD 01</div>
+      <h2 class="section-title">IDW Build Standard</h2>
+      <p class="section-desc">Every page, feature, and flow built for IndiaDentalWorld must satisfy all five dimensions — non-negotiable, applied from Day 1.</p>
+    </div>
+
+    <div class="standards-grid">
+      <div class="std-card">
+        <div class="std-icon" style="background:rgba(0,196,167,0.1);">🔍</div>
+        <div class="std-name">Found</div>
+        <div class="std-def">SEO-first on every page. Built to rank on Google without paid ads at lakh scale.</div>
+        <div class="std-practice">schema.org JSON-LD · semantic HTML · canonical URLs · ISR/SSG rendering · sitemap entry · meta tags</div>
+      </div>
+      <div class="std-card">
+        <div class="std-icon" style="background:rgba(52,211,153,0.1);">🛡️</div>
+        <div class="std-name">Trusted</div>
+        <div class="std-def">Trust is a design element. Verified badges, real reviews, ABDM enrollment, transparent pricing — no dark patterns ever.</div>
+        <div class="std-practice">IDW Verified badge · ABDM enrolled · DPDP notice · HTTPS · no fake urgency · no hidden fees</div>
+      </div>
+      <div class="std-card">
+        <div class="std-icon" style="background:rgba(245,166,35,0.1);">⚡</div>
+        <div class="std-name">Fast</div>
+        <div class="std-def">Core Web Vitals green on a ₹8,000 Android phone on 4G. Clinic pages pre-rendered at build time — not server-rendered on every request.</div>
+        <div class="std-practice">LCP &lt;2.5s · CLS &lt;0.1 · INP &lt;200ms · lazy images · preloaded fonts · CDN · SSG/ISR</div>
+      </div>
+      <div class="std-card">
+        <div class="std-icon" style="background:rgba(240,106,106,0.1);">📌</div>
+        <div class="std-name">Cited</div>
+        <div class="std-def">Structured data that makes Google, AI assistants, and voice search cite IDW as the answer — not a competitor.</div>
+        <div class="std-practice">JSON-LD every page · OpenGraph · FAQ schema · HowTo schema · FHIR-ready data · allow AI crawlers</div>
+      </div>
+      <div class="std-card">
+        <div class="std-icon" style="background:rgba(0,196,167,0.08);">📈</div>
+        <div class="std-name">Scalable</div>
+        <div class="std-def">Every decision made for lakh-scale from Day 1. No rewrites. No migrations. No technical debt surprises at 100k clinics.</div>
+        <div class="std-practice">DB indexes in place · API-first · component UI · no hardcoded content · onboarding wizard feeds DB</div>
+      </div>
+      <div class="std-card" style="border-color:var(--teal-border);background:var(--teal-bg);">
+        <div class="std-icon" style="background:var(--teal);color:#0A1714;">✓</div>
+        <div class="std-name" style="color:var(--teal);">Global Clause</div>
+        <div class="std-def">All currency ₹ has locale-aware fallback. Plain English throughout. International phone/address fields from Phase 3. FHIR R4 for cross-border health data.</div>
+        <div class="std-practice">i18n-ready · locale detection · FHIR R4 · international address schema</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S2: 4-WAY TEST -->
+  <section class="section" id="s2">
+    <div class="section-header">
+      <div class="section-number">STANDARD 02</div>
+      <h2 class="section-title">The 4-Way Test</h2>
+      <p class="section-desc">Ask these four questions before building anything. A "No" to any one means redesign — not ship and fix later.</p>
+    </div>
+    <div class="test-box">
+      <div class="test-title">Before building anything, answer YES to all four:</div>
+      <div class="test-list">
+        <div class="test-item"><div class="test-num">1</div><span>Can a patient in Tier 2 India <strong>find this on Google</strong> without us running paid ads?</span></div>
+        <div class="test-item"><div class="test-num">2</div><span>Will a first-time visitor <strong>trust this enough to book or register within 60 seconds</strong>?</span></div>
+        <div class="test-item"><div class="test-num">3</div><span>Does this page <strong>load in under 2.5 seconds</strong> on a ₹8,000 Android on 4G?</span></div>
+        <div class="test-item"><div class="test-num">4</div><span>Can this <strong>handle 10 lakh users</strong> without a rewrite?</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S3: REVENUE FRAMEWORK -->
+  <section class="section" id="s3">
+    <div class="section-header">
+      <div class="section-number">STANDARD 03</div>
+      <h2 class="section-title">Revenue &amp; UX Framework</h2>
+      <p class="section-desc">Every revenue stream must benefit the user, the platform, and the advertiser simultaneously. Any model that degrades UX is rejected.</p>
+    </div>
+
+    <div class="principle">
+      <div class="principle-text">"Every revenue stream must simultaneously benefit the <span>user</span> (better experience), the <span>platform</span> (sustainable income), and the <span>clinic/brand</span> (real ROI). Revenue that degrades user experience is rejected — it kills trust, kills SEO, and kills the platform."</div>
+    </div>
+
+    <div class="tier-grid">
+      <div class="tier-card" style="border-color:var(--teal-border);">
+        <div class="tier-label" style="color:var(--teal);">Layer 1 — Foundation</div>
+        <div class="tier-name">Transaction</div>
+        <div class="tier-desc">Booking commission 5–10%. Aligns platform success with clinic success. Build this first.</div>
+      </div>
+      <div class="tier-card" style="border-color:rgba(245,166,35,0.3);">
+        <div class="tier-label" style="color:var(--amber);">Layer 2 — Recurring</div>
+        <div class="tier-name">Subscription</div>
+        <div class="tier-desc">Clinic premium ₹999–2,999/mo. Predictable MRR. Makes IDW fundable.</div>
+      </div>
+      <div class="tier-card" style="border-color:rgba(52,211,153,0.3);">
+        <div class="tier-label" style="color:var(--green);">Layer 3 — Scale</div>
+        <div class="tier-name">Advertising</div>
+        <div class="tier-desc">Sponsored listings, brand partnerships. High margin. Valuable only after traffic proof.</div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="std-table">
+        <thead><tr><th>Rule</th><th>Standard</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>Sponsored content</td><td><span class="tag tag-teal">Always labelled "Sponsored" or "Ad"</span></td><td>ASCI + Google policy. Violation = manual penalty</td></tr>
+          <tr><td>Reviews</td><td><span class="tag tag-rose">Never incentivised</span></td><td>Google delists platforms that pay for reviews</td></tr>
+          <tr><td>Interstitial ads</td><td><span class="tag tag-rose">Banned</span></td><td>Google Core Web Vitals penalty + user rage</td></tr>
+          <tr><td>Booking flow</td><td><span class="tag tag-rose">Zero ads in booking path</span></td><td>Sacred conversion path. Never break it</td></tr>
+          <tr><td>Mobile ad density</td><td><span class="tag tag-amber">Max 30% screen at any time</span></td><td>Google "intrusive interstitials" threshold</td></tr>
+          <tr><td>Sponsored results</td><td><span class="tag tag-amber">Max 2 per search page</span></td><td>Organic trust preserved</td></tr>
+          <tr><td>Ad load time</td><td><span class="tag tag-teal">No ad network adding &gt;200ms</span></td><td>Core Web Vitals protected</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- S4: COMPLIANCE -->
+  <section class="section" id="s4">
+    <div class="section-header">
+      <div class="section-number">STANDARD 04</div>
+      <h2 class="section-title">Legal &amp; Compliance Standard</h2>
+      <p class="section-desc">Built to satisfy the Government of India, Google, every serious investor, and LLM search engines — simultaneously.</p>
+    </div>
+
+    <div class="principle">
+      <div class="principle-text">"Would this be defensible in front of a <span>DPDP officer</span>, a <span>Google quality reviewer</span>, a <span>Series A investor</span>, and a <span>patient who trusted us with their health data</span>?" — If yes to all four, build it.</div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="std-table">
+        <thead><tr><th>Law / Standard</th><th>Key Requirement</th><th>IDW Action</th></tr></thead>
+        <tbody>
+          <tr><td><strong>DPDP Act 2025</strong></td><td>Explicit consent before data collection</td><td>Opt-in checkbox, no pre-ticked boxes, purpose limitation</td></tr>
+          <tr><td><strong>DPDP Act 2025</strong></td><td>Data localisation</td><td>All data on AWS Mumbai ap-south-1. Zero data outside India</td></tr>
+          <tr><td><strong>DPDP Act 2025</strong></td><td>Right to erasure</td><td>Account + data deletion within 72 hours</td></tr>
+          <tr><td><strong>DPDP Act 2025</strong></td><td>Grievance Officer</td><td>Named individual in every page footer</td></tr>
+          <tr><td><strong>IT Rules 2021</strong></td><td>15-day grievance resolution</td><td>Ticketing system from Day 1</td></tr>
+          <tr><td><strong>Clinical Establishments Act</strong></td><td>Only registered clinics listed</td><td>License verification before profile goes live</td></tr>
+          <tr><td><strong>Clinical Establishments Act</strong></td><td>No medical advice</td><td>IDW is a directory. "Find a dentist" not "get diagnosed"</td></tr>
+          <tr><td><strong>ABDM</strong></td><td>Safe-to-host audit</td><td>Month 4. Budget ₹3–5L. Mandatory before ABHA data</td></tr>
+          <tr><td><strong>ASCI</strong></td><td>No misleading claims</td><td>"Top-rated" with review count. Never "Best in India"</td></tr>
+          <tr><td><strong>GST</strong></td><td>18% GST on commissions</td><td>Auto GST invoice on every transaction</td></tr>
+          <tr><td><strong>Google E-E-A-T</strong></td><td>Qualified authors on health content</td><td>Every article carries author name + dental qualification</td></tr>
+          <tr><td><strong>LLM / AI crawlers</strong></td><td>Allow indexing</td><td>GPTBot, PerplexityBot, ClaudeBot allowed in robots.txt</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="font-size:12px;color:var(--text-muted);margin-top:8px;">Mandatory on every page: Grievance Officer link · Emergency dental disclaimer · "Sponsored" labels · Consent checkbox · Price disclaimer · Author qualification · Data localisation notice</p>
+  </section>
+
+  <!-- S5: FOUNDER WORKFLOW -->
+  <section class="section" id="s5">
+    <div class="section-header">
+      <div class="section-number">STANDARD 05</div>
+      <h2 class="section-title">Founder Workflow Standard</h2>
+      <p class="section-desc">Minimal investment · Minimal developer load · Maximum growth · Maximum revenue · Faster building · Global applicability.</p>
+    </div>
+
+    <div class="table-wrap">
+      <table class="std-table">
+        <thead><tr><th>Principle</th><th>What this means in practice</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Prototype first</strong></td><td>Claude builds the HTML prototype → founder reviews → developer gets exact spec. Zero guesswork on developer's end.</td></tr>
+          <tr><td><strong>Database-driven</strong></td><td>Every page pulls from DB. No hardcoded content. Onboarding wizard fills the database — not manual entry.</td></tr>
+          <tr><td><strong>Component-based UI</strong></td><td>Build once, reuse everywhere. Clinic card on homepage = clinic card on search = clinic card on maps.</td></tr>
+          <tr><td><strong>API-first</strong></td><td>Every feature exposed as an API. Web, mobile, and third-party integrations all use the same endpoints.</td></tr>
+          <tr><td><strong>Token efficiency</strong></td><td>Paste IDW Session Starter only at the start of a new Claude session. Never mid-session. Use memory for auto-load.</td></tr>
+          <tr><td><strong>Build order</strong></td><td>Clinic registration → Clinic profile page → Search results → Homepage → Patient dashboard → PMS. In this order.</td></tr>
+          <tr><td><strong>Revenue first</strong></td><td>Booking commission wired before any advertising feature. Layer 1 before Layer 2 before Layer 3.</td></tr>
+          <tr><td><strong>Verify before scale</strong></td><td>50 real verified clinics before any marketing spend. 500 before Series A pitch. Product-market fit before growth.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="standards-grid" style="margin-top:16px;">
+      <div class="std-card">
+        <div class="std-name">Search: Stage 1</div>
+        <div class="std-def">0–10k clinics. Algolia. No AI. ₹0–1,700/mo.</div>
+        <div class="std-practice">Typo tolerance · geo search · instant results · filters</div>
+      </div>
+      <div class="std-card">
+        <div class="std-name">Search: Stage 2</div>
+        <div class="std-def">10k+ clinics. Elasticsearch + synonym rules. ~₹3–8k/mo.</div>
+        <div class="std-practice">Symptom mapping · synonym dict · ranked results</div>
+      </div>
+      <div class="std-card">
+        <div class="std-name">Search: Stage 3</div>
+        <div class="std-def">Post-PMF. AI for complex 5% of queries only. ~₹5–15k/mo.</div>
+        <div class="std-practice">Route simple → Elasticsearch · complex → Claude API</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S6: SESSION STARTER -->
+  <section class="section" id="s6">
+    <div class="section-header">
+      <div class="section-number">SESSION STARTER</div>
+      <h2 class="section-title">Copy-Paste Session Starter</h2>
+      <p class="section-desc">Paste this as the first message in any new Claude session to load all 5 IDW standards instantly. ~800 tokens — minimal cost, full context.</p>
+    </div>
+
+    <div class="starter-box">
+      <div class="starter-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        IDW SESSION STARTER — paste as first message
+      </div>
+      <div class="starter-text" id="starterText">You are helping me build IndiaDentalWorld (indiadentalworld.com) — India's multi-sided dental ecosystem platform. I am the founder (non-coder). Apply these 5 standing standards to everything we build:
+
+STANDARD 1 — IDW BUILD STANDARD (apply to every page/feature):
+• Found: SEO-first. JSON-LD schema.org, semantic HTML, canonical URLs, ISR/SSG rendering, sitemap.
+• Trusted: Verified badges, real reviews, ABDM enrollment, DPDP notice, no dark patterns.
+• Fast: Core Web Vitals green. LCP &lt;2.5s. SSG/ISR for clinic pages. CDN-delivered.
+• Cited: FAQ schema, OpenGraph, FHIR-ready data, allow AI crawlers (GPTBot, ClaudeBot, PerplexityBot).
+• Scalable: DB indexes, API-first, component UI, no hardcoded content, onboarding wizard feeds DB.
+• Global: Locale-aware currency, FHIR R4, international address/phone fields from Phase 3.
+
+STANDARD 2 — 4-WAY TEST (before building anything, all 4 must be YES):
+1. Can a Tier 2 India patient find this on Google without paid ads?
+2. Will a first-time visitor trust this enough to book/register in 60 seconds?
+3. Does this load in under 2.5s on a ₹8,000 Android on 4G?
+4. Can this handle 10 lakh users without a rewrite?
+
+STANDARD 3 — REVENUE FRAMEWORK (Win-Win-Win):
+• Layer 1: Booking commission 5–10% (build first)
+• Layer 2: Clinic subscriptions ₹999–2,999/mo
+• Layer 3: Sponsored listings + brand partnerships (only after traffic proof)
+• Rules: Sponsored always labelled. Zero ads in booking flow. No incentivised reviews. Max 2 sponsored results per search page. No ad network adding >200ms load.
+
+STANDARD 4 — COMPLIANCE (GoI + Google + Investors + LLMs):
+• DPDP 2025: Explicit consent, data in AWS Mumbai, 72hr erasure, Grievance Officer in footer.
+• Clinical Establishments Act: Only registered clinics. No medical advice. Emergency disclaimer in footer.
+• ABDM: Safe-to-host audit Month 4. FHIR R4 only for health records.
+• ASCI + Google: Sponsored labelled, no misleading claims, E-E-A-T on all health content.
+• Every page must have: Grievance Officer link, price disclaimer, consent checkbox, author qualification on articles.
+
+STANDARD 5 — FOUNDER WORKFLOW:
+• Minimal investment, minimal developer load, maximum growth and revenue.
+• Build order: Clinic registration → Clinic profile → Search results → Homepage → Patient dashboard → PMS.
+• Prototype in HTML first → founder reviews → developer implements.
+• Revenue wired before advertising. 50 real clinics before marketing spend.
+• Token efficiency: tell me token cost estimate + quality verdict before every significant build.
+• Guide me on the right workflow at every step — I am non-technical.
+
+Tech stack decided: Next.js 14+, TypeScript, Tailwind, PostgreSQL, Prisma, AWS Mumbai, Razorpay, WhatsApp Business API, Claude API (AI features only where they convert patients).
+
+Design system: Dark-first. #0A1714 bg · #00C4A7 teal · #F06A6A rose · #F5A623 amber · #34D399 green. Plus Jakarta Sans + Lora + JetBrains Mono.</div>
+      <button class="copy-btn" onclick="copyStarter()">Copy Session Starter</button>
+      <div class="copy-success" id="copySuccess">✓ Copied to clipboard — paste as your first message in a new Claude session</div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <strong>IndiaDentalWorld</strong> Build Standards v1.0 · September 2026 · Confidential — For internal use, developer handoff, and investor reference only.
+</footer>
+
+<script>
+// Theme
+const root = document.documentElement;
+document.getElementById('themeBtn').addEventListener('click', () => {
+  const cur = root.getAttribute('data-theme');
+  root.setAttribute('data-theme', cur === 'light' ? 'dark' : 'light');
+});
+
+// Sticky nav active state
+const sections = document.querySelectorAll('.section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const l = document.querySelector(`.nav-link[href="#${e.target.id}"]`);
+      if (l) l.classList.add('active');
+    }
+  });
+}, { rootMargin: '-56px 0px -60% 0px' });
+sections.forEach(s => obs.observe(s));
+
+navLinks.forEach(l => l.addEventListener('click', e => {
+  e.preventDefault();
+  document.querySelector(l.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+}));
+
+// Copy session starter
+function copyStarter() {
+  const text = document.getElementById('starterText').innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    document.getElementById('copySuccess').style.display = 'block';
+    setTimeout(() => document.getElementById('copySuccess').style.display = 'none', 3000);
+  }).catch(() => {
+    const el = document.createElement('textarea');
+    el.value = text;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    document.getElementById('copySuccess').style.display = 'block';
+    setTimeout(() => document.getElementById('copySuccess').style.display = 'none', 3000);
+  });
+}
+</script>
+</body>
+</html>
+
+</body></html>

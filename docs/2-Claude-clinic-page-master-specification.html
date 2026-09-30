@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Clinic Page Standard — Master Specification for Lakh-Scale Dental Pages</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --porcelain:#F2F5F4;--paper:#FBFCFC;--ink:#16242B;--steel:#66787E;
+  --scrub:#0E7C73;--scrub-deep:#0A5A54;--tray:#D6E7E3;--gingiva:#B5485C;
+  --amber:#9A6B12;--rule:#D9E1E0;--shadow:rgba(22,36,43,.07);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --porcelain:#111B1F;--paper:#16222A;--ink:#E8EEEC;--steel:#93A5AA;
+    --scrub:#4FB3A6;--scrub-deep:#7FCCC1;--tray:#1D3A38;--gingiva:#E08496;
+    --amber:#D6A94A;--rule:#2A3A40;--shadow:rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --porcelain:#111B1F;--paper:#16222A;--ink:#E8EEEC;--steel:#93A5AA;
+  --scrub:#4FB3A6;--scrub-deep:#7FCCC1;--tray:#1D3A38;--gingiva:#E08496;
+  --amber:#D6A94A;--rule:#2A3A40;--shadow:rgba(0,0,0,.4);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(24px + env(safe-area-inset-top,0px));-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--porcelain);color:var(--ink);
+  font-family:"Source Serif 4",Georgia,serif;font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,.ui{font-family:"Archivo","Helvetica Neue",Arial,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(18px,4vw,40px)}
+
+.hero{padding:clamp(44px,8vw,88px) 0 clamp(30px,5vw,56px);border-bottom:1px solid var(--rule)}
+.kicker{font-family:"Archivo",sans-serif;font-size:13px;font-weight:600;color:var(--scrub);margin:0 0 20px}
+h1{font-size:clamp(28px,4.8vw,50px);line-height:1.08;letter-spacing:-.025em;font-weight:700;margin:0 0 20px;max-width:21ch}
+.standfirst{font-size:clamp(17px,2.2vw,21px);line-height:1.5;max-width:64ch;margin:0 0 30px}
+.shade-strip{display:flex;gap:3px;margin:0 0 30px;max-width:520px}
+.shade-strip span{height:8px;flex:1}
+.meta{font-family:"Archivo",sans-serif;font-size:13px;color:var(--steel);display:flex;flex-wrap:wrap;gap:8px 26px}
+
+.cols{display:grid;grid-template-columns:210px minmax(0,1fr);gap:clamp(24px,5vw,64px);padding:clamp(32px,5vw,60px) 0}
+nav.toc{position:sticky;top:calc(24px + env(safe-area-inset-top,0px));align-self:start;font-family:"Archivo",sans-serif;font-size:13px;line-height:1.42}
+nav.toc p{font-weight:600;color:var(--steel);margin:0 0 14px}
+nav.toc a{display:flex;gap:9px;text-decoration:none;color:var(--ink);padding:4.5px 0;border-top:1px solid var(--rule)}
+nav.toc a:hover{color:var(--scrub)}
+nav.toc a em{font-style:normal;color:var(--steel);min-width:16px;font-variant-numeric:tabular-nums}
+@media (max-width:900px){.cols{grid-template-columns:1fr}nav.toc{display:none}}
+
+section{padding:0 0 clamp(38px,6vw,64px);scroll-margin-top:24px}
+.sec-head{display:flex;gap:16px;align-items:baseline;border-top:2px solid var(--ink);padding-top:14px;margin:0 0 22px}
+.sec-num{font-family:"Archivo",sans-serif;font-weight:700;font-size:14px;color:var(--scrub);font-variant-numeric:tabular-nums;padding-top:5px}
+h2{font-size:clamp(21px,2.9vw,29px);line-height:1.15;letter-spacing:-.02em;font-weight:700;margin:0}
+h3{font-size:18.5px;letter-spacing:-.01em;margin:30px 0 10px;font-weight:600}
+h4{font-size:15px;margin:0 0 6px;font-weight:600}
+p{margin:0 0 15px;max-width:74ch}
+ul,ol{margin:0 0 16px;padding-left:20px;max-width:74ch}
+li{margin-bottom:6px}
+.lead{font-size:18.5px;line-height:1.55}
+
+.tbl-scroll{overflow-x:auto;margin:20px 0 26px;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:14px;font-family:"Archivo",sans-serif}
+.t-wide{min-width:840px}
+.t-mid{min-width:600px}
+th{text-align:left;font-weight:600;font-size:12px;color:var(--steel);border-bottom:2px solid var(--ink);padding:0 12px 9px 0;vertical-align:bottom}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.42}
+td:first-child{font-weight:600}
+.pill{display:inline-block;font-size:11px;font-weight:600;padding:2px 7px;border-radius:2px;white-space:nowrap}
+.p-hi{background:var(--gingiva);color:#fff}
+.p-md{background:var(--amber);color:#fff}
+.p-lo{background:var(--tray);color:var(--scrub-deep)}
+
+.callout{background:var(--paper);border-top:3px solid var(--gingiva);padding:19px 21px;margin:22px 0 26px;box-shadow:0 1px 2px var(--shadow)}
+.callout.warn{border-top-color:var(--amber)}
+.callout.calm{border-top-color:var(--scrub)}
+.callout h4{font-family:"Archivo",sans-serif;font-size:13.5px;color:var(--gingiva);margin-bottom:7px}
+.callout.warn h4{color:var(--amber)}
+.callout.calm h4{color:var(--scrub)}
+.callout p:last-child{margin-bottom:0}
+
+.cardgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:22px 0 26px}
+.card{background:var(--paper);padding:17px}
+.card .tag{font-family:"Archivo",sans-serif;font-size:11px;font-weight:600;color:var(--scrub);display:block;margin-bottom:6px}
+.card h4{font-size:15px;margin-bottom:7px}
+.card p{font-size:14px;line-height:1.48;margin:0;max-width:none}
+
+ol.flow{list-style:none;padding:0;margin:20px 0 26px;counter-reset:f;max-width:none}
+ol.flow li{counter-increment:f;display:grid;grid-template-columns:32px 1fr;gap:13px;padding:12px 0;border-top:1px solid var(--rule);margin:0}
+ol.flow li::before{content:counter(f,decimal-leading-zero);font-family:"Archivo",sans-serif;font-size:12.5px;font-weight:700;color:var(--scrub);padding-top:3px}
+ol.flow b{display:block;font-family:"Archivo",sans-serif;font-size:14.5px;font-weight:600;margin-bottom:2px}
+ol.flow span{font-size:15px;color:var(--steel)}
+
+.stack{display:grid;gap:9px;margin:22px 0 26px}
+.layer{background:var(--paper);border-left:4px solid var(--scrub);padding:13px 16px;box-shadow:0 1px 2px var(--shadow)}
+.layer h4{font-family:"Archivo",sans-serif;font-size:14px}
+.layer p{font-size:14px;margin:0;color:var(--steel);max-width:none}
+
+.tier-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:20px 0 26px}
+.tier-lo{background:var(--tray);color:var(--scrub-deep)}
+.tier-md{background:var(--amber);color:#fff}
+.tier-hi{background:var(--gingiva);color:#fff}
+.tier-box{padding:11px 13px;border-radius:2px;font-family:"Archivo",sans-serif}
+.tier-box b{display:block;font-size:13px;margin-bottom:3px}
+.tier-box span{font-size:12px;opacity:.92}
+
+footer{border-top:1px solid var(--rule);padding:26px 0 60px;font-family:"Archivo",sans-serif;font-size:13px;color:var(--steel)}
+footer p{max-width:76ch;margin-bottom:10px}
+a{color:var(--scrub-deep)}
+:focus-visible{outline:2px solid var(--scrub);outline-offset:2px}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:0.9em;background:var(--tray);padding:1px 5px;border-radius:3px;color:var(--scrub-deep)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">Product &amp; technical specification · Clinic page standard · September 2026</p>
+    <h1>The clinic page standard: built to be found, trusted, fast and cited — at lakh scale.</h1>
+    <div class="shade-strip" aria-hidden="true">
+      <span style="background:#0E7C73"></span><span style="background:#2F9387"></span><span style="background:#63AFA2"></span><span style="background:#9CCCC1"></span><span style="background:#CFE6E0"></span>
+    </div>
+    <p class="standfirst">Every dental clinic page our platform generates must simultaneously win in traditional search, local and map results, AI answer engines, and the moment a patient actually decides to book — while remaining operable when we're publishing not hundreds but lakhs of these pages. This is the master specification, organised as a build reference for product, design and engineering.</p>
+    <p class="meta"><span>For: product, design, engineering, growth</span><span>Reading time: 30 minutes</span><span>Use as: build spec and audit checklist</span></p>
+  </div>
+</header>
+
+<div class="wrap cols">
+  <nav class="toc" aria-label="Contents">
+    <p>Contents</p>
+    <a href="#s1"><em>1</em>Operating model</a>
+    <a href="#s2"><em>2</em>SEO — foundation</a>
+    <a href="#s3"><em>3</em>SEO — on-page</a>
+    <a href="#s4"><em>4</em>GEO — local &amp; maps</a>
+    <a href="#s5"><em>5</em>AEO — AI citation</a>
+    <a href="#s6"><em>6</em>The schema stack</a>
+    <a href="#s7"><em>7</em>Speed &amp; Core Web Vitals</a>
+    <a href="#s8"><em>8</em>Modern design system</a>
+    <a href="#s9"><em>9</em>The page template</a>
+    <a href="#s10"><em>10</em>Conversion actions</a>
+    <a href="#s11"><em>11</em>Mobile-first UX</a>
+    <a href="#s12"><em>12</em>Trust signals</a>
+    <a href="#s13"><em>13</em>Accessibility</a>
+    <a href="#s14"><em>14</em>Global readiness</a>
+    <a href="#s15"><em>15</em>Ease of operations</a>
+    <a href="#s16"><em>16</em>Master checklist</a>
+    <a href="#s17"><em>17</em>Anti-patterns</a>
+  </nav>
+
+  <main>
+
+  <!-- 1 -->
+  <section id="s1">
+    <div class="sec-head"><span class="sec-num">01</span><h2>The operating model — read this before anything else</h2></div>
+    <p class="lead">A clinic page on our platform is never hand-built. It is the rendered output of one shared template and one clinic's structured data — but the output itself should still be a complete, fast, self-contained page that stands entirely on its own.</p>
+    <p>That distinction resolves what looks like a contradiction in the brief. "Self-contained, single-file HTML, at lakh scale" is not a contradiction — it's a description of <strong>Static Site Generation (SSG)</strong>, or its incremental cousin ISR: every clinic's profile data feeds a build pipeline that pre-renders a complete, standalone HTML page for that clinic, published to the CDN edge. The page a browser or a search crawler receives is a finished document. The system that produced it is a template and a database, regenerating that document automatically whenever the clinic's data changes.</p>
+    <div class="stack">
+      <div class="layer"><h4>One data model</h4><p>A single canonical clinic profile — identity, doctors, services, hours, location, media, reviews, pricing — is the one source of truth that feeds the visible page, the structured data markup, the sitemap, and the search index at once. Nothing is entered twice; nothing can drift out of sync with itself.</p></div>
+      <div class="layer"><h4>One template, versioned</h4><p>A shared, tested template renders every clinic. Template changes ship to a canary cohort, get measured, then roll out fleet-wide — never edited clinic by clinic.</p></div>
+      <div class="layer"><h4>One build pipeline</h4><p>Publishing or updating a clinic's data triggers automated regeneration of that clinic's static page, with quality gates before it goes live. No manual re-publish step, and no lakh-clinic bottleneck through a content team.</p></div>
+      <div class="layer"><h4>One output, everywhere it matters</h4><p>The resulting page is simultaneously the thing Google crawls, the thing an AI answer engine extracts from, the thing a patient books through, and the thing that loads in under two seconds on a mid-range Android phone on a patchy connection.</p></div>
+    </div>
+    <div class="callout calm">
+      <h4>The sentence to keep in the room</h4>
+      <p>We are not designing one clinic webpage. We are designing the system that correctly produces the same excellent webpage lakhs of times, without anyone at the company ever touching an individual clinic's HTML.</p>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="s2">
+    <div class="sec-head"><span class="sec-num">02</span><h2>SEO — technical foundation</h2></div>
+    <p>The plumbing that decides whether search engines can find, crawl and correctly index lakhs of pages without wasting crawl budget or triggering duplicate-content penalties.</p>
+    <h3>Non-negotiables</h3>
+    <ul>
+      <li><strong>Clean, predictable URL structure</strong> — e.g. <code>platform.com/city/locality/clinic-slug</code> — human-readable, stable across edits, never regenerated on a content change.</li>
+      <li><strong>Pre-rendered HTML in the initial response.</strong> Content a crawler or an AI bot needs must be present in the HTML the server returns, not injected client-side after JavaScript runs. This is the direct consequence of the SSG/ISR architecture in Section 1.</li>
+      <li><strong>Segmented XML sitemaps</strong>, auto-generated and split by geography (city or country), regenerated on every publish, submitted via Search Console and Bing Webmaster Tools.</li>
+      <li><strong>Correct, restrictive <code>robots.txt</code></strong> — explicitly allow clinic and procedure pages, disallow admin, booking-internal, and filtered/faceted URLs that would otherwise burn crawl budget on near-duplicate variants.</li>
+      <li><strong>Canonical tags on every page</strong>, especially city-filter and sort-order variants of the same underlying listing, to prevent Google from indexing five URLs for one clinic.</li>
+      <li><strong>Correct status codes</strong> — a genuine 404 (or a 410 for a permanently closed clinic) rather than a soft-404 that returns 200; 301 redirects when a clinic profile is renamed or merged, never a broken link left live.</li>
+      <li><strong>Fast, automatic re-indexing</strong> via the IndexNow protocol or the relevant search engine's indexing API on publish or material update — essential at this scale, where waiting for organic re-crawl of lakhs of pages is not viable.</li>
+      <li><strong>Crawl-budget monitoring</strong> through server log analysis, so we can see which of our lakhs of URLs search engines are actually spending time on, and fix what's being ignored or wasted on.</li>
+    </ul>
+  </section>
+
+  <!-- 3 -->
+  <section id="s3">
+    <div class="sec-head"><span class="sec-num">03</span><h2>SEO — on-page and content</h2></div>
+    <p class="lead">This is where lakh-scale platforms most often fail, and it is worth being blunt about why: a templated page repeated lakhs of times with only the clinic name swapped out is exactly the pattern search engines now actively detect and suppress as <em>scaled content abuse</em>.</p>
+    <div class="callout warn">
+      <h4>The risk that must shape the whole template</h4>
+      <p>Every clinic page must carry genuine, page-specific substance — not just a different name in the same three sentences. Real doctor bios, a clinic's actual service mix and indicative pricing, its own photos, its own patient reviews, and locality-specific FAQs. The completeness gate in Section 15 exists specifically to stop a thin, unpopulated profile from ever going live and diluting the whole domain's credibility with search engines.</p>
+    </div>
+    <h3>Per-page essentials</h3>
+    <ul>
+      <li><strong>Unique title tag and meta description</strong> generated from the clinic's actual data — specialty, locality, standout services — never a single fill-in-the-blank template string repeated verbatim.</li>
+      <li><strong>Single H1</strong>: clinic name plus primary specialty plus locality. Clean heading hierarchy beneath it (H2 for major sections, H3 within).</li>
+      <li><strong>Genuine content depth</strong>: an about section written from the clinic's actual profile data, doctor biographies, a real FAQ block, not boilerplate.</li>
+      <li><strong>Topical linking structure</strong>: city hub → locality hub → clinic page → doctor profile → procedure page, so search engines understand the site as an organised topical authority, not a flat pile of listings.</li>
+      <li><strong>Freshness signals</strong>: a visible last-updated date, recently added reviews, and a linked education/blog article relevant to the clinic's specialties.</li>
+      <li><strong>Meaningful image alt text</strong>, generated from structured data (doctor name, procedure, facility feature) rather than a generic "dental clinic photo."</li>
+      <li><strong>Visible and schema-marked breadcrumbs</strong> reflecting the same topical hierarchy used for internal linking.</li>
+    </ul>
+  </section>
+
+  <!-- 4 -->
+  <section id="s4">
+    <div class="sec-head"><span class="sec-num">04</span><h2>GEO — local and map readiness</h2></div>
+    <p>Most dental searches resolve locally — "dentist near me," "[specialty] in [locality]" — and those queries are won or lost primarily through map and local-pack results, not the traditional ten blue links.</p>
+    <h3>What decides local ranking</h3>
+    <ol class="flow">
+      <li><b>NAP consistency</b><span>Name, address and phone number must match, character for character, across our page, the clinic's Google Business Profile, and any other directory listing. Inconsistency is the single most common cause of poor local ranking, and it compounds badly at lakh scale if left unmanaged.</span></li>
+      <li><b>Google Business Profile integration</b><span>Bake GBP claiming and verification into clinic onboarding itself, with our platform data and the clinic's GBP kept in sync going forward — not a one-time setup a busy dentist forgets.</span></li>
+      <li><b>Precise geodata</b><span>Exact latitude and longitude, correctly structured opening hours (including holiday exceptions), and a price range indicator in the page's structured data.</span></li>
+      <li><b>City and locality hub pages</b><span>Aggregating pages built specifically to answer "[specialty] dentist in [city]" — these, not individual clinic pages, are usually what ranks for the broad discovery query, with clinic pages winning the branded and near-me long tail.</span></li>
+      <li><b>Review velocity and substance</b><span>Genuine reviews tied to verified completed visits, arriving at a steady rate — a factor local ranking weighs almost as heavily as proximity itself.</span></li>
+      <li><b>An embedded, lazy-loaded map</b><span>Present for both user orientation and geo-context signalling, loaded in a way that never delays the page's largest visible element.</span></li>
+    </ol>
+    <h3>Multi-location clinics</h3>
+    <p>A chain with several branches needs each branch modelled as its own <code>LocalBusiness</code> entity with its own address and reviews, linked under a parent <code>Organization</code> — never one page trying to represent multiple addresses at once, which local search algorithms handle poorly.</p>
+  </section>
+
+  <!-- 5 -->
+  <section id="s5">
+    <div class="sec-head"><span class="sec-num">5</span><h2>AEO — being the source AI cites</h2></div>
+    <p class="lead">A growing share of dental queries never reach a search results page at all — they're asked directly to ChatGPT, Perplexity, Gemini or Google's AI Overviews, which return a synthesised answer with a small set of citations. The prize for getting cited is real: AI-referred visitors arrive already convinced, and industry field data has shown them converting at multiples of typical organic-search rates. AEO earns that citation.</p>
+    <h3>What makes a page extractable</h3>
+    <ul>
+      <li><strong>Answer-first structure.</strong> State the direct answer to a likely question — "What does a root canal cost at this clinic?" — in a clear, self-contained sentence near the top, before the surrounding elaboration. AI systems extract passages, not entire pages; a buried answer doesn't get quoted.</li>
+      <li><strong>Genuine FAQ blocks</strong>, visible on the page in plain text, matched exactly by <code>FAQPage</code> schema. Schema that claims a Q&amp;A the visible page doesn't actually contain is increasingly discounted or ignored outright.</li>
+      <li><strong>Explicit entity statements.</strong> "Dr. Meera Nair, BDS, MDS Periodontics, practising at Sunrise Dental in Indiranagar since 2016" is far more citable than the same facts scattered across a paragraph — AI systems ground answers in clear entities, not implied ones.</li>
+      <li><strong>Tables for comparable facts</strong> — price ranges by procedure, doctor qualifications, services by specialty. Structured tables and lists are disproportionately favoured for extraction over dense prose.</li>
+      <li><strong>Deliberate AI-crawler access.</strong> A conscious, documented decision on which AI crawlers (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, and others) are permitted in <code>robots.txt</code>, plus a platform-level <code>llms.txt</code> file pointing these systems to clean, structured summaries of what the platform is and how its content is organised.</li>
+      <li><strong>Consistent entity identity across the web.</strong> The same name, credentials and address for a clinic or dentist everywhere they appear online helps an AI system trust and ground its citation, the same underlying signal that also strengthens Section 4's local ranking.</li>
+      <li><strong>Visible freshness.</strong> A dated last-updated marker matters more for AI citation than for traditional SEO, since these systems weight recency heavily for time-sensitive facts like pricing and availability.</li>
+    </ul>
+    <div class="callout calm">
+      <h4>Measure it as its own channel</h4>
+      <p>Track which pages get cited across ChatGPT, Perplexity, Claude, Gemini and Copilot on a recurring basis — this is a new, separate measurement discipline from search-rank tracking, and the only way to know whether the AEO work in this section is actually landing.</p>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section id="s6">
+    <div class="sec-head"><span class="sec-num">06</span><h2>The shared schema stack</h2></div>
+    <p>Structured data (schema.org, in JSON-LD) is the connective tissue linking Sections 2 through 5 — the same markup that helps Google's classic index also feeds the local knowledge graph and gives an AI system machine-readable facts to cite with confidence. It must be generated automatically from the same canonical data model described in Section 1, never hand-written per clinic.</p>
+    <div class="tbl-scroll">
+    <table class="t-mid">
+      <thead><tr><th style="width:28%">Schema type</th><th>Applied to</th></tr></thead>
+      <tbody>
+        <tr><td><code>Dentist</code> / <code>MedicalBusiness</code></td><td>The clinic itself — the core local and organisational entity</td></tr>
+        <tr><td><code>Physician</code></td><td>Each individual dentist's profile, including qualifications and registration number</td></tr>
+        <tr><td><code>MedicalProcedure</code></td><td>Each treatment or service offered, linked to relevant doctors</td></tr>
+        <tr><td><code>Offer</code> / <code>PriceSpecification</code></td><td>Indicative pricing per procedure, in the correct local currency</td></tr>
+        <tr><td><code>FAQPage</code></td><td>The visible FAQ block — content must match exactly, word for word</td></tr>
+        <tr><td><code>Review</code> / <code>AggregateRating</code></td><td>Only reviews tied to verified completed visits, never fabricated or incentivised</td></tr>
+        <tr><td><code>BreadcrumbList</code></td><td>The topical hierarchy from city hub down to the clinic page</td></tr>
+        <tr><td><code>Organization</code></td><td>The platform itself, and the parent entity for multi-branch clinics</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="callout warn">
+      <h4>The rule that protects all of it</h4>
+      <p>Every generated page must pass automated schema validation — against Google's Rich Results Test and the schema.org validator — as a build-pipeline gate before it can go live, not as a manual spot-check on a sample of pages. At lakh scale, an unvalidated template error doesn't affect one page; it affects all of them simultaneously.</p>
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section id="s7">
+    <div class="sec-head"><span class="sec-num">07</span><h2>Speed and Core Web Vitals</h2></div>
+    <p>Page speed is a ranking factor, an AI-crawl-efficiency factor, and — far more importantly for the business — a direct determinant of whether a patient in pain waits for the page or bounces to a competitor. The 2026 thresholds, measured at the 75th percentile of real user sessions:</p>
+    <div class="tier-grid">
+      <div class="tier-box tier-lo"><b>LCP</b><span>Largest Contentful Paint — under 2.5 seconds. Usually the hero clinic photo or heading.</span></div>
+      <div class="tier-box tier-lo"><b>INP</b><span>Interaction to Next Paint — under 200 milliseconds. The worst interaction delay anywhere in the visit, not just the first tap.</span></div>
+      <div class="tier-box tier-lo"><b>CLS</b><span>Cumulative Layout Shift — under 0.1. Nothing should visibly jump as the page finishes loading.</span></div>
+    </div>
+    <h3>How the architecture delivers this at scale</h3>
+    <ul>
+      <li><strong>Pre-rendered static HTML from the CDN edge</strong> (Section 1's SSG/ISR model) gives near-instant Time to First Byte and a strong LCP baseline before any optimisation work even begins.</li>
+      <li><strong>Image discipline</strong>: WebP or AVIF format, responsive <code>srcset</code>, the hero image preloaded and prioritised, everything below the fold lazy-loaded.</li>
+      <li><strong>Font discipline</strong>: subsetted, preloaded web fonts with <code>font-display: swap</code>, sized to prevent the text reflow that causes layout shift.</li>
+      <li><strong>Minimal blocking JavaScript</strong>: critical CSS inlined, everything else deferred; heavy interactive widgets (booking calendar, chat) loaded only when the user reaches them, not on initial paint.</li>
+      <li><strong>Reserved space for dynamic elements</strong> — map embeds, review widgets, booking widgets — sized in advance so their arrival never shifts the layout around them.</li>
+      <li><strong>A hard third-party script budget.</strong> Chat widgets, analytics tags and marketing pixels are the most common cause of CWV failure on pages that otherwise pass; every third-party addition needs a performance-cost review before it ships fleet-wide.</li>
+      <li><strong>Fleet-level monitoring</strong>, not page-by-page checking: an aggregate Core Web Vitals dashboard grouped by city and template version, with automated regression alerts when a template change degrades performance across its cohort.</li>
+    </ul>
+  </section>
+
+  <!-- 8 -->
+  <section id="s8">
+    <div class="sec-head"><span class="sec-num">08</span><h2>A modern design system, not a generic template</h2></div>
+    <p>Lakhs of pages sharing one template creates a real risk of every clinic looking identical — which is both a poor patient experience and, per Section 3, an SEO liability. The design system needs enough shared structure to stay fast and consistent, and enough flexibility to let each clinic feel genuinely its own.</p>
+    <div class="cardgrid">
+      <div class="card"><span class="tag">Shared</span><h4>Structure and components</h4><p>Layout grid, typography scale, spacing rhythm, and interactive components (booking widget, review card, map) are identical everywhere — this is what keeps the platform fast, accessible and maintainable at scale.</p></div>
+      <div class="card"><span class="tag">Clinic-specific</span><h4>Photography and identity</h4><p>Each clinic's own photos, brand accent colour within approved guardrails, doctor headshots and facility gallery — this is what stops lakhs of pages reading as one templated shell.</p></div>
+      <div class="card"><span class="tag">Avoid</span><h4>Dated, generic patterns</h4><p>Stock-photo dentistry clichés, autoplaying hero carousels (which hurt both usability and Core Web Vitals), load-triggered popups (which invite an interstitial penalty and interrupt a patient in a hurry).</p></div>
+      <div class="card"><span class="tag">Systemic</span><h4>Full light/dark mode</h4><p>Respecting the visitor's system preference rather than forcing one theme — an increasingly standard baseline expectation, not a differentiator.</p></div>
+    </div>
+    <p>Micro-interactions should clarify, not decorate: a live "open now" indicator, a verified-practitioner badge, a next-available-slot preview — each one doing real informational work rather than existing for polish alone.</p>
+  </section>
+
+  <!-- 9 -->
+  <section id="s9">
+    <div class="sec-head"><span class="sec-num">09</span><h2>The page template, top to bottom</h2></div>
+    <p>The concrete wireframe every clinic page renders from, in order.</p>
+    <ol class="flow">
+      <li><b>Sticky header</b><span>Clinic name, verified badge, phone, and the primary Book Now action — persistent as the patient scrolls.</span></li>
+      <li><b>Hero</b><span>Clinic photo, name, specialty tags, locality, rating summary, distance from the visitor, live open/closed status, primary and secondary calls to action.</span></li>
+      <li><b>Trust strip</b><span>Verified credentials, years in operation, patient volume, certifications, and platform compliance badges where relevant.</span></li>
+      <li><b>Doctors</b><span>Individual profiles — photo, qualification, specialty, registration number, years of experience, with the option to book a specific doctor directly.</span></li>
+      <li><b>Services and indicative pricing</b><span>A structured list of specialties and treatments offered, with honest price ranges rather than a hidden "contact for pricing."</span></li>
+      <li><b>Live availability</b><span>The next real available slot shown inline on the page itself, not hidden behind a click-through to find out.</span></li>
+      <li><b>Photo gallery</b><span>Genuine facility and team photography, not stock imagery.</span></li>
+      <li><b>Reviews</b><span>Verified-visit reviews with a rating breakdown and visible clinic responses.</span></li>
+      <li><b>FAQs</b><span>Clinic-specific — parking, languages spoken, insurance accepted, payment options, accessibility — genuinely answering what a real patient would ask before visiting this clinic specifically.</span></li>
+      <li><b>Location and map</b><span>Embedded map, directions, nearby landmarks, parking guidance.</span></li>
+      <li><b>Nearby and related clinics</b><span>Genuine internal linking that also serves a real "what else is near me" user need.</span></li>
+      <li><b>Footer</b><span>Full address and contact details, links to platform trust and privacy pages, and sitemap-adjacent navigation.</span></li>
+    </ol>
+  </section>
+
+  <!-- 10 -->
+  <section id="s10">
+    <div class="sec-head"><span class="sec-num">10</span><h2>The highest-conversion actions</h2></div>
+    <p class="lead">Everything above exists to get the patient to one of a small number of actions. Design the page around them explicitly.</p>
+    <div class="tbl-scroll">
+    <table class="t-mid">
+      <thead><tr><th style="width:22%">Action</th><th>Design requirement</th></tr></thead>
+      <tbody>
+        <tr><td>Book Appointment</td><td>Single, unambiguous, high-contrast primary CTA, persistent above the fold and sticky on mobile scroll</td></tr>
+        <tr><td>Call Now</td><td>One-tap <code>tel:</code> link, always visible, never buried in a menu</td></tr>
+        <tr><td>WhatsApp</td><td>A first-class action, not an afterthought — the dominant patient communication channel in the Indian market</td></tr>
+        <tr><td>Get Directions</td><td>Direct hand-off into the visitor's map app of choice</td></tr>
+        <tr><td>Emergency / same-day</td><td>A visually distinct path for urgent dental pain — this is high-intent, time-sensitive traffic that deserves its own flow, not the standard multi-step booking form</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <h3>What actually moves the conversion rate</h3>
+    <ul>
+      <li><strong>Show the real next slot before asking for anything.</strong> A patient deciding whether to book wants to know "can I be seen soon," not fill out a form to find out.</li>
+      <li><strong>Put social proof next to the action</strong>, not somewhere else on the page — the rating and review count sitting beside the Book button converts better than the same information three scrolls away.</li>
+      <li><strong>Offer guest booking.</strong> Forcing account creation before a first booking is a well-documented conversion killer.</li>
+      <li><strong>Never gate essential information.</strong> Address, doctor names, and price ranges must be visible without signing up — gating them costs conversions and directly undermines the SEO and AEO extractability built in Sections 3 and 5.</li>
+      <li><strong>Recover abandoned bookings honestly</strong>, with consented WhatsApp or SMS follow-up if a patient starts booking and drops off, rather than losing the lead silently.</li>
+      <li><strong>Use real urgency only.</strong> "3 slots left today" must be true when shown. Fabricated scarcity is both an ethical line and, once noticed, a permanent trust cost.</li>
+    </ul>
+  </section>
+
+  <!-- 11 -->
+  <section id="s11">
+    <div class="sec-head"><span class="sec-num">11</span><h2>Mobile-first, not mobile-responsive</h2></div>
+    <p>The majority of dental searches — especially "near me" queries — happen on a phone, often a mid-range Android device on a slow connection, often from someone in real discomfort. Design for that reality first, and let the desktop layout follow from it, not the other way round.</p>
+    <ul>
+      <li><strong>Touch targets at least 44×44px</strong> with enough spacing to prevent mis-taps on a small screen.</li>
+      <li><strong>Primary CTA in the thumb zone</strong> — a bottom sticky action bar on mobile, not a button that requires reaching to the top of the screen.</li>
+      <li><strong>No horizontal scroll, no required pinch-zoom</strong>, and a correctly configured viewport on every page.</li>
+      <li><strong>Mobile-appropriate form inputs</strong> — the numeric keyboard for a phone field, the absolute minimum number of fields for a booking request.</li>
+      <li><strong>Test on real conditions</strong>: a mid-range Android handset on throttled 3G/4G, not only a flagship device on office wifi. This is the condition a large share of our actual users will be in.</li>
+      <li><strong>Graceful degradation on a poor connection</strong>: the essentials — clinic name, address, phone — should render even when the rest of the page is still loading or partly fails.</li>
+    </ul>
+  </section>
+
+  <!-- 12 -->
+  <section id="s12">
+    <div class="sec-head"><span class="sec-num">12</span><h2>Trust and credibility signals</h2></div>
+    <p>A patient choosing a dentist is making a decision with real physical stakes. The page needs to visibly earn trust, not just claim it.</p>
+    <ul>
+      <li><strong>Verified practitioner registration number</strong> displayed on every doctor profile, not just collected internally.</li>
+      <li><strong>A verified-visit badge on reviews</strong>, tied to an actual completed appointment on the platform — never an open, unverified review field.</li>
+      <li><strong>Platform-level trust marks</strong>: a "verified by [platform]" indicator, a visible data-privacy commitment, and any applicable regulatory compliance badge.</li>
+      <li><strong>Transparent pricing</strong>, with no hidden-fee ambiguity.</li>
+      <li><strong>Clear separation of paid placement from organic ranking</strong> wherever clinics are listed comparatively — both a trust requirement and, per our compliance work, a regulatory one.</li>
+      <li><strong>Real, attributable photography</strong> rather than stock imagery, which patients recognise and discount instinctively.</li>
+      <li><strong>Visible security basics</strong>: HTTPS throughout, an accessible privacy policy link in the footer of every page.</li>
+    </ul>
+  </section>
+
+  <!-- 13 -->
+  <section id="s13">
+    <div class="sec-head"><span class="sec-num">13</span><h2>Accessibility</h2></div>
+    <p>WCAG 2.2 AA as the baseline target across every generated page — not a nice-to-have, and not solely a compliance matter. The overlap with the rest of this document is worth stating plainly: the same clean semantic structure that makes a page accessible to a screen reader is what makes it legible to an AI answer engine's extraction process too.</p>
+    <ul>
+      <li><strong>Semantic HTML</strong> with a correct heading hierarchy and proper landmark regions, not <code>div</code>-soup with visual styling standing in for structure.</li>
+      <li><strong>Alt text on every image</strong>, and ARIA labels on icon-only controls like the call and WhatsApp buttons.</li>
+      <li><strong>Colour contrast meeting AA</strong> across the design system, checked as part of the component library, not per-page.</li>
+      <li><strong>Full keyboard navigability</strong> with visible focus states — including through the booking flow itself.</li>
+      <li><strong>Captions or transcripts</strong> for any video content, such as a clinic-tour walkthrough.</li>
+      <li><strong>A booking flow tested with a screen reader</strong>, not assumed to work because it works with a mouse.</li>
+    </ul>
+  </section>
+
+  <!-- 14 -->
+  <section id="s14">
+    <div class="sec-head"><span class="sec-num">14</span><h2>Global and multi-market readiness</h2></div>
+    <p>Built now, before international expansion forces a retrofit.</p>
+    <ul>
+      <li><strong>Subdirectory URL structure with hreflang</strong> per country and language — <code>platform.com/in/en/</code>, <code>/in/hi/</code>, <code>/ae/en/</code>, <code>/ae/ar/</code> — which preserves shared domain authority better than splitting across separate country domains.</li>
+      <li><strong>Full right-to-left layout support</strong> for Arabic and other RTL markets, built with CSS logical properties from the start rather than mirrored as an afterthought.</li>
+      <li><strong>Localised structured data</strong>: correct currency in every price field, and country-appropriate regulatory badges — an ABDM-linked indicator in India, GDPR-appropriate language in the EU, and so on for each market entered.</li>
+      <li><strong>Correct locale formatting</strong> for currency, dates and numbers throughout.</li>
+      <li><strong>Region-specific advertising compliance</strong>, reviewed per market — dental advertising rules vary sharply by country, and a claim or ranking label that is fine in one jurisdiction can be a professional-conduct violation in another.</li>
+      <li><strong>Regional map and directory integration</strong> beyond a single default provider, where the dominant local platform differs by market.</li>
+      <li><strong>CDN edge presence in every target region</strong>, so the Section 7 speed targets hold true globally rather than only near the platform's home infrastructure.</li>
+    </ul>
+  </section>
+
+  <!-- 15 -->
+  <section id="s15">
+    <div class="sec-head"><span class="sec-num">15</span><h2>Ease of operations at lakh scale</h2></div>
+    <p class="lead">This is the section that determines whether everything above survives contact with lakhs of real clinics.</p>
+    <ol class="flow">
+      <li><b>One canonical data model</b><span>A single clinic-profile schema feeds the rendered page, the structured data, the sitemap and the search index at once — entered once, never duplicated, never able to drift out of sync with itself.</span></li>
+      <li><b>Automatic regeneration on change</b><span>A clinic updating its hours, adding a doctor, or receiving a new review triggers the build pipeline to regenerate that one static page — no manual republish step, and no central team standing between an update and it going live.</span></li>
+      <li><b>Automated quality gates before publish</b><span>Schema validation, a Core Web Vitals budget check, a broken-link check, and a duplicate-content similarity check against sibling pages — catching a thin or templated-feeling page before it ever reaches a search engine, not after.</span></li>
+      <li><b>A self-serve clinic dashboard</b><span>Dentists edit their own profile within defined guardrails, so content operations scale with the number of clinics rather than bottlenecking through a central team that cannot grow proportionally.</span></li>
+      <li><b>A minimum-content gate at onboarding</b><span>A clinic profile cannot go live until it clears a defined completeness threshold — real photos, doctor bios, a properly described service list — the direct, structural defence against the thin-content risk raised in Section 3.</span></li>
+      <li><b>Full versioning and rollback</b><span>Every automated change is logged and reversible, so a bad data entry or a bad template deploy can be undone quickly and traced.</span></li>
+      <li><b>Fleet-level monitoring, not page-by-page checking</b><span>Aggregate dashboards for indexing status, crawl errors and Core Web Vitals, grouped by city and template version — the only way to see a systemic problem across lakhs of pages before it shows up as lost traffic.</span></li>
+      <li><b>Canary rollout for every template change</b><span>New template versions ship to a small cohort first, get measured against the Section 7 speed budget and the Section 3 content-quality gates, and only then roll out fleet-wide.</span></li>
+    </ol>
+  </section>
+
+  <!-- 16 -->
+  <section id="s16">
+    <div class="sec-head"><span class="sec-num">16</span><h2>Master checklist, at a glance</h2></div>
+    <p>The non-negotiables from every section above, condensed into one reference table for a build review or a launch readiness check.</p>
+    <div class="tbl-scroll">
+    <table class="t-wide">
+      <thead><tr><th style="width:16%">Category</th><th>Non-negotiables before a template ships</th></tr></thead>
+      <tbody>
+        <tr><td>SEO foundation</td><td>Pre-rendered HTML, clean URLs, segmented sitemaps, correct canonicals, fast re-indexing on publish</td></tr>
+        <tr><td>SEO on-page</td><td>Unique titles and meta per clinic, single H1, real content depth, no templated near-duplicates</td></tr>
+        <tr><td>GEO</td><td>NAP consistency, GBP sync at onboarding, precise geodata, verified-visit reviews</td></tr>
+        <tr><td>AEO</td><td>Answer-first structure, schema matching visible content exactly, deliberate AI-crawler policy, llms.txt</td></tr>
+        <tr><td>Schema stack</td><td>Auto-generated from one data model, validated in the build pipeline, never hand-written per clinic</td></tr>
+        <tr><td>Speed</td><td>LCP ≤2.5s, INP ≤200ms, CLS ≤0.1 at the 75th percentile, fleet-monitored</td></tr>
+        <tr><td>Design</td><td>Shared component system, clinic-specific photography and identity, no autoplay or load-triggered popups</td></tr>
+        <tr><td>Conversion</td><td>Single primary CTA, real next-slot preview, no gating of essential info, honest urgency only</td></tr>
+        <tr><td>Mobile</td><td>Thumb-zone CTA, 44px touch targets, tested on throttled mid-range Android</td></tr>
+        <tr><td>Trust</td><td>Verified registration numbers, verified-visit review badges, transparent pricing</td></tr>
+        <tr><td>Accessibility</td><td>WCAG 2.2 AA, semantic HTML, full keyboard and screen-reader support</td></tr>
+        <tr><td>Global</td><td>Hreflang subdirectories, RTL support, per-market advertising compliance</td></tr>
+        <tr><td>Operations</td><td>One data model, automated regeneration, minimum-content gate, canary rollout</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- 17 -->
+  <section id="s17">
+    <div class="sec-head"><span class="sec-num">17</span><h2>What breaks this at scale</h2></div>
+    <p>Every item below is individually tempting because it looks like a shortcut, and every one of them compounds catastrophically once repeated across lakhs of pages.</p>
+    <div class="tbl-scroll">
+    <table class="t-mid">
+      <thead><tr><th style="width:32%">Anti-pattern</th><th>Why it fails at scale</th></tr></thead>
+      <tbody>
+        <tr><td>Thin, near-identical pages</td><td>Reads as programmatic content abuse to search engines and can suppress the entire domain, not just the weak pages</td></tr>
+        <tr><td>Schema that doesn't match visible content</td><td>Increasingly detected and discounted or ignored by both search engines and AI systems</td></tr>
+        <tr><td>Client-side-only rendering</td><td>Hides content from crawlers that don't fully execute JavaScript, quietly losing indexing at scale</td></tr>
+        <tr><td>Fabricated urgency or reviews</td><td>A single exposed instance damages trust in every other page on the platform</td></tr>
+        <tr><td>Load-triggered popups and interstitials</td><td>Directly penalised on mobile and actively hostile to a patient in pain trying to book quickly</td></tr>
+        <tr><td>Gating essential info behind signup</td><td>Simultaneously kills conversion, SEO indexability and AI extractability — a triple cost for one bad decision</td></tr>
+        <tr><td>Inconsistent NAP across listings</td><td>Erodes local ranking signal across every affected clinic, and is very hard to detect without fleet-level monitoring</td></tr>
+        <tr><td>Manual, one-off page edits</td><td>Breaks the single-source-of-truth model and makes lakh-scale operations impossible to maintain or audit</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="callout calm">
+      <h4>The throughline</h4>
+      <p>Every tactic in this document only compounds positively if the underlying page is genuinely useful to a real patient. Search engines, AI answer systems and patients themselves are all, increasingly, detecting the difference between a page built to be useful and a page built only to be found. Build the first kind, and the second kind of result follows.</p>
+    </div>
+  </section>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>The clinic page standard — master specification for lakh-scale dental pages. Version 1.0, September 2026. For product, design and engineering use as a build reference and launch-readiness checklist.</p>
+    <p>Search engine and AI answer-engine behaviour changes frequently. Re-validate the specifics in Sections 2, 5 and 7 against current documentation before each major template revision.</p>
+  </div>
+</footer>
+
+</body>
+</html>

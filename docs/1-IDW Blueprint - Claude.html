@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dental Ecosystem Platform — Structure &amp;amp; Blueprint (Copy)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --porcelain:#F2F5F4;
+  --paper:#FBFCFC;
+  --ink:#16242B;
+  --steel:#66787E;
+  --scrub:#0E7C73;
+  --scrub-deep:#0A5A54;
+  --tray:#D6E7E3;
+  --gingiva:#B5485C;
+  --rule:#D9E1E0;
+  --shadow:rgba(22,36,43,.07);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --porcelain:#111B1F;
+    --paper:#16222A;
+    --ink:#E8EEEC;
+    --steel:#93A5AA;
+    --scrub:#4FB3A6;
+    --scrub-deep:#7FCCC1;
+    --tray:#1D3A38;
+    --gingiva:#E08496;
+    --rule:#2A3A40;
+    --shadow:rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --porcelain:#111B1F;--paper:#16222A;--ink:#E8EEEC;--steel:#93A5AA;
+  --scrub:#4FB3A6;--scrub-deep:#7FCCC1;--tray:#1D3A38;--gingiva:#E08496;
+  --rule:#2A3A40;--shadow:rgba(0,0,0,.4);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(24px + env(safe-area-inset-top,0px));-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--porcelain);color:var(--ink);
+  font-family:"Source Serif 4",Georgia,"Times New Roman",serif;
+  font-size:17px;line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4,.ui{font-family:"Archivo","Helvetica Neue",Arial,sans-serif;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(18px,4vw,40px)}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(46px,9vw,96px) 0 clamp(34px,6vw,64px);border-bottom:1px solid var(--rule)}
+.kicker{font-family:"Archivo",sans-serif;font-size:13px;font-weight:600;letter-spacing:.01em;color:var(--scrub);margin:0 0 20px}
+h1{font-size:clamp(30px,5.4vw,58px);line-height:1.06;letter-spacing:-.025em;font-weight:700;margin:0 0 22px;max-width:19ch}
+.standfirst{font-size:clamp(18px,2.3vw,22px);line-height:1.5;max-width:60ch;margin:0 0 34px;color:var(--ink)}
+.standfirst b{color:var(--scrub-deep);font-weight:600}
+.shade-strip{display:flex;gap:3px;margin:0 0 34px;max-width:560px}
+.shade-strip span{height:8px;flex:1;border-radius:1px}
+.meta{font-family:"Archivo",sans-serif;font-size:13px;color:var(--steel);display:flex;flex-wrap:wrap;gap:8px 26px}
+
+/* ---------- layout ---------- */
+.cols{display:grid;grid-template-columns:200px minmax(0,1fr);gap:clamp(24px,5vw,64px);padding:clamp(34px,6vw,64px) 0}
+nav.toc{position:sticky;top:calc(24px + env(safe-area-inset-top,0px));align-self:start;font-family:"Archivo",sans-serif;font-size:13.5px;line-height:1.45}
+nav.toc p{font-weight:600;color:var(--steel);margin:0 0 14px}
+nav.toc a{display:flex;gap:10px;text-decoration:none;color:var(--ink);padding:5px 0;border-top:1px solid var(--rule)}
+nav.toc a:hover{color:var(--scrub)}
+nav.toc a em{font-style:normal;color:var(--steel);min-width:16px;font-variant-numeric:tabular-nums}
+@media (max-width:900px){.cols{grid-template-columns:1fr}nav.toc{display:none}}
+
+section{padding:0 0 clamp(40px,6vw,68px);scroll-margin-top:24px}
+.sec-head{display:flex;gap:16px;align-items:baseline;border-top:2px solid var(--ink);padding-top:14px;margin:0 0 22px}
+.sec-num{font-family:"Archivo",sans-serif;font-weight:700;font-size:14px;color:var(--scrub);font-variant-numeric:tabular-nums;padding-top:5px}
+h2{font-size:clamp(23px,3.1vw,32px);line-height:1.15;letter-spacing:-.02em;font-weight:700;margin:0}
+h3{font-size:19px;letter-spacing:-.01em;margin:34px 0 10px;font-weight:600}
+h4{font-size:15px;margin:0 0 6px;font-weight:600}
+p{margin:0 0 15px;max-width:74ch}
+ul,ol{margin:0 0 16px;padding-left:20px;max-width:74ch}
+li{margin-bottom:7px}
+strong{font-weight:600}
+.lead{font-size:19px;line-height:1.55;color:var(--ink)}
+
+/* ---------- components ---------- */
+.stack{display:grid;gap:10px;margin:26px 0 30px}
+.layer{background:var(--paper);border-left:4px solid var(--scrub);padding:16px 18px;box-shadow:0 1px 2px var(--shadow)}
+.layer:nth-child(2){border-left-color:var(--gingiva)}
+.layer:nth-child(3){border-left-color:var(--ink)}
+.layer:nth-child(4){border-left-color:var(--steel);border-left-style:dashed}
+.layer h4{font-family:"Archivo",sans-serif;font-size:15px}
+.layer p{font-size:15.5px;margin:0;color:var(--steel);max-width:none}
+
+.hub{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:24px 0 30px}
+.node{background:var(--tray);padding:14px 15px;border-radius:2px}
+.node h4{font-family:"Archivo",sans-serif;font-size:14.5px;color:var(--scrub-deep)}
+.node p{font-size:14.5px;line-height:1.45;margin:0;color:var(--ink);max-width:none}
+
+.modgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:24px 0 30px}
+.mod{background:var(--paper);padding:18px}
+.mod .tag{font-family:"Archivo",sans-serif;font-size:11.5px;font-weight:600;color:var(--scrub);display:block;margin-bottom:6px}
+.mod h4{font-size:16px;margin-bottom:8px}
+.mod ul{padding-left:17px;margin:0;font-size:14.5px;line-height:1.5}
+.mod li{margin-bottom:4px}
+
+ol.flow{list-style:none;padding:0;margin:22px 0 30px;counter-reset:f;max-width:none}
+ol.flow li{counter-increment:f;display:grid;grid-template-columns:34px 1fr;gap:14px;padding:13px 0;border-top:1px solid var(--rule);margin:0}
+ol.flow li::before{content:counter(f,decimal-leading-zero);font-family:"Archivo",sans-serif;font-size:13px;font-weight:700;color:var(--scrub);padding-top:3px}
+ol.flow b{display:block;font-family:"Archivo",sans-serif;font-size:15px;font-weight:600;margin-bottom:2px}
+ol.flow span{font-size:15.5px;color:var(--steel)}
+
+.wheel{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px;margin:24px 0 26px}
+.spoke{border:1px solid var(--rule);background:var(--paper);padding:15px 16px;position:relative}
+.spoke b{font-family:"Archivo",sans-serif;font-size:14px;display:block;margin-bottom:5px;color:var(--scrub-deep)}
+.spoke p{font-size:14.5px;margin:0;color:var(--steel);max-width:none}
+
+.tbl-scroll{overflow-x:auto;margin:22px 0 30px;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px;font-family:"Archivo",sans-serif}
+th{text-align:left;font-weight:600;font-size:13px;color:var(--steel);border-bottom:2px solid var(--ink);padding:0 14px 9px 0;vertical-align:bottom}
+td{padding:11px 14px 11px 0;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.45}
+td:first-child{font-weight:600;white-space:nowrap}
+.num{color:var(--scrub-deep);font-weight:600;font-variant-numeric:tabular-nums}
+
+.callout{background:var(--paper);border-top:3px solid var(--gingiva);padding:20px 22px;margin:26px 0 30px;box-shadow:0 1px 2px var(--shadow)}
+.callout h4{font-family:"Archivo",sans-serif;font-size:14px;color:var(--gingiva);margin-bottom:8px}
+.callout p:last-child{margin-bottom:0}
+
+.phase{display:grid;grid-template-columns:120px 1fr;gap:18px;padding:18px 0;border-top:1px solid var(--rule)}
+.phase .when{font-family:"Archivo",sans-serif;font-size:14px;font-weight:600;color:var(--scrub)}
+.phase .when small{display:block;font-weight:500;color:var(--steel);font-size:12.5px;margin-top:3px}
+.phase p{margin:0 0 8px;font-size:15.5px}
+.phase ul{margin:0;font-size:15.5px}
+@media (max-width:620px){.phase{grid-template-columns:1fr;gap:6px}}
+
+footer{border-top:1px solid var(--rule);padding:30px 0 60px;font-family:"Archivo",sans-serif;font-size:13.5px;color:var(--steel)}
+footer p{max-width:70ch}
+a{color:var(--scrub-deep)}
+:focus-visible{outline:2px solid var(--scrub);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">Platform structure &amp; blueprint · v1.0</p>
+    <h1>One operating system for the entire dental industry.</h1>
+    <div class="shade-strip" aria-hidden="true">
+      <span style="background:#0E7C73"></span><span style="background:#2F9387"></span><span style="background:#63AFA2"></span><span style="background:#9CCCC1"></span><span style="background:#CFE6E0"></span>
+    </div>
+    <p class="standfirst">Patients find and book the right dentist. Clinics run their entire practice — records, chairs, billing, labs, stock — in one place. Vendors, laboratories and education institutes reach those clinics directly. <b>Every participant becomes a reason for the next one to join.</b></p>
+    <p class="meta"><span>Audience: investors, partners, customers</span><span>Reading time: 15 minutes</span><span>Replace “the Platform” with your brand name throughout</span></p>
+  </div>
+</header>
+
+<div class="wrap cols">
+
+  <nav class="toc" aria-label="Contents">
+    <p>Contents</p>
+    <a href="#s1"><em>1</em>The problem</a>
+    <a href="#s2"><em>2</em>What we are</a>
+    <a href="#s3"><em>3</em>Who is on it</a>
+    <a href="#s4"><em>4</em>Architecture</a>
+    <a href="#s5"><em>5</em>Modules</a>
+    <a href="#s6"><em>6</em>Journeys</a>
+    <a href="#s7"><em>7</em>The flywheel</a>
+    <a href="#s8"><em>8</em>How we earn</a>
+    <a href="#s9"><em>9</em>Technology</a>
+    <a href="#s10"><em>10</em>Data &amp; AI</a>
+    <a href="#s11"><em>11</em>Trust &amp; law</a>
+    <a href="#s12"><em>12</em>Go to market</a>
+    <a href="#s13"><em>13</em>Metrics</a>
+    <a href="#s14"><em>14</em>Moat</a>
+    <a href="#s15"><em>15</em>Risks</a>
+    <a href="#s16"><em>16</em>Glossary</a>
+  </nav>
+
+  <main>
+
+  <!-- 1 -->
+  <section id="s1">
+    <div class="sec-head"><span class="sec-num">01</span><h2>The problem we are solving</h2></div>
+    <p class="lead">Dentistry is one of the most fragmented corners of healthcare. Every participant solves the same problems alone, badly, and in isolation from the others.</p>
+    <div class="hub">
+      <div class="node"><h4>Patients</h4><p>No reliable way to judge a dentist. They choose on proximity or a stranger's review, then discover cost and treatment plan only in the chair.</p></div>
+      <div class="node"><h4>Clinics</h4><p>Paper files, WhatsApp bookings, a spreadsheet for money, a notebook for lab work. Invisible online. No idea what their practice actually earns per chair.</p></div>
+      <div class="node"><h4>Dental labs</h4><p>Work orders arrive by phone and courier slip. Rework, delays and disputes are absorbed silently. Growth means more calls, not more systems.</p></div>
+      <div class="node"><h4>Product vendors</h4><p>Reach dentists through field reps and trade fairs. No demand data, no targeting, no way to measure a campaign.</p></div>
+      <div class="node"><h4>Education bodies</h4><p>Courses are mandatory but discovery is word-of-mouth. Filling seats costs more than running the course.</p></div>
+    </div>
+    <p>These are not five separate problems. They are one problem — <strong>the industry has no shared connective tissue</strong> — showing up five times. Solve it once, and the value compounds across all five.</p>
+  </section>
+
+  <!-- 2 -->
+  <section id="s2">
+    <div class="sec-head"><span class="sec-num">02</span><h2>What we are, in one page</h2></div>
+    <p class="lead">The Platform is a two-part business that only works because both parts are ours.</p>
+    <div class="stack">
+      <div class="layer"><h4>A demand engine for clinics</h4><p>Patients search by location and specialty, compare real clinic profiles, and book. Each clinic gets a high-performing web presence built to be found by search engines, AI assistants and maps.</p></div>
+      <div class="layer"><h4>An operating system for clinics</h4><p>Practice management and records: case histories, treatment plans, prescriptions, invoices, payments, expenses, chairs, doctors, labs and inventory. One login runs the whole practice.</p></div>
+      <div class="layer"><h4>A marketplace for everyone who sells to clinics</h4><p>Products, laboratory work, courses, jobs, events and used equipment — sold to a verified, addressable audience of practising dentists, inside the software they already use daily.</p></div>
+      <div class="layer"><h4>A shared data layer underneath all three</h4><p>Anonymised, aggregated signal on procedures, materials, pricing, demand and turnaround — the asset none of the incumbents can assemble.</p></div>
+    </div>
+    <div class="callout">
+      <h4>The strategic sentence</h4>
+      <p>Patient demand is how we win the clinic. Practice management is how we keep the clinic. The marketplace is how we make money from the clinic without charging the clinic more. Each layer pays for the one above it.</p>
+    </div>
+    <h3>What we are deliberately not</h3>
+    <ul>
+      <li><strong>Not a review directory.</strong> Listings without workflow get abandoned. We own the operational record, not just the ad.</li>
+      <li><strong>Not a discount aggregator.</strong> We do not compete on driving the cheapest treatment; that destroys clinic trust and clinical quality.</li>
+      <li><strong>Not a clinic chain.</strong> We do not own chairs or employ dentists. Capital-light, software margins, no conflict with our customers.</li>
+      <li><strong>Not a general healthcare platform.</strong> Dentistry first, deep and complete. Depth is the defence against horizontal players.</li>
+    </ul>
+  </section>
+
+  <!-- 3 -->
+  <section id="s3">
+    <div class="sec-head"><span class="sec-num">03</span><h2>Who is on the platform</h2></div>
+    <p>Six participant types, each with their own account, dashboard and reason to log in. The value of each account rises with the number of the others.</p>
+    <div class="tbl-scroll">
+    <table>
+      <thead><tr><th>Participant</th><th>Why they join</th><th>What they do daily</th><th>What they give the network</th></tr></thead>
+      <tbody>
+        <tr><td>Patient</td><td>Find a trustworthy dentist and book without phone calls</td><td>Search, compare, book, view records, pay, re-book</td><td>Demand, reviews, outcome data</td></tr>
+        <tr><td>Dental clinic</td><td>New patients plus one system to run the practice</td><td>Manage appointments, chart, prescribe, bill, order</td><td>Supply, clinical data, purchasing power</td></tr>
+        <tr><td>Dentist / associate</td><td>Reputation, portable record of work, career mobility</td><td>Consult, chart, plan treatment, learn</td><td>Specialty depth, credibility, referrals</td></tr>
+        <tr><td>Dental laboratory</td><td>A steady order book without a sales team</td><td>Receive cases, update status, dispatch, invoice</td><td>Fulfilment capacity, turnaround benchmarks</td></tr>
+        <tr><td>Product vendor</td><td>Direct access to buying dentists with real targeting</td><td>List, price, promote, ship, support</td><td>Catalogue, supply, ad revenue</td></tr>
+        <tr><td>Education body</td><td>Fill seats; reach dentists by specialty and city</td><td>Publish courses, enrol, certify</td><td>Content, credentials, engagement</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="s4">
+    <div class="sec-head"><span class="sec-num">04</span><h2>Platform architecture, in plain language</h2></div>
+    <p>Read this top to bottom. The top layer is what the public sees; the bottom layer is what makes it hard to copy.</p>
+    <h3>Layer 1 — Discovery</h3>
+    <p>The patient-facing front door. Location and specialty search, clinic pages that stand on their own as findable web destinations, comparison, and booking. Built so that a clinic's page ranks in search results, is quoted by AI assistants, and appears on maps for “near me” queries.</p>
+    <h3>Layer 2 — Operations</h3>
+    <p>The private workspace of each business. Clinics get practice management and records. Labs get a case pipeline. Vendors get a storefront and campaign tools. Institutes get a course manager. Different faces, one underlying system.</p>
+    <h3>Layer 3 — Commerce &amp; community</h3>
+    <p>Where money and people move between businesses: product orders, lab work orders, course enrolments, job posts, event listings, used equipment sales.</p>
+    <h3>Layer 4 — Intelligence</h3>
+    <p>Everything the first three layers produce, anonymised and aggregated, turned back into benchmarks, forecasts, targeting and recommendations.</p>
+    <h3>Layer 5 — Foundations</h3>
+    <p>Identity and verification, consent and permissions, messaging, payments, audit trail, and regulatory compliance. Shared by every module so nothing has to be rebuilt.</p>
+  </section>
+
+  <!-- 5 -->
+  <section id="s5">
+    <div class="sec-head"><span class="sec-num">05</span><h2>The modules</h2></div>
+    <p>Sixteen modules, grouped by who they serve. This is the product map an engineering team and a sales team can both work from.</p>
+
+    <h3>For patients</h3>
+    <div class="modgrid">
+      <div class="mod"><span class="tag">M1</span><h4>Search &amp; discovery</h4><ul><li>Location, specialty, language, price band, availability</li><li>Verified credentials and procedure history</li><li>Real patient outcomes, not just star ratings</li><li>Transparent indicative pricing</li></ul></div>
+      <div class="mod"><span class="tag">M2</span><h4>Booking</h4><ul><li>Live slot availability by chair and doctor</li><li>Instant request; clinic confirms, reschedules or declines</li><li>Automated reminders and follow-up recalls</li><li>Cancellation and no-show handling</li></ul></div>
+      <div class="mod"><span class="tag">M3</span><h4>Patient record &amp; wallet</h4><ul><li>Own treatment history across any clinic on the platform</li><li>Digital prescriptions, invoices, reports</li><li>Payments, instalments, insurance claims</li><li>Consent controls over who sees what</li></ul></div>
+    </div>
+
+    <h3>For clinics — visibility</h3>
+    <div class="modgrid">
+      <div class="mod"><span class="tag">M4</span><h4>Clinic web presence</h4><ul><li>A complete single-page site per clinic, auto-generated and maintained</li><li>Optimised for search engines, AI answers and map results</li><li>Doctors, services, facilities, photos, hours, directions</li><li>Local pages per neighbourhood and per procedure</li></ul></div>
+      <div class="mod"><span class="tag">M5</span><h4>Reputation &amp; growth</h4><ul><li>Verified post-visit reviews tied to real appointments</li><li>Recall campaigns to the clinic's own past patients</li><li>Referral tracking between clinics and specialists</li><li>Enquiry-to-appointment conversion reporting</li></ul></div>
+    </div>
+
+    <h3>For clinics — the practice management system</h3>
+    <div class="modgrid">
+      <div class="mod"><span class="tag">M6</span><h4>Front desk &amp; scheduling</h4><ul><li>Multi-chair, multi-doctor calendar</li><li>Waitlists, walk-ins, queue and wait-time display</li><li>Confirm, reject, reschedule with automatic patient messaging</li><li>Daily schedule and chair utilisation view</li></ul></div>
+      <div class="mod"><span class="tag">M7</span><h4>Clinical records</h4><ul><li>Full case history, chief complaint, medical alerts</li><li>Dental charting, periodontal charting, imaging attachments</li><li>Clinical notes, consent forms, photographs</li><li>Version history and audit trail on every entry</li></ul></div>
+      <div class="mod"><span class="tag">M8</span><h4>Treatment planning</h4><ul><li>Multi-visit, multi-phase plans with costed options</li><li>Patient-facing plan they can understand and approve</li><li>Progress tracking: planned, in progress, completed</li><li>Treatment acceptance rate by doctor and procedure</li></ul></div>
+      <div class="mod"><span class="tag">M9</span><h4>Prescriptions &amp; documents</h4><ul><li>Digital prescriptions with drug interaction checks</li><li>Referral letters, medical certificates, discharge notes</li><li>Sent to the patient's record automatically</li><li>Clinic letterhead and doctor signature applied</li></ul></div>
+      <div class="mod"><span class="tag">M10</span><h4>Billing &amp; finance</h4><ul><li>Digital invoices, receipts, part-payments, refunds</li><li>Online and in-clinic payment collection</li><li>Expense recording and category-wise reporting</li><li>Income statement, outstanding dues, doctor-wise revenue share</li></ul></div>
+      <div class="mod"><span class="tag">M11</span><h4>Inventory</h4><ul><li>Stock by batch and expiry, consumption per procedure</li><li>Low-stock alerts that become purchase orders</li><li>One-click reorder from vendors on the platform</li><li>Cost of materials per treatment</li></ul></div>
+      <div class="mod"><span class="tag">M12</span><h4>Lab connect</h4><ul><li>Raise a work order with shade, impression and case notes</li><li>Live status: received, in production, trial, dispatched</li><li>Trial-fit and rework loop tracked in the case</li><li>Lab invoices reconciled against the patient's treatment</li></ul></div>
+    </div>
+
+    <h3>For the wider industry</h3>
+    <div class="modgrid">
+      <div class="mod"><span class="tag">M13</span><h4>Product marketplace</h4><ul><li>Vendor storefronts, catalogues, pricing tiers</li><li>Orders, shipping, returns, GST-compliant invoicing</li><li>Targeted promotions by specialty, city, clinic size, purchase history</li><li>Campaign performance dashboards</li></ul></div>
+      <div class="mod"><span class="tag">M14</span><h4>Laboratory marketplace</h4><ul><li>Lab profiles with capability, turnaround and quality record</li><li>Quote requests and standing rate cards</li><li>Logistics and pickup coordination</li><li>Reliability scoring visible to clinics</li></ul></div>
+      <div class="mod"><span class="tag">M15</span><h4>Education &amp; events</h4><ul><li>Continuing education courses, online and hands-on</li><li>Conference and trade show calendar with registration</li><li>Credit tracking and certificates</li><li>Sponsorship and exhibitor tools for vendors</li></ul></div>
+      <div class="mod"><span class="tag">M16</span><h4>Careers &amp; classifieds</h4><ul><li>Jobs, locum shifts and associate positions</li><li>Verified professional profiles and credentials</li><li>Buy and sell used equipment and clinic setups</li><li>Practice transfer and partnership listings</li></ul></div>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section id="s6">
+    <div class="sec-head"><span class="sec-num">06</span><h2>How it works, end to end</h2></div>
+
+    <h3>The patient journey</h3>
+    <ol class="flow">
+      <li><b>Finds us</b><span>Searches for a dental problem or a dentist nearby; lands on a clinic page or a search results page.</span></li>
+      <li><b>Compares</b><span>Sees doctors, qualifications, procedures offered, indicative prices, photos, verified patient feedback and real availability.</span></li>
+      <li><b>Books</b><span>Picks a slot and submits. No call required.</span></li>
+      <li><b>Gets confirmation</b><span>Clinic confirms, reschedules or declines; the patient is messaged automatically either way.</span></li>
+      <li><b>Visits</b><span>Consultation and treatment. The clinic records everything in the patient's file as it happens.</span></li>
+      <li><b>Leaves with everything digital</b><span>Prescription, invoice, treatment plan and next appointment are already in the patient's account.</span></li>
+      <li><b>Comes back</b><span>Automatic recall for the next phase, or the six-month check-up. This is the retention loop.</span></li>
+    </ol>
+
+    <h3>The clinic's day</h3>
+    <ol class="flow">
+      <li><b>Morning</b><span>Opens the day view: which chairs, which doctors, which patients, which lab cases are due back.</span></li>
+      <li><b>Chairside</b><span>Charts findings, builds a costed treatment plan, gets patient approval on screen.</span></li>
+      <li><b>During treatment</b><span>Materials consumed deduct from stock. A crown case raises a lab work order in two taps.</span></li>
+      <li><b>At checkout</b><span>Invoice generated, payment taken, prescription issued, next visit booked.</span></li>
+      <li><b>Evening</b><span>Day's collection, pending dues, chair utilisation, treatment acceptance rate, low-stock list.</span></li>
+      <li><b>Weekly</b><span>Reorders stock from vendors, settles lab invoices, reviews doctor-wise performance, posts a job if short-staffed.</span></li>
+    </ol>
+
+    <h3>The vendor, lab and institute journey</h3>
+    <ol class="flow">
+      <li><b>Register and verify</b><span>Business credentials checked; profile and catalogue published.</span></li>
+      <li><b>Get discovered</b><span>Appear inside the clinic's ordering screen at the moment of need, not in a brochure months earlier.</span></li>
+      <li><b>Transact</b><span>Orders, work orders or enrolments come in through the platform with payment handled.</span></li>
+      <li><b>Promote</b><span>Run targeted campaigns to defined segments — endodontists in a city, clinics that buy a competing material, labs with spare capacity.</span></li>
+      <li><b>Measure and repeat</b><span>See exactly which segment converted, at what cost, and re-target.</span></li>
+    </ol>
+  </section>
+
+  <!-- 7 -->
+  <section id="s7">
+    <div class="sec-head"><span class="sec-num">07</span><h2>The flywheel</h2></div>
+    <p class="lead">Five reinforcing loops. Each turn makes the next turn cheaper.</p>
+    <div class="wheel">
+      <div class="spoke"><b>Loop 1 — Patients to clinics</b><p>More patients searching makes a listing worth more, so more clinics join. More clinics means better coverage, so more patients search.</p></div>
+      <div class="spoke"><b>Loop 2 — Clinics to labs</b><p>More clinics raising work orders attracts more labs. More labs means faster turnaround and better prices, which makes the software more valuable to clinics.</p></div>
+      <div class="spoke"><b>Loop 3 — Clinics to vendors</b><p>Concentrated, verified purchasing demand pulls vendors in. More vendors means better selection and pricing, which deepens clinic dependence on the platform.</p></div>
+      <div class="spoke"><b>Loop 4 — People to institutes</b><p>Dentists and students on the platform make it the cheapest place to fill courses and jobs. Courses and jobs are the reason individual dentists log in even when they are not treating.</p></div>
+      <div class="spoke"><b>Loop 5 — Data to everyone</b><p>Every transaction improves matching, benchmarks, forecasting and targeting. Better matching produces more transactions.</p></div>
+    </div>
+    <div class="callout">
+      <h4>Where the flywheel actually starts</h4>
+      <p>Not with patients. Patient demand cannot be manufactured before clinics exist, and a thin directory converts nobody. We start by giving clinics practice management software that is genuinely better than their current paper-and-spreadsheet setup — sold city by city, street by street. Once a critical mass of clinics in one city is running on us, their combined web presence produces patient traffic organically, which is when loop 1 begins turning on its own. Labs and vendors follow the clinics. This ordering is the single most important operational decision in the business.</p>
+    </div>
+  </section>
+
+  <!-- 8 -->
+  <section id="s8">
+    <div class="sec-head"><span class="sec-num">08</span><h2>How the business earns</h2></div>
+    <p>Seven revenue lines across three categories. The mix matters: subscription gives predictability, transactions give scale, advertising gives margin.</p>
+    <div class="tbl-scroll">
+    <table>
+      <thead><tr><th>Line</th><th>Who pays</th><th>Model</th><th>Role in the business</th></tr></thead>
+      <tbody>
+        <tr><td>PMS subscription</td><td>Clinics</td><td>Per chair or per doctor, monthly</td><td>Recurring base; funds the sales engine</td></tr>
+        <tr><td>Visibility &amp; leads</td><td>Clinics</td><td>Tiered placement, or per confirmed booking</td><td>High willingness to pay; scales with patient traffic</td></tr>
+        <tr><td>Product commerce</td><td>Vendors</td><td>Commission on order value</td><td>Largest long-term revenue pool</td></tr>
+        <tr><td>Lab work orders</td><td>Labs</td><td>Commission or flat fee per case</td><td>High frequency, sticky once workflows move over</td></tr>
+        <tr><td>Advertising &amp; campaigns</td><td>Vendors, labs, institutes</td><td>Targeted placements, sponsorships</td><td>Highest margin; grows with data quality</td></tr>
+        <tr><td>Education &amp; events</td><td>Institutes, organisers</td><td>Share of enrolment or registration</td><td>Engagement driver as much as revenue</td></tr>
+        <tr><td>Payments &amp; financing</td><td>Clinics, patients</td><td>Processing spread; treatment instalments</td><td>Later-stage; unlocked by owning the invoice</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <h3>The economic argument in one line</h3>
+    <p>We acquire a clinic once, at a cost recovered by subscription alone, and then earn from that same clinic for years across bookings, purchases, lab work, courses and payments. <strong>Revenue per clinic rises every year without a new sale.</strong> That is the number to put in front of investors — not user count.</p>
+  </section>
+
+  <!-- 9 -->
+  <section id="s9">
+    <div class="sec-head"><span class="sec-num">09</span><h2>Technology, explained without jargon</h2></div>
+    <p>Six tiers. Built as independent services so a failure in commerce never takes down a clinic's records, and so each module can ship on its own schedule.</p>
+    <div class="stack">
+      <div class="layer"><h4>Interfaces</h4><p>Patient web and app, clinic desktop and tablet application, dentist mobile app, lab and vendor portals, and a public site built for search performance.</p></div>
+      <div class="layer"><h4>Service tier</h4><p>Separate services for identity, scheduling, clinical records, billing, inventory, lab orders, commerce, messaging and search. Each owns its own data and speaks through documented interfaces.</p></div>
+      <div class="layer"><h4>Data tier</h4><p>Transactional database for operations, a search index for discovery, a document store for images and files, and a separate analytics warehouse so reporting never slows down a clinic.</p></div>
+      <div class="layer"><h4>Integrations</h4><p>Payments, messaging and email, maps, imaging devices and sensors, accounting software, insurance claims, national health identity and records standards, logistics partners.</p></div>
+      <div class="layer"><h4>Intelligence services</h4><p>Recommendation, demand forecasting, no-show prediction, treatment plan assistance, clinical image assistance, fraud and anomaly detection.</p></div>
+      <div class="layer"><h4>Platform foundations</h4><p>Cloud infrastructure with regional data residency, encryption everywhere, role-based access, full audit logging, automated backup and disaster recovery, uptime and performance monitoring.</p></div>
+    </div>
+    <h3>Three non-negotiable engineering principles</h3>
+    <ul>
+      <li><strong>Offline tolerance.</strong> A clinic with patchy internet must still be able to chart, prescribe and bill. Work syncs when the connection returns. Clinics abandon software that fails in the chair.</li>
+      <li><strong>Standards from day one.</strong> Clinical data stored to international interoperability and terminology standards, not a proprietary schema. This is what makes hospital integration, insurance and international expansion possible later instead of impossible.</li>
+      <li><strong>Speed as a feature.</strong> Every common clinical action in three taps or fewer. Chairside software competes with a paper file, and paper is fast.</li>
+    </ul>
+  </section>
+
+  <!-- 10 -->
+  <section id="s10">
+    <div class="sec-head"><span class="sec-num">10</span><h2>Data and intelligence</h2></div>
+    <p>Because we sit on the clinical record, the invoice, the stock ledger and the lab order at the same time, we can see relationships nobody else in the industry can see.</p>
+    <div class="tbl-scroll">
+    <table>
+      <thead><tr><th>Signal we uniquely hold</th><th>What we build with it</th><th>Who pays for it</th></tr></thead>
+      <tbody>
+        <tr><td>Procedure volumes by city and specialty</td><td>Demand forecasting and territory planning</td><td>Vendors, chains, investors</td></tr>
+        <tr><td>Material consumption per procedure</td><td>Automatic reordering; true cost per treatment</td><td>Clinics, vendors</td></tr>
+        <tr><td>Lab turnaround and rework rates</td><td>Reliability scores and smarter lab matching</td><td>Clinics, labs</td></tr>
+        <tr><td>Treatment plan acceptance patterns</td><td>Pricing and case presentation guidance</td><td>Clinics</td></tr>
+        <tr><td>Appointment and no-show behaviour</td><td>Overbooking and recall optimisation</td><td>Clinics</td></tr>
+        <tr><td>Anonymised outcomes over time</td><td>Clinical benchmarking and research partnerships</td><td>Institutions, manufacturers</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="callout">
+      <h4>The rule we do not break</h4>
+      <p>Identifiable patient data is never sold, never used for advertising, and never leaves the clinic's control without explicit consent. Everything commercial is aggregated and anonymised. This is both the law and the only basis on which clinics will ever hand us their records — the trust is the asset.</p>
+    </div>
+  </section>
+
+  <!-- 11 -->
+  <section id="s11">
+    <div class="sec-head"><span class="sec-num">11</span><h2>Trust, compliance and safety</h2></div>
+    <p>Health data carries obligations that ordinary software does not. Treating this as a first-class product area, not a legal afterthought, is a competitive advantage when selling to serious clinics and expanding across borders.</p>
+    <h3>Built into the product</h3>
+    <ul>
+      <li><strong>Verification.</strong> Dentist registration numbers, clinic establishment licences, lab and vendor business credentials checked before a profile goes live.</li>
+      <li><strong>Consent.</strong> Patients grant and revoke access to their record per clinic, with a visible history of who viewed what and when.</li>
+      <li><strong>Data residency.</strong> Records stored in the country where they were created, with region-specific deployments as we expand.</li>
+      <li><strong>Audit trail.</strong> Every clinical entry, edit and deletion is logged and attributable, which is also what protects a dentist in a dispute.</li>
+      <li><strong>Prescribing safety.</strong> Interaction and allergy checks; controlled substance rules applied per jurisdiction.</li>
+      <li><strong>Content integrity.</strong> Reviews tied to verified visits only. Advertising clearly separated from clinical recommendation.</li>
+    </ul>
+    <h3>Regimes we design for</h3>
+    <p>India's data protection and telemedicine rules and the national digital health identity and records framework; health information privacy law in the United States; the European data protection regulation and medical device software rules where features become clinical decision support; plus local dental council advertising codes, which vary sharply by country and constrain how clinics may be promoted.</p>
+    <p><em>Specific obligations change; this section names the categories to get formal legal review per market before launch, not a legal opinion.</em></p>
+  </section>
+
+  <!-- 12 -->
+  <section id="s12">
+    <div class="sec-head"><span class="sec-num">12</span><h2>Go to market and sequencing</h2></div>
+    <p>The order of operations matters more than the feature list. A multi-sided platform that launches every side at once launches nothing.</p>
+
+    <div class="phase">
+      <div class="when">Phase 1<small>Months 0–9</small></div>
+      <div>
+        <p><strong>Win one city's clinics with software.</strong></p>
+        <ul>
+          <li>Ship the practice management core: scheduling, records, treatment plans, billing, prescriptions.</li>
+          <li>Sell directly, on the ground, to a dense cluster of clinics in a single city. Free migration of their existing records is the offer.</li>
+          <li>Give every clinic its web presence immediately, even before patient traffic exists — it is the visible proof of value.</li>
+          <li>Success looks like: clinics using the system daily, not clinics signed up.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="when">Phase 2<small>Months 9–18</small></div>
+      <div>
+        <p><strong>Turn on demand and the first adjacent side.</strong></p>
+        <ul>
+          <li>Launch patient search and booking once the city has enough coverage to give real choice.</li>
+          <li>Bring in local labs — the easiest second side, because the clinics are already sending them work offline.</li>
+          <li>Add inventory, and use it to onboard the first vendors against real, observed demand.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="when">Phase 3<small>Months 18–30</small></div>
+      <div>
+        <p><strong>Monetise the ecosystem; replicate the city.</strong></p>
+        <ul>
+          <li>Open product commerce and targeted campaigns; this is where revenue per clinic starts compounding.</li>
+          <li>Launch education, events, careers and classifieds to capture the individual dentist, not just the clinic.</li>
+          <li>Run the same city playbook in three to five more cities with a repeatable local team structure.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="when">Phase 4<small>Months 30+</small></div>
+      <div>
+        <p><strong>Depth, intelligence and geography.</strong></p>
+        <ul>
+          <li>Payments, treatment financing and insurance claims.</li>
+          <li>Intelligence products: benchmarking for clinics, demand data for vendors.</li>
+          <li>Multi-clinic and chain management; international markets with the same clinic-first sequence.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13 -->
+  <section id="s13">
+    <div class="sec-head"><span class="sec-num">13</span><h2>How we measure ourselves</h2></div>
+    <p><strong>North star:</strong> the number of completed patient treatments recorded on the platform. It is the only metric that requires every part of the system — discovery, booking, records, billing — to be working at once.</p>
+    <div class="tbl-scroll">
+    <table>
+      <thead><tr><th>Area</th><th>What we watch</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>Clinics</td><td>Active clinics, daily usage depth, retention, chair utilisation lift</td><td>Usage depth predicts retention far better than logins</td></tr>
+        <tr><td>Patients</td><td>Searches, search-to-booking rate, appointment completion, repeat visits</td><td>Completion, not booking, is where value is created</td></tr>
+        <tr><td>Marketplace</td><td>Order value, reorder rate, vendors with revenue, lab cases per clinic</td><td>Shows the flywheel turning beyond the first side</td></tr>
+        <tr><td>Network health</td><td>Share of clinics using two or more sides of the platform</td><td>The single best indicator that this is an ecosystem, not a tool</td></tr>
+        <tr><td>Economics</td><td>Revenue per clinic per year, acquisition cost, payback period, gross margin</td><td>The investor case rests here</td></tr>
+        <tr><td>Quality</td><td>Uptime, chairside task speed, support resolution, clinic satisfaction</td><td>Clinical software fails on reliability before it fails on features</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- 14 -->
+  <section id="s14">
+    <div class="sec-head"><span class="sec-num">14</span><h2>Why this is defensible</h2></div>
+    <p>Any one module can be copied. The combination compounds, and that is the point.</p>
+    <ul>
+      <li><strong>Switching cost.</strong> A clinic's entire patient history, billing and lab pipeline lives with us. Migrating is not a software decision, it is a surgery.</li>
+      <li><strong>Cross-side lock-in.</strong> A clinic that also buys stock, sends lab work and hires through us has four reasons to stay, not one.</li>
+      <li><strong>Data advantage.</strong> Nobody else holds the clinical record and the purchase order for the same procedure. That link cannot be bought.</li>
+      <li><strong>Local density.</strong> Patient discovery only works where coverage is dense, so a competitor must win a whole city, not scattered clinics.</li>
+      <li><strong>Regulatory depth.</strong> Verification, consent and health data compliance take years to build and are a barrier to casual entrants.</li>
+      <li><strong>Brand on both sides.</strong> Patients trust the platform to choose a dentist; dentists trust it to run their practice. Very few companies hold both.</li>
+    </ul>
+  </section>
+
+  <!-- 15 -->
+  <section id="s15">
+    <div class="sec-head"><span class="sec-num">15</span><h2>The honest risks</h2></div>
+    <p>Presenting these openly is a strength in front of serious investors, who will find them anyway.</p>
+    <div class="tbl-scroll">
+    <table>
+      <thead><tr><th>Risk</th><th>Our answer</th></tr></thead>
+      <tbody>
+        <tr><td>Cold start</td><td>Clinic-first, city-by-city density; software value delivered before any network value is promised</td></tr>
+        <tr><td>Building too much at once</td><td>Phased module release; each phase must hit usage targets before the next is funded</td></tr>
+        <tr><td>Clinics resist changing records</td><td>Free assisted migration, offline tolerance, and training built into onboarding; migration is a service, not a download</td></tr>
+        <tr><td>Data breach or regulatory action</td><td>Security and compliance treated as a product area with dedicated ownership from day one</td></tr>
+        <tr><td>Incumbent practice software adds a marketplace</td><td>They lack patient demand and cross-side data; we must reach density before they react</td></tr>
+        <tr><td>Marketplace margin pressure</td><td>Revenue diversified across seven lines; advertising and data margin offset thin commerce margin</td></tr>
+        <tr><td>Clinical liability from assistive features</td><td>Assistance, never diagnosis; the licensed clinician decides and the system records that they did</td></tr>
+        <tr><td>Advertising rules for medical practices</td><td>Per-market compliance review; factual clinic information rather than comparative claims</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- 16 -->
+  <section id="s16">
+    <div class="sec-head"><span class="sec-num">16</span><h2>Glossary</h2></div>
+    <p>For readers outside dentistry or outside software — include this when sharing with investors from other sectors.</p>
+    <div class="tbl-scroll">
+    <table>
+      <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td>PMS</td><td>Practice management system — the software that runs a clinic's day: appointments, billing, stock, staff</td></tr>
+        <tr><td>EMR</td><td>Electronic medical record — the digital patient file: history, findings, treatments, prescriptions</td></tr>
+        <tr><td>SEO</td><td>Making a page rank well in search engine results</td></tr>
+        <tr><td>AEO</td><td>Making content likely to be quoted as the answer by AI assistants</td></tr>
+        <tr><td>GEO</td><td>Optimising for local and map-based results, where most “dentist near me” searches end</td></tr>
+        <tr><td>CDE</td><td>Continuing dental education — courses dentists must complete to maintain registration</td></tr>
+        <tr><td>Dental lab</td><td>The workshop that fabricates crowns, bridges, dentures and aligners to a dentist's prescription</td></tr>
+        <tr><td>Chair</td><td>A dental operatory. Clinic capacity and revenue are measured per chair, as hotels measure rooms</td></tr>
+        <tr><td>Treatment plan</td><td>The costed, sequenced set of procedures proposed to a patient; acceptance rate is a core clinic metric</td></tr>
+        <tr><td>Flywheel</td><td>A loop where each new participant makes the platform more valuable to the next, lowering growth cost over time</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>Dental Ecosystem Platform — structure and blueprint, version 1.0. Prepared for circulation to investors, partners and customers. Financial projections, market sizing and legal opinions are not included here and should be reviewed separately per market.</p>
+  </div>
+</footer>
+
+</body>
+</html>

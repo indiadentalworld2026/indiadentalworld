@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sign up or sign in | IndiaDentalWorld</title>
+<meta name="description" content="Prototype of patient sign-up and sign-in. Sample data only.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Lora:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A1714;--bg2:#0E1D19;--bg3:#13261F;--surface:#15271F;--line:rgba(226,237,235,.10);--line2:rgba(226,237,235,.2);--text:#E8F0EE;--text2:#9DBBB6;--text3:#6F918B;--teal:#00C4A7;--teal-text:#00C4A7;--teal-ink:#04211C;--glow:rgba(0,196,167,.16);--amber:#F5A623;--rose:#F06A6A;--green:#34D399;--nav:64px;--gut:clamp(16px,4vw,40px);--serif:'Lora',Georgia,serif;--sans:'Plus Jakarta Sans',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
+:root[data-theme="light"]{--bg:#F5F9F8;--bg2:#EAF2F0;--bg3:#E1EDEA;--surface:#FFFFFF;--line:rgba(10,23,20,.12);--line2:rgba(10,23,20,.22);--text:#0A1714;--text2:#33524C;--text3:#52706A;--teal-text:#00796A;--glow:rgba(0,196,167,.12);--amber:#9A5B00;--rose:#B93A3A;--green:#12795A}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--text);font:400 15px/1.55 var(--sans);-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden;display:flex;flex-direction:column}
+a{color:inherit}button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:6px}
+svg.i{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.skip{position:absolute;left:-999px;top:8px;background:var(--teal);color:var(--teal-ink);padding:8px 14px;border-radius:8px;z-index:100}.skip:focus{left:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--line2);background:transparent;padding:11px 18px;border-radius:10px;font-weight:600;font-size:15px;text-decoration:none;min-height:44px}
+.btn:hover{border-color:var(--teal);color:var(--teal-text)}
+.btn--teal{background:var(--teal);color:var(--teal-ink);border-color:var(--teal)}.btn--teal:hover{color:var(--teal-ink);filter:brightness(1.08)}
+.btn--full{width:100%}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.link{color:var(--teal-text);text-underline-offset:3px;background:none;border:0;padding:0;font-weight:600;text-decoration:underline;cursor:pointer}
+.link[disabled]{color:var(--text3);cursor:default;text-decoration:none}
+.top{height:var(--nav);display:flex;align-items:center;gap:12px;padding:0 var(--gut);border-bottom:1px solid var(--line)}
+.logo{font-weight:700;font-size:17px;text-decoration:none}.logo b{color:var(--teal-text)}
+.sp{flex:1}
+.founder-btn{white-space:nowrap;border:1px dashed var(--amber);color:var(--amber);background:transparent;padding:7px 10px;border-radius:999px;font-size:13px;font-weight:600}
+body.founder .founder-btn{background:var(--amber);color:#1c1200}
+.iconbtn{width:40px;height:40px;border-radius:10px;border:1px solid var(--line);background:transparent;display:grid;place-items:center}
+.sample{background:var(--bg3);border-bottom:1px solid var(--line);text-align:center;font-size:13px;color:var(--text2);padding:7px var(--gut)}
+.stage{flex:1;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(24px,5vw,72px);max-width:1180px;width:100%;margin:0 auto;padding:clamp(24px,5vw,56px) var(--gut)}
+.pitch{align-self:center}
+h1{font:600 clamp(1.9rem,3.6vw,2.7rem)/1.12 var(--serif);letter-spacing:-.01em}
+.pitch p.lede{color:var(--text2);margin:14px 0 24px;max-width:46ch}
+.never{list-style:none;padding:0;display:grid;gap:12px}
+.never li{display:flex;gap:12px;align-items:flex-start;color:var(--text2);font-size:14px}
+.never svg{color:var(--teal-text);margin-top:2px}
+.never b{color:var(--text);display:block;font-size:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:clamp(18px,3vw,28px);min-width:0;align-self:center}
+.seg{display:grid;grid-template-columns:1fr 1fr;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:4px;margin-bottom:20px}
+.seg button{border:0;background:transparent;padding:9px;border-radius:9px;font-weight:600;color:var(--text2)}
+.seg button[aria-selected="true"]{background:var(--glow);color:var(--teal-text)}
+h2{font:700 20px/1.3 var(--sans);margin-bottom:6px}
+.muted{color:var(--text2)}.small{font-size:13px}
+.mono{font-family:var(--mono);font-size:12px;color:var(--text3)}
+label{font-size:13px;font-weight:600;display:block;margin-bottom:6px}
+.field{margin-bottom:16px}
+input[type=text],input[type=tel]{width:100%;background:var(--bg2);color:var(--text);border:1px solid var(--line2);border-radius:10px;padding:12px;font:inherit;min-height:46px}
+.phone{display:flex}
+.phone span{display:grid;place-items:center;padding:0 12px;border:1px solid var(--line2);border-right:0;border-radius:10px 0 0 10px;background:var(--bg3);font-family:var(--mono);color:var(--text2)}
+.phone input{border-radius:0 10px 10px 0}
+.otp{display:flex;gap:8px}
+.otp input{width:100%;min-width:0;text-align:center;font:600 22px var(--mono);padding:10px 0}
+.err{color:var(--rose);font-size:13px;margin-top:8px;min-height:1.2em}
+.err:empty{display:none}
+.step{display:none}.step.on{display:block}
+.chk{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid var(--line);font-weight:400;font-size:14px;margin:0}
+.chk:first-of-type{border-top:0}
+.chk input{width:20px;height:20px;margin-top:2px;accent-color:var(--teal);flex:none}
+.chk .t{display:block;font-weight:600}
+.chk .d{display:block;color:var(--text2);font-size:13px}
+.group{border:1px solid var(--line);border-radius:12px;padding:4px 14px;margin:6px 0 16px}
+.req{color:var(--amber);font-size:12px;font-weight:700}
+.notice{background:var(--bg2);border-radius:10px;padding:12px;font-size:13px;color:var(--text2);margin-top:12px}
+.stop{border:1px solid color-mix(in srgb,var(--amber) 55%,transparent);background:color-mix(in srgb,var(--amber) 8%,transparent);border-radius:12px;padding:14px;margin-top:12px;font-size:14px}
+.done{text-align:center;padding:10px 0}
+.tick{width:56px;height:56px;border-radius:50%;background:var(--glow);color:var(--teal-text);display:grid;place-items:center;margin:0 auto 14px}
+.tick svg{width:28px;height:28px}
+.sumlist{list-style:none;padding:0;margin:14px 0;text-align:left;display:grid;gap:8px;font-size:14px;color:var(--text2)}
+.sumlist b{color:var(--text)}
+.fv{display:none;border:1px dashed var(--amber);border-radius:12px;padding:12px 14px;margin-top:18px;font-size:13px;color:var(--text2);background:color-mix(in srgb,var(--amber) 7%,transparent)}
+body.founder .fv{display:block}.fv b{color:var(--amber)}.fv ul{margin:6px 0 0 18px;padding:0}
+.slot-off{display:none;border:1px dashed var(--line2);border-radius:12px;padding:12px;font-size:13px;color:var(--text3);margin-top:14px}
+body.founder .slot-off{display:block}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--text);color:var(--bg);padding:11px 18px;border-radius:12px;font-weight:600;font-size:14px;opacity:0;pointer-events:none;transition:.2s;z-index:90;max-width:calc(100vw - 32px)}
+.toast.on{opacity:1;transform:translateX(-50%)}
+footer{border-top:1px solid var(--line);padding:20px var(--gut);color:var(--text2);font-size:13px}
+footer .in{max-width:1180px;margin:0 auto;display:flex;gap:10px 24px;flex-wrap:wrap}
+@media (max-width:860px){.stage{grid-template-columns:minmax(0,1fr)}.pitch{order:2}.card{order:1}.top{gap:6px}.logo{font-size:15px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+ <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></symbol>
+ <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
+ <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+ <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+ <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+</defs></svg>
+
+<header class="top">
+ <a class="logo" href="#">India<b>Dental</b>World</a><span class="sp"></span>
+ <button class="founder-btn" id="founderBtn" aria-pressed="false">Founder view</button>
+ <button class="iconbtn" id="themeBtn" aria-label="Switch between dark and light theme"><svg class="i"><use href="#i-sun"/></svg></button>
+</header>
+<div class="sample" role="note">Prototype. No real messages are sent. Use any 6 digits as the code, except 000000 (wrong code). A number ending in 99 acts as an existing patient.</div>
+
+<div class="stage">
+ <section class="pitch" aria-labelledby="h1">
+  <h1 id="h1">Find a dentist you can check before you book</h1>
+  <p class="lede">A phone number is all you need. No password, no card, no clinic can see your number until you book.</p>
+  <ul class="never">
+   <li><svg class="i"><use href="#i-lock"/></svg><span><b>You choose what we keep</b>Location, saved searches and offers are off until you switch them on.</span></li>
+   <li><svg class="i"><use href="#i-eye"/></svg><span><b>Your data, any time</b>Download it or delete your account from your dashboard.</span></li>
+   <li><svg class="i"><use href="#i-check"/></svg><span><b>Reviews from real visits</b>Only completed appointments can be reviewed.</span></li>
+  </ul>
+  <div class="fv"><b>Founder view.</b> Why phone-first: most Indian patients use WhatsApp and OTP daily, and a password page loses sign-ups.
+   <ul><li><b>Searchability:</b> sign-up page is noindex; the homepage and clinic pages carry the traffic.</li><li><b>Revenue:</b> none here. No ads, no sponsored content, no third-party scripts on this page.</li><li><b>Legal:</b> required consent is unticked by default; optional consents are separate and unticked; under-18s are stopped (DPDP children's data).</li></ul></div>
+ </section>
+
+ <main id="main" class="card" tabindex="-1">
+  <div class="seg" role="tablist" aria-label="Sign up or sign in">
+   <button role="tab" id="tabUp" aria-selected="true">Sign up</button>
+   <button role="tab" id="tabIn" aria-selected="false">Sign in</button>
+  </div>
+
+  <!-- step 1: phone -->
+  <form class="step on" id="s1" novalidate>
+   <h2 id="s1h">Create your account</h2>
+   <p class="muted small" style="margin-bottom:18px" id="s1p">Enter your mobile number. We'll send a 6-digit code.</p>
+   <div class="field"><label for="ph">Mobile number</label><div class="phone"><span>+91</span><input id="ph" type="tel" inputmode="numeric" autocomplete="tel-national" maxlength="10" placeholder="10-digit number"></div><p class="err" id="e1" role="alert"></p></div>
+   <button class="btn btn--teal btn--full" type="submit">Send code</button>
+   <p class="small muted" style="margin-top:12px">We use your number only to sign you in and to confirm appointments.</p>
+  </form>
+
+  <!-- step 2: otp -->
+  <form class="step" id="s2" novalidate>
+   <h2>Enter the code</h2>
+   <p class="muted small" style="margin-bottom:18px">Sent to <b id="sentTo"></b>. <button type="button" class="link" id="change">Change number</button></p>
+   <div class="field"><label id="ol">6-digit code</label><div class="otp" role="group" aria-labelledby="ol" id="otp"></div><p class="err" id="e2" role="alert"></p></div>
+   <button class="btn btn--teal btn--full" type="submit">Verify</button>
+   <p class="small muted" style="margin-top:12px"><button type="button" class="link" id="resend" disabled>Resend code</button> <span id="timer" class="mono"></span></p>
+  </form>
+
+  <!-- step 3: details + consent -->
+  <form class="step" id="s3" novalidate>
+   <h2>A few details</h2>
+   <p class="muted small" style="margin-bottom:18px">Your number is verified. Two more things.</p>
+   <div class="field"><label for="nm">Your name</label><input id="nm" type="text" autocomplete="name" placeholder="As clinics should address you"><p class="err" id="e3a" role="alert"></p></div>
+   <label class="chk" style="border:0;padding-top:0"><input type="checkbox" id="adult"><span><span class="t">I am 18 or older</span><span class="d">If you are younger, a parent or guardian can add you from their account.</span></span></label>
+   <p class="err" id="e3b" role="alert"></p>
+   <div id="minor" class="stop" hidden>You need to be 18 or older to create your own account. Ask a parent or guardian to sign up and add you under <b>Family</b>, where they give consent for you.</div>
+
+   <h2 style="font-size:16px;margin-top:18px">Your choices</h2>
+   <div class="group">
+    <label class="chk"><input type="checkbox" id="cTerms"><span><span class="t">Privacy notice and terms <span class="req">Required</span></span><span class="d">To create your account. Read the <a class="link" href="#" data-n="privacy">privacy notice</a> and <a class="link" href="#" data-n="terms">terms</a> (version 1).</span></span></label>
+    <label class="chk"><input type="checkbox" id="cLoc"><span><span class="t">Use my location</span><span class="d">Optional. To show clinics near you.</span></span></label>
+    <label class="chk"><input type="checkbox" id="cSearch"><span><span class="t">Save my searches</span><span class="d">Optional. If off, we don't keep what you type.</span></span></label>
+    <label class="chk"><input type="checkbox" id="cMkt"><span><span class="t">Offers and reminders by WhatsApp</span><span class="d">Optional. Appointment confirmations are sent anyway.</span></span></label>
+   </div>
+   <p class="err" id="e3c" role="alert"></p>
+   <div class="notice" id="noticeBox" hidden></div>
+   <button class="btn btn--teal btn--full" type="submit" id="create" style="margin-top:6px">Create account</button>
+   <p class="small muted" style="margin-top:12px">You can change any choice later in Privacy and data. Every change is recorded with its date.</p>
+  </form>
+
+  <!-- step 4: done -->
+  <div class="step" id="s4">
+   <div class="done">
+    <div class="tick"><svg class="i"><use href="#i-check"/></svg></div>
+    <h2 id="doneH">You're in</h2>
+    <p class="muted small" id="doneP"></p>
+    <ul class="sumlist" id="sum"></ul>
+    <a class="btn btn--teal btn--full" href="IDW-patient-dashboard-v1.html">Go to my dashboard</a>
+    <p style="margin-top:12px"><a class="link" href="IDW-search-results-page-v2.html">Or search for a dentist</a></p>
+   </div>
+  </div>
+
+  <div class="slot-off"><b>Revenue slot (off).</b> Nothing paid belongs on sign-up. Kept empty on purpose.</div>
+  <p class="small muted" style="margin-top:20px;border-top:1px solid var(--line);padding-top:14px">Dental clinic, lab or institute? <a class="link" href="#">Register your business</a></p>
+ </main>
+</div>
+
+<footer><div class="in"><a class="link" href="#">Grievance Officer</a><span>Prices shown on IndiaDentalWorld are indicative. Clinics set final prices after examination.</span><a class="link" href="#">Privacy notice</a><a class="link" href="#">Terms</a></div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+ var $=function(s){return document.querySelector(s)},$$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+ var mode='up',phone='',existing=false,tries=0,tm,tt;
+ function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('on')},2600)}
+ document.documentElement.setAttribute('data-theme','dark');
+ $('#themeBtn').onclick=function(){var r=document.documentElement;r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark')};
+ $('#founderBtn').onclick=function(){var on=document.body.classList.toggle('founder');this.setAttribute('aria-pressed',on)};
+ function show(id){$$('.step').forEach(function(s){s.classList.toggle('on',s.id===id)});var f=$('#'+id+' input,#'+id+' a');if(f&&id!=='s4')f.focus()}
+
+ function setMode(m){
+  mode=m;$('#tabUp').setAttribute('aria-selected',m==='up');$('#tabIn').setAttribute('aria-selected',m==='in');
+  $('#s1h').textContent=m==='up'?'Create your account':'Welcome back';
+  $('#s1p').textContent=m==='up'?'Enter your mobile number. We\'ll send a 6-digit code.':'Enter your mobile number to sign in.';
+  show('s1');
+ }
+ $('#tabUp').onclick=function(){setMode('up')};$('#tabIn').onclick=function(){setMode('in')};
+
+ /* otp boxes */
+ var boxes=[];
+ for(var i=0;i<6;i++){(function(i){var b=document.createElement('input');b.type='text';b.inputMode='numeric';b.maxLength=1;b.setAttribute('aria-label','Digit '+(i+1));b.autocomplete=i===0?'one-time-code':'off';
+  b.addEventListener('input',function(){b.value=b.value.replace(/\D/g,'');if(b.value&&i<5)boxes[i+1].focus()});
+  b.addEventListener('keydown',function(e){if(e.key==='Backspace'&&!b.value&&i>0)boxes[i-1].focus()});
+  b.addEventListener('paste',function(e){var d=(e.clipboardData.getData('text')||'').replace(/\D/g,'').slice(0,6);if(!d)return;e.preventDefault();d.split('').forEach(function(c,k){boxes[k].value=c});boxes[Math.min(d.length,5)].focus()});
+  $('#otp').appendChild(b);boxes.push(b)})(i)}
+ function code(){return boxes.map(function(b){return b.value}).join('')}
+
+ function startTimer(){
+  var s=30,r=$('#resend');r.disabled=true;clearInterval(tm);
+  function tick(){$('#timer').textContent=s>0?'in '+s+' s':'';if(s<=0){clearInterval(tm);r.disabled=false}s--}
+  tick();tm=setInterval(tick,1000);
+ }
+
+ $('#s1').onsubmit=function(e){
+  e.preventDefault();var v=$('#ph').value.replace(/\s/g,'');
+  if(!/^[6-9]\d{9}$/.test(v)){$('#e1').textContent='Enter a 10-digit Indian mobile number starting with 6, 7, 8 or 9.';return}
+  $('#e1').textContent='';phone=v;existing=/99$/.test(v);
+  if(mode==='in'&&!existing){$('#e1').textContent='No account with this number. Check the number, or sign up.';return}
+  if(mode==='up'&&existing){mode='in';setMode('in');toast('This number already has an account. Signing you in.')}
+  $('#sentTo').textContent='+91 '+v.slice(0,5)+' '+v.slice(5);
+  boxes.forEach(function(b){b.value=''});tries=0;$('#e2').textContent='';show('s2');startTimer();
+ };
+ $('#change').onclick=function(){clearInterval(tm);show('s1')};
+ $('#resend').onclick=function(){boxes.forEach(function(b){b.value=''});boxes[0].focus();$('#e2').textContent='';startTimer();toast('New code sent')};
+
+ $('#s2').onsubmit=function(e){
+  e.preventDefault();
+  if(tries>=3){$('#e2').textContent='Too many wrong codes. Try again in 15 minutes.';return}
+  var c=code();
+  if(c.length<6){$('#e2').textContent='Enter all 6 digits.';return}
+  if(c==='000000'){tries++;$('#e2').textContent=tries>=3?'Too many wrong codes. Try again in 15 minutes.':'That code is wrong. '+(3-tries)+' '+(3-tries===1?'try':'tries')+' left.';return}
+  clearInterval(tm);
+  if(existing)finish(true);else show('s3');
+ };
+
+ /* notice wording */
+ $$('[data-n]').forEach(function(a){a.onclick=function(e){e.preventDefault();var b=$('#noticeBox');b.hidden=false;b.textContent='Placeholder wording for the '+a.dataset.n+' (version 1). The final text will be written and approved by a lawyer.'}});
+
+ $('#cTerms').onchange=function(){$('#e3c').textContent=''};
+ $('#adult').onchange=function(){$('#minor').hidden=true;$('#e3b').textContent=''};
+ $('#s3').onsubmit=function(e){
+  e.preventDefault();var bad=false;
+  $('#e3a').textContent=$('#e3b').textContent=$('#e3c').textContent='';
+  if($('#nm').value.trim().length<2){$('#e3a').textContent='Enter your name.';bad=true}
+  if(!$('#adult').checked){$('#minor').hidden=false;$('#e3b').textContent='Confirm you are 18 or older to continue.';bad=true}
+  if(!$('#cTerms').checked){$('#e3c').textContent='Tick the privacy notice and terms to create your account.';bad=true}
+  if(bad)return;finish(false);
+ };
+
+ function finish(back){
+  var n=$('#nm').value.trim();
+  $('#doneH').textContent=back?'Welcome back':'Welcome, '+n.split(' ')[0];
+  $('#doneP').textContent=back?'You are signed in.':'Your account is ready.';
+  var s=$('#sum');s.innerHTML='';
+  if(!back){
+   var d=new Date().toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});
+   [['Privacy notice and terms','given',1],['Location',$('#cLoc').checked,0],['Saved searches',$('#cSearch').checked,0],['WhatsApp offers',$('#cMkt').checked,0]].forEach(function(r){
+    var li=document.createElement('li'),b=document.createElement('b');b.textContent=r[0];
+    li.appendChild(b);li.appendChild(document.createTextNode(': '+(r[1]?'on':'off')+' · version 1 · '+d));s.appendChild(li)});
+  }
+  show('s4');
+ }
+})();
+</script>
+</body>
+</html>

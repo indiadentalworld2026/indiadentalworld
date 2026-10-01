@@ -1,0 +1,832 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Clinic Analytics | IndiaDentalWorld</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lora:ital,wght@0,600;1,500&display=swap">
+
+<style>
+/* ── TOKENS — IDW dark-first ── */
+:root {
+  --bg:#0A1714; --bg2:#111E1B; --surface:#1A2B27; --surface2:#213530;
+  --border:rgba(0,196,167,.16); --border2:rgba(0,196,167,.08);
+  --teal:#00C4A7; --teal-dim:rgba(0,196,167,.13); --teal-glow:rgba(0,196,167,.25);
+  --rose:#F06A6A; --rose-dim:rgba(240,106,106,.13);
+  --amber:#F5A623; --amber-dim:rgba(245,166,35,.13);
+  --green:#34D399; --green-dim:rgba(52,211,153,.13);
+  --purple:#A78BFA; --purple-dim:rgba(167,139,250,.13);
+  --text:#E2EDEB; --text2:#7FA49F; --text3:#4A706A;
+  --shadow:0 4px 24px rgba(0,0,0,.4); --shadow-sm:0 2px 8px rgba(0,0,0,.25);
+  --r:14px; --r-sm:8px; --r-xs:5px;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg:#EFF4F3; --bg2:#E4EDEB; --surface:#FFF; --surface2:#F5F9F8;
+    --border:rgba(0,153,133,.2); --border2:rgba(0,153,133,.1);
+    --teal:#00897A; --teal-dim:rgba(0,137,122,.1); --teal-glow:rgba(0,137,122,.2);
+    --rose:#D94F4F; --rose-dim:rgba(217,79,79,.1);
+    --amber:#C98A10; --amber-dim:rgba(201,138,16,.1);
+    --green:#1A9E6E; --green-dim:rgba(26,158,110,.1);
+    --purple:#7C3AED; --purple-dim:rgba(124,58,237,.1);
+    --text:#0D1F1C; --text2:#3D6560; --text3:#8AADA8;
+    --shadow:0 4px 24px rgba(0,0,0,.1); --shadow-sm:0 2px 8px rgba(0,0,0,.06);
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg:#EFF4F3;--bg2:#E4EDEB;--surface:#FFF;--surface2:#F5F9F8;
+  --border:rgba(0,153,133,.2);--border2:rgba(0,153,133,.1);
+  --teal:#00897A;--teal-dim:rgba(0,137,122,.1);--teal-glow:rgba(0,137,122,.2);
+  --rose:#D94F4F;--rose-dim:rgba(217,79,79,.1);
+  --amber:#C98A10;--amber-dim:rgba(201,138,16,.1);
+  --green:#1A9E6E;--green-dim:rgba(26,158,110,.1);
+  --purple:#7C3AED;--purple-dim:rgba(124,58,237,.1);
+  --text:#0D1F1C;--text2:#3D6560;--text3:#8AADA8;
+  --shadow:0 4px 24px rgba(0,0,0,.1);--shadow-sm:0 2px 8px rgba(0,0,0,.06);
+  color-scheme: light;
+}
+:root[data-theme="dark"] { color-scheme: dark; }
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{height:100%;}
+body{
+  min-height:100%;
+  font-family:'Plus Jakarta Sans',system-ui,sans-serif;
+  background:var(--bg);color:var(--text);
+  font-size:14px;line-height:1.6;
+}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+a{color:var(--teal);text-decoration:none;}
+
+/* ── LAYOUT ── */
+.app{display:flex;min-height:100vh;}
+
+/* SIDEBAR */
+.sidebar{
+  width:220px;flex-shrink:0;
+  background:var(--bg2);border-right:1px solid var(--border);
+  display:flex;flex-direction:column;
+  position:sticky;top:0;height:100vh;overflow-y:auto;
+}
+.sidebar-logo{padding:20px 16px 16px;border-bottom:1px solid var(--border2);display:flex;align-items:center;gap:10px;}
+.sidebar-logo-mark{width:32px;height:32px;border-radius:8px;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.sidebar-logo-text{font-family:'Lora',serif;font-size:.88rem;color:var(--teal);font-weight:600;line-height:1.2;}
+.sidebar-logo-sub{font-size:.65rem;color:var(--text3);font-weight:500;letter-spacing:.04em;text-transform:uppercase;}
+.sidebar-clinic{padding:14px 16px;border-bottom:1px solid var(--border2);display:flex;align-items:center;gap:10px;}
+.clinic-avatar{width:38px;height:38px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--teal) 0%,#007A68 100%);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;color:#fff;border:2px solid var(--border);}
+.clinic-name{font-size:.8rem;font-weight:700;color:var(--text);line-height:1.3;}
+.clinic-verified{display:flex;align-items:center;gap:4px;font-size:.68rem;color:var(--green);font-weight:600;margin-top:2px;}
+.nav-section{padding:12px 10px 4px;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 14px;border-radius:var(--r-sm);margin:1px 6px;cursor:pointer;color:var(--text2);font-size:.82rem;font-weight:500;transition:all .15s;position:relative;}
+.nav-item:hover{background:var(--teal-dim);color:var(--text);}
+.nav-item.active{background:var(--teal-dim);color:var(--teal);font-weight:700;}
+.nav-item.active::before{content:'';position:absolute;left:0;top:25%;bottom:25%;width:3px;border-radius:0 2px 2px 0;background:var(--teal);}
+.nav-icon{font-size:1rem;width:18px;text-align:center;flex-shrink:0;}
+.nav-badge{margin-left:auto;background:var(--rose);color:#fff;font-size:.6rem;font-weight:700;border-radius:10px;padding:1px 6px;min-width:18px;text-align:center;}
+
+/* TOPBAR */
+.main{flex:1;min-width:0;display:flex;flex-direction:column;}
+.topbar{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;height:56px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:50;}
+.topbar-right{margin-left:auto;display:flex;align-items:center;gap:10px;}
+.topbar-icon-btn{width:36px;height:36px;border-radius:50%;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--text2);cursor:pointer;transition:background .15s;}
+.topbar-icon-btn:hover{background:var(--surface2);}
+
+/* PAGE */
+.page{padding:24px;display:flex;flex-direction:column;gap:24px;max-width:1100px;}
+.section-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);}
+
+/* ── PERIOD SELECTOR ── */
+.period-bar{
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
+}
+.period-tabs{display:flex;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);padding:3px;gap:2px;}
+.period-tab{padding:6px 14px;border-radius:6px;font-size:.75rem;font-weight:600;color:var(--text2);cursor:pointer;transition:all .15s;}
+.period-tab.active{background:var(--teal);color:#fff;}
+.period-tab:hover:not(.active){background:var(--teal-dim);color:var(--teal);}
+.period-context{font-size:.78rem;color:var(--text2);}
+.period-context strong{color:var(--text);}
+
+/* ── KPI TILES ── */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.kpi-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r);padding:18px 16px 14px;
+  display:flex;flex-direction:column;gap:0;
+  cursor:pointer;transition:all .15s;
+  position:relative;overflow:hidden;
+}
+.kpi-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
+.kpi-card.selected{border-color:rgba(0,196,167,.5);box-shadow:0 0 0 1px var(--teal-dim),var(--shadow-sm);}
+.kpi-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:6px;}
+.kpi-icon{font-size:1.2rem;}
+.kpi-trend{display:flex;align-items:center;gap:3px;font-size:.72rem;font-weight:700;padding:2px 7px;border-radius:10px;}
+.kpi-trend.up{background:var(--green-dim);color:var(--green);}
+.kpi-trend.down{background:var(--rose-dim);color:var(--rose);}
+.kpi-trend.flat{background:var(--surface2);color:var(--text3);}
+.kpi-num{font-size:2rem;font-weight:800;line-height:1;font-variant-numeric:tabular-nums;margin-bottom:3px;}
+.kpi-label{font-size:.75rem;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px;}
+.kpi-sub{font-size:.7rem;color:var(--text3);margin-bottom:10px;}
+
+/* Sparkline SVG */
+.sparkline-wrap{height:40px;width:100%;overflow:hidden;}
+.spark-svg{width:100%;height:40px;display:block;}
+.spark-area{opacity:.25;}
+.spark-line{fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.spark-endpoint{r:3;}
+
+/* ── MAIN CHART ── */
+.chart-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:22px;}
+.chart-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;flex-wrap:wrap;gap:10px;}
+.chart-title{font-size:.9rem;font-weight:700;color:var(--text);}
+.chart-legend{display:flex;gap:16px;flex-wrap:wrap;}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:.72rem;color:var(--text2);font-weight:500;}
+.legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.chart-insight{
+  margin-top:0;margin-bottom:16px;
+  background:var(--teal-dim);border:1px solid var(--border);
+  border-radius:var(--r-sm);padding:10px 14px;
+  font-size:.78rem;color:var(--text2);
+  display:flex;align-items:flex-start;gap:8px;
+}
+.chart-insight strong{color:var(--teal);}
+
+/* bar chart */
+.bar-chart-wrap{position:relative;overflow-x:auto;}
+.bar-chart-svg{display:block;overflow:visible;}
+.axis-line{stroke:var(--border);stroke-width:1;}
+.grid-line{stroke:var(--border2);stroke-width:1;}
+.axis-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;fill:var(--text3);}
+.bar-rect{rx:3;transition:opacity .15s;cursor:pointer;}
+.bar-rect:hover{opacity:.75;}
+
+/* Tooltip */
+.chart-tooltip{
+  position:fixed;pointer-events:none;z-index:200;
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:var(--r-sm);padding:10px 13px;
+  font-size:.75rem;box-shadow:var(--shadow);
+  min-width:140px;display:none;
+}
+.tooltip-date{font-weight:700;color:var(--text);margin-bottom:5px;}
+.tooltip-row{display:flex;align-items:center;justify-content:space-between;gap:16px;color:var(--text2);}
+.tooltip-val{font-weight:700;color:var(--text);font-variant-numeric:tabular-nums;}
+.tooltip-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+
+/* ── TWO COL LOWER ── */
+.lower-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+
+/* ── FUNNEL / CONVERSION ── */
+.funnel-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px;}
+.funnel-row{
+  display:flex;align-items:center;gap:12px;padding:10px 0;
+  border-bottom:1px solid var(--border2);
+}
+.funnel-row:last-child{border-bottom:none;}
+.funnel-bar-wrap{flex:1;height:8px;border-radius:4px;background:var(--border);overflow:hidden;}
+.funnel-bar-fill{height:100%;border-radius:4px;transition:width .6s ease;}
+.funnel-label{font-size:.78rem;color:var(--text2);width:120px;flex-shrink:0;}
+.funnel-num{font-size:.85rem;font-weight:700;font-variant-numeric:tabular-nums;color:var(--text);width:42px;text-align:right;flex-shrink:0;}
+.funnel-pct{font-size:.68rem;color:var(--text3);width:36px;text-align:right;flex-shrink:0;}
+.conv-rate{
+  margin-top:16px;text-align:center;padding:12px;
+  background:var(--green-dim);border-radius:var(--r-sm);
+  border:1px solid rgba(52,211,153,.2);
+}
+.conv-rate-num{font-size:1.6rem;font-weight:800;color:var(--green);}
+.conv-rate-label{font-size:.72rem;color:var(--text2);}
+
+/* ── DEMAND INTELLIGENCE ── */
+.demand-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px;}
+.demand-header{margin-bottom:14px;}
+.demand-badge{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:3px 10px;border-radius:10px;
+  background:var(--purple-dim);border:1px solid rgba(167,139,250,.25);
+  font-size:.65rem;font-weight:700;color:var(--purple);
+  text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;
+}
+.demand-intro{font-size:.8rem;color:var(--text2);line-height:1.5;}
+.demand-item{
+  background:var(--surface2);border:1px solid var(--border2);
+  border-radius:var(--r-sm);padding:13px 14px;margin-bottom:10px;
+  cursor:pointer;transition:all .15s;
+}
+.demand-item:hover{border-color:var(--border);background:var(--surface);}
+.demand-item-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px;}
+.demand-specialty{font-size:.82rem;font-weight:700;color:var(--text);}
+.demand-count{
+  font-size:.72rem;font-weight:700;
+  background:var(--purple-dim);color:var(--purple);
+  padding:2px 8px;border-radius:10px;
+  border:1px solid rgba(167,139,250,.2);
+}
+.demand-bar-track{height:5px;border-radius:3px;background:var(--border);overflow:hidden;margin-bottom:6px;}
+.demand-bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--purple),var(--teal));}
+.demand-desc{font-size:.72rem;color:var(--text2);}
+.demand-cta{
+  display:block;width:100%;margin-top:14px;
+  padding:11px;border-radius:var(--r-sm);
+  background:var(--purple);color:#fff;
+  font-size:.8rem;font-weight:700;text-align:center;
+}
+.demand-cta:hover{opacity:.88;}
+
+/* ── RANKING CARD ── */
+.ranking-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px;}
+.ranking-row{
+  display:flex;align-items:center;gap:12px;
+  padding:10px 0;border-bottom:1px solid var(--border2);
+}
+.ranking-row:last-child{border-bottom:none;}
+.rank-num{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800;flex-shrink:0;}
+.rank-num.gold{background:rgba(245,166,35,.2);color:var(--amber);}
+.rank-num.silver{background:var(--surface2);color:var(--text2);}
+.rank-num.bronze{background:rgba(180,120,80,.15);color:#C8834A;}
+.rank-num.plain{background:var(--surface2);color:var(--text3);}
+.rank-you{border:2px solid var(--teal);color:var(--teal) !important;background:var(--teal-dim) !important;}
+.rank-clinic{flex:1;min-width:0;}
+.rank-clinic-name{font-size:.8rem;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.rank-clinic-area{font-size:.68rem;color:var(--text3);}
+.rank-score{text-align:right;}
+.rank-score-num{font-size:.82rem;font-weight:700;color:var(--text);font-variant-numeric:tabular-nums;}
+.rank-score-sub{font-size:.65rem;color:var(--text3);}
+.rank-tag{font-size:.6rem;font-weight:700;padding:1px 6px;border-radius:8px;background:var(--teal-dim);color:var(--teal);margin-left:4px;vertical-align:middle;}
+
+/* ── MOBILE NAV ── */
+.mobile-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:100;background:var(--bg2);border-top:1px solid var(--border);padding:8px 0 calc(8px + env(safe-area-inset-bottom,0px));}
+.mobile-nav-items{display:flex;justify-content:space-around;}
+.mobile-nav-item{display:flex;flex-direction:column;align-items:center;gap:3px;padding:4px 12px;cursor:pointer;color:var(--text3);font-size:.62rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;}
+.mobile-nav-item.active{color:var(--teal);}
+.mobile-nav-icon{font-size:1.1rem;}
+
+@media(max-width:900px){
+  .sidebar{display:none;}
+  .mobile-nav{display:block;}
+  .main{padding-bottom:70px;}
+  .kpi-grid{grid-template-columns:1fr 1fr;}
+  .lower-grid{grid-template-columns:1fr;}
+  .page{padding:16px;gap:18px;}
+}
+@media(max-width:480px){
+  .kpi-grid{grid-template-columns:1fr 1fr;}
+  .kpi-num{font-size:1.6rem;}
+}
+</style>
+
+<div class="app">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-mark">🦷</div>
+      <div>
+        <div class="sidebar-logo-text">IndiaDentalWorld</div>
+        <div class="sidebar-logo-sub">Clinic Portal</div>
+      </div>
+    </div>
+    <div class="sidebar-clinic">
+      <div class="clinic-avatar">KD</div>
+      <div>
+        <div class="clinic-name">KareDental Smile Studio</div>
+        <div class="clinic-verified">✓ NDC Verified</div>
+      </div>
+    </div>
+    <div class="nav-section">Overview</div>
+    <div class="nav-item" onclick="setNav(this)"><span class="nav-icon">🏠</span> Dashboard</div>
+    <div class="nav-item" onclick="setNav(this)"><span class="nav-icon">📅</span> Appointments<span class="nav-badge">3</span></div>
+    <div class="nav-section">Clinic</div>
+    <div class="nav-item" onclick="setNav(this)"><span class="nav-icon">📝</span> Edit Profile</div>
+    <div class="nav-item" onclick="setNav(this)"><span class="nav-icon">🖼️</span> Content Hub</div>
+    <div class="nav-item" onclick="setNav(this)"><span class="nav-icon">👥</span> Team</div>
+    <div class="nav-item" onclick="setNav(this)"><span class="nav-icon">⭐</span> Reviews<span class="nav-badge">2</span></div>
+    <div class="nav-section">Growth</div>
+    <div class="nav-item active" onclick="setNav(this)"><span class="nav-icon">📊</span> Analytics</div>
+    <div class="nav-item" onclick="setNav(this)"><span class="nav-icon">📢</span> Promotions</div>
+    <div class="nav-item" onclick="setNav(this)"><span class="nav-icon">✍️</span> Blog</div>
+    <div class="nav-section">Account</div>
+    <div class="nav-item" onclick="setNav(this)"><span class="nav-icon">⚙️</span> Settings</div>
+    <div class="nav-item" onclick="setNav(this)"><span class="nav-icon">🔒</span> NDC Verification</div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+    <header class="topbar">
+      <div>
+        <div style="font-size:.95rem;font-weight:700;color:var(--text)">Analytics</div>
+        <div style="font-size:.72rem;color:var(--text3)">KareDental Smile Studio · Koramangala, Bengaluru</div>
+      </div>
+      <div class="topbar-right">
+        <button class="topbar-icon-btn" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+        <div class="clinic-avatar" style="width:36px;height:36px;font-size:.78rem;cursor:pointer">KD</div>
+      </div>
+    </header>
+
+    <div class="page">
+
+      <!-- PERIOD SELECTOR -->
+      <div class="period-bar">
+        <div class="period-tabs" id="periodTabs">
+          <div class="period-tab" onclick="setPeriod('7d',this)">7 days</div>
+          <div class="period-tab active" onclick="setPeriod('30d',this)">30 days</div>
+          <div class="period-tab" onclick="setPeriod('90d',this)">90 days</div>
+          <div class="period-tab" onclick="setPeriod('12m',this)">12 months</div>
+        </div>
+        <div class="period-context">Showing: <strong id="periodLabel">Sep 1 – Sep 30, 2026</strong> · vs prev period</div>
+      </div>
+
+      <!-- KPI TILES -->
+      <div>
+        <div class="section-label" style="margin-bottom:12px">Performance Overview</div>
+        <div class="kpi-grid" id="kpiGrid">
+          <!-- rendered by JS -->
+        </div>
+      </div>
+
+      <!-- MAIN BAR CHART -->
+      <div class="chart-card">
+        <div class="chart-header">
+          <div class="chart-title" id="chartTitle">Profile Views — Last 30 Days</div>
+          <div class="chart-legend" id="chartLegend">
+            <div class="legend-item"><span class="legend-dot" style="background:var(--teal)"></span>This period</div>
+            <div class="legend-item"><span class="legend-dot" style="background:var(--text3)"></span>Previous period</div>
+          </div>
+        </div>
+        <div class="chart-insight" id="chartInsight">
+          💡 <span>Your profile views are <strong>up 34%</strong> vs last month. Clinics that add a video see 3× more booking conversions — you're getting the visits but not yet capturing them.</span>
+        </div>
+        <div class="bar-chart-wrap">
+          <svg class="bar-chart-svg" id="mainChart" height="200"></svg>
+        </div>
+      </div>
+
+      <!-- LOWER GRID: FUNNEL + DEMAND -->
+      <div class="lower-grid">
+
+        <!-- PATIENT FUNNEL -->
+        <div class="funnel-card">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+            <span class="section-label">Patient Journey Funnel</span>
+            <span style="font-size:.7rem;color:var(--text3)">Last 30 days</span>
+          </div>
+          <div id="funnelRows"></div>
+          <div class="conv-rate">
+            <div class="conv-rate-num">3.2%</div>
+            <div class="conv-rate-label">View → Booking conversion rate<br><span style="font-size:.65rem;color:var(--text3)">Industry avg: 2.1% · You're above average 🎉</span></div>
+          </div>
+        </div>
+
+        <!-- DEMAND INTELLIGENCE -->
+        <div class="demand-card">
+          <div class="demand-header">
+            <div class="demand-badge">⚡ Demand Intelligence</div>
+            <div style="font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:4px">What patients near you are searching</div>
+            <div class="demand-intro">Anonymised searches within 5 km of Koramangala · Last 30 days</div>
+          </div>
+          <div id="demandItems"></div>
+          <button class="demand-cta" onclick="showFeaturedListing()">🚀 Be First in These Results — View Plans</button>
+        </div>
+      </div>
+
+      <!-- LOWER GRID 2: RANKING + TRAFFIC SOURCES -->
+      <div class="lower-grid">
+
+        <!-- LOCAL RANKING -->
+        <div class="ranking-card">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+            <span class="section-label">Your Local Ranking</span>
+            <span style="font-size:.7rem;color:var(--text3)">Koramangala · General Dentistry</span>
+          </div>
+          <div id="rankingRows"></div>
+          <div style="margin-top:12px;padding:10px 12px;background:var(--teal-dim);border-radius:var(--r-sm);font-size:.75rem;color:var(--text2);">
+            📈 You moved up <strong style="color:var(--teal)">2 positions</strong> this month. Add team members & respond to reviews to climb further.
+          </div>
+        </div>
+
+        <!-- TRAFFIC SOURCES -->
+        <div class="funnel-card">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+            <span class="section-label">Traffic Sources</span>
+            <span style="font-size:.7rem;color:var(--text3)">247 views · 30 days</span>
+          </div>
+          <div id="sourceRows"></div>
+          <div style="margin-top:16px;padding:11px 13px;background:var(--amber-dim);border:1px solid rgba(245,166,35,.2);border-radius:var(--r-sm);">
+            <div style="font-size:.75rem;font-weight:700;color:var(--amber);margin-bottom:3px;">💡 Unlock more Google traffic</div>
+            <div style="font-size:.72rem;color:var(--text2);">Link your Google Business Profile to pull reviews and appear in Google Maps search.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="height:8px"></div>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav">
+  <div class="mobile-nav-items">
+    <div class="mobile-nav-item"><span class="mobile-nav-icon">🏠</span>Home</div>
+    <div class="mobile-nav-item"><span class="mobile-nav-icon">📅</span>Appts</div>
+    <div class="mobile-nav-item"><span class="mobile-nav-icon">⭐</span>Reviews</div>
+    <div class="mobile-nav-item active"><span class="mobile-nav-icon">📊</span>Stats</div>
+    <div class="mobile-nav-item"><span class="mobile-nav-icon">⚙️</span>More</div>
+  </div>
+</nav>
+
+<!-- TOOLTIP -->
+<div class="chart-tooltip" id="chartTooltip"></div>
+
+<script>
+// ── THEME ──
+function toggleTheme() {
+  const root = document.documentElement;
+  const btn = document.querySelector('.topbar-icon-btn');
+  const cur = root.getAttribute('data-theme');
+  if (!cur || cur === 'dark') { root.setAttribute('data-theme','light'); if(btn) btn.textContent='☀️'; }
+  else { root.setAttribute('data-theme','dark'); if(btn) btn.textContent='🌙'; }
+  setTimeout(() => { buildMainChart(activePeriod); }, 50);
+}
+function setNav(el) {
+  document.querySelectorAll('.nav-item').forEach(i=>i.classList.remove('active'));
+  el.classList.add('active');
+}
+
+// ── DATA ──
+const kpiDefs = [
+  {
+    id:'views', icon:'👁️', label:'Profile Views', color:'var(--teal)',
+    periods: { '7d':{val:62,prev:51,unit:''},  '30d':{val:247,prev:184,unit:''},  '90d':{val:743,prev:598,unit:''},  '12m':{val:2841,prev:2103,unit:''} },
+    insight: 'Your strongest traffic day is Saturday — consider posting content on Fridays.'
+  },
+  {
+    id:'calls', icon:'📞', label:'Click-to-Call', color:'var(--amber)',
+    periods: { '7d':{val:14,prev:11,unit:''},  '30d':{val:53,prev:47,unit:''},  '90d':{val:162,prev:141,unit:''},  '12m':{val:584,prev:490,unit:''} },
+    insight: 'High call intent signals — make sure calls are answered during peak hours (11am–1pm).'
+  },
+  {
+    id:'whatsapp', icon:'💬', label:'WhatsApp Taps', color:'#25D366',
+    periods: { '7d':{val:9,prev:6,unit:''},  '30d':{val:38,prev:22,unit:''},  '90d':{val:114,prev:76,unit:''},  '12m':{val:423,prev:267,unit:''} },
+    insight: 'WhatsApp taps are up 73% — patients prefer messaging. Enable WhatsApp Business for auto-replies.'
+  },
+  {
+    id:'bookings', icon:'📅', label:'Booking Requests', color:'var(--rose)',
+    periods: { '7d':{val:4,prev:5,unit:''},  '30d':{val:16,prev:14,unit:''},  '90d':{val:47,prev:38,unit:''},  '12m':{val:179,prev:143,unit:''} },
+    insight: 'Booking rate is growing. Accepting requests within 2 hrs increases conversion by 45%.'
+  }
+];
+
+// 30-day daily data for main chart
+const days30 = ['Sep 1','Sep 2','Sep 3','Sep 4','Sep 5','Sep 6','Sep 7','Sep 8','Sep 9','Sep 10',
+  'Sep 11','Sep 12','Sep 13','Sep 14','Sep 15','Sep 16','Sep 17','Sep 18','Sep 19','Sep 20',
+  'Sep 21','Sep 22','Sep 23','Sep 24','Sep 25','Sep 26','Sep 27','Sep 28','Sep 29','Sep 30'];
+const viewsCurr = [6,4,7,5,9,12,8,5,4,6,8,10,7,5,6,9,11,8,6,7,8,12,9,7,8,10,13,9,7,8];
+const viewsPrev = [4,3,5,4,7,9,6,4,3,5,6,8,5,4,5,7,8,6,5,6,7,9,7,5,6,8,10,7,5,6];
+
+const days7  = ['Sep 24','Sep 25','Sep 26','Sep 27','Sep 28','Sep 29','Sep 30'];
+const views7c = [8,10,13,9,7,8,11];
+const views7p = [6,8,10,7,5,6,8];
+
+const months12 = ['Oct','Nov','Dec','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep'];
+const views12c = [198,221,185,162,204,238,267,251,283,271,294,247];
+const views12p = [168,188,162,141,182,203,231,224,258,247,261,184];
+
+const quarters = ['Jul–Sep 25','Oct–Dec 25','Jan–Mar 26','Apr–Jun 26','Jul–Sep 26'];
+const views90c = [598,634,712,687,743];
+const views90p = [511,572,654,621,598];
+
+let activePeriod = '30d';
+let activeKPI = 0;
+
+// ── SPARKLINE ──
+function sparkline(data, color, w=120, h=40) {
+  const min = Math.min(...data), max = Math.max(...data);
+  const range = max - min || 1;
+  const pts = data.map((v, i) => {
+    const x = (i / (data.length - 1)) * w;
+    const y = h - 4 - ((v - min) / range) * (h - 8);
+    return [x, y];
+  });
+  const pathD = pts.map((p, i) => `${i===0?'M':'L'}${p[0].toFixed(1)},${p[1].toFixed(1)}`).join(' ');
+  const areaD = pathD + ` L${w},${h} L0,${h} Z`;
+  const last = pts[pts.length - 1];
+  return `<svg class="spark-svg" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
+    <path class="spark-area" d="${areaD}" fill="${color}"/>
+    <path class="spark-line" d="${pathD}" stroke="${color}"/>
+    <circle class="spark-endpoint" cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" fill="${color}"/>
+  </svg>`;
+}
+
+function getSparkData(kpiId, period) {
+  const map = {
+    views:    { '7d':views7c,  '30d':viewsCurr, '90d':[55,62,70,65,68,74,80,77,83,79,86,90,85,81,88,92,83,78,85,91,86,89,95,87,82,90,98,87,82,86], '12m':views12c },
+    calls:    { '7d':[9,11,14,10,8,9,12], '30d':viewsCurr.map(v=>Math.round(v*.22)), '90d':[20,23,26,22,25,28,31,29,33,31,35,38,34,31,35,39,35,32,36,40,37,39,43,38,35,40,45,38,34,38], '12m':views12c.map(v=>Math.round(v*.22)) },
+    whatsapp: { '7d':[5,6,7,5,4,6,8], '30d':viewsCurr.map(v=>Math.round(v*.15)), '90d':[10,12,14,11,13,15,17,16,18,17,19,21,18,17,19,22,19,18,20,23,21,22,25,21,20,23,27,21,19,22], '12m':views12c.map(v=>Math.round(v*.15)) },
+    bookings: { '7d':[2,2,3,1,2,2,3], '30d':viewsCurr.map(v=>Math.round(v*.065)), '90d':[6,7,8,6,7,8,9,8,9,9,10,11,10,9,10,12,10,9,11,12,11,12,13,11,10,12,14,11,10,11], '12m':views12c.map(v=>Math.round(v*.065)) }
+  };
+  return map[kpiId][period] || viewsCurr;
+}
+
+// ── KPI TILES ──
+function trendPct(curr, prev) {
+  if (!prev) return 0;
+  return Math.round(((curr - prev) / prev) * 100);
+}
+
+function renderKPIs(period) {
+  const grid = document.getElementById('kpiGrid');
+  if (!grid) return;
+  grid.innerHTML = kpiDefs.map((k, idx) => {
+    const d = k.periods[period];
+    const pct = trendPct(d.val, d.prev);
+    const up = pct > 0, flat = pct === 0;
+    const trendClass = up ? 'up' : flat ? 'flat' : 'down';
+    const trendIcon = up ? '↑' : flat ? '→' : '↓';
+    const sparkData = getSparkData(k.id, period);
+    return `<div class="kpi-card${idx === activeKPI ? ' selected' : ''}" onclick="selectKPI(${idx})" title="${k.insight}">
+      <div class="kpi-top">
+        <span class="kpi-icon">${k.icon}</span>
+        <span class="kpi-trend ${trendClass}">${trendIcon} ${Math.abs(pct)}%</span>
+      </div>
+      <div class="kpi-num" style="color:${k.color}">${d.val.toLocaleString()}</div>
+      <div class="kpi-label">${k.label}</div>
+      <div class="kpi-sub">vs ${d.prev.toLocaleString()} prev period</div>
+      <div class="sparkline-wrap">${sparkline(sparkData, k.color)}</div>
+    </div>`;
+  }).join('');
+}
+
+function selectKPI(idx) {
+  activeKPI = idx;
+  renderKPIs(activePeriod);
+  buildMainChart(activePeriod);
+  updateChartInsight();
+}
+
+function updateChartInsight() {
+  const k = kpiDefs[activeKPI];
+  const d = k.periods[activePeriod];
+  const pct = trendPct(d.val, d.prev);
+  const ins = document.getElementById('chartInsight');
+  if (ins) {
+    const dir = pct > 0 ? `up <strong style="color:var(--green)">${pct}%</strong>` : pct < 0 ? `down <strong style="color:var(--rose)">${Math.abs(pct)}%</strong>` : 'unchanged';
+    ins.innerHTML = `💡 <span>${k.label} is ${dir} vs last period. ${k.insight}</span>`;
+  }
+  const title = document.getElementById('chartTitle');
+  const periodNames = {'7d':'Last 7 Days','30d':'Last 30 Days','90d':'Last 90 Days','12m':'Last 12 Months'};
+  if (title) title.textContent = `${k.label} — ${periodNames[activePeriod]}`;
+}
+
+// ── MAIN BAR CHART ──
+function getChartData(period) {
+  const kId = kpiDefs[activeKPI].id;
+  const spark = getSparkData(kId, period);
+  let labels, curr, prev;
+  if (period === '7d') { labels = days7; curr = views7c; prev = views7p; }
+  else if (period === '30d') { labels = days30; curr = viewsCurr; prev = viewsPrev; }
+  else if (period === '90d') { labels = quarters; curr = views90c.slice(-5); prev = views90p.slice(-5); }
+  else { labels = months12; curr = views12c; prev = views12p; }
+  // Scale by KPI
+  const scale = { views:1, calls:.22, whatsapp:.15, bookings:.065 }[kpiDefs[activeKPI].id] || 1;
+  return {
+    labels,
+    curr: curr.map(v => Math.round(v * scale)),
+    prev: prev.map(v => Math.round(v * scale))
+  };
+}
+
+function buildMainChart(period) {
+  const svg = document.getElementById('mainChart');
+  if (!svg) return;
+  const { labels, curr, prev } = getChartData(period);
+  const W = svg.parentElement.clientWidth || 800;
+  const H = 200;
+  const pad = { top: 16, right: 16, bottom: 36, left: 36 };
+  const innerW = W - pad.left - pad.right;
+  const innerH = H - pad.top - pad.bottom;
+  const maxVal = Math.max(...curr, ...prev, 1);
+  const n = labels.length;
+  const groupW = innerW / n;
+  const barW = Math.min(groupW * 0.32, 18);
+  const gap = 2;
+
+  // Get CSS variable values
+  const style = getComputedStyle(document.documentElement);
+  const teal   = style.getPropertyValue('--teal').trim()   || '#00C4A7';
+  const text3  = style.getPropertyValue('--text3').trim()  || '#4A706A';
+  const border2= style.getPropertyValue('--border2').trim()|| 'rgba(0,196,167,.08)';
+
+  svg.setAttribute('width', W);
+  svg.setAttribute('height', H);
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+
+  // Y grid lines
+  const gridSteps = 4;
+  let lines = '';
+  for (let i = 0; i <= gridSteps; i++) {
+    const y = pad.top + innerH - (i / gridSteps) * innerH;
+    const val = Math.round((i / gridSteps) * maxVal);
+    lines += `<line class="grid-line" x1="${pad.left}" x2="${W - pad.right}" y1="${y.toFixed(1)}" y2="${y.toFixed(1)}"/>`;
+    lines += `<text class="axis-label" x="${(pad.left - 5).toFixed(1)}" y="${(y + 3).toFixed(1)}" text-anchor="end">${val}</text>`;
+  }
+
+  // Bars + x-labels
+  let bars = '', xlabels = '';
+  const showEvery = Math.ceil(n / 10);
+  curr.forEach((v, i) => {
+    const x = pad.left + i * groupW + groupW / 2;
+    const hC = (v / maxVal) * innerH;
+    const hP = (prev[i] / maxVal) * innerH;
+    const yC = pad.top + innerH - hC;
+    const yP = pad.top + innerH - hP;
+    const x1 = x - barW - gap / 2;
+    const x2 = x + gap / 2;
+
+    bars += `<rect class="bar-rect" x="${x1.toFixed(1)}" y="${yP.toFixed(1)}" width="${barW.toFixed(1)}" height="${Math.max(hP,2).toFixed(1)}"
+      fill="${text3}" opacity=".45"
+      data-label="${labels[i]}" data-curr="${v}" data-prev="${prev[i]}" data-idx="${i}"
+      onmouseenter="showTip(event,this)" onmouseleave="hideTip()"/>`;
+    bars += `<rect class="bar-rect" x="${x2.toFixed(1)}" y="${yC.toFixed(1)}" width="${barW.toFixed(1)}" height="${Math.max(hC,2).toFixed(1)}"
+      fill="${teal}"
+      data-label="${labels[i]}" data-curr="${v}" data-prev="${prev[i]}" data-idx="${i}"
+      onmouseenter="showTip(event,this)" onmouseleave="hideTip()"/>`;
+
+    if (i % showEvery === 0 || i === n - 1) {
+      xlabels += `<text class="axis-label" x="${x.toFixed(1)}" y="${(pad.top + innerH + 16).toFixed(1)}" text-anchor="middle">${labels[i]}</text>`;
+    }
+  });
+
+  // Baseline
+  const basY = (pad.top + innerH).toFixed(1);
+  svg.innerHTML = `
+    <g>${lines}</g>
+    <g>${bars}</g>
+    <g>${xlabels}</g>
+    <line class="axis-line" x1="${pad.left}" x2="${W - pad.right}" y1="${basY}" y2="${basY}"/>
+  `;
+}
+
+// Tooltip
+function showTip(e, el) {
+  const tt = document.getElementById('chartTooltip');
+  if (!tt) return;
+  const label = el.dataset.label;
+  const curr  = el.dataset.curr;
+  const prev  = el.dataset.prev;
+  const kName = kpiDefs[activeKPI].label;
+  const style = getComputedStyle(document.documentElement);
+  const teal  = style.getPropertyValue('--teal').trim() || '#00C4A7';
+  const text3 = style.getPropertyValue('--text3').trim() || '#4A706A';
+  tt.innerHTML = `
+    <div class="tooltip-date">${label}</div>
+    <div class="tooltip-row">
+      <div style="display:flex;align-items:center;gap:5px"><span class="tooltip-dot" style="background:${teal}"></span>${kName}</div>
+      <span class="tooltip-val">${curr}</span>
+    </div>
+    <div class="tooltip-row" style="margin-top:3px">
+      <div style="display:flex;align-items:center;gap:5px"><span class="tooltip-dot" style="background:${text3}"></span>Prev period</div>
+      <span class="tooltip-val">${prev}</span>
+    </div>`;
+  tt.style.display = 'block';
+  tt.style.left = (e.clientX + 14) + 'px';
+  tt.style.top  = (e.clientY - 40) + 'px';
+}
+function hideTip() {
+  const tt = document.getElementById('chartTooltip');
+  if (tt) tt.style.display = 'none';
+}
+document.addEventListener('mousemove', e => {
+  const tt = document.getElementById('chartTooltip');
+  if (tt && tt.style.display !== 'none') {
+    tt.style.left = (e.clientX + 14) + 'px';
+    tt.style.top  = (e.clientY - 40) + 'px';
+  }
+});
+
+// ── PERIOD ──
+const periodLabels = {
+  '7d':'Sep 24 – Sep 30, 2026',
+  '30d':'Sep 1 – Sep 30, 2026',
+  '90d':'Jul 1 – Sep 30, 2026',
+  '12m':'Oct 2025 – Sep 2026'
+};
+function setPeriod(p, el) {
+  activePeriod = p;
+  document.querySelectorAll('.period-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  const lbl = document.getElementById('periodLabel');
+  if (lbl) lbl.textContent = periodLabels[p];
+  renderKPIs(p);
+  buildMainChart(p);
+  updateChartInsight();
+}
+
+// ── FUNNEL ──
+const funnelData = [
+  { label:'Profile Views',     val:247, pct:100, color:'var(--teal)' },
+  { label:'Click-to-Call',     val:53,  pct:21,  color:'var(--amber)' },
+  { label:'WhatsApp Taps',     val:38,  pct:15,  color:'#25D366' },
+  { label:'Booking Requests',  val:16,  pct:6.5, color:'var(--rose)' },
+  { label:'Confirmed Appts',   val:8,   pct:3.2, color:'var(--purple)' }
+];
+function renderFunnel() {
+  const el = document.getElementById('funnelRows');
+  if (!el) return;
+  el.innerHTML = funnelData.map(f => `
+    <div class="funnel-row">
+      <div class="funnel-label">${f.label}</div>
+      <div class="funnel-bar-wrap">
+        <div class="funnel-bar-fill" style="width:${f.pct}%;background:${f.color}"></div>
+      </div>
+      <div class="funnel-num">${f.val}</div>
+      <div class="funnel-pct">${f.pct}%</div>
+    </div>`).join('');
+}
+
+// ── DEMAND INTELLIGENCE ──
+const demandData = [
+  { specialty:'Teeth Whitening',  searches:89,  pct:100, you:false, desc:'High cosmetic demand — you offer this but don\'t rank in top 5' },
+  { specialty:'Invisalign / Braces', searches:67, pct:75, you:false, desc:'You have an orthodontist on team — promote this specialty' },
+  { specialty:'Dental Implants',  searches:54,  pct:61,  you:true,  desc:'You rank #3 — 2 more reviews could push you to #1' },
+  { specialty:'Root Canal (RCT)', searches:41,  pct:46,  you:true,  desc:'You rank #2 for this — consistent performance' },
+  { specialty:'Kids Dentistry',   searches:38,  pct:43,  you:false, desc:'Uncontested opportunity — no clinic near you prominently offers this' }
+];
+function renderDemand() {
+  const el = document.getElementById('demandItems');
+  if (!el) return;
+  el.innerHTML = demandData.map(d => `
+    <div class="demand-item">
+      <div class="demand-item-top">
+        <span class="demand-specialty">${d.specialty}${d.you ? ' <span style="font-size:.6rem;background:var(--green-dim);color:var(--green);padding:1px 6px;border-radius:8px;font-weight:700">You rank</span>':''}</span>
+        <span class="demand-count">${d.searches} searches</span>
+      </div>
+      <div class="demand-bar-track"><div class="demand-bar-fill" style="width:${d.pct}%"></div></div>
+      <div class="demand-desc">${d.desc}</div>
+    </div>`).join('');
+}
+
+// ── LOCAL RANKING ──
+const rankData = [
+  { rank:1, name:'SmileCraft Dental',     area:'Indiranagar',  score:4.9, reviews:87 },
+  { rank:2, name:'Pearl Dental Studio',   area:'Koramangala',  score:4.8, reviews:62 },
+  { rank:3, name:'KareDental Smile Studio', area:'Koramangala', score:4.7, reviews:31, you:true },
+  { rank:4, name:'Denta Clinic',           area:'HSR Layout',  score:4.6, reviews:45 },
+  { rank:5, name:'Whitefield Dental',      area:'Whitefield',  score:4.5, reviews:28 }
+];
+function rankClass(r) {
+  if (r===1) return 'gold'; if (r===2) return 'silver'; if (r===3) return 'bronze'; return 'plain';
+}
+function renderRanking() {
+  const el = document.getElementById('rankingRows');
+  if (!el) return;
+  el.innerHTML = rankData.map(r => `
+    <div class="ranking-row">
+      <div class="rank-num ${rankClass(r.rank)}${r.you?' rank-you':''}">${r.rank}</div>
+      <div class="rank-clinic">
+        <div class="rank-clinic-name">${r.name}${r.you?'<span class="rank-tag">YOU</span>':''}</div>
+        <div class="rank-clinic-area">📍 ${r.area}</div>
+      </div>
+      <div class="rank-score">
+        <div class="rank-score-num">⭐ ${r.score}</div>
+        <div class="rank-score-sub">${r.reviews} reviews</div>
+      </div>
+    </div>`).join('');
+}
+
+// ── TRAFFIC SOURCES ──
+const sourceData = [
+  { label:'IDW Search',        val:112, pct:100, color:'var(--teal)' },
+  { label:'Direct link',       val:61,  pct:54,  color:'var(--purple)' },
+  { label:'Google Search',     val:47,  pct:42,  color:'var(--amber)' },
+  { label:'WhatsApp share',    val:18,  pct:16,  color:'#25D366' },
+  { label:'Social media',      val:9,   pct:8,   color:'var(--rose)' }
+];
+function renderSources() {
+  const el = document.getElementById('sourceRows');
+  if (!el) return;
+  el.innerHTML = sourceData.map(s => `
+    <div class="funnel-row">
+      <div class="funnel-label">${s.label}</div>
+      <div class="funnel-bar-wrap">
+        <div class="funnel-bar-fill" style="width:${s.pct}%;background:${s.color}"></div>
+      </div>
+      <div class="funnel-num">${s.val}</div>
+      <div class="funnel-pct">${Math.round(s.val/247*100)}%</div>
+    </div>`).join('');
+}
+
+function showFeaturedListing() {
+  alert = undefined; // no-op in artifact
+  // Visual feedback
+  const btn = document.querySelector('.demand-cta');
+  if (btn) { btn.textContent = '✓ Plans page coming in M6'; btn.style.background = 'var(--green)'; }
+}
+
+// ── INIT ──
+renderKPIs('30d');
+renderFunnel();
+renderDemand();
+renderRanking();
+renderSources();
+updateChartInsight();
+setTimeout(() => buildMainChart('30d'), 80);
+window.addEventListener('resize', () => buildMainChart(activePeriod));
+</script>
+
+</body></html>

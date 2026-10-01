@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Patient dashboard | IndiaDentalWorld</title>
+<meta name="description" content="Prototype of the IndiaDentalWorld patient dashboard. Sample data only.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Lora:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A1714;--bg2:#0E1D19;--bg3:#13261F;--surface:#15271F;--line:rgba(226,237,235,.10);--line2:rgba(226,237,235,.2);--text:#E8F0EE;--text2:#9DBBB6;--text3:#6F918B;--teal:#00C4A7;--teal-text:#00C4A7;--teal-ink:#04211C;--glow:rgba(0,196,167,.16);--amber:#F5A623;--rose:#F06A6A;--green:#34D399;--nav:64px;--gut:clamp(16px,4vw,40px);--serif:'Lora',Georgia,serif;--sans:'Plus Jakarta Sans',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
+:root[data-theme="light"]{--bg:#F5F9F8;--bg2:#EAF2F0;--bg3:#E1EDEA;--surface:#FFFFFF;--line:rgba(10,23,20,.12);--line2:rgba(10,23,20,.22);--text:#0A1714;--text2:#33524C;--text3:#52706A;--teal-text:#00796A;--glow:rgba(0,196,167,.12);--amber:#9A5B00;--rose:#B93A3A;--green:#12795A}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:400 15px/1.55 var(--sans);-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:6px}
+svg.i{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--teal);color:var(--teal-ink);padding:8px 14px;border-radius:8px;z-index:100}
+.skip:focus{left:8px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line2);background:transparent;padding:9px 16px;border-radius:10px;font-weight:600;font-size:14px;text-decoration:none;min-height:40px}
+.btn:hover{border-color:var(--teal);color:var(--teal-text)}
+.btn--teal{background:var(--teal);color:var(--teal-ink);border-color:var(--teal)}
+.btn--teal:hover{color:var(--teal-ink);filter:brightness(1.08)}
+.btn--danger{border-color:var(--rose);color:var(--rose)}
+.btn--danger:hover{background:var(--rose);color:#1a0505;border-color:var(--rose)}
+.btn--sm{padding:6px 12px;min-height:34px;font-size:13px}
+.link{color:var(--teal-text);text-underline-offset:3px}
+.mono{font-family:var(--mono);font-size:12px;color:var(--text3)}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:40;height:var(--nav);display:flex;align-items:center;gap:16px;padding:0 var(--gut);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.logo{font-weight:700;font-size:17px;text-decoration:none;letter-spacing:-.01em}
+.logo b{color:var(--teal-text)}
+.top__sp{flex:1}
+.who{display:flex;align-items:center;gap:10px;font-size:14px}
+.av{width:34px;height:34px;border-radius:50%;background:var(--bg3);border:1px solid var(--line2);display:grid;place-items:center;font-weight:700;color:var(--teal-text)}
+.iconbtn{width:40px;height:40px;border-radius:10px;border:1px solid var(--line);background:transparent;display:grid;place-items:center}
+.founder-btn{white-space:nowrap;border:1px dashed var(--amber);color:var(--amber);background:transparent;padding:7px 12px;border-radius:999px;font-size:13px;font-weight:600}
+body.founder .founder-btn{background:var(--amber);color:#1c1200}
+.sample{background:var(--bg3);border-bottom:1px solid var(--line);text-align:center;font-size:13px;color:var(--text2);padding:7px var(--gut)}
+
+/* layout */
+.shell{display:grid;grid-template-columns:240px minmax(0,1fr);gap:clamp(20px,3vw,44px);max-width:1280px;margin:0 auto;padding:28px var(--gut) 60px}
+.side{position:sticky;top:calc(var(--nav) + 20px);align-self:start}
+.side ul{list-style:none;padding:0;display:grid;gap:2px}
+.tab{width:100%;display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:10px;border:0;background:transparent;text-align:left;color:var(--text2);font-weight:500}
+.tab:hover{background:var(--bg3);color:var(--text)}
+.tab[aria-current="page"]{background:var(--glow);color:var(--teal-text);font-weight:700}
+.tab .n{margin-left:auto;font:500 12px var(--mono);background:var(--bg3);border-radius:999px;padding:1px 8px;color:var(--text2)}
+.tab .n.alert{background:var(--amber);color:#1c1200}
+.panel{display:none;min-width:0}
+.panel.on{display:block}
+h1{font:600 clamp(1.7rem,3.2vw,2.3rem)/1.15 var(--serif);letter-spacing:-.01em}
+h2{font:700 17px/1.3 var(--sans)}
+h3{font:700 15px/1.3 var(--sans)}
+.lede{color:var(--text2);margin:8px 0 24px;max-width:62ch}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;min-width:0}
+.card + .card{margin-top:0}
+.stack{display:grid;gap:14px}
+.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.row--sb{justify-content:space-between}
+.muted{color:var(--text2)}
+.small{font-size:13px}
+.sec{margin-top:30px}
+.sec > h2{margin-bottom:12px}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:2px 10px;border-radius:999px;border:1px solid var(--line2);color:var(--text2)}
+.pill--ok{color:var(--green);border-color:color-mix(in srgb,var(--green) 50%,transparent)}
+.pill--warn{color:var(--amber);border-color:color-mix(in srgb,var(--amber) 50%,transparent)}
+.pill--bad{color:var(--rose);border-color:color-mix(in srgb,var(--rose) 50%,transparent)}
+.stat{font:600 2rem/1 var(--serif)}
+.date{width:58px;flex:none;text-align:center;border:1px solid var(--line2);border-radius:12px;padding:8px 0;background:var(--bg2)}
+.date b{display:block;font:600 22px/1 var(--serif)}
+.date span{font-size:12px;color:var(--text2)}
+.appt{display:flex;gap:14px;align-items:flex-start}
+.appt__b{flex:1;min-width:0}
+.appt__a{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.empty{border:1px dashed var(--line2);border-radius:14px;padding:26px;text-align:center;color:var(--text2)}
+.badge-v{display:inline-flex;gap:4px;align-items:center;color:var(--teal-text);font-size:12px;font-weight:600}
+.stars{display:inline-flex;gap:2px}
+.stars button{background:none;border:0;padding:2px;color:var(--text3);font-size:24px;line-height:1}
+.stars button.on{color:var(--amber)}
+.star-ro{color:var(--amber);letter-spacing:2px}
+textarea,input[type=text],select{width:100%;background:var(--bg2);color:var(--text);border:1px solid var(--line2);border-radius:10px;padding:10px 12px;font:inherit}
+textarea{min-height:96px;resize:vertical}
+label{font-size:13px;font-weight:600;display:block;margin-bottom:6px}
+.field{margin-bottom:14px}
+
+/* consent switch */
+.consent{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-top:1px solid var(--line)}
+.consent:first-of-type{border-top:0}
+.consent__b{flex:1;min-width:0}
+.sw{position:relative;width:48px;height:28px;flex:none;border-radius:999px;border:1px solid var(--line2);background:var(--bg3);padding:0}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--text3);transition:transform .18s,background .18s}
+.sw[aria-checked="true"]{background:var(--teal);border-color:var(--teal)}
+.sw[aria-checked="true"]::after{transform:translateX(20px);background:var(--teal-ink)}
+.sw[disabled]{opacity:.55;cursor:not-allowed}
+details{border-top:1px solid var(--line);padding:12px 0}
+summary{cursor:pointer;font-weight:600}
+.notice{background:var(--bg2);border-radius:10px;padding:12px;margin-top:10px;font-size:13px;color:var(--text2)}
+.timeline{list-style:none;padding:0;display:grid;gap:10px;margin-top:12px}
+.timeline li{display:flex;gap:10px;font-size:13px;color:var(--text2)}
+.timeline li::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--teal);margin-top:6px;flex:none}
+.timeline li.todo::before{background:transparent;border:1px solid var(--text3)}
+.danger{border-color:color-mix(in srgb,var(--rose) 45%,transparent)}
+
+/* founder view */
+.fv{display:none;border:1px dashed var(--amber);border-radius:12px;padding:12px 14px;margin-top:16px;font-size:13px;color:var(--text2);background:color-mix(in srgb,var(--amber) 7%,transparent)}
+body.founder .fv{display:block}
+.fv b{color:var(--amber)}
+.fv ul{margin:6px 0 0 18px;padding:0}
+.slot-off{display:none;border:1px dashed var(--line2);border-radius:12px;padding:12px;font-size:13px;color:var(--text3);margin-top:16px}
+body.founder .slot-off{display:block}
+.sponsored{font-size:12px;font-weight:700;border:1px solid var(--amber);color:var(--amber);border-radius:6px;padding:1px 6px}
+
+/* modal + toast */
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;place-items:center;z-index:80;padding:16px}
+.scrim.on{display:grid}
+.modal{background:var(--surface);border:1px solid var(--line2);border-radius:16px;max-width:460px;width:100%;padding:22px}
+.modal h2{margin-bottom:8px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--text);color:var(--bg);padding:11px 18px;border-radius:12px;font-weight:600;font-size:14px;opacity:0;pointer-events:none;transition:.2s;z-index:90;max-width:calc(100vw - 32px)}
+.toast.on{opacity:1;transform:translateX(-50%)}
+
+footer{border-top:1px solid var(--line);padding:22px var(--gut);color:var(--text2);font-size:13px}
+footer .in{max-width:1280px;margin:0 auto;display:flex;gap:10px 24px;flex-wrap:wrap}
+
+/* mobile */
+@media (max-width:900px){
+ .shell{grid-template-columns:minmax(0,1fr);padding-top:14px}
+ .side{position:sticky;top:var(--nav);z-index:30;background:var(--bg);margin:0 calc(var(--gut) * -1);padding:8px var(--gut);border-bottom:1px solid var(--line)}
+ .side ul{display:flex;overflow-x:auto;gap:6px;scrollbar-width:none}
+ .tab{width:auto;white-space:nowrap;padding:9px 12px;border:1px solid var(--line)}
+ .tab .n{margin-left:4px}
+ .g2,.g3{grid-template-columns:minmax(0,1fr)}
+ .who{display:none}
+ .top{gap:8px}
+ .founder-btn{padding:6px 10px;font-size:12px}
+ .side{overflow:hidden}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <defs>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.6-9 9-9 9z"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6M16 4.5a3.5 3.5 0 0 1 0 7M18 14c2.5.6 3.5 2.6 3.5 6"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17h.01"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></symbol>
+ </defs>
+</svg>
+
+<header class="top">
+ <a class="logo" href="#">India<b>Dental</b>World</a>
+ <span class="top__sp"></span>
+ <button class="founder-btn" id="founderBtn" aria-pressed="false">Founder view</button>
+ <button class="iconbtn" id="themeBtn" aria-label="Switch between dark and light theme"><svg class="i"><use href="#i-sun"/></svg></button>
+ <div class="who"><div class="av" aria-hidden="true">A</div><span>Asha (sample)</span></div>
+</header>
+<div class="sample" role="note">Prototype. Every name, clinic, date and review on this page is sample data.</div>
+
+<div class="shell">
+ <nav class="side" aria-label="Dashboard sections">
+  <ul>
+   <li><button class="tab" data-go="overview" aria-current="page"><svg class="i"><use href="#i-home"/></svg>Overview</button></li>
+   <li><button class="tab" data-go="appointments"><svg class="i"><use href="#i-cal"/></svg>Appointments<span class="n" id="nAppt">2</span></button></li>
+   <li><button class="tab" data-go="saved"><svg class="i"><use href="#i-heart"/></svg>Saved clinics<span class="n" id="nSaved">3</span></button></li>
+   <li><button class="tab" data-go="reviews"><svg class="i"><use href="#i-star"/></svg>Reviews<span class="n alert" id="nRev">1</span></button></li>
+   <li><button class="tab" data-go="family"><svg class="i"><use href="#i-users"/></svg>Family</button></li>
+   <li><button class="tab" data-go="privacy"><svg class="i"><use href="#i-lock"/></svg>Privacy and data</button></li>
+   <li><button class="tab" data-go="help"><svg class="i"><use href="#i-help"/></svg>Help and complaints</button></li>
+  </ul>
+ </nav>
+
+ <main id="main" tabindex="-1">
+
+ <!-- OVERVIEW -->
+ <section class="panel on" id="p-overview" aria-labelledby="h-overview">
+  <h1 id="h-overview">Hello, Asha</h1>
+  <p class="lede">Your appointments, saved clinics and privacy choices are in one place. You decide what we keep.</p>
+  <div class="grid g2">
+   <div class="card">
+    <div class="row row--sb"><h2>Next appointment</h2><span class="pill pill--ok">Confirmed</span></div>
+    <div class="appt" style="margin-top:14px">
+     <div class="date"><b>14</b><span>Oct</span></div>
+     <div class="appt__b"><h3>Dental check-up and cleaning</h3><p class="muted small">Sample Dental Clinic, Indiranagar, Bengaluru</p><p class="mono" style="margin-top:4px">10:30 am</p></div>
+    </div>
+    <div class="appt__a"><button class="btn btn--sm" data-go="appointments">See details</button></div>
+   </div>
+   <div class="card">
+    <h2>To do</h2>
+    <ul class="stack" style="list-style:none;padding:0;margin-top:12px">
+     <li class="row row--sb"><span>Write a review for your visit on 2 Sep</span><button class="btn btn--sm" data-go="reviews">Write</button></li>
+     <li class="row row--sb"><span>Choose your marketing message setting</span><button class="btn btn--sm" data-go="privacy">Choose</button></li>
+    </ul>
+   </div>
+  </div>
+  <div class="grid g3" style="margin-top:16px">
+   <div class="card"><div class="stat" id="sUp">2</div><p class="muted small">Upcoming appointments</p></div>
+   <div class="card"><div class="stat" id="sSaved">3</div><p class="muted small">Saved clinics</p></div>
+   <div class="card"><div class="stat">1</div><p class="muted small">Family member</p></div>
+  </div>
+  <div class="card sec" style="margin-top:16px"><h2>Find a dentist</h2><p class="muted small" style="margin:6px 0 12px">Search by treatment, clinic or area. Results are ordered by what you search, never by who pays.</p><a class="btn btn--teal" href="IDW-search-results-page-v2.html">Search clinics</a></div>
+  <div class="slot-off"><b>Revenue slot (off).</b> A "Sponsored" card could sit here only after traffic proof and lawyer approval. Never inside booking or appointment screens.</div>
+  <div class="fv"><b>Founder view.</b> Why this page: it brings patients back, so clinics get repeat bookings.
+   <ul><li><b>Searchability:</b> signed-in area, not indexed.</li><li><b>Revenue:</b> booking commission (Layer 1) is wired to appointments, switched off until the lawyer approves.</li><li><b>Legal:</b> data download, delete and withdraw-consent are one click each (DPDP).</li></ul></div>
+ </section>
+
+ <!-- APPOINTMENTS -->
+ <section class="panel" id="p-appointments" aria-labelledby="h-appt">
+  <h1 id="h-appt">Appointments</h1>
+  <p class="lede">Cancel or reschedule from here. Clinics see only what you share for the visit.</p>
+  <div class="sec" style="margin-top:0"><h2>Upcoming</h2>
+   <div class="stack" id="upList" style="margin-top:12px">
+    <article class="card appt" data-id="a1"><div class="date"><b>14</b><span>Oct</span></div><div class="appt__b"><div class="row row--sb"><h3>Dental check-up and cleaning</h3><span class="pill pill--ok st">Confirmed</span></div><p class="muted small">Sample Dental Clinic, Indiranagar <span class="badge-v"><svg class="i" style="width:14px;height:14px"><use href="#i-check"/></svg>Verified</span></p><p class="mono">10:30 am · For: Asha</p><p class="small muted" style="margin-top:6px">Indicative price: ₹500 to ₹900. Final price is set by the clinic after examination.</p><div class="appt__a"><button class="btn btn--sm" data-act="resched">Reschedule</button><button class="btn btn--sm btn--danger" data-act="cancel">Cancel</button></div></div></article>
+    <article class="card appt" data-id="a2"><div class="date"><b>29</b><span>Oct</span></div><div class="appt__b"><div class="row row--sb"><h3>Child dental review</h3><span class="pill pill--warn st">Awaiting clinic</span></div><p class="muted small">Sample Smile Clinic, Jayanagar</p><p class="mono">4:00 pm · For: Aarav (family)</p><div class="appt__a"><button class="btn btn--sm" data-act="resched">Reschedule</button><button class="btn btn--sm btn--danger" data-act="cancel">Cancel</button></div></div></article>
+   </div>
+  </div>
+  <div class="sec"><h2>Past</h2>
+   <div class="stack" style="margin-top:12px">
+    <article class="card appt"><div class="date"><b>2</b><span>Sep</span></div><div class="appt__b"><div class="row row--sb"><h3>Tooth pain consultation</h3><span class="pill">Completed</span></div><p class="muted small">Sample Dental Clinic, Indiranagar</p><div class="appt__a"><button class="btn btn--sm" data-go="reviews">Review this visit</button><button class="btn btn--sm">Book again</button></div></div></article>
+    <article class="card appt"><div class="date"><b>11</b><span>Jun</span></div><div class="appt__b"><div class="row row--sb"><h3>Scaling</h3><span class="pill">Completed</span></div><p class="muted small">Sample Care Dental, Koramangala</p><p class="small muted" style="margin-top:4px">Review posted.</p></div></article>
+   </div>
+  </div>
+  <div class="fv"><b>Founder view.</b> A visit counts as "completed" only when the clinic marks it. That status is what unlocks reviews, so reviews cannot be faked. <ul><li><b>Revenue:</b> commission is calculated on completed bookings only (off by default).</li><li><b>Legal:</b> no ads or sponsored content on this screen.</li></ul></div>
+ </section>
+
+ <!-- SAVED -->
+ <section class="panel" id="p-saved" aria-labelledby="h-saved">
+  <h1 id="h-saved">Saved clinics</h1>
+  <p class="lede">Your shortlist. Only you can see it.</p>
+  <div class="grid g2" id="savedList">
+   <article class="card" data-id="s1"><h3>Sample Dental Clinic</h3><p class="muted small">Indiranagar, Bengaluru</p><p class="small" style="margin:6px 0"><span class="badge-v"><svg class="i" style="width:14px;height:14px"><use href="#i-check"/></svg>Verified</span> <span class="mono">checked 12 Mar 2026</span></p><div class="appt__a"><a class="btn btn--sm btn--teal" href="#" data-act="book">Book</a><button class="btn btn--sm" data-act="unsave">Remove</button></div></article>
+   <article class="card" data-id="s2"><h3>Sample Smile Clinic</h3><p class="muted small">Jayanagar, Bengaluru</p><p class="small" style="margin:6px 0"><span class="badge-v"><svg class="i" style="width:14px;height:14px"><use href="#i-check"/></svg>Verified</span> <span class="mono">checked 3 Feb 2026</span></p><div class="appt__a"><a class="btn btn--sm btn--teal" href="#" data-act="book">Book</a><button class="btn btn--sm" data-act="unsave">Remove</button></div></article>
+   <article class="card" data-id="s3"><h3>Sample Care Dental</h3><p class="muted small">Koramangala, Bengaluru</p><p class="small muted" style="margin:6px 0">Not yet verified. Registration is being checked.</p><div class="appt__a"><a class="btn btn--sm btn--teal" href="#" data-act="book">Book</a><button class="btn btn--sm" data-act="unsave">Remove</button></div></article>
+  </div>
+  <div class="empty" id="savedEmpty" hidden>No saved clinics yet. <a class="link" href="IDW-search-results-page-v2.html">Search clinics</a> and tap the heart to save one.</div>
+  <div class="fv"><b>Founder view.</b> Saved clinics are a retention signal and a warm lead for the clinic. <ul><li><b>Legal:</b> "Verified" comes only from the verification list, never from code on this page.</li></ul></div>
+ </section>
+
+ <!-- REVIEWS -->
+ <section class="panel" id="p-reviews" aria-labelledby="h-rev">
+  <h1 id="h-rev">Reviews</h1>
+  <p class="lede">You can review a clinic only after a completed visit. Posted reviews can't be edited or deleted, so check before you post.</p>
+  <h2>Waiting for your review</h2>
+  <div id="revTodo" class="stack" style="margin-top:12px">
+   <article class="card" id="revForm">
+    <h3>Sample Dental Clinic · visit on 2 Sep</h3>
+    <div class="field" style="margin-top:12px"><label id="rl">Your rating</label><div class="stars" role="radiogroup" aria-labelledby="rl" id="stars"></div></div>
+    <div class="field"><label for="rt">Your experience</label><textarea id="rt" placeholder="Describe the visit: waiting time, explanation, comfort, cleanliness."></textarea><p class="small muted" style="margin-top:6px">Be factual. We don't allow rewards for reviews, and clinics can't pay to remove one.</p></div>
+    <button class="btn btn--teal" id="revSubmit">Post review</button>
+   </article>
+  </div>
+  <div class="empty" id="revEmpty" hidden>No visits waiting for a review.</div>
+  <div class="sec"><h2>Posted</h2>
+   <div class="stack" id="revPosted" style="margin-top:12px">
+    <article class="card"><div class="row row--sb"><h3>Sample Care Dental · 11 Jun</h3><span class="star-ro" aria-label="4 out of 5">★★★★☆</span></div><p class="muted" style="margin-top:6px">Scaling was quick and the dentist explained each step. Waited about 20 minutes past my slot.</p><p class="mono" style="margin-top:8px">Posted 12 Jun · read only</p></article>
+   </div>
+  </div>
+  <div class="fv"><b>Founder view.</b> Reviews tied to completed visits are the trust core: they are what Google and patients can rely on. <ul><li><b>Legal:</b> no editing or deleting by anyone; only an admin can hide one, with a recorded reason. No incentivised reviews.</li></ul></div>
+ </section>
+
+ <!-- FAMILY -->
+ <section class="panel" id="p-family" aria-labelledby="h-fam">
+  <h1 id="h-fam">Family</h1>
+  <p class="lede">Book for people you care for. Their details stay linked to your account.</p>
+  <div class="stack" id="famList">
+   <article class="card row row--sb"><div><h3>Aarav</h3><p class="muted small">Child · age group 5 to 9 · you are the parent</p></div><span class="pill pill--ok">Parent consent recorded</span></article>
+  </div>
+  <div class="card" style="margin-top:16px">
+   <h2>Add a family member</h2>
+   <div class="grid g2" style="margin-top:12px">
+    <div class="field"><label for="fn">Name</label><input type="text" id="fn" autocomplete="off"></div>
+    <div class="field"><label for="fr">Relationship</label><select id="fr"><option>Child</option><option>Spouse</option><option>Parent</option><option>Other</option></select></div>
+   </div>
+   <div class="field"><label for="fa">Age group</label><select id="fa"><option>Under 5</option><option>5 to 9</option><option>10 to 17</option><option>18 or over</option></select></div>
+   <label class="row" style="font-weight:400;gap:10px;align-items:flex-start"><input type="checkbox" id="fc" style="margin-top:4px"><span id="fcT">I am this person's parent or legal guardian and I consent to IndiaDentalWorld handling their details as described in the <a class="link" href="#">privacy notice</a>.</span></label>
+   <div style="margin-top:14px"><button class="btn btn--teal" id="famAdd">Add member</button></div>
+  </div>
+  <div class="fv"><b>Founder view.</b> Families book more than individuals. <ul><li><b>Legal:</b> children's data needs verifiable parental consent under DPDP. No tracking or targeted ads for anyone under 18. The method of verification is a lawyer question (brief, item on children's data).</li></ul></div>
+ </section>
+
+ <!-- PRIVACY -->
+ <section class="panel" id="p-privacy" aria-labelledby="h-priv">
+  <h1 id="h-priv">Privacy and data</h1>
+  <p class="lede">Choose what we may use. Turning anything off takes one tap and applies immediately.</p>
+  <div class="card">
+   <h2>Your choices</h2>
+   <div style="margin-top:6px" id="consents">
+    <div class="consent"><div class="consent__b"><h3>Privacy notice and terms</h3><p class="muted small">Needed to keep your account and book appointments. To withdraw, delete your account below.</p><details><summary class="small">Read the wording (version 1)</summary><div class="notice">Placeholder wording. The final text will be written and approved by a lawyer.</div></details></div><button class="sw" role="switch" aria-checked="true" aria-label="Privacy notice and terms" disabled></button></div>
+    <div class="consent" data-c="location"><div class="consent__b"><h3>Use my location</h3><p class="muted small">To show clinics near you. We ask only when you tap the location button.</p><p class="mono cs" style="margin-top:4px">Off · never given</p><details><summary class="small">Read the wording (version 1)</summary><div class="notice">Placeholder wording for location. Lawyer to approve.</div></details></div><button class="sw" role="switch" aria-checked="false" aria-label="Use my location"></button></div>
+    <div class="consent" data-c="search_history"><div class="consent__b"><h3>Save my searches</h3><p class="muted small">So you can find past searches. If off, we don't keep what you type.</p><p class="mono cs" style="margin-top:4px">On · since 3 Jun 2026 · version 1</p><details><summary class="small">Read the wording (version 1)</summary><div class="notice">Placeholder wording for search history. Lawyer to approve.</div></details></div><button class="sw" role="switch" aria-checked="true" aria-label="Save my searches"></button></div>
+    <div class="consent" data-c="marketing"><div class="consent__b"><h3>Offers and reminders by WhatsApp</h3><p class="muted small">Optional. Appointment confirmations are sent regardless.</p><p class="mono cs" style="margin-top:4px">Off · never given</p><details><summary class="small">Read the wording (version 1)</summary><div class="notice">Placeholder wording for marketing messages. Lawyer to approve.</div></details></div><button class="sw" role="switch" aria-checked="false" aria-label="Offers and reminders by WhatsApp"></button></div>
+   </div>
+   <p class="small muted" style="margin-top:10px">Every change is recorded with the date and wording version, so you can see your history.</p>
+  </div>
+
+  <div class="card sec" style="margin-top:16px">
+   <h2>Download my data</h2>
+   <p class="muted small" style="margin:6px 0 12px">A file with your profile, appointments, reviews, saved clinics and consent history.</p>
+   <button class="btn" id="exportBtn"><svg class="i"><use href="#i-down"/></svg>Request my data</button>
+   <div id="exportStatus" hidden></div>
+  </div>
+
+  <div class="card sec danger" style="margin-top:16px">
+   <h2>Delete my account</h2>
+   <p class="muted small" style="margin:6px 0 12px">Removes your name, phone, email and review text. We keep what the law or fairness requires: anonymous ratings, your consent history and the audit trail. Final rules are for the lawyer to confirm.</p>
+   <button class="btn btn--danger" id="delBtn">Delete my account</button>
+   <div id="delStatus" hidden></div>
+  </div>
+  <div class="fv"><b>Founder view.</b> These three controls are what regulators and patients check first. <ul><li><b>Legal:</b> maps to <span class="mono">record_consent</span>, <span class="mono">withdraw_consent</span>, <span class="mono">request_data_export</span>, <span class="mono">request_data_deletion</span> in the database layer. Deadline comes from settings (30 days, lawyer to confirm).</li><li><b>Revenue:</b> none. Personal data is never sold or shared with advertisers.</li></ul></div>
+ </section>
+
+ <!-- HELP -->
+ <section class="panel" id="p-help" aria-labelledby="h-help">
+  <h1 id="h-help">Help and complaints</h1>
+  <p class="lede">If something went wrong with a clinic, a review or your data, tell us. A person reads every complaint.</p>
+  <div class="card">
+   <h2>Contact the Grievance Officer</h2>
+   <div class="field" style="margin-top:12px"><label for="gt">What is it about?</label><select id="gt"><option>My data or privacy</option><option>A review</option><option>A clinic or booking</option><option>Something else</option></select></div>
+   <div class="field"><label for="gd">What happened?</label><textarea id="gd"></textarea></div>
+   <button class="btn btn--teal" id="gSend">Send complaint</button>
+   <div id="gStatus" hidden></div>
+   <p class="small muted" style="margin-top:12px">Grievance Officer: name and contact to be added by the founder. We reply within 15 days (lawyer to confirm).</p>
+  </div>
+  <div class="fv"><b>Founder view.</b> The officer's name, email and address must appear on every page footer before launch.</div>
+ </section>
+ </main>
+</div>
+
+<footer><div class="in"><a class="link" href="#" data-go="help">Grievance Officer</a><span>Prices shown are indicative. Clinics set final prices after examination.</span><a class="link" href="#">Privacy notice</a><a class="link" href="#">Terms</a></div></footer>
+
+<div class="scrim" id="scrim"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="mT"><h2 id="mT"></h2><p class="muted small" id="mB"></p><div id="mX"></div><div class="row" style="margin-top:16px;justify-content:flex-end"><button class="btn" id="mNo">Keep it</button><button class="btn btn--danger" id="mYes">Confirm</button></div></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+ var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+ var fmt=function(d){return d.toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'})};
+ var today=new Date();
+ function addDays(n){var d=new Date(today);d.setDate(d.getDate()+n);return d}
+ var tt;function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('on')},2800)}
+
+ /* theme + founder view */
+ function setTheme(t){document.documentElement.setAttribute('data-theme',t)}
+ setTheme('dark');
+ $('#themeBtn').onclick=function(){setTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark')};
+ $('#founderBtn').onclick=function(){var on=document.body.classList.toggle('founder');this.setAttribute('aria-pressed',on)};
+
+ /* navigation */
+ function go(id){
+  $$('.panel').forEach(function(p){p.classList.toggle('on',p.id==='p-'+id)});
+  $$('.tab').forEach(function(t){if(t.dataset.go===id)t.setAttribute('aria-current','page');else t.removeAttribute('aria-current')});
+  window.scrollTo(0,0);
+  if(location.hash!=='#'+id)history.replaceState(null,'','#'+id);
+ }
+ document.addEventListener('click',function(e){var g=e.target.closest('[data-go]');if(g){e.preventDefault();go(g.dataset.go)}});
+ if(location.hash&&$('#p-'+location.hash.slice(1)))go(location.hash.slice(1));
+
+ /* modal */
+ var onYes=null;
+ function ask(title,body,yes,extra,yesLabel,noLabel){
+  $('#mT').textContent=title;$('#mB').textContent=body;$('#mX').innerHTML=extra||'';
+  $('#mYes').textContent=yesLabel||'Confirm';$('#mNo').textContent=noLabel||'Keep it';
+  onYes=yes;$('#scrim').classList.add('on');$('#mNo').focus();
+ }
+ function closeM(){$('#scrim').classList.remove('on');onYes=null}
+ $('#mNo').onclick=closeM;
+ $('#scrim').addEventListener('click',function(e){if(e.target.id==='scrim')closeM()});
+ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeM()});
+ $('#mYes').onclick=function(){if(onYes&&onYes()===false)return;closeM()};
+
+ /* appointments */
+ function counts(){
+  var up=$$('#upList .card').filter(function(c){return c.dataset.cancelled!=='1'}).length;
+  $('#nAppt').textContent=up;$('#sUp').textContent=up;
+  var sv=$$('#savedList .card').length;$('#nSaved').textContent=sv;$('#sSaved').textContent=sv;$('#savedEmpty').hidden=sv>0;
+ }
+ document.addEventListener('click',function(e){
+  var b=e.target.closest('[data-act]');if(!b)return;e.preventDefault();
+  var card=b.closest('.card'),a=b.dataset.act;
+  if(a==='cancel')ask('Cancel this appointment?','The clinic will be told. You can book again any time.',function(){
+    card.dataset.cancelled='1';var s=$('.st',card);s.textContent='Cancelled';s.className='pill pill--bad st';
+    $$('.appt__a',card).forEach(function(x){x.remove()});counts();toast('Appointment cancelled')},'', 'Cancel appointment','Keep appointment');
+  if(a==='resched')toast('Reschedule opens the clinic calendar (not built in this prototype)');
+  if(a==='unsave'){card.remove();counts();toast('Removed from saved clinics')}
+  if(a==='book')toast('Booking opens the clinic page (not built in this prototype)');
+ });
+
+ /* reviews */
+ var rating=0,stars=$('#stars');
+ for(var i=1;i<=5;i++){(function(n){var b=document.createElement('button');b.type='button';b.setAttribute('role','radio');b.setAttribute('aria-checked','false');b.setAttribute('aria-label',n+' out of 5');b.textContent='★';b.onclick=function(){rating=n;$$('button',stars).forEach(function(x,j){x.classList.toggle('on',j<n);x.setAttribute('aria-checked',j===n-1)})};stars.appendChild(b)})(i)}
+ $('#revSubmit').onclick=function(){
+  var t=$('#rt').value.trim();
+  if(!rating||t.length<10){toast('Choose a rating and write at least 10 characters');return}
+  ask('Post this review?','Once posted it can\'t be edited or deleted.',function(){
+   var a=document.createElement('article');a.className='card';
+   var s='';for(var i=1;i<=5;i++)s+=i<=rating?'★':'☆';
+   a.innerHTML='<div class="row row--sb"><h3></h3><span class="star-ro"></span></div><p class="muted" style="margin-top:6px"></p><p class="mono" style="margin-top:8px"></p>';
+   $('h3',a).textContent='Sample Dental Clinic · 2 Sep';$('.star-ro',a).textContent=s;$('.star-ro',a).setAttribute('aria-label',rating+' out of 5');
+   $('p',a).textContent=t;$$('p',a)[1].textContent='Posted '+fmt(today)+' · read only';
+   $('#revPosted').insertBefore(a,$('#revPosted').firstChild);$('#revForm').remove();$('#revEmpty').hidden=false;
+   $('#nRev').textContent='0';$('#nRev').classList.remove('alert');toast('Review posted')},'','Post review','Go back');
+ };
+
+ /* family */
+ $('#fr').onchange=$('#fa').onchange=function(){
+  var kid=$('#fa').value!=='18 or over';
+  $('#fcT').innerHTML=kid?'I am this person\'s parent or legal guardian and I consent to IndiaDentalWorld handling their details as described in the <a class="link" href="#">privacy notice</a>.':'This person has agreed that I may add them and manage their appointments.';
+ };
+ $('#famAdd').onclick=function(){
+  var n=$('#fn').value.trim();
+  if(!n){toast('Enter a name');$('#fn').focus();return}
+  if(!$('#fc').checked){toast('Tick the consent box to continue');return}
+  var kid=$('#fa').value!=='18 or over',a=document.createElement('article');a.className='card row row--sb';
+  a.innerHTML='<div><h3></h3><p class="muted small"></p></div><span class="pill pill--ok"></span>';
+  $('h3',a).textContent=n;$('p',a).textContent=$('#fr').value+' · age group '+$('#fa').value;
+  $('.pill',a).textContent=kid?'Parent consent recorded':'Consent recorded';
+  $('#famList').appendChild(a);$('#fn').value='';$('#fc').checked=false;toast(n+' added');
+ };
+
+ /* consents */
+ $$('.consent[data-c] .sw').forEach(function(sw){
+  sw.onclick=function(){
+   var on=sw.getAttribute('aria-checked')==='true',row=sw.closest('.consent'),nm=$('h3',row).textContent;
+   sw.setAttribute('aria-checked',!on);
+   $('.cs',row).textContent=(on?'Off · withdrawn ':'On · given ')+fmt(new Date())+' · version 1';
+   toast(on?nm+': withdrawn. Takes effect now.':nm+': allowed.');
+  };
+ });
+
+ /* export */
+ $('#exportBtn').onclick=function(){
+  var s=$('#exportStatus');s.hidden=false;this.disabled=true;
+  s.innerHTML='<ul class="timeline"><li>Requested '+fmt(today)+'</li><li class="todo">We will email a download link by '+fmt(addDays(30))+' (deadline from settings)</li></ul>';
+  toast('Data request received');
+ };
+
+ /* delete */
+ $('#delBtn').onclick=function(){
+  ask('Delete your account?','This removes your name, phone, email and review text. It cannot be undone. Type DELETE to confirm.',function(){
+   if($('#delIn').value.trim()!=='DELETE'){toast('Type DELETE exactly to confirm');return false}
+   var s=$('#delStatus');s.hidden=false;$('#delBtn').disabled=true;
+   s.innerHTML='<ul class="timeline"><li>Requested '+fmt(today)+'</li><li class="todo">Deletion will be finished by '+fmt(addDays(30))+'. You can still cancel until then by contacting the Grievance Officer.</li></ul>';
+   toast('Deletion requested')},
+   '<label for="delIn" style="margin-top:12px">Type DELETE</label><input type="text" id="delIn" autocomplete="off">','Delete my account','Keep my account');
+  setTimeout(function(){var d=$('#delIn');if(d)d.focus()},30);
+ };
+
+ /* grievance */
+ $('#gSend').onclick=function(){
+  if($('#gd').value.trim().length<10){toast('Describe what happened in a few words');return}
+  var s=$('#gStatus');s.hidden=false;
+  var ref='G-'+String(Math.floor(Math.random()*9000)+1000);
+  s.innerHTML='<ul class="timeline"><li>Received '+fmt(today)+' · reference '+ref+'</li><li class="todo">Reply due by '+fmt(addDays(15))+'</li></ul>';
+  $('#gd').value='';toast('Complaint sent');
+ };
+ counts();
+})();
+</script>
+</body>
+</html>

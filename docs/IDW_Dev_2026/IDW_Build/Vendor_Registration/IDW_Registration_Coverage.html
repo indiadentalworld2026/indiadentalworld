@@ -1,0 +1,426 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>IDW Registration Coverage</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  --bg: #F7F9F8;
+  --surface: #FFFFFF;
+  --surface2: #F0F4F2;
+  --border: #D4DEDB;
+  --text1: #0D1F1C;
+  --text2: #2C3E3B;
+  --text3: #5A6E6A;
+  --text4: #8FA09C;
+  --teal: #007A6B;
+  --teal-bg: #E0F4F0;
+  --indigo: #3B5BDB;
+  --indigo-bg: #EEF2FF;
+  --purple: #7048E8;
+  --purple-bg: #F3F0FF;
+  --orange: #C05621;
+  --orange-bg: #FFF5EE;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0C1A18; --surface: #14231F; --surface2: #1B2D29; --border: #2A3E3A;
+    --text1: #E8F4F1; --text2: #B8CFCA; --text3: #7A9A94; --text4: #4A6A64;
+    --teal: #00C4A8; --teal-bg: #0D2B25;
+    --indigo: #748FFC; --indigo-bg: #1A1F4A;
+    --purple: #9B72F5; --purple-bg: #1F1640;
+    --orange: #F6AD55; --orange-bg: #2D1F0D;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0C1A18; --surface: #14231F; --surface2: #1B2D29; --border: #2A3E3A;
+  --text1: #E8F4F1; --text2: #B8CFCA; --text3: #7A9A94; --text4: #4A6A64;
+  --teal: #00C4A8; --teal-bg: #0D2B25;
+  --indigo: #748FFC; --indigo-bg: #1A1F4A;
+  --purple: #9B72F5; --purple-bg: #1F1640;
+  --orange: #F6AD55; --orange-bg: #2D1F0D;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text1);
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 0 0 40px;
+}
+
+/* Header */
+.page-header {
+  background: var(--teal);
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.ph-logo { font-size: 20px; font-weight: 800; color: #fff; letter-spacing: .3px; }
+.ph-title { font-size: 13px; color: rgba(255,255,255,.8); font-weight: 500; }
+.ph-spacer { flex: 1; }
+.ph-badge { font-size: 12px; color: rgba(255,255,255,.9); background: rgba(255,255,255,.15); padding: 4px 12px; border-radius: 20px; font-weight: 600; }
+
+/* Container */
+.container { max-width: 1100px; margin: 0 auto; padding: 28px 16px 0; }
+
+/* Summary tiles */
+.tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 28px; }
+@media (max-width: 700px) { .tiles { grid-template-columns: 1fr 1fr; } }
+.tile {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  border-top: 3px solid var(--tc);
+}
+.tile-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .6px; color: var(--text4); margin-bottom: 6px; }
+.tile-type { font-size: 15px; font-weight: 700; color: var(--text1); margin-bottom: 2px; }
+.tile-count { font-size: 12px; color: var(--text3); }
+
+/* Filter row */
+.filter-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.filter-label { font-size: 12px; font-weight: 600; color: var(--text3); }
+.filter-btn {
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--text2);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .15s;
+}
+.filter-btn.active, .filter-btn:hover { border-color: var(--teal); background: var(--teal-bg); color: var(--teal); }
+.filter-btn[data-f="vendor"].active { border-color: var(--indigo); background: var(--indigo-bg); color: var(--indigo); }
+.filter-btn[data-f="lab"].active { border-color: var(--purple); background: var(--purple-bg); color: var(--purple); }
+.filter-btn[data-f="institution"].active { border-color: var(--teal); background: var(--teal-bg); color: var(--teal); }
+.filter-btn[data-f="business"].active { border-color: var(--orange); background: var(--orange-bg); color: var(--orange); }
+
+/* Table */
+.table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); background: var(--surface); }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  min-width: 720px;
+}
+thead tr { background: var(--surface2); }
+th {
+  padding: 11px 14px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  color: var(--text3);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+  background: var(--surface2);
+}
+th:first-child { width: 28px; }
+td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text2);
+  vertical-align: top;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--surface2); }
+tr[data-hidden] { display: none; }
+
+/* Type badge */
+.type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.type-badge.vendor { background: var(--indigo-bg); color: var(--indigo); }
+.type-badge.lab { background: var(--purple-bg); color: var(--purple); }
+.type-badge.institution { background: var(--teal-bg); color: var(--teal); }
+.type-badge.business { background: var(--orange-bg); color: var(--orange); }
+
+/* Step pill */
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--surface2);
+  color: var(--text3);
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Field tags */
+.field-list { display: flex; flex-wrap: wrap; gap: 4px; }
+.ftag {
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: var(--surface2);
+  color: var(--text2);
+  border: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+/* Compliance pills */
+.comp-list { display: flex; flex-wrap: wrap; gap: 4px; }
+.cpill {
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: rgba(26,138,90,.10);
+  color: #1A5A3A;
+  border: 1px solid rgba(26,138,90,.2);
+  white-space: nowrap;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .cpill { background: rgba(76,201,138,.10); color: #4CC98A; border-color: rgba(76,201,138,.2); }
+}
+:root[data-theme="dark"] .cpill { background: rgba(76,201,138,.10); color: #4CC98A; border-color: rgba(76,201,138,.2); }
+
+/* Row count */
+.row-count { font-size: 12px; color: var(--text4); margin-left: auto; }
+
+/* Section heading inside table */
+.section-row td {
+  background: var(--surface2);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .7px;
+  color: var(--text4);
+  padding: 6px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Pending future section */
+.future-section { margin-top: 28px; }
+.future-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .6px; color: var(--text4); margin-bottom: 10px; }
+.future-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; }
+.future-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  font-size: 12px;
+  color: var(--text3);
+}
+.fi-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border); flex-shrink: 0; margin-top: 5px; }
+
+.caption { font-size: 12px; color: var(--text4); margin-top: 10px; }
+</style>
+
+<div class="page-header">
+  <div>
+    <div class="ph-logo">IDW</div>
+    <div class="ph-title">IndiaDentalWorld · Business Registration</div>
+  </div>
+  <div class="ph-spacer"></div>
+  <div class="ph-badge">Coverage Audit · Oct 2026</div>
+</div>
+
+<div class="container">
+
+  <div class="tiles">
+    <div class="tile" style="--tc:var(--indigo)">
+      <div class="tile-label">Type 1</div>
+      <div class="tile-type">🏭 Vendor</div>
+      <div class="tile-count">5 steps · 40+ fields</div>
+    </div>
+    <div class="tile" style="--tc:var(--purple)">
+      <div class="tile-label">Type 2</div>
+      <div class="tile-type">🔬 Lab</div>
+      <div class="tile-count">5 steps · 35+ fields</div>
+    </div>
+    <div class="tile" style="--tc:var(--teal)">
+      <div class="tile-label">Type 3</div>
+      <div class="tile-type">🎓 Institution</div>
+      <div class="tile-count">5 steps · 38+ fields</div>
+    </div>
+    <div class="tile" style="--tc:var(--orange)">
+      <div class="tile-label">Type 4</div>
+      <div class="tile-type">💼 Support Business</div>
+      <div class="tile-count">5 steps · 36+ fields</div>
+    </div>
+  </div>
+
+  <div class="filter-row">
+    <span class="filter-label">Filter by type:</span>
+    <button class="filter-btn active" data-f="all">All 20 steps</button>
+    <button class="filter-btn" data-f="vendor">🏭 Vendor</button>
+    <button class="filter-btn" data-f="lab">🔬 Lab</button>
+    <button class="filter-btn" data-f="institution">🎓 Institution</button>
+    <button class="filter-btn" data-f="business">💼 Support Business</button>
+    <span class="row-count" id="rowCount">Showing 20 steps</span>
+  </div>
+
+  <div class="table-wrap">
+    <table id="mainTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Type</th>
+          <th>Step</th>
+          <th>Step Title</th>
+          <th>Key Fields Covered</th>
+          <th>Compliance / Docs</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+  <p class="caption">† Required fields marked with * in the actual wizard. Compliance docs are upload zones with drag-and-drop.</p>
+
+  <div class="future-section">
+    <div class="future-title">Not yet built — potential future additions</div>
+    <div class="future-grid">
+      <div class="future-item"><div class="fi-dot"></div>Listing tier / subscription selection</div>
+      <div class="future-item"><div class="fi-dot"></div>Social media & Google Business links</div>
+      <div class="future-item"><div class="fi-dot"></div>Referral source ("How did you hear about IDW?")</div>
+      <div class="future-item"><div class="fi-dot"></div>Document expiry reminders & re-upload</div>
+      <div class="future-item"><div class="fi-dot"></div>Billing & payment for premium listing</div>
+      <div class="future-item"><div class="fi-dot"></div>WhatsApp / Tawk.to support widget</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+var DATA = [
+  // VENDOR
+  { type:'vendor', step:1, title:'Company Details',
+    fields:['Company / Brand Name*','Entity type (dropdown)','Year established','Street address*','City*','State (dropdown)*','PIN Code*','Mobile / WhatsApp*','Business Email*','GST Number','MSME / Udyam No.','Company description* (300 chars)'],
+    compliance:[] },
+  { type:'vendor', step:2, title:'Licences & Compliance',
+    fields:['Trade Licence / Shop Act No.*','Licence expiry date','Drug Licence No.','CDSCO Device Reg. No.','IEC Code (import/export)','ISO Cert No.'],
+    compliance:['Trade Licence upload','Drug Licence (if applicable)','CDSCO (if medical device)','IEC (if import/export)'] },
+  { type:'vendor', step:3, title:'Products & Brands',
+    fields:['16 product category checkboxes*','Brand name tag input*','24-state territory chips*','7 client type checkboxes*'],
+    compliance:[] },
+  { type:'vendor', step:4, title:'Pricing & Reach',
+    fields:['Pricing model radio (5 options)*','MOQ','Lead time','7 payment term checkboxes*','7 after-sales service checkboxes*','Head office / warehouse city*'],
+    compliance:[] },
+  { type:'vendor', step:5, title:'Photos & Submit',
+    fields:['4 showroom photo slots','Catalogue / brochure upload','Review summary (name, city, phone, email)','DPDP consent ×3*'],
+    compliance:['DPDP 2025 (3 consents)','Accuracy declaration','Partner Terms agreement'] },
+
+  // LAB
+  { type:'lab', step:1, title:'Lab Details',
+    fields:['Laboratory Name*','Lab type (7 options dropdown)','Year started','Street address*','City*','State*','PIN*','Phone / WhatsApp*','Business Email*','Lab description* (300 chars)'],
+    compliance:[] },
+  { type:'lab', step:2, title:'Licences & Staff',
+    fields:['Trade Licence / Shop Act No.*','Licence expiry date','7 staff qualification checkboxes*','Total lab technicians*','BDS-qualified staff count','6 quality certification checkboxes'],
+    compliance:['Trade Licence upload','ISO 9001 / ISO 13485 (if held)','NABH Auxiliary (if held)'] },
+  { type:'lab', step:3, title:'Services & TAT',
+    fields:['16 work type checkboxes*','TAT table (8 work types × standard + rush days)','Client cities tag input*','6 courier arrangement checkboxes*'],
+    compliance:[] },
+  { type:'lab', step:4, title:'Technology',
+    fields:['11 equipment type checkboxes*','Equipment brand tag input','7 digital file format checkboxes','4 pricing model radios*'],
+    compliance:[] },
+  { type:'lab', step:5, title:'Photos & Submit',
+    fields:['5 lab photo slots','Review summary','DPDP consent ×3*'],
+    compliance:['DPDP 2025 (3 consents)','Accuracy declaration','Partner Terms agreement'] },
+
+  // INSTITUTION
+  { type:'institution', step:1, title:'Institution Details',
+    fields:['Institution Name*','Institution type (9 options)*','Year established','University affiliation','Street address*','City*','State*','PIN*','Phone*','Email*','Website URL'],
+    compliance:[] },
+  { type:'institution', step:2, title:'Recognition & Accreditation',
+    fields:['DCI Recognition No.','DCI year','11 accreditation checkboxes (NAAC / NBA / UGC etc.)','Society / Trust Reg. No.*','Registered-under state'],
+    compliance:['DCI Recognition Letter upload','Society / Trust Certificate upload','NAAC / NBA certs (if held)'] },
+  { type:'institution', step:3, title:'Programmes Offered',
+    fields:['17 programme type checkboxes*','BDS annual intake seats','MDS total seats','CPD courses per year','Avg seats per CPD','Specialty focus tag input','6 admission basis checkboxes*'],
+    compliance:['NEET-UG / NEET-PG basis declared'] },
+  { type:'institution', step:4, title:'Faculty & Facilities',
+    fields:['Total faculty strength*','Faculty with MDS / PhD','Teaching hospital radio (4 options)*','Dental chairs count','Dental labs on campus','12 campus facility checkboxes'],
+    compliance:[] },
+  { type:'institution', step:5, title:'Photos & Submit',
+    fields:['6 campus photo slots','Review summary','DPDP consent ×3*'],
+    compliance:['DPDP 2025 (3 consents)','Student data handling declaration','Partner Terms agreement'] },
+
+  // BUSINESS
+  { type:'business', step:1, title:'Business Details',
+    fields:['Business Name*','Primary category (14 options dropdown)*','Founded year','Registered address*','City*','State*','PIN*','Mobile / WhatsApp*','Business Email*','Website URL','Service description* (300 chars)'],
+    compliance:[] },
+  { type:'business', step:2, title:'Registration & Tax',
+    fields:['Entity type (8 options dropdown)','CIN / LLP Reg. No.','GST Number','PAN Number','7 MSME / Startup checkboxes','Udyam Registration No.'],
+    compliance:['Certificate of Incorporation upload','DPIIT Startup India (if applicable)','MSME Udyam cert (if applicable)'] },
+  { type:'business', step:3, title:'Services Offered',
+    fields:['20 service type checkboxes*','Custom service tag input','8 client type checkboxes*','4 delivery model radios*'],
+    compliance:[] },
+  { type:'business', step:4, title:'Pricing & Coverage',
+    fields:['6 pricing model radios*','Starting price / range','Dental clients served (number)','16-region coverage chips*','Notable clients tag input','Awards / recognitions tag input'],
+    compliance:[] },
+  { type:'business', step:5, title:'Portfolio & Submit',
+    fields:['4 portfolio photo slots','Portfolio / deck upload','Review summary','DPDP consent ×3*'],
+    compliance:['DPDP 2025 (3 consents)','Lead handling declaration','Partner Terms agreement'] },
+];
+
+var TYPES = {
+  vendor:      { label:'Vendor',            icon:'🏭', cls:'vendor' },
+  lab:         { label:'Lab',               icon:'🔬', cls:'lab' },
+  institution: { label:'Institution',       icon:'🎓', cls:'institution' },
+  business:    { label:'Support Business',  icon:'💼', cls:'business' },
+};
+
+function render(filter){
+  var tbody = document.getElementById('tableBody');
+  tbody.innerHTML = '';
+  var shown = 0;
+  DATA.forEach(function(row){
+    if(filter !== 'all' && row.type !== filter) return;
+    shown++;
+    var t = TYPES[row.type];
+    var tr = document.createElement('tr');
+    tr.innerHTML =
+      '<td><span class="step-num">'+row.step+'</span></td>'+
+      '<td><span class="type-badge '+t.cls+'">'+t.icon+' '+t.label+'</span></td>'+
+      '<td style="white-space:nowrap;color:var(--text3);font-size:12px;font-weight:600;">Step '+row.step+' / 5</td>'+
+      '<td style="font-weight:600;color:var(--text1);min-width:150px">'+row.title+'</td>'+
+      '<td><div class="field-list">'+row.fields.map(function(f){ return '<span class="ftag">'+f+'</span>'; }).join('')+'</div></td>'+
+      '<td>'+(row.compliance.length ? '<div class="comp-list">'+row.compliance.map(function(c){ return '<span class="cpill">✓ '+c+'</span>'; }).join('')+'</div>' : '<span style="color:var(--text4);font-size:12px">—</span>')+'</td>';
+    tbody.appendChild(tr);
+  });
+  document.getElementById('rowCount').textContent = 'Showing '+shown+' step'+(shown!==1?'s':'');
+}
+
+document.querySelectorAll('.filter-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    render(btn.dataset.f);
+  });
+});
+
+render('all');
+</script>
+
+</body></html>

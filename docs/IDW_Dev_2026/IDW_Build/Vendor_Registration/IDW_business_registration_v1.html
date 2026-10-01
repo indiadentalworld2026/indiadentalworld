@@ -1,0 +1,1236 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>IDW Business Registration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lora:ital,wght@0,500;1,400&display=swap">
+<style>
+/* ── IDW TOKENS ── */
+:root {
+  --bg: #F7F9F8;
+  --surface: #FFFFFF;
+  --surface2: #F2F5F4;
+  --surface3: #E8EEED;
+  --teal: #007A6B;
+  --teal-lt: #00A693;
+  --teal-bg: #E0F4F0;
+  --teal-dk: #005A4F;
+  --rose: #C94040;
+  --amber: #B06A00;
+  --green: #1A8A5A;
+  --indigo: #3B5BDB;
+  --indigo-bg: #EEF2FF;
+  --purple: #7048E8;
+  --purple-bg: #F3F0FF;
+  --orange: #C05621;
+  --orange-bg: #FFF5EE;
+  --text1: #0D1F1C;
+  --text2: #2C3E3B;
+  --text3: #5A6E6A;
+  --text4: #8FA09C;
+  --border: #D4DEDB;
+  --border2: #B8CECA;
+  --shadow-sm: 0 1px 3px rgba(0,82,70,.07);
+  --shadow-md: 0 4px 12px rgba(0,82,70,.10), 0 2px 6px rgba(0,82,70,.06);
+  --shadow-lg: 0 8px 28px rgba(0,82,70,.13);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-xs: 6px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0C1A18; --surface: #14231F; --surface2: #1B2D29; --surface3: #243530;
+    --teal: #00C4A8; --teal-lt: #00D8BA; --teal-bg: #0D2B25; --teal-dk: #80E8D8;
+    --rose: #E57373; --amber: #D4A44A; --green: #4CC98A;
+    --indigo: #748FFC; --indigo-bg: #1A1F4A;
+    --purple: #9B72F5; --purple-bg: #1F1640;
+    --orange: #F6AD55; --orange-bg: #2D1F0D;
+    --text1: #E8F4F1; --text2: #B8CFCA; --text3: #7A9A94; --text4: #4A6A64;
+    --border: #2A3E3A; --border2: #3A5450;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0C1A18; --surface: #14231F; --surface2: #1B2D29; --surface3: #243530;
+  --teal: #00C4A8; --teal-lt: #00D8BA; --teal-bg: #0D2B25; --teal-dk: #80E8D8;
+  --rose: #E57373; --amber: #D4A44A; --green: #4CC98A;
+  --indigo: #748FFC; --indigo-bg: #1A1F4A;
+  --purple: #9B72F5; --purple-bg: #1F1640;
+  --orange: #F6AD55; --orange-bg: #2D1F0D;
+  --text1: #E8F4F1; --text2: #B8CFCA; --text3: #7A9A94; --text4: #4A6A64;
+  --border: #2A3E3A; --border2: #3A5450;
+  color-scheme: dark;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%;background:var(--bg);color:var(--text1);font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;line-height:1.6}
+
+/* ── HEADER ── */
+.site-header{background:var(--teal);padding:0 24px;height:56px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:100;box-shadow:var(--shadow-sm)}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;color:#fff}
+.logo-mark{width:32px;height:32px;background:rgba(255,255,255,.18);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800}
+.logo-name{font-size:16px;font-weight:700;letter-spacing:.3px}
+.logo-tag{font-size:11px;color:rgba(255,255,255,.7);font-weight:400}
+.header-sp{flex:1}
+.header-login{font-size:13px;color:rgba(255,255,255,.85);text-decoration:none;padding:6px 14px;border:1px solid rgba(255,255,255,.3);border-radius:20px;transition:all .15s}
+.header-login:hover{background:rgba(255,255,255,.15);color:#fff}
+
+/* ── SHELL ── */
+.shell{max-width:860px;margin:0 auto;padding:40px 16px 80px}
+
+/* ── TYPE SELECTOR ── */
+.type-screen{display:block}
+.type-hero{text-align:center;margin-bottom:40px}
+.type-hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--teal-bg);color:var(--teal);font-size:12px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:16px}
+.type-hero h1{font-family:'Lora',serif;font-size:clamp(22px,4vw,34px);color:var(--text1);margin-bottom:10px;text-wrap:balance}
+.type-hero p{color:var(--text3);font-size:15px;max-width:520px;margin:0 auto}
+.type-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px}
+@media(max-width:560px){.type-grid{grid-template-columns:1fr}}
+.type-card{background:var(--surface);border:2px solid var(--border);border-radius:var(--radius);padding:28px 24px;cursor:pointer;transition:all .2s;text-align:left;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden}
+.type-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--tc, var(--teal));opacity:0;transition:opacity .2s}
+.type-card:hover{border-color:var(--tc, var(--teal));box-shadow:0 4px 20px rgba(0,0,0,.10);transform:translateY(-2px)}
+.type-card:hover::before{opacity:1}
+.type-card.selected{border-color:var(--tc, var(--teal));background:var(--tcbg, var(--teal-bg));box-shadow:0 0 0 3px rgba(0,122,107,.15)}
+.type-card.selected::before{opacity:1}
+.type-icon{font-size:36px;line-height:1}
+.type-card h3{font-size:17px;font-weight:700;color:var(--text1)}
+.type-card p{font-size:13px;color:var(--text3);line-height:1.5}
+.type-card .type-examples{font-size:11px;color:var(--text4);font-weight:600;letter-spacing:.4px;text-transform:uppercase;margin-top:4px}
+.type-card[data-type="vendor"]{--tc:#3B5BDB;--tcbg:var(--indigo-bg)}
+.type-card[data-type="lab"]{--tc:#7048E8;--tcbg:var(--purple-bg)}
+.type-card[data-type="institution"]{--tc:#007A6B;--tcbg:var(--teal-bg)}
+.type-card[data-type="business"]{--tc:#C05621;--tcbg:var(--orange-bg)}
+.type-select-btn{width:100%;padding:14px;background:var(--teal);color:#fff;border:none;border-radius:var(--radius-sm);font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:background .15s;display:flex;align-items:center;justify-content:center;gap:8px}
+.type-select-btn:hover{background:var(--teal-dk)}
+.type-select-btn:disabled{opacity:.4;cursor:not-allowed}
+
+/* ── PROGRESS ── */
+.progress-bar{height:4px;background:var(--border);border-radius:2px;margin-bottom:32px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--teal-lt));border-radius:2px;transition:width .4s ease}
+
+/* ── STEPPER ── */
+.stepper{display:flex;align-items:flex-start;gap:0;margin-bottom:32px;overflow-x:auto;padding:4px 0 12px;scrollbar-width:none}
+.stepper::-webkit-scrollbar{display:none}
+.step-item{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;min-width:70px;position:relative;cursor:default}
+.step-item::before{content:'';position:absolute;top:18px;left:calc(50% + 18px);right:calc(-50% + 18px);height:2px;background:var(--border);transition:background .3s}
+.step-item:last-child::before{display:none}
+.step-item.done::before{background:var(--teal)}
+.step-circle{width:36px;height:36px;border-radius:50%;border:2px solid var(--border);background:var(--surface);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--text4);transition:all .25s;position:relative;z-index:1;flex-shrink:0}
+.step-item.active .step-circle{border-color:var(--step-color, var(--teal));background:var(--step-color, var(--teal));color:#fff;box-shadow:0 0 0 4px var(--step-bg, var(--teal-bg))}
+.step-item.done .step-circle{border-color:var(--teal);background:var(--teal);color:#fff;font-size:15px}
+.step-label{font-size:10px;font-weight:600;color:var(--text4);text-align:center;line-height:1.3;transition:color .25s}
+.step-item.active .step-label{color:var(--step-color, var(--teal))}
+.step-item.done .step-label{color:var(--text2)}
+
+/* ── FORM CARD ── */
+.form-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-md);overflow:hidden}
+.card-head{background:var(--surface2);border-bottom:1px solid var(--border);padding:22px 28px;display:flex;align-items:center;gap:12px}
+.card-head-icon{font-size:24px}
+.card-head h2{font-size:18px;font-weight:700;color:var(--text1);margin-bottom:2px}
+.card-head p{font-size:13px;color:var(--text3)}
+.card-body{padding:28px;display:flex;flex-direction:column;gap:20px}
+
+/* ── FIELDS ── */
+.fg{display:flex;flex-direction:column;gap:6px}
+.fg label{font-size:13px;font-weight:600;color:var(--text2)}
+.req::after{content:' *';color:var(--rose)}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fr3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+@media(max-width:560px){.fr{grid-template-columns:1fr}}
+@media(max-width:600px){.fr3{grid-template-columns:1fr 1fr}}
+@media(max-width:400px){.fr3{grid-template-columns:1fr}}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 14px;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius-sm);color:var(--text1);font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;transition:border-color .15s,box-shadow .15s;outline:none;appearance:none}
+.fg select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235A6E6A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:34px}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px var(--teal-bg)}
+.fg input.err,.fg select.err,.fg textarea.err{border-color:var(--rose);box-shadow:0 0 0 3px rgba(201,64,64,.12)}
+.fg textarea{resize:vertical;min-height:80px}
+.fhint{font-size:12px;color:var(--text4)}
+.ferr{font-size:12px;color:var(--rose);display:none}
+.ferr.show{display:block}
+
+/* ── SECTION DIVIDER ── */
+.sdiv{display:flex;align-items:center;gap:12px;color:var(--text4);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin:4px 0}
+.sdiv::before,.sdiv::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* ── UPLOAD ── */
+.upload-zone{border:2px dashed var(--border2);border-radius:var(--radius-sm);padding:20px;text-align:center;cursor:pointer;transition:all .2s;background:var(--surface2);position:relative}
+.upload-zone:hover,.upload-zone.drag-over{border-color:var(--teal);background:var(--teal-bg)}
+.upload-zone input[type="file"]{position:absolute;inset:0;opacity:0;cursor:pointer}
+.upload-zone h4{font-size:14px;font-weight:600;color:var(--text1);margin:6px 0 3px}
+.upload-zone p{font-size:12px;color:var(--text3)}
+.upload-zone .ft{font-size:11px;color:var(--text4);margin-top:3px}
+.upload-icon-big{font-size:26px;margin-bottom:4px}
+.file-list{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.file-item{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-xs);padding:8px 12px;font-size:13px;color:var(--text2)}
+.fi-name{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fi-size{color:var(--text4);font-size:12px;flex-shrink:0}
+.fi-rm{background:none;border:none;color:var(--text4);cursor:pointer;font-size:16px;padding:0 2px;line-height:1}
+.fi-rm:hover{color:var(--rose)}
+
+/* ── CHECKS / RADIOS ── */
+.check-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}
+.check-pill{display:flex;align-items:center;gap:8px;padding:9px 12px;border:1.5px solid var(--border);border-radius:var(--radius-xs);cursor:pointer;font-size:13px;color:var(--text2);transition:all .15s;user-select:none;background:var(--surface)}
+.check-pill input{display:none}
+.cbox{width:16px;height:16px;border:1.5px solid var(--border2);border-radius:4px;background:var(--surface);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.check-pill:has(input:checked){border-color:var(--teal);background:var(--teal-bg);color:var(--teal-dk)}
+.check-pill:has(input:checked) .cbox{background:var(--teal);border-color:var(--teal)}
+.check-pill:has(input:checked) .cbox::after{content:'✓';color:#fff;font-size:11px;font-weight:700}
+.radio-group{display:flex;flex-direction:column;gap:8px}
+.radio-pill{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);cursor:pointer;transition:all .15s;user-select:none;background:var(--surface)}
+.radio-pill input{display:none}
+.rdot{width:18px;height:18px;border:2px solid var(--border2);border-radius:50%;background:var(--surface);flex-shrink:0;margin-top:2px;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.radio-pill:has(input:checked){border-color:var(--teal);background:var(--teal-bg)}
+.radio-pill:has(input:checked) .rdot{border-color:var(--teal)}
+.radio-pill:has(input:checked) .rdot::after{content:'';width:8px;height:8px;background:var(--teal);border-radius:50%}
+.rpl{font-size:14px;font-weight:600;color:var(--text1)}
+.rpd{font-size:12px;color:var(--text3);margin-top:2px}
+
+/* ── CALLOUTS ── */
+.info-box{display:flex;gap:10px;padding:12px 14px;background:var(--teal-bg);border:1px solid rgba(0,166,147,.2);border-radius:var(--radius-xs);font-size:13px;color:var(--text2);line-height:1.5}
+.warn-box{display:flex;gap:10px;padding:12px 14px;background:rgba(176,106,0,.08);border:1px solid rgba(176,106,0,.2);border-radius:var(--radius-xs);font-size:13px;color:var(--text2);line-height:1.5}
+.ib-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+
+/* ── COMPLIANCE ── */
+.compliance-box{border:1.5px solid var(--border);border-radius:var(--radius-sm);overflow:hidden}
+.cb-head{background:var(--surface2);padding:12px 16px;font-size:12px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.5px}
+.cb-body{padding:16px;display:flex;flex-direction:column;gap:12px}
+.consent-item{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--text2);line-height:1.5;cursor:pointer}
+.consent-check{width:18px;height:18px;border:1.5px solid var(--border2);border-radius:4px;background:var(--surface);flex-shrink:0;margin-top:2px;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.consent-item:has(input:checked) .consent-check{background:var(--teal);border-color:var(--teal)}
+.consent-item:has(input:checked) .consent-check::after{content:'✓';color:#fff;font-size:11px;font-weight:700}
+.consent-item input{display:none}
+.cl{color:var(--teal);text-decoration:none}
+.cl:hover{text-decoration:underline}
+
+/* ── PRODUCT CARDS (for catalogue) ── */
+.product-cards{display:flex;flex-direction:column;gap:12px}
+.product-card{border:1.5px solid var(--border);border-radius:var(--radius-sm);overflow:hidden}
+.pc-head{background:var(--surface2);padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
+.pc-title{font-size:14px;font-weight:700;color:var(--text1)}
+.pc-body{padding:14px 16px;display:grid;gap:12px}
+.btn-rm-sm{background:none;border:1px solid var(--border);color:var(--rose);font-size:12px;padding:4px 10px;border-radius:6px;cursor:pointer;font-family:inherit}
+.btn-rm-sm:hover{background:rgba(201,64,64,.08);border-color:var(--rose)}
+
+/* ── TURNAROUND TABLE ── */
+.tat-table{width:100%;border-collapse:collapse;font-size:13px}
+.tat-table th{background:var(--surface2);padding:9px 12px;text-align:left;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);border:1px solid var(--border)}
+.tat-table td{padding:8px 12px;border:1px solid var(--border);color:var(--text2)}
+.tat-table input[type="number"]{width:70px;padding:5px 8px;border:1.5px solid var(--border);border-radius:4px;font-size:13px;color:var(--text1);background:var(--surface);font-family:inherit;outline:none}
+.tat-table input[type="number"]:focus{border-color:var(--teal)}
+
+/* ── REVIEW ── */
+.review-grid{display:grid;gap:24px}
+.rev-section{}
+.rev-section-title{font-size:11px;font-weight:700;color:var(--text4);text-transform:uppercase;letter-spacing:.7px;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.rev-field{display:grid;grid-template-columns:140px 1fr;gap:4px 12px;margin-bottom:8px}
+.rev-key{font-size:13px;color:var(--text3)}
+.rev-val{font-size:13px;color:var(--text1);font-weight:500}
+.rev-edit{background:none;border:none;color:var(--teal);font-size:12px;cursor:pointer;font-family:inherit;padding:0;text-decoration:underline}
+
+/* ── CHIPS (territory / insurance) ── */
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{padding:5px 12px;border:1.5px solid var(--border);border-radius:20px;font-size:12px;font-weight:500;color:var(--text2);cursor:pointer;transition:all .15s;background:var(--surface);user-select:none}
+.chip.on{border-color:var(--teal);background:var(--teal-bg);color:var(--teal-dk);font-weight:600}
+
+/* ── TAG INPUT ── */
+.tag-wrap{display:flex;flex-wrap:wrap;gap:6px;padding:8px 10px;border:1.5px solid var(--border);border-radius:var(--radius-sm);background:var(--surface);min-height:44px;align-items:center;cursor:text}
+.tag-wrap:focus-within{border-color:var(--teal);box-shadow:0 0 0 3px var(--teal-bg)}
+.tag-pill{display:inline-flex;align-items:center;gap:4px;background:var(--teal-bg);color:var(--teal-dk);font-size:12px;font-weight:600;padding:3px 8px;border-radius:12px}
+.tag-pill button{background:none;border:none;cursor:pointer;color:var(--teal);font-size:13px;line-height:1;padding:0 1px}
+.tag-pill button:hover{color:var(--rose)}
+.tag-real{border:none;outline:none;background:none;color:var(--text1);font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;min-width:100px;flex:1}
+.tag-real::placeholder{color:var(--text4)}
+
+/* ── NAV ── */
+.form-nav{display:flex;justify-content:space-between;align-items:center;margin-top:32px;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:11px 24px;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;border:none;transition:all .15s}
+.btn-primary{background:var(--teal);color:#fff}
+.btn-primary:hover{background:var(--teal-dk)}
+.btn-ghost{background:none;border:1.5px solid var(--border);color:var(--text2)}
+.btn-ghost:hover{border-color:var(--border2);background:var(--surface2)}
+.btn-success{background:var(--green);color:#fff}
+.btn-success:hover{filter:brightness(.93)}
+.step-ind{font-size:13px;color:var(--text3);text-align:center}
+.btn-add{display:flex;align-items:center;gap:6px;background:none;border:1.5px dashed var(--border2);color:var(--text3);font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;padding:10px 16px;border-radius:var(--radius-sm);cursor:pointer;width:100%;justify-content:center;transition:all .15s}
+.btn-add:hover{border-color:var(--teal);color:var(--teal);background:var(--teal-bg)}
+
+/* ── SUCCESS ── */
+.success-screen{text-align:center;padding:60px 24px;display:flex;flex-direction:column;align-items:center;gap:20px}
+.success-icon{width:80px;height:80px;background:var(--teal-bg);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:36px}
+.success-screen h2{font-family:'Lora',serif;font-size:28px;color:var(--text1)}
+.success-screen p{color:var(--text3);font-size:15px;max-width:440px}
+.success-next{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:20px;max-width:440px;width:100%;text-align:left}
+.success-next h4{font-size:14px;font-weight:700;color:var(--text1);margin-bottom:10px}
+.ns-item{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--text2);margin-bottom:8px}
+.ns-dot{width:6px;height:6px;background:var(--teal);border-radius:50%;margin-top:6px;flex-shrink:0}
+.app-id{font-family:monospace;background:var(--teal-bg);color:var(--teal-dk);padding:2px 8px;border-radius:4px;font-size:13px}
+
+/* ── PHOTO GRID ── */
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.photo-slot{aspect-ratio:4/3;border:2px dashed var(--border2);border-radius:var(--radius-xs);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer;transition:all .15s;background:var(--surface2);font-size:11px;color:var(--text4);font-weight:600;text-align:center;padding:8px}
+.photo-slot:hover{border-color:var(--teal);background:var(--teal-bg);color:var(--teal)}
+.photo-slot .ps-icon{font-size:22px}
+.photo-slot.filled{border-style:solid;border-color:var(--teal);background:var(--teal-bg)}
+
+/* ── FOOTER ── */
+.reg-footer{margin-top:60px;padding:24px 16px;border-top:1px solid var(--border);text-align:center}
+.footer-logos{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:12px}
+.fb{display:flex;align-items:center;gap:4px;font-size:11px;font-weight:600;color:var(--text4);letter-spacing:.3px}
+.footer-text{font-size:12px;color:var(--text4);line-height:1.6}
+.footer-links{display:flex;justify-content:center;gap:16px;margin-top:8px;flex-wrap:wrap}
+.footer-links a{font-size:12px;color:var(--teal);text-decoration:none}
+.footer-links a:hover{text-decoration:underline}
+
+/* ── CHAR COUNT ── */
+.cc{font-size:11px;color:var(--text4);text-align:right;margin-top:2px}
+.cc.warn{color:var(--amber)} .cc.over{color:var(--rose)}
+
+/* ── SCREENS ── */
+.screen{display:none}
+.screen.active{display:block}
+.reg-screen .form-step{display:none}
+.reg-screen .form-step.active{display:flex;flex-direction:column;gap:20px}
+
+/* ── TYPE COLOR VARS ON FORM ── */
+[data-active-type="vendor"] .step-item.active .step-circle{background:var(--indigo);border-color:var(--indigo);box-shadow:0 0 0 4px var(--indigo-bg)}
+[data-active-type="vendor"] .step-item.active .step-label{color:var(--indigo)}
+[data-active-type="vendor"] .progress-fill{background:linear-gradient(90deg,var(--indigo),#748FFC)}
+[data-active-type="lab"] .step-item.active .step-circle{background:var(--purple);border-color:var(--purple);box-shadow:0 0 0 4px var(--purple-bg)}
+[data-active-type="lab"] .step-item.active .step-label{color:var(--purple)}
+[data-active-type="lab"] .progress-fill{background:linear-gradient(90deg,var(--purple),#9B72F5)}
+[data-active-type="business"] .step-item.active .step-circle{background:var(--orange);border-color:var(--orange);box-shadow:0 0 0 4px var(--orange-bg)}
+[data-active-type="business"] .step-item.active .step-label{color:var(--orange)}
+[data-active-type="business"] .progress-fill{background:linear-gradient(90deg,var(--orange),#F6AD55)}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="#">
+    <div class="logo-mark">I</div>
+    <div>
+      <div class="logo-name">IndiaDentalWorld</div>
+      <div class="logo-tag">Business Registration</div>
+    </div>
+  </a>
+  <div class="header-sp"></div>
+  <a class="header-login" href="#">Already listed? Sign In</a>
+</header>
+
+<main class="shell" id="appRoot">
+
+  <!-- ════════════════════ SCREEN 0: TYPE SELECTOR ════════════════════ -->
+  <div class="screen active" id="screen-type">
+    <div class="type-hero">
+      <div class="type-hero-badge">🇮🇳 India's Dental B2B Platform</div>
+      <h1>What kind of business are you registering?</h1>
+      <p>Choose the category that best describes your business. You'll get a tailored registration form with the right fields and compliance checks.</p>
+    </div>
+
+    <div class="type-grid" id="typeGrid">
+
+      <div class="type-card" data-type="vendor" tabindex="0" role="button">
+        <div class="type-icon">🏭</div>
+        <h3>Dental Product Vendor</h3>
+        <p>Manufacturers, importers, distributors and retailers of dental equipment, materials, instruments or consumables.</p>
+        <div class="type-examples">e.g. Equipment dealers · Implant brands · Material suppliers · Instrument distributors</div>
+      </div>
+
+      <div class="type-card" data-type="lab" tabindex="0" role="button">
+        <div class="type-icon">🔬</div>
+        <h3>Dental Laboratory</h3>
+        <p>Prosthetics labs, CAD/CAM milling centres, ceramics studios and digital dental manufacturing facilities.</p>
+        <div class="type-examples">e.g. Crown & bridge labs · Aligner labs · Denture studios · Zirconia milling centres</div>
+      </div>
+
+      <div class="type-card" data-type="institution" tabindex="0" role="button">
+        <div class="type-icon">🎓</div>
+        <h3>Dental Institution</h3>
+        <p>Dental colleges, postgraduate programmes, CPD course providers, workshop organisers and training centres.</p>
+        <div class="type-examples">e.g. Dental colleges · CPD providers · Hands-on workshops · Implant training centres</div>
+      </div>
+
+      <div class="type-card" data-type="business" tabindex="0" role="button">
+        <div class="type-icon">💼</div>
+        <h3>Dental Support Business</h3>
+        <p>Any professional service business that specifically serves the dental industry but doesn't fit the above.</p>
+        <div class="type-examples">e.g. Dental photography · Clinic software · Marketing agencies · Finance / insurance</div>
+      </div>
+
+    </div>
+
+    <button class="type-select-btn" id="typeSelectBtn" disabled>
+      Select category to continue →
+    </button>
+  </div>
+
+  <!-- ════════════════════ SCREEN 1: REGISTRATION WIZARD ════════════════════ -->
+  <div class="screen reg-screen" id="screen-reg">
+
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill" style="width:20%"></div>
+    </div>
+
+    <div class="stepper" id="stepper" role="navigation"></div>
+
+    <!-- FORM CARD — steps injected here by JS -->
+    <div class="form-card" id="formCard">
+      <div class="card-head" id="cardHead">
+        <span class="card-head-icon" id="cardIcon">📋</span>
+        <div><h2 id="cardTitle">Step</h2><p id="cardDesc">Loading…</p></div>
+      </div>
+      <div class="card-body" id="cardBody"></div>
+    </div>
+
+    <!-- SUCCESS STATE -->
+    <div id="successCard" style="display:none">
+      <div class="form-card">
+        <div class="success-screen">
+          <div class="success-icon">🎉</div>
+          <h2>Application Submitted!</h2>
+          <p>Your business registration is under review. Our team will verify documents within 2–3 business days.</p>
+          <div class="success-next">
+            <h4>What happens next</h4>
+            <div class="ns-item"><div class="ns-dot"></div><span>Check email for your Application ID: <span class="app-id" id="appId">IDW-BIZ-XXXXX</span></span></div>
+            <div class="ns-item"><div class="ns-dot"></div><span>Compliance team verifies trade licence + regulatory documents (48–72 hrs)</span></div>
+            <div class="ns-item"><div class="ns-dot"></div><span>Your listing goes live with a <strong>Verified Business</strong> badge</span></div>
+            <div class="ns-item"><div class="ns-dot"></div><span>Access to <strong>Vendor Dashboard</strong>: manage catalogue, leads, and analytics</span></div>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:8px">
+            <a class="btn btn-primary" href="#">Go to Dashboard</a>
+            <a class="btn btn-ghost" href="#" id="registerAnotherBtn">Register Another Business</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-nav" id="formNav">
+      <button class="btn btn-ghost" id="btnBack" type="button">← Back</button>
+      <span class="step-ind" id="stepInd">Step 1 of 5</span>
+      <button class="btn btn-primary" id="btnNext" type="button">Continue →</button>
+    </div>
+
+  </div>
+
+</main>
+
+<footer class="reg-footer">
+  <div class="footer-logos">
+    <div class="fb">🏛️ DPDP 2025 Compliant</div>
+    <div class="fb">🔒 SSL Encrypted</div>
+    <div class="fb">🇮🇳 India-hosted Data</div>
+    <div class="fb">✅ GST / MSME Ready</div>
+  </div>
+  <p class="footer-text">IndiaDentalWorld (IDW) connects dental professionals with dental businesses across India. A listing shows the Verified badge only after a person has checked its registration documents. Content governed by ASCI Guidelines, IT Rules 2021, and DPDP Act 2025.</p>
+  <div class="footer-links">
+    <a href="#">Grievance Officer</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+    <a href="#">Partner Guidelines</a>
+    <a href="#">Advertise</a>
+    <a href="#">Support</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+
+/* ══════════════════════════════════════════════════════
+   STEP DEFINITIONS PER BUSINESS TYPE
+══════════════════════════════════════════════════════ */
+var CONFIGS = {
+
+  vendor: {
+    label: 'Dental Product Vendor',
+    icon: '🏭',
+    accentClass: 'vendor',
+    steps: [
+      { title: 'Company Details',   icon: '🏢', desc: 'Legal name, address, GST, and primary contact' },
+      { title: 'Licences & Compliance', icon: '📋', desc: 'Trade licence, import/export, drug licence, CDSCO registrations' },
+      { title: 'Products & Brands', icon: '📦', desc: 'Categories you supply, brands you carry, territory coverage' },
+      { title: 'Pricing & Reach',   icon: '💰', desc: 'Pricing model, MOQ, distribution tier, service cities' },
+      { title: 'Photos & Submit',   icon: '✅', desc: 'Showroom / warehouse photos, review and DPDP consent' }
+    ],
+    render: renderVendorStep
+  },
+
+  lab: {
+    label: 'Dental Laboratory',
+    icon: '🔬',
+    accentClass: 'lab',
+    steps: [
+      { title: 'Lab Details',     icon: '🏗️', desc: 'Lab name, address, type, and contact information' },
+      { title: 'Licences & Staff', icon: '📋', desc: 'Lab licence, BDS/diploma staff count, ISO certification' },
+      { title: 'Services & TAT',  icon: '⚙️', desc: 'Work types accepted, materials used, turnaround times' },
+      { title: 'Technology',      icon: '💡', desc: 'Equipment, CAD/CAM, digital workflow capabilities' },
+      { title: 'Photos & Submit', icon: '✅', desc: 'Lab photos, client clinic area, review and consent' }
+    ],
+    render: renderLabStep
+  },
+
+  institution: {
+    label: 'Dental Institution',
+    icon: '🎓',
+    accentClass: 'institution',
+    steps: [
+      { title: 'Institution Details', icon: '🏛️', desc: 'Name, type, affiliation, location and contact' },
+      { title: 'Recognition & Accreditation', icon: '📋', desc: 'DCI/MCI/NMC recognition, NAAC, NBA, UGC status' },
+      { title: 'Programmes Offered', icon: '📚', desc: 'Degree / PG / CPD courses, seat count, intake' },
+      { title: 'Faculty & Facilities', icon: '👩‍🏫', desc: 'Faculty strength, teaching hospitals, lab infra, hostel' },
+      { title: 'Photos & Submit',   icon: '✅', desc: 'Campus / lab photos, review summary, DPDP consent' }
+    ],
+    render: renderInstitutionStep
+  },
+
+  business: {
+    label: 'Dental Support Business',
+    icon: '💼',
+    accentClass: 'business',
+    steps: [
+      { title: 'Business Details', icon: '🏢', desc: 'Legal name, category, address and primary contact' },
+      { title: 'Registration & Tax', icon: '📋', desc: 'Company registration, GST, MSME / Startup India if applicable' },
+      { title: 'Services Offered', icon: '🛠️', desc: 'Service categories, target clients, delivery model' },
+      { title: 'Pricing & Coverage', icon: '💰', desc: 'Pricing model, retainer / project, cities served' },
+      { title: 'Portfolio & Submit', icon: '✅', desc: 'Work samples, review summary, DPDP consent' }
+    ],
+    render: renderBusinessStep
+  }
+};
+
+/* ══════════════════════════════════════════════════════
+   STATE
+══════════════════════════════════════════════════════ */
+var activeType = null;
+var currentStep = 1;
+var formData = {};
+var tags = {};
+
+/* ══════════════════════════════════════════════════════
+   INIT
+══════════════════════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded', function(){
+  // Type cards
+  document.querySelectorAll('.type-card').forEach(function(card){
+    card.addEventListener('click', function(){ selectType(card.dataset.type); });
+    card.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); selectType(card.dataset.type); }});
+  });
+  document.getElementById('typeSelectBtn').addEventListener('click', startRegistration);
+  document.getElementById('btnNext').addEventListener('click', handleNext);
+  document.getElementById('btnBack').addEventListener('click', handleBack);
+  document.getElementById('registerAnotherBtn').addEventListener('click', function(){
+    location.reload();
+  });
+  // Hash routing
+  var hash = location.hash.replace('#','');
+  if(CONFIGS[hash]) { selectType(hash); startRegistration(); }
+});
+
+function selectType(type){
+  activeType = type;
+  document.querySelectorAll('.type-card').forEach(function(c){ c.classList.remove('selected'); });
+  var card = document.querySelector('[data-type="'+type+'"]');
+  if(card) card.classList.add('selected');
+  var btn = document.getElementById('typeSelectBtn');
+  var cfg = CONFIGS[type];
+  btn.disabled = false;
+  btn.textContent = 'Register as ' + cfg.label + ' →';
+  history.replaceState(null,'','#'+type);
+}
+
+function startRegistration(){
+  if(!activeType) return;
+  document.getElementById('screen-type').classList.remove('active');
+  document.getElementById('screen-reg').classList.add('active');
+  document.getElementById('appRoot').setAttribute('data-active-type', activeType);
+  currentStep = 1;
+  buildStepper();
+  renderStep(currentStep);
+  updateNav();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ══════════════════════════════════════════════════════
+   STEPPER
+══════════════════════════════════════════════════════ */
+function buildStepper(){
+  var cfg = CONFIGS[activeType];
+  var stepper = document.getElementById('stepper');
+  stepper.innerHTML = '';
+  cfg.steps.forEach(function(s, i){
+    var n = i+1;
+    var el = document.createElement('div');
+    el.className = 'step-item';
+    el.setAttribute('data-step', n);
+    el.innerHTML = '<div class="step-circle">'+n+'</div><div class="step-label">'+s.title+'</div>';
+    stepper.appendChild(el);
+  });
+}
+
+function updateStepperUI(){
+  var cfg = CONFIGS[activeType];
+  var total = cfg.steps.length;
+  document.getElementById('progressFill').style.width = (currentStep/total*100)+'%';
+  document.querySelectorAll('.step-item').forEach(function(el){
+    var n = parseInt(el.getAttribute('data-step'),10);
+    el.classList.remove('active','done');
+    var circle = el.querySelector('.step-circle');
+    if(n===currentStep){ el.classList.add('active'); circle.textContent=n; }
+    else if(n<currentStep){ el.classList.add('done'); circle.textContent='✓'; }
+    else { circle.textContent=n; }
+  });
+  document.getElementById('stepInd').textContent = 'Step '+currentStep+' of '+total;
+}
+
+/* ══════════════════════════════════════════════════════
+   NAVIGATION
+══════════════════════════════════════════════════════ */
+function handleNext(){
+  if(!validateStep()) return;
+  captureStep();
+  var total = CONFIGS[activeType].steps.length;
+  if(currentStep < total){ currentStep++; renderStep(currentStep); updateNav(); window.scrollTo({top:0,behavior:'smooth'}); }
+  else { submitForm(); }
+}
+function handleBack(){
+  if(currentStep>1){ currentStep--; renderStep(currentStep); updateNav(); window.scrollTo({top:0,behavior:'smooth'}); }
+  else { goBackToTypeSelect(); }
+}
+function goBackToTypeSelect(){
+  document.getElementById('screen-reg').classList.remove('active');
+  document.getElementById('screen-type').classList.add('active');
+  document.getElementById('appRoot').removeAttribute('data-active-type');
+  history.replaceState(null,'','#');
+}
+function updateNav(){
+  var total = CONFIGS[activeType].steps.length;
+  var btnBack = document.getElementById('btnBack');
+  var btnNext = document.getElementById('btnNext');
+  btnBack.style.visibility = 'visible';
+  btnBack.textContent = currentStep===1 ? '← Change type' : '← Back';
+  if(currentStep===total){
+    btnNext.textContent='🚀 Submit for Review';
+    btnNext.className='btn btn-success';
+  } else {
+    btnNext.innerHTML='Continue →';
+    btnNext.className='btn btn-primary';
+  }
+  updateStepperUI();
+}
+
+function renderStep(n){
+  var cfg = CONFIGS[activeType];
+  var s = cfg.steps[n-1];
+  document.getElementById('cardIcon').textContent = s.icon;
+  document.getElementById('cardTitle').textContent = s.title;
+  document.getElementById('cardDesc').textContent = s.desc;
+  var body = document.getElementById('cardBody');
+  body.innerHTML = '';
+  cfg.render(n, body);
+  wireAll(body);
+}
+
+/* ══════════════════════════════════════════════════════
+   SHARED FIELD BUILDERS
+══════════════════════════════════════════════════════ */
+function fg(label, req, content, hint){
+  return '<div class="fg"><label class="'+(req?'req':'')+'">' + label + '</label>' + content + (hint?'<div class="fhint">'+hint+'</div>':'') + '</div>';
+}
+function inp(id,type,ph,extra){ return '<input type="'+(type||'text')+'" id="'+id+'" placeholder="'+(ph||'')+'" '+(extra||'')+'>'; }
+function sel(id, opts){ return '<select id="'+id+'">'+opts.map(function(o){ return '<option value="'+(o.v||o)+'">'+(o.l||o)+'</option>'; }).join('')+'</select>'; }
+function ta(id,ph,rows,max){ return '<textarea id="'+id+'" rows="'+(rows||3)+'" placeholder="'+(ph||'')+'" maxlength="'+(max||300)+'"></textarea>'; }
+function fr(cols){ return '<div class="'+(cols===3?'fr3':'fr')+'">'+(Array.from(arguments).slice(1).join(''))+'</div>'; }
+function sdiv(label){ return '<div class="sdiv">'+label+'</div>'; }
+function infoBox(text){ return '<div class="info-box"><span class="ib-icon">ℹ️</span><span>'+text+'</span></div>'; }
+function warnBox(text){ return '<div class="warn-box"><span class="ib-icon">⚠️</span><span>'+text+'</span></div>'; }
+function uploadZone(id, fileId, icon, title, sub, types){
+  return '<div class="upload-zone" id="'+id+'"><input type="file" id="'+fileId+'" accept="'+types+'"><div class="upload-icon-big">'+icon+'</div><h4>'+title+'</h4><p>'+sub+'</p><p class="ft">'+types.replace(/\./g,'').toUpperCase().replace(/,/g,' · ')+' · Max 5 MB</p></div><div class="file-list" id="'+fileId+'List"></div>';
+}
+function checkGrid(items){
+  return '<div class="check-grid">'+items.map(function(item){
+    return '<label class="check-pill"><input type="checkbox" value="'+item+'"> <span class="cbox"></span> '+item+'</label>';
+  }).join('')+'</div>';
+}
+function chipGroup(id, items){
+  return '<div class="chips" id="'+id+'">'+items.map(function(item){
+    return '<div class="chip" data-val="'+item+'">'+item+'</div>';
+  }).join('')+'</div>';
+}
+function tagInput(id){
+  return '<div class="tag-wrap" id="'+id+'Wrap"><input class="tag-real" id="'+id+'Input" type="text" placeholder="Type and press Enter…"></div>';
+}
+function consentCheck(id, text){
+  return '<label class="consent-item"><input type="checkbox" id="'+id+'"><span class="consent-check"></span><span>'+text+'</span></label>';
+}
+function photoGrid(labels){
+  var slots = labels.map(function(l){
+    return '<div class="photo-slot"><span class="ps-icon">📷</span>'+l+'</div>';
+  }).join('');
+  slots += '<div class="photo-slot" id="addPhotoSlot"><span class="ps-icon">➕</span>Add photo</div>';
+  return '<div class="photo-grid">'+slots+'</div>';
+}
+function reviewSummary(cfg){
+  return '<div class="review-grid"><div class="rev-section"><div class="rev-section-title">Business Details</div><div class="rev-field"><span class="rev-key">Name</span><span class="rev-val" id="rev-name">—</span></div><div class="rev-field"><span class="rev-key">Type</span><span class="rev-val" id="rev-type">'+cfg.label+'</span></div><div class="rev-field"><span class="rev-key">City</span><span class="rev-val" id="rev-city">—</span></div><div class="rev-field"><span class="rev-key">Phone</span><span class="rev-val" id="rev-phone">—</span></div><div class="rev-field"><span class="rev-key">Email</span><span class="rev-val" id="rev-email">—</span></div><button class="rev-edit" onclick="goToStepDirect(1)">Edit ↗</button></div></div>';
+}
+function dpdpConsent(){
+  return '<div class="compliance-box"><div class="cb-head">DPDP 2025 Consent &amp; Legal Declarations</div><div class="cb-body">'+
+    consentCheck('c1','I confirm all information is accurate and I am authorised to register this business. False information will result in permanent delisting.')+
+    consentCheck('c2','I consent to IndiaDentalWorld processing and storing business data for listing and verification purposes as described in the <a class="cl" href="#">Privacy Policy</a>, in compliance with the <strong>Digital Personal Data Protection Act 2025</strong>.')+
+    consentCheck('c3','I agree to the <a class="cl" href="#">IDW Partner Terms of Service</a> and understand the listing is subject to admin approval and may be withdrawn if regulatory documents expire or are found invalid.')+
+    '</div></div>';
+}
+
+/* ══════════════════════════════════════════════════════
+   VENDOR STEPS
+══════════════════════════════════════════════════════ */
+function renderVendorStep(n, body){
+  if(n===1){
+    body.innerHTML =
+      fg('Company / Brand Name','req',inp('vCompany','text','e.g. DentaSupply India Pvt. Ltd.'),'Use the registered company name as it appears on your GST certificate.')+
+      fr(sel('vCompanyType',['Select entity type…','Proprietorship','Partnership / LLP','Private Limited (Pvt. Ltd.)','Public Limited','HUF','Trust / Society']),inp('vYear','number','Year established','min="1900" max="2026"'))+
+      sdiv('Registered Address')+
+      inp_fg('vAddr','Street Address (Line 1)','req','Building, street, area…')+
+      fr(inp_fg('vCity','City','req','e.g. Hyderabad'),inp_fg('vState','State (select)','req',null,true),inp_fg('vPin','PIN Code','req','6 digits','type="tel" maxlength="6"'))+
+      sdiv('Primary Contact')+
+      fr(inp_fg('vPhone','Mobile / WhatsApp','req','+91 98765 43210','type="tel"'),inp_fg('vEmail','Business Email','req','info@company.com','type="email"'))+
+      fr(inp_fg('vGst','GST Number','','e.g. 29AABCT1234Z1Z5'),inp_fg('vMsme','MSME / Udyam Number','','e.g. UDYAM-AP-01-0000001'))+
+      fg('Brief Company Description','req',ta('vDesc','What you supply, how long in business, market presence…',3,300),'<div class="cc" id="vDescCC">0 / 300</div>');
+  }
+  if(n===2){
+    body.innerHTML =
+      infoBox('Verified vendors get a <strong>Verified Supplier</strong> badge visible to 50,000+ dental professionals searching IDW.')+
+      sdiv('Trade Licence')+
+      fr(inp_fg('vTrade','Trade Licence / Shop Act No.','req','Issued by municipal body or state'),inp_fg('vTradeExp','Expiry Date','','','type="date"'))+
+      uploadZone('vTradeUpload','vTradeFile','📄','Upload Trade Licence','Shop & Establishment Act / Municipal trade licence','.pdf,.jpg,.jpeg,.png')+
+      sdiv('Drug / CDSCO (if applicable)')+
+      infoBox('Required only if you supply drugs, dental cements, impression materials classified as medical devices, or Class A/B/C medical devices under CDSCO.')+
+      fr(inp_fg('vCdsco','CDSCO Device Registration No. (if applicable)','','e.g. MD-12345678'),inp_fg('vDrug','Drug Licence No. (if applicable)','','State drug licence number'))+
+      sdiv('Import / Export (if applicable)')+
+      fr(inp_fg('vIec','IEC Code (if import/export)','','e.g. 0307012345'),inp_fg('vIso','ISO Certification No. (if any)','','e.g. ISO 13485:2016'));
+  }
+  if(n===3){
+    body.innerHTML =
+      fg('Product Categories supplied','req','<div class="check-grid">'+[
+        'Dental Chairs & Units','Handpieces & Turbines','Sterilisation Equipment','Digital X-Ray / CBCT',
+        'Dental Materials (composites/cements)','Impression Materials','Orthodontic Supplies','Implant Systems',
+        'Endodontic Instruments','Surgical Instruments','PPE & Consumables','Lab Equipment',
+        'Dental Software / Tech','Furniture & Cabinetry','CAD/CAM Systems','Lasers'
+      ].map(function(item){ return '<label class="check-pill"><input type="checkbox" value="'+item+'"> <span class="cbox"></span> '+item+'</label>'; }).join('')+'</div>')+
+      sdiv('Brands You Carry')+
+      fg('Brand names (type each and press Enter)','req',tagInput('vBrands'),'Add every brand you officially distribute or carry in India.')+
+      sdiv('Territory Coverage')+
+      fg('States / UTs you supply to','req',chipGroup('vTerritoryChips',[
+        'All India','Pan South','Pan North','Maharashtra','Karnataka','Tamil Nadu','Telangana','Kerala','Gujarat',
+        'Rajasthan','Uttar Pradesh','Delhi / NCR','West Bengal','Punjab','Madhya Pradesh','Bihar','Odisha',
+        'Haryana','Andhra Pradesh','Jharkhand','Uttarakhand','Himachal Pradesh','Goa','North East India'
+      ]),'Select all states where you have active distribution / supply.')+
+      sdiv('Client Type')+
+      fg('Primary customers','req','<div class="check-grid">'+
+        ['Dental Clinics','Dental Hospitals','Dental Labs','Dental Colleges','Government / PSU','Distributors / Re-sellers','Retail Dental Stores'].map(function(item){
+          return '<label class="check-pill"><input type="checkbox" value="'+item+'"> <span class="cbox"></span> '+item+'</label>';
+        }).join('')+'</div>');
+  }
+  if(n===4){
+    body.innerHTML =
+      fg('Pricing Model','req','<div class="radio-group">'+
+        ['Trade pricing (wholesale to clinics/labs)',
+         'MRP-based retail (list price - discount)',
+         'Custom quote per order',
+         'Subscription / AMC model',
+         'Combination of above'].map(function(pm,i){
+          return '<label class="radio-pill"><input type="radio" name="vPriceModel" value="'+i+'"> <span class="rdot"></span><span><span class="rpl">'+pm+'</span></span></label>';
+        }).join('')+'</div>')+
+      fr(inp_fg('vMoq','Minimum Order Quantity (MOQ)','','e.g. 1 unit / ₹5,000 order'),inp_fg('vLead','Lead Time','','e.g. 3–5 working days'))+
+      sdiv('Payment & Finance')+
+      fg('Payment terms offered','req','<div class="check-grid">'+
+        ['30-day credit','COD','Advance payment','Bank transfer','UPI','GST invoice provided','EMI / Installment'].map(function(item){
+          return '<label class="check-pill"><input type="checkbox" value="'+item+'"> <span class="cbox"></span> '+item+'</label>';
+        }).join('')+'</div>')+
+      sdiv('Support & After-sales')+
+      fg('Services included','req','<div class="check-grid">'+
+        ['Installation & commissioning','User training','AMC / warranty service','Spare parts supply','Demo unit available','On-site support','24hr helpline'].map(function(item){
+          return '<label class="check-pill"><input type="checkbox" value="'+item+'"> <span class="cbox"></span> '+item+'</label>';
+        }).join('')+'</div>')+
+      fg('Head office / warehouse city','req',inp('vHeadCity','text','Primary city for logistics and support'));
+  }
+  if(n===5){
+    body.innerHTML =
+      fg('Company / Showroom Photos','',photoGrid(['Showroom / Office','Product Display','Warehouse / Storage','Team Photo']))+
+      fg('Company Brochure or Catalogue (optional)','',(uploadZone('vCatUpload','vCatFile','📁','Upload Catalogue / Brochure','Product catalogue, price list, or company brochure','.pdf,.ppt,.pptx')))+
+      sdiv('Review Summary')+
+      reviewSummary(CONFIGS[activeType])+
+      sdiv('Compliance &amp; DPDP 2025')+
+      dpdpConsent()+
+      warnBox('Vendor listings require at least one valid trade licence or regulatory document. Listings will show <em>Pending Verification</em> until documents are approved by our compliance team.');
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   LAB STEPS
+══════════════════════════════════════════════════════ */
+function renderLabStep(n, body){
+  if(n===1){
+    body.innerHTML =
+      fg('Laboratory Name','req',inp('lName','text','e.g. PrecisionDent Lab Pvt. Ltd.'),'Use the registered name of the dental laboratory.')+
+      fr(sel('lType',['Select lab type…','Conventional Prosthetics Lab','CAD/CAM Milling Centre','Digital Dental Lab (hybrid)','Ceramics & Aesthetics Studio','Aligner / Clear Retainer Lab','Orthodontic Lab','Full-Service Lab (all work types)']),inp('lYear','number','Year started','min="1900" max="2026"'))+
+      sdiv('Address')+
+      inp_fg('lAddr','Street Address','req','Building, street, area…')+
+      fr(inp_fg('lCity','City','req','e.g. Chennai'),inp_fg('lState','State','req',null,true),inp_fg('lPin','PIN Code','req','6 digits','type="tel" maxlength="6"'))+
+      sdiv('Contact')+
+      fr(inp_fg('lPhone','Phone / WhatsApp','req','+91 99887 65432','type="tel"'),inp_fg('lEmail','Business Email','req','lab@example.com','type="email"'))+
+      fg('Lab Description','req',ta('lDesc','Describe your lab\'s specialty, technology, quality standards, years of service…',3,300),'<div class="cc" id="lDescCC">0 / 300</div>');
+  }
+  if(n===2){
+    body.innerHTML =
+      infoBox('Labs serving multiple clinics in India are not individually licensed centrally, but state-level trade licences and staff qualification documents establish credibility for our Verified Lab badge.')+
+      sdiv('Trade Licence')+
+      fr(inp_fg('lTrade','Trade Licence / Shop Act No.','req','Municipal or state-issued'),inp_fg('lTradeExp','Expiry Date','','','type="date"'))+
+      uploadZone('lTradeUpload','lTradeFile','📄','Upload Trade Licence','Shop & Establishment Act registration','.pdf,.jpg,.jpeg,.png')+
+      sdiv('Qualified Staff')+
+      fg('Laboratory staff qualifications','req','<div class="check-grid">'+
+        ['BDS-qualified technician on staff','Diploma in Dental Mechanics (DDM)','Diploma in Dental Laboratory Technology (DDLT)','BDT (Bachelor Dental Technology)','Certified ceramist','CAD/CAM trained technician','ISO-certified technician'].map(function(q){
+          return '<label class="check-pill"><input type="checkbox" value="'+q+'"> <span class="cbox"></span> '+q+'</label>';
+        }).join('')+'</div>')+
+      fr(inp_fg('lStaffCount','Total lab technicians on staff','req','Number, e.g. 8','type="number" min="1"'),inp_fg('lBdsCount','BDS-qualified staff','','Number','type="number" min="0"'))+
+      sdiv('Certifications')+
+      fg('Quality certifications held','','<div class="check-grid">'+
+        ['ISO 9001:2015','ISO 13485 (Medical Device QMS)','CE Marked Equipment','BIS Certified','NABH Auxiliary','CDSCO Device Compliance'].map(function(c){
+          return '<label class="check-pill"><input type="checkbox" value="'+c+'"> <span class="cbox"></span> '+c+'</label>';
+        }).join('')+'</div>');
+  }
+  if(n===3){
+    body.innerHTML =
+      fg('Work types accepted','req','<div class="check-grid">'+
+        ['PFM Crowns & Bridges','Zirconia Crowns','Full-Ceramic (E.max)','Metal Crowns (base metal)','Complete Dentures','Partial Dentures (RPD)','Implant Prosthetics (abutments, crowns)','Implant Bars & Bridges','Clear Aligners','Orthodontic Retainers / Essix','Orthodontic Appliances (functional)','Splints / Night Guards','Veneers & Laminates','Custom Trays','Immediate Dentures','Precision Attachments'].map(function(item){
+          return '<label class="check-pill"><input type="checkbox" value="'+item+'"> <span class="cbox"></span> '+item+'</label>';
+        }).join('')+'</div>')+
+      sdiv('Turnaround Times')+
+      infoBox('Enter typical TAT in working days for each work type you accept. Leave 0 for work you do not handle.')+
+      '<div style="overflow-x:auto"><table class="tat-table"><thead><tr><th>Work Type</th><th>Standard TAT (days)</th><th>Rush TAT (days)</th></tr></thead><tbody>'+
+      ['PFM Crown','Zirconia Crown','Full-Ceramic Crown','Complete Denture','Aligner (per stage)','Implant Crown','Veneer','Night Guard / Splint'].map(function(wt){
+        return '<tr><td>'+wt+'</td><td><input type="number" min="0" max="30" value="3" placeholder="days"></td><td><input type="number" min="0" max="10" value="1" placeholder="days"></td></tr>';
+      }).join('')+'</tbody></table></div>'+
+      sdiv('Dispatch & Coverage')+
+      fg('Client cities you serve','req',tagInput('lCities'),'List the cities where you pick up / deliver dental cases. Press Enter after each.')+
+      fg('Pickup / Courier arrangement','req','<div class="check-grid">'+
+        ['Own pickup service','Clinic drops cases','BlueDart / FedEx','DTDC / Xpressbees','Courier aggregator','Postal (for aligners only)'].map(function(item){
+          return '<label class="check-pill"><input type="checkbox" value="'+item+'"> <span class="cbox"></span> '+item+'</label>';
+        }).join('')+'</div>');
+  }
+  if(n===4){
+    body.innerHTML =
+      fg('Major equipment in the lab','req','<div class="check-grid">'+
+        ['CAD/CAM Scanner (intraoral / desktop)','5-axis Milling Machine','3D Printer (dental resin)','Zirconia Sintering Furnace','Porcelain Firing Furnace','Pressure Pot / Curing Unit','Vibrator & Vacuum Mixer','Lathe & Polishing Units','Implant Torque Equipment','Digital Shade Matching System','CT/CBCT Viewer Software'].map(function(item){
+          return '<label class="check-pill"><input type="checkbox" value="'+item+'"> <span class="cbox"></span> '+item+'</label>';
+        }).join('')+'</div>')+
+      fg('Specific equipment brands / models (optional)','',(tagInput('lEquipBrands')),'e.g. Roland DWX-52D, 3Shape Trios, Ivoclar IPS e.max…')+
+      sdiv('Digital Workflow')+
+      fg('Digital case acceptance formats','','<div class="check-grid">'+
+        ['STL files (scan imports)','OBJ / PLY','DICOM (CBCT)','3Shape case files (.3oxz)','Exocad case files (.constructioninfo)','Medit link','Trios inbox'].map(function(item){
+          return '<label class="check-pill"><input type="checkbox" value="'+item+'"> <span class="cbox"></span> '+item+'</label>';
+        }).join('')+'</div>')+
+      fg('Pricing model for clinics','req','<div class="radio-group">'+
+        ['Per-unit pricing (fixed per item type)','Per-case pricing (custom quote)','Monthly retainer for high-volume clinics','Subscription (unlimited X items / month)'].map(function(pm){
+          return '<label class="radio-pill"><input type="radio" name="lPriceModel" value="'+pm+'"> <span class="rdot"></span><span><span class="rpl">'+pm+'</span></span></label>';
+        }).join('')+'</div>');
+  }
+  if(n===5){
+    body.innerHTML =
+      fg('Lab Photos','',photoGrid(['Lab workstation','CAD/CAM scanner','Milling machine / furnace','Finished prosthetics','Team photo']))+
+      sdiv('Review Summary')+
+      reviewSummary(CONFIGS[activeType])+
+      sdiv('Compliance &amp; DPDP 2025')+
+      dpdpConsent()+
+      warnBox('All work types listed and TAT times will appear on your public profile. Clinics will contact you based on these. Keep them accurate and update via your Lab Dashboard at any time.');
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   INSTITUTION STEPS
+══════════════════════════════════════════════════════ */
+function renderInstitutionStep(n, body){
+  if(n===1){
+    body.innerHTML =
+      fg('Institution Name','req',inp('iName','text','e.g. Rajiv Gandhi Institute of Dental Sciences'),'Use the full official name as per DCI recognition / trust deed.')+
+      fr(sel('iType',['Select type…','Dental College (BDS)','Dental College (BDS + MDS)','PG Institute (MDS only)','CPD / Continuing Education Centre','Hands-on Workshop Organiser','Implant Training Academy','Dental Nursing / Hygiene School','Dental Technician Training Institute','Online Dental Education Platform']),inp('iYear','number','Established year','min="1900" max="2026"'))+
+      inp_fg('iAffiliation','University Affiliation (if applicable)','','e.g. Rajiv Gandhi University of Health Sciences, Bengaluru')+
+      sdiv('Location')+
+      inp_fg('iAddr','Street Address','req','Campus address…')+
+      fr(inp_fg('iCity','City','req','e.g. Bengaluru'),inp_fg('iState','State','req',null,true),inp_fg('iPin','PIN','req','6 digits','type="tel" maxlength="6"'))+
+      sdiv('Contact')+
+      fr(inp_fg('iPhone','Phone','req','+91 80 2345 6789'),inp_fg('iEmail','Email','req','admissions@college.edu.in','type="email"'))+
+      inp_fg('iWeb','Website','','https://www.yourcollege.edu.in','type="url"');
+  }
+  if(n===2){
+    body.innerHTML =
+      infoBox('DCI recognition is mandatory for dental colleges. CPD providers and training academies require at least a Society / Trust registration to display the <strong>Verified Institution</strong> badge.')+
+      sdiv('DCI / NMC Recognition')+
+      fr(inp_fg('iDciNo','DCI Recognition No.','','DCI/RA/Dental/…'),inp_fg('iDciYear','DCI Recognition Year','','e.g. 2005','type="number"'))+
+      uploadZone('iDciUpload','iDciFile','🏛️','Upload DCI Recognition Letter','DCI or MCI / NMC recognition certificate','.pdf,.jpg,.jpeg,.png')+
+      sdiv('Accreditations')+
+      fg('Quality accreditations held','','<div class="check-grid">'+
+        ['NAAC A++','NAAC A+','NAAC A','NAAC B++','NBA Accredited','UGC 2(f)','UGC 12(B)','ISO 9001:2015','NIRF Ranked','Atal Innovation Mission','CSIR / ICMR Research Centre'].map(function(item){
+          return '<label class="check-pill"><input type="checkbox" value="'+item+'"> <span class="cbox"></span> '+item+'</label>';
+        }).join('')+'</div>')+
+      sdiv('Organisation Registration')+
+      fr(inp_fg('iTrust','Society / Trust / Section 8 Reg. No.','req','Registration number'),inp_fg('iTrustState','Registered under (state)','',null,true))+
+      uploadZone('iTrustUpload','iTrustFile','📜','Upload Society / Trust Certificate','Society registration or trust deed','.pdf,.jpg,.jpeg,.png');
+  }
+  if(n===3){
+    body.innerHTML =
+      fg('Programmes offered','req','<div class="check-grid">'+
+        ['BDS (undergraduate)','MDS — Orthodontics','MDS — Endodontics','MDS — Prosthodontics','MDS — Periodontology','MDS — Oral Surgery','MDS — Paediatric Dentistry','MDS — Oral Medicine & Radiology','MDS — Conservative Dentistry','PhD / Research','PG Diploma in Dental Sciences','Dental Hygiene Diploma','Dental Technician Diploma','Fellowship / Observership','CPD short courses','Hands-on workshops','Online / virtual courses'].map(function(item){
+          return '<label class="check-pill"><input type="checkbox" value="'+item+'"> <span class="cbox"></span> '+item+'</label>';
+        }).join('')+'</div>')+
+      sdiv('Intake & Capacity')+
+      fr(inp_fg('iBdsSeats','BDS annual intake (seats)','','e.g. 100','type="number" min="0"'),inp_fg('iMdsSeats','MDS seats (total)','','e.g. 40','type="number" min="0"'))+
+      fr(inp_fg('iCpdPerYear','CPD courses per year','','e.g. 12','type="number" min="0"'),inp_fg('iCpdSeats','Avg seats per CPD course','','e.g. 20','type="number" min="0"'))+
+      sdiv('Speciality Focus Areas')+
+      fg('Areas of strength / reputation','',tagInput('iSpecialty'),'e.g. Implantology, Laser Dentistry, Orthodontics — press Enter after each')+
+      sdiv('Admission')+
+      fg('Admission basis','req','<div class="check-grid">'+
+        ['NEET-PG (mandatory)','NEET-UG (mandatory)','MDS Entrance (state-level)','Merit + Interview (CPD)','Open registration (workshops)','Online enrolment'].map(function(item){
+          return '<label class="check-pill"><input type="checkbox" value="'+item+'"> <span class="cbox"></span> '+item+'</label>';
+        }).join('')+'</div>');
+  }
+  if(n===4){
+    body.innerHTML =
+      sdiv('Faculty')+
+      fr(inp_fg('iFacultyTotal','Total faculty strength','req','e.g. 90','type="number" min="0"'),inp_fg('iFacultyMds','Faculty with MDS / PhD','','e.g. 60','type="number" min="0"'))+
+      sdiv('Teaching Hospital')+
+      fg('Does your institution have an attached teaching hospital?','req','<div class="radio-group">'+
+        [['yes','Yes — attached dental hospital on campus'],['shared','Shared with a general hospital'],['no','No — outreach / community clinics only'],['online','Online / virtual institution (no hospital)']].map(function(o){
+          return '<label class="radio-pill"><input type="radio" name="iHospital" value="'+o[0]+'"> <span class="rdot"></span><span><span class="rpl">'+o[1]+'</span></span></label>';
+        }).join('')+'</div>')+
+      fr(inp_fg('iChairs','Dental chairs (teaching hospital)','','e.g. 250','type="number" min="0"'),inp_fg('iLabCount','Dental labs on campus','','e.g. 8','type="number" min="0"'))+
+      sdiv('Facilities')+
+      fg('Campus facilities','','<div class="check-grid">'+
+        ['Hostel (boys)','Hostel (girls)','Library & e-resources','Simulation lab','Phantom head lab','Digital X-ray / CBCT lab','Microbiology lab','Biochemistry lab','Canteen / cafeteria','Transport / bus','Research centre','Speciality clinic'].map(function(item){
+          return '<label class="check-pill"><input type="checkbox" value="'+item+'"> <span class="cbox"></span> '+item+'</label>';
+        }).join('')+'</div>');
+  }
+  if(n===5){
+    body.innerHTML =
+      fg('Campus / Facility Photos','',photoGrid(['Campus / main building','Lecture hall','Dental lab','Simulation lab','Teaching hospital OPD','Library']))+
+      sdiv('Review Summary')+
+      reviewSummary(CONFIGS[activeType])+
+      sdiv('Compliance &amp; DPDP 2025')+
+      dpdpConsent()+
+      warnBox('Student inquiry data collected via IDW is governed by DPDP 2025. All student inquiries are forwarded to your registered email and are not shared with third parties.');
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   SUPPORT BUSINESS STEPS
+══════════════════════════════════════════════════════ */
+function renderBusinessStep(n, body){
+  if(n===1){
+    body.innerHTML =
+      fg('Business Name','req',inp('bName','text','e.g. DentaMarketing India LLP'),'Registered name of the business.')+
+      fr(sel('bCategory',['Select primary category…',
+        'Dental Photography & Videography',
+        'Digital Marketing for Clinics',
+        'Clinic Management Software',
+        'Patient Communication Platform',
+        'Dental Finance / Loan Provider',
+        'Dental Insurance',
+        'Clinic Interior Design & Setup',
+        'HR / Staffing for Dental Clinics',
+        'Legal / Regulatory Consulting',
+        'Accounting / GST Filing for Clinics',
+        'Dental E-commerce Platform',
+        'Dental News / Media / Publishing',
+        'Continuing Education Aggregator',
+        'Other Dental Support Service'
+      ]),inp('bYear','number','Founded year','min="1990" max="2026"'))+
+      sdiv('Address')+
+      inp_fg('bAddr','Registered Address','req','Building / floor, street…')+
+      fr(inp_fg('bCity','City','req','e.g. Mumbai'),inp_fg('bState','State','req',null,true),inp_fg('bPin','PIN','req','6 digits','type="tel" maxlength="6"'))+
+      sdiv('Contact')+
+      fr(inp_fg('bPhone','Mobile / WhatsApp','req','+91 98765 43210','type="tel"'),inp_fg('bEmail','Business Email','req','hello@business.com','type="email"'))+
+      inp_fg('bWeb','Website','','https://www.yourbusiness.com','type="url"')+
+      fg('What your business does','req',ta('bDesc','Briefly describe your service, who it helps, and what makes you different for dental clients…',3,300),'<div class="cc" id="bDescCC">0 / 300</div>');
+  }
+  if(n===2){
+    body.innerHTML =
+      infoBox('At least one registration document is required for a Verified Business badge. MSME / Startup India registration significantly boosts credibility with dental clinic clients.')+
+      sdiv('Company Registration')+
+      fr(sel('bEntityType',['Select entity type…','Proprietorship','LLP','Private Limited','Public Limited','OPC','Section 8 / NGO','Partnership','Freelancer / Individual']),inp('bCin','CIN / LLP Registration No.','','e.g. U74999MH2020PTC123456'))+
+      uploadZone('bRegUpload','bRegFile','📋','Upload Registration Certificate','Certificate of Incorporation / Partnership Deed / other','.pdf,.jpg,.jpeg,.png')+
+      sdiv('Tax Registration')+
+      fr(inp_fg('bGst','GST Number','','e.g. 27AABCM1234D1Z5'),inp_fg('bPan','PAN Number','','e.g. AABCM1234D'))+
+      sdiv('Startup & MSME')+
+      fg('Startup / MSME registrations (select all applicable)','','<div class="check-grid">'+
+        ['MSME Udyam Registered','DPIIT Startup India Recognised','NSIC Registered','State Startup Programme','ISO 9001:2015','Google Partner','Meta Business Partner'].map(function(item){
+          return '<label class="check-pill"><input type="checkbox" value="'+item+'"> <span class="cbox"></span> '+item+'</label>';
+        }).join('')+'</div>')+
+      inp_fg('bUdyam','Udyam Registration No. (if MSME)','','e.g. UDYAM-MH-01-0000001');
+  }
+  if(n===3){
+    body.innerHTML =
+      fg('Services you offer to dental businesses','req','<div class="check-grid">'+[
+        'Website Design & SEO','Social Media Management','Google Ads / Meta Ads','Before/After Case Photography',
+        'Patient Video Testimonials','Clinic Walkthrough Videos','Dental Practice Loan','EMI / BNPL for Patients',
+        'Health Insurance TPA','Clinic Setup & Interior','Dental Clinic ERP','Patient CRM',
+        'Appointment Booking App','Staff Payroll & HR','HIPAA / DPDP Audit','GST & Accounting',
+        'Teledentistry Platform','Online Dental Store','Dental Podcast / Content','CPD Aggregator'
+      ].map(function(item){
+        return '<label class="check-pill"><input type="checkbox" value="'+item+'"> <span class="cbox"></span> '+item+'</label>';
+      }).join('')+'</div>')+
+      fg('Other specific services (add custom tags)','',(tagInput('bSvcTags')),'Type a service and press Enter')+
+      sdiv('Client Types Served')+
+      fg('Who are your clients?','req','<div class="check-grid">'+
+        ['Solo dental clinics','Multi-chair clinics','Dental chains','Dental hospitals','Dental colleges','Dental labs','Dental product companies','All of the above'].map(function(item){
+          return '<label class="check-pill"><input type="checkbox" value="'+item+'"> <span class="cbox"></span> '+item+'</label>';
+        }).join('')+'</div>')+
+      sdiv('Delivery Model')+
+      fg('How do you deliver?','req','<div class="radio-group">'+
+        [['Remote / online only','100% digital — calls, video, cloud delivery'],
+         ['On-site (client location)','You visit clinics / offices in person'],
+         ['Hybrid (remote + on-site)','Primarily remote, on-site for setup/training'],
+         ['Product / SaaS (no delivery)','Software or product — client self-service']
+        ].map(function(o){
+          return '<label class="radio-pill"><input type="radio" name="bDelivery" value="'+o[0]+'"> <span class="rdot"></span><span><span class="rpl">'+o[0]+'</span><div class="rpd">'+o[1]+'</div></span></label>';
+        }).join('')+'</div>');
+  }
+  if(n===4){
+    body.innerHTML =
+      fg('Pricing model','req','<div class="radio-group">'+
+        [['Monthly retainer','Fixed monthly fee for ongoing services'],
+         ['Per-project pricing','One-time fee per engagement / deliverable'],
+         ['Commission-based','Percentage of loan disbursed / policy sold'],
+         ['SaaS subscription','Monthly / annual software licence'],
+         ['Freemium','Free tier + paid upgrades'],
+         ['Custom / call for quote','Pricing determined after consultation']
+        ].map(function(o){
+          return '<label class="radio-pill"><input type="radio" name="bPricing" value="'+o[0]+'"> <span class="rdot"></span><span><span class="rpl">'+o[0]+'</span><div class="rpd">'+o[1]+'</div></span></label>';
+        }).join('')+'</div>')+
+      fr(inp_fg('bPriceFrom','Starting price / range','','e.g. ₹5,000/month or ₹15,000 per project'),inp_fg('bClients','Dental clients served till date','','e.g. 45 clinics','type="number" min="0"'))+
+      sdiv('Geographic Coverage')+
+      fg('Cities / states you serve','req',chipGroup('bCoverageChips',[
+        'Pan India (remote)','Maharashtra','Karnataka','Tamil Nadu','Telangana','Kerala','Gujarat','Delhi / NCR',
+        'Rajasthan','Uttar Pradesh','West Bengal','Punjab','Madhya Pradesh','Andhra Pradesh','All metros','Tier 2 cities'
+      ]))+
+      sdiv('Notable Clients & Testimonials')+
+      fg('Clinic / brand names you have worked with (optional)','',(tagInput('bClients2')),'Add well-known clinic names you have served — builds trust. Press Enter after each.')+
+      fg('Awards or recognitions (optional)','',(tagInput('bAwards')),'e.g. Google Certified Partner, Startup India Recognised…');
+  }
+  if(n===5){
+    body.innerHTML =
+      fg('Portfolio / Work Samples','',photoGrid(['Work sample 1','Work sample 2','Team / office','Case study visual']))+
+      uploadZone('bPortfolioUpload','bPortfolioFile','💼','Upload Portfolio or Deck','Company deck, case study PDF, or brochure','.pdf,.ppt,.pptx,.jpg,.png')+
+      sdiv('Review Summary')+
+      reviewSummary(CONFIGS[activeType])+
+      sdiv('Compliance &amp; DPDP 2025')+
+      dpdpConsent()+
+      warnBox('All leads generated via IDW will be sent to your registered email. You are responsible for handling patient/client data per DPDP 2025 once received.');
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   HELPER: input_fg shorthand (state select)
+══════════════════════════════════════════════════════ */
+function inp_fg(id, label, req, ph, extra, isStateSelect){
+  var field;
+  if(isStateSelect || ph===null){
+    // State select
+    var stateOpts = '<option value="">Select state…</option>' + ['Andhra Pradesh','Arunachal Pradesh','Assam','Bihar','Chhattisgarh','Delhi','Goa','Gujarat','Haryana','Himachal Pradesh','Jharkhand','Karnataka','Kerala','Madhya Pradesh','Maharashtra','Manipur','Meghalaya','Mizoram','Nagaland','Odisha','Punjab','Rajasthan','Sikkim','Tamil Nadu','Telangana','Tripura','Uttar Pradesh','Uttarakhand','West Bengal'].map(function(s){return '<option>'+s+'</option>';}).join('');
+    field = '<select id="'+id+'">'+stateOpts+'</select>';
+  } else {
+    field = '<input type="'+(extra&&extra.includes('type="')? extra.match(/type="([^"]+)"/)[1] : 'text')+'" id="'+id+'" placeholder="'+(ph||'')+'" '+(extra||'')+' >';
+  }
+  return '<div class="fg"><label class="'+(req?'req':'')+'">'+(label||id)+'</label>'+field+'</div>';
+}
+
+/* ══════════════════════════════════════════════════════
+   WIRE INTERACTIVE ELEMENTS
+══════════════════════════════════════════════════════ */
+function wireAll(body){
+  // Upload zones
+  body.querySelectorAll('.upload-zone').forEach(function(zone){
+    var inp2 = zone.querySelector('input[type="file"]');
+    var listId = inp2 ? inp2.id+'List' : null;
+    if(!inp2) return;
+    inp2.addEventListener('change', function(){
+      var list = document.getElementById(listId);
+      if(list) renderFileList(Array.from(inp2.files), list);
+    });
+    zone.addEventListener('dragover', function(e){ e.preventDefault(); zone.classList.add('drag-over'); });
+    zone.addEventListener('dragleave', function(){ zone.classList.remove('drag-over'); });
+    zone.addEventListener('drop', function(e){
+      e.preventDefault(); zone.classList.remove('drag-over');
+      var list = document.getElementById(listId);
+      if(e.dataTransfer.files.length && list) renderFileList(Array.from(e.dataTransfer.files), list);
+    });
+  });
+  // Chips
+  body.querySelectorAll('.chip').forEach(function(chip){
+    chip.addEventListener('click', function(){ chip.classList.toggle('on'); });
+  });
+  // Tag inputs
+  body.querySelectorAll('.tag-wrap').forEach(function(wrap){
+    var inputEl = wrap.querySelector('.tag-real');
+    var id = wrap.id.replace('Wrap','');
+    if(!tags[id]) tags[id] = [];
+    wrap.addEventListener('click', function(){ inputEl.focus(); });
+    inputEl.addEventListener('keydown', function(e){
+      if((e.key==='Enter'||e.key===',') && inputEl.value.trim()){
+        e.preventDefault();
+        var val = inputEl.value.trim();
+        if(tags[id].indexOf(val)===-1 && tags[id].length<20){
+          tags[id].push(val);
+          var pill = document.createElement('span');
+          pill.className='tag-pill';
+          pill.setAttribute('data-v',val);
+          pill.innerHTML=escHtml(val)+'<button type="button">×</button>';
+          pill.querySelector('button').addEventListener('click', function(){
+            tags[id]=tags[id].filter(function(t){return t!==val;});
+            pill.remove();
+          });
+          wrap.insertBefore(pill, inputEl);
+          inputEl.value='';
+        }
+      }
+      if(e.key==='Backspace' && inputEl.value==='' && tags[id].length>0){
+        var last = tags[id][tags[id].length-1];
+        var lastPill = wrap.querySelector('[data-v="'+CSS.escape(last)+'"]');
+        if(lastPill) lastPill.remove();
+        tags[id].pop();
+      }
+    });
+  });
+  // Photo slots
+  body.querySelectorAll('.photo-slot').forEach(function(slot){
+    slot.addEventListener('click', function(){
+      slot.classList.toggle('filled');
+      var ico = slot.querySelector('.ps-icon');
+      if(ico) ico.textContent = slot.classList.contains('filled') ? '✓' : (slot.id==='addPhotoSlot'?'➕':'📷');
+    });
+  });
+  // Char counts
+  ['vDesc','lDesc','bDesc'].forEach(function(id){
+    var ta2 = document.getElementById(id);
+    var cc = document.getElementById(id+'CC');
+    if(ta2 && cc){
+      ta2.addEventListener('input', function(){
+        var l = ta2.value.length;
+        cc.textContent = l+' / 300';
+        cc.className='cc'+(l>270?(l>300?' over':' warn'):'');
+      });
+    }
+  });
+  // Populate review if on last step
+  setTimeout(function(){ populateReview(); }, 50);
+}
+
+/* ══════════════════════════════════════════════════════
+   FILE LIST RENDER
+══════════════════════════════════════════════════════ */
+function renderFileList(files, list){
+  list.innerHTML='';
+  files.forEach(function(f){
+    var ext = f.name.split('.').pop().toUpperCase();
+    var item = document.createElement('div');
+    item.className='file-item';
+    item.innerHTML='<span>'+(ext==='PDF'?'📄':'🖼️')+'</span><span class="fi-name">'+escHtml(f.name)+'</span><span class="fi-size">'+fmtSize(f.size)+'</span><button class="fi-rm" type="button">×</button>';
+    item.querySelector('.fi-rm').addEventListener('click', function(){ item.remove(); });
+    list.appendChild(item);
+  });
+}
+function fmtSize(b){ if(b<1024)return b+'B'; if(b<1048576)return (b/1024).toFixed(1)+'KB'; return (b/1048576).toFixed(1)+'MB'; }
+
+/* ══════════════════════════════════════════════════════
+   VALIDATION
+══════════════════════════════════════════════════════ */
+function validateStep(){
+  var ok = true;
+  // Check required fields are filled
+  document.querySelectorAll('#cardBody input.req:required, #cardBody select.req:required').forEach(function(el){
+    // Simple: just check required labels via parent .fg label.req
+  });
+  // Check first text/select/tel/email/url inputs in .fg with .req label
+  document.querySelectorAll('#cardBody .fg').forEach(function(fg2){
+    var lbl = fg2.querySelector('label.req');
+    if(!lbl) return;
+    var el = fg2.querySelector('input, select, textarea');
+    if(!el) return;
+    if(!el.value.trim()){
+      el.classList.add('err');
+      ok = false;
+      if(!fg2.querySelector('.ferr')){ // add inline error if not present
+        var ferr = document.createElement('div');
+        ferr.className='ferr show';
+        ferr.textContent='This field is required.';
+        fg2.appendChild(ferr);
+      } else {
+        fg2.querySelector('.ferr').classList.add('show');
+      }
+      if(ok) el.scrollIntoView({behavior:'smooth',block:'center'});
+    } else {
+      el.classList.remove('err');
+      var ferr = fg2.querySelector('.ferr');
+      if(ferr) ferr.classList.remove('show');
+    }
+  });
+  return ok;
+}
+
+/* ══════════════════════════════════════════════════════
+   CAPTURE & REVIEW
+══════════════════════════════════════════════════════ */
+function captureStep(){
+  // Save key fields to formData
+  ['vCompany','lName','iName','bName','vCity','lCity','iCity','bCity',
+   'vPhone','lPhone','iPhone','bPhone','vEmail','lEmail','iEmail','bEmail'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) formData[id] = el.value.trim();
+  });
+}
+function populateReview(){
+  var nameKeys = {vendor:'vCompany',lab:'lName',institution:'iName',business:'bName'};
+  var cityKeys = {vendor:'vCity',lab:'lCity',institution:'iCity',business:'bCity'};
+  var phoneKeys = {vendor:'vPhone',lab:'lPhone',institution:'iPhone',business:'bPhone'};
+  var emailKeys = {vendor:'vEmail',lab:'lEmail',institution:'iEmail',business:'bEmail'};
+  setRev('rev-name', formData[nameKeys[activeType]]);
+  setRev('rev-city', formData[cityKeys[activeType]]);
+  setRev('rev-phone', formData[phoneKeys[activeType]]);
+  setRev('rev-email', formData[emailKeys[activeType]]);
+}
+function setRev(id, val){ var el=document.getElementById(id); if(el) el.textContent=val||'—'; }
+window.goToStepDirect = function(n){ currentStep=n; renderStep(n); updateNav(); window.scrollTo({top:0,behavior:'smooth'}); };
+
+/* ══════════════════════════════════════════════════════
+   SUBMIT
+══════════════════════════════════════════════════════ */
+function submitForm(){
+  var consents = ['c1','c2','c3'].every(function(id){
+    var el=document.getElementById(id); return el&&el.checked;
+  });
+  if(!consents){
+    var cb = document.querySelector('.compliance-box');
+    if(cb){ cb.style.border='2px solid var(--rose)'; cb.scrollIntoView({behavior:'smooth',block:'center'}); }
+    return;
+  }
+  document.getElementById('appId').textContent = 'IDW-BIZ-'+Math.floor(10000+Math.random()*90000);
+  document.getElementById('formCard').style.display='none';
+  document.getElementById('formNav').style.display='none';
+  document.getElementById('stepper').style.display='none';
+  document.getElementById('progressFill').style.width='100%';
+  document.getElementById('successCard').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ══════════════════════════════════════════════════════
+   UTILS
+══════════════════════════════════════════════════════ */
+function escHtml(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+})();
+</script>
+
+</body>
+</html>
+
+</body></html>

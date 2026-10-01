@@ -1,0 +1,739 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Reviews | IndiaDentalWorld</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lora:ital,wght@0,600;1,500&display=swap">
+
+<style>
+:root {
+  --bg:#0A1714;--bg2:#111E1B;--surface:#1A2B27;--surface2:#213530;
+  --border:rgba(0,196,167,.16);--border2:rgba(0,196,167,.08);
+  --teal:#00C4A7;--teal-dim:rgba(0,196,167,.13);
+  --rose:#F06A6A;--rose-dim:rgba(240,106,106,.13);
+  --amber:#F5A623;--amber-dim:rgba(245,166,35,.13);
+  --green:#34D399;--green-dim:rgba(52,211,153,.13);
+  --purple:#A78BFA;--purple-dim:rgba(167,139,250,.13);
+  --text:#E2EDEB;--text2:#7FA49F;--text3:#4A706A;
+  --shadow:0 4px 24px rgba(0,0,0,.4);--shadow-sm:0 2px 8px rgba(0,0,0,.25);
+  --r:14px;--r-sm:8px;--r-xs:5px;
+  color-scheme:dark;
+}
+@media(prefers-color-scheme:light){
+  :root:not([data-theme="dark"]){
+    --bg:#EFF4F3;--bg2:#E4EDEB;--surface:#FFF;--surface2:#F5F9F8;
+    --border:rgba(0,153,133,.2);--border2:rgba(0,153,133,.1);
+    --teal:#00897A;--teal-dim:rgba(0,137,122,.1);
+    --rose:#D94F4F;--rose-dim:rgba(217,79,79,.1);
+    --amber:#C98A10;--amber-dim:rgba(201,138,16,.1);
+    --green:#1A9E6E;--green-dim:rgba(26,158,110,.1);
+    --purple:#7C3AED;--purple-dim:rgba(124,58,237,.1);
+    --text:#0D1F1C;--text2:#3D6560;--text3:#8AADA8;
+    --shadow:0 4px 24px rgba(0,0,0,.1);
+    color-scheme:light;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#EFF4F3;--bg2:#E4EDEB;--surface:#FFF;--surface2:#F5F9F8;
+  --border:rgba(0,153,133,.2);--border2:rgba(0,153,133,.1);
+  --teal:#00897A;--teal-dim:rgba(0,137,122,.1);
+  --rose:#D94F4F;--rose-dim:rgba(217,79,79,.1);
+  --amber:#C98A10;--amber-dim:rgba(201,138,16,.1);
+  --green:#1A9E6E;--green-dim:rgba(26,158,110,.1);
+  --purple:#7C3AED;--purple-dim:rgba(124,58,237,.1);
+  --text:#0D1F1C;--text2:#3D6560;--text3:#8AADA8;
+  color-scheme:light;
+}
+:root[data-theme="dark"]{color-scheme:dark;}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:24px 16px 48px;}
+
+/* ── HEADER ── */
+.page-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:24px;gap:12px;flex-wrap:wrap;}
+.page-title{font-family:'Lora',serif;font-size:1.5rem;color:var(--teal);}
+.page-sub{font-size:.8rem;color:var(--text2);margin-top:3px;}
+
+/* ── TABS ── */
+.sec-tabs{display:flex;gap:4px;background:var(--bg2);border-radius:var(--r);padding:4px;margin-bottom:24px;border:1px solid var(--border2);}
+.sec-tab{flex:1;padding:10px 16px;border-radius:10px;font-size:.82rem;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--text2);transition:all .2s;text-align:center;white-space:nowrap;}
+.sec-tab.active{background:var(--teal);color:#fff;}
+.sec-tab:hover:not(.active){background:var(--surface);color:var(--text);}
+.sec-panel{display:none;}
+.sec-panel.active{display:block;}
+
+/* ── GRID LAYOUTS ── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+@media(max-width:640px){.two-col{grid-template-columns:1fr;}}
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px;}
+@media(max-width:600px){.three-col{grid-template-columns:1fr;}}
+
+/* ── CARD ── */
+.card{background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:20px;margin-bottom:16px;}
+.card-title{font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:4px;}
+.card-sub{font-size:.75rem;color:var(--text2);}
+.divider{height:1px;background:var(--border2);margin:16px 0;}
+
+/* ── RATING SUMMARY CARD ── */
+.rating-hero{display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
+.rating-big{text-align:center;flex-shrink:0;}
+.rating-number{font-size:3rem;font-weight:800;color:var(--text);line-height:1;font-variant-numeric:tabular-nums;}
+.stars-row{display:flex;gap:2px;justify-content:center;margin:4px 0;}
+.star{font-size:1rem;}
+.star.full{color:var(--amber);}
+.star.half{color:var(--amber);opacity:.6;}
+.star.empty{color:var(--border);}
+.rating-count{font-size:.72rem;color:var(--text2);}
+.rating-bars{flex:1;min-width:200px;display:flex;flex-direction:column;gap:5px;}
+.rating-row{display:flex;align-items:center;gap:8px;}
+.rating-label{font-size:.72rem;color:var(--text2);width:36px;text-align:right;flex-shrink:0;}
+.rating-bar-wrap{flex:1;height:7px;background:var(--border2);border-radius:4px;overflow:hidden;}
+.rating-bar-fill{height:100%;border-radius:4px;background:var(--amber);transition:width .6s ease;}
+.rating-pct{font-size:.68rem;color:var(--text3);width:28px;flex-shrink:0;text-align:right;font-variant-numeric:tabular-nums;}
+
+/* ── SOCIAL PROOF SCORE ── */
+.sp-score-card{background:var(--teal-dim);border:1px solid var(--teal);border-radius:var(--r);padding:18px;margin-bottom:16px;}
+.sp-title{font-size:.88rem;font-weight:700;color:var(--teal);margin-bottom:12px;}
+.sp-items{display:flex;flex-direction:column;gap:8px;}
+.sp-item{display:flex;align-items:center;gap:10px;}
+.sp-check{width:20px;height:20px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;}
+.sp-check.done{background:var(--green);color:#fff;}
+.sp-check.todo{background:var(--border2);color:var(--text3);}
+.sp-label{font-size:.78rem;color:var(--text2);flex:1;}
+.sp-pts{font-size:.72rem;font-weight:700;color:var(--teal);white-space:nowrap;}
+.sp-total{display:flex;align-items:center;justify-content:space-between;margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,196,167,.2);}
+.sp-total-label{font-size:.82rem;font-weight:700;color:var(--text);}
+.sp-total-pts{font-size:1.2rem;font-weight:800;color:var(--green);}
+
+/* ── REVIEW CARDS ── */
+.review-list{display:flex;flex-direction:column;gap:12px;}
+.review-card{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r-sm);padding:16px;transition:border-color .2s;}
+.review-card:hover{border-color:var(--border);}
+.review-card.pinned{border-color:rgba(245,166,35,.4);background:var(--amber-dim);}
+.review-header{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;}
+.reviewer-avatar{width:36px;height:36px;border-radius:50%;background:var(--surface);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:700;color:var(--teal);}
+.reviewer-info{flex:1;min-width:0;}
+.reviewer-name{font-size:.85rem;font-weight:700;color:var(--text);}
+.review-meta{display:flex;align-items:center;gap:8px;margin-top:2px;flex-wrap:wrap;}
+.review-date{font-size:.68rem;color:var(--text3);}
+.pin-badge{font-size:.62rem;font-weight:700;padding:1px 7px;border-radius:10px;background:var(--amber-dim);color:var(--amber);}
+.platform-badge{font-size:.62rem;font-weight:700;padding:1px 7px;border-radius:10px;}
+.platform-idw{background:var(--teal-dim);color:var(--teal);}
+.review-stars{display:flex;gap:2px;font-size:.85rem;}
+.review-text{font-size:.8rem;color:var(--text2);line-height:1.6;margin-bottom:10px;}
+.review-actions{display:flex;gap:6px;flex-wrap:wrap;}
+
+/* reply box */
+.reply-box{display:none;margin-top:10px;border-top:1px solid var(--border2);padding-top:10px;}
+.reply-box.open{display:block;}
+.reply-existing{background:var(--surface);border-left:3px solid var(--teal);padding:10px 12px;border-radius:0 var(--r-xs) var(--r-xs) 0;margin-bottom:8px;}
+.reply-label{font-size:.65rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px;}
+.reply-text{font-size:.78rem;color:var(--text2);line-height:1.5;}
+.reply-textarea{width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:var(--r-xs);padding:9px 12px;font-size:.8rem;font-family:inherit;resize:vertical;min-height:70px;transition:border-color .15s;}
+.reply-textarea:focus{outline:none;border-color:var(--teal);}
+.reply-footer{display:flex;gap:6px;justify-content:flex-end;margin-top:6px;}
+
+/* ── BUTTONS ── */
+.btn-primary{padding:7px 16px;border-radius:var(--r-xs);font-size:.78rem;font-weight:700;border:none;background:var(--teal);color:#fff;cursor:pointer;transition:opacity .15s;white-space:nowrap;}
+.btn-primary:hover{opacity:.85;}
+.btn-ghost{padding:6px 12px;border-radius:var(--r-xs);font-size:.73rem;font-weight:600;border:1px solid var(--border);background:transparent;color:var(--text2);cursor:pointer;transition:all .15s;white-space:nowrap;}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal);}
+.btn-ghost.danger:hover{border-color:var(--rose);color:var(--rose);}
+
+/* ── FILTER ROW ── */
+.filter-row{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap;align-items:center;}
+.filter-btn{padding:5px 12px;border-radius:20px;font-size:.72rem;font-weight:600;border:1px solid var(--border2);background:var(--surface2);color:var(--text2);cursor:pointer;transition:all .15s;}
+.filter-btn.active{background:var(--teal);border-color:var(--teal);color:#fff;}
+.filter-btn:hover:not(.active){border-color:var(--teal);color:var(--teal);}
+
+/* ── GOOGLE PANEL ── */
+.google-notice{background:var(--purple-dim);border:1px solid var(--purple);border-radius:var(--r-sm);padding:14px;margin-bottom:16px;display:flex;gap:10px;}
+.notice-text{font-size:.75rem;color:var(--text2);line-height:1.55;}
+.notice-text strong{color:var(--purple);}
+.google-review-card{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r-sm);padding:14px;display:flex;flex-direction:column;gap:8px;}
+.g-header{display:flex;align-items:flex-start;gap:10px;}
+.g-avatar{width:34px;height:34px;border-radius:50%;background:var(--surface);display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;color:var(--text2);flex-shrink:0;}
+.g-name{font-size:.82rem;font-weight:700;color:var(--text);}
+.g-meta{font-size:.68rem;color:var(--text3);margin-top:1px;}
+.g-text{font-size:.78rem;color:var(--text2);line-height:1.6;}
+.g-source{font-size:.65rem;color:var(--text3);display:flex;align-items:center;gap:4px;}
+
+/* ── REQUEST TOOL ── */
+.request-tool{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r);padding:20px;}
+.template-box{background:var(--surface);border:1px solid var(--border2);border-radius:var(--r-xs);padding:14px;margin-bottom:12px;font-size:.8rem;color:var(--text2);line-height:1.6;position:relative;}
+.template-label{font-size:.65rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;}
+.template-edit{position:absolute;top:10px;right:10px;}
+.channel-btns{display:flex;gap:8px;flex-wrap:wrap;}
+.channel-btn{display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:var(--r-sm);font-size:.8rem;font-weight:700;border:none;cursor:pointer;transition:opacity .15s;}
+.channel-btn:hover{opacity:.85;}
+.channel-wa{background:#25D366;color:#fff;}
+.channel-sms{background:var(--teal);color:#fff;}
+.form-input{background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:var(--r-xs);padding:9px 12px;font-size:.82rem;font-family:inherit;transition:border-color .15s;width:100%;}
+.form-input:focus{outline:none;border-color:var(--teal);}
+.form-label{font-size:.72rem;font-weight:600;color:var(--text2);display:block;margin-bottom:5px;}
+.form-group{margin-bottom:12px;}
+
+/* ── TAG ── */
+.tag{font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:10px;letter-spacing:.03em;}
+.tag-teal{background:var(--teal-dim);color:var(--teal);}
+.tag-green{background:var(--green-dim);color:var(--green);}
+.tag-rose{background:var(--rose-dim);color:var(--rose);}
+.tag-amber{background:var(--amber-dim);color:var(--amber);}
+</style>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div>
+    <div class="page-title">Reviews</div>
+    <div class="page-sub">Karé Dental Studio · IDW Reviews + Google · Social Proof Score: 20 / 20</div>
+  </div>
+  <button class="btn-primary" onclick="switchTab('request', document.querySelectorAll('.sec-tab')[2])">+ Request Review</button>
+</div>
+
+<!-- SOCIAL PROOF SCORE -->
+<div class="sp-score-card">
+  <div class="sp-title">⭐ Social Proof Score — 20 / 20 pts</div>
+  <div class="sp-items">
+    <div class="sp-item">
+      <div class="sp-check done">✓</div>
+      <div class="sp-label">First review received on IDW</div>
+      <div class="sp-pts">+10 pts</div>
+    </div>
+    <div class="sp-item">
+      <div class="sp-check done">✓</div>
+      <div class="sp-label">Replied to at least one patient review</div>
+      <div class="sp-pts">+5 pts</div>
+    </div>
+    <div class="sp-item">
+      <div class="sp-check done">✓</div>
+      <div class="sp-label">Average IDW rating ≥ 4.0</div>
+      <div class="sp-pts">+5 pts</div>
+    </div>
+  </div>
+  <div class="sp-total">
+    <div class="sp-total-label">Total Social Proof Score</div>
+    <div class="sp-total-pts">20 / 20 ✦</div>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="sec-tabs">
+  <button class="sec-tab active" onclick="switchTab('idw',this)">🦷 IDW Reviews <span style="opacity:.5;font-weight:400;">(18)</span></button>
+  <button class="sec-tab" onclick="switchTab('google',this)">🔍 Google Reviews <span style="opacity:.5;font-weight:400;">(43)</span></button>
+  <button class="sec-tab" onclick="switchTab('request',this)">📲 Request Review</button>
+</div>
+
+
+<!-- ══════════ IDW REVIEWS ══════════ -->
+<div id="panel-idw" class="sec-panel active">
+
+  <!-- Rating Summary -->
+  <div class="card">
+    <div class="two-col" style="margin-bottom:0;">
+      <div class="rating-hero">
+        <div class="rating-big">
+          <div class="rating-number">4.8</div>
+          <div class="stars-row">
+            <span class="star full">★</span><span class="star full">★</span>
+            <span class="star full">★</span><span class="star full">★</span>
+            <span class="star half">★</span>
+          </div>
+          <div class="rating-count">18 IDW reviews</div>
+        </div>
+        <div class="rating-bars" id="idwBars"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;justify-content:center;">
+        <div style="background:var(--green-dim);border:1px solid var(--green);border-radius:var(--r-sm);padding:12px;">
+          <div style="font-size:.72rem;font-weight:700;color:var(--green);margin-bottom:4px;">REPLY RATE</div>
+          <div style="font-size:1.6rem;font-weight:800;color:var(--green);font-variant-numeric:tabular-nums;">83%</div>
+          <div style="font-size:.68rem;color:var(--text3);">15 of 18 reviews replied</div>
+        </div>
+        <div style="background:var(--teal-dim);border:1px solid var(--teal);border-radius:var(--r-sm);padding:12px;">
+          <div style="font-size:.72rem;font-weight:700;color:var(--teal);margin-bottom:4px;">AVG RESPONSE TIME</div>
+          <div style="font-size:1.6rem;font-weight:800;color:var(--teal);">4h</div>
+          <div style="font-size:.68rem;color:var(--text3);">Faster than 91% of clinics</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filter -->
+  <div class="filter-row">
+    <span style="font-size:.72rem;color:var(--text3);font-weight:600;">FILTER:</span>
+    <button class="filter-btn active" onclick="setFilter('all',this)">All (18)</button>
+    <button class="filter-btn" onclick="setFilter('unreplied',this)">Unreplied (3)</button>
+    <button class="filter-btn" onclick="setFilter('5star',this)">5 ★ (12)</button>
+    <button class="filter-btn" onclick="setFilter('low',this)">Below 4 ★ (1)</button>
+    <button class="filter-btn" onclick="setFilter('pinned',this)">Pinned (1)</button>
+  </div>
+
+  <!-- Review List -->
+  <div class="review-list" id="idwReviewList">
+
+    <!-- Review 1: Pinned, 5★, replied -->
+    <div class="review-card pinned" data-filter="pinned 5star">
+      <div class="review-header">
+        <div class="reviewer-avatar">A</div>
+        <div class="reviewer-info">
+          <div class="reviewer-name">Ananya Krishnamurthy</div>
+          <div class="review-meta">
+            <div class="review-stars">★★★★★</div>
+            <span class="review-date">12 Sep 2026</span>
+            <span class="pin-badge">📌 Pinned</span>
+            <span class="platform-badge platform-idw">IDW Verified</span>
+          </div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:4px;">
+          <button class="btn-ghost" style="padding:4px 8px;font-size:.65rem;" onclick="togglePin(this)">Unpin</button>
+        </div>
+      </div>
+      <div class="review-text">
+        "After 3 failed implant consultations at other clinics, Dr. Kavya gave me a full diagnosis with a CBCT scan and explained exactly why previous attempts didn't proceed. The implant surgery was painless — I can't believe I was so anxious. Karé Dental is in a different league. Highly recommend to anyone looking for honest, expert dental care in Koramangala."
+      </div>
+      <div style="display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap;">
+        <span class="tag tag-teal">Dental Implants</span>
+        <span class="tag tag-green">Verified Appointment</span>
+      </div>
+      <div class="review-actions">
+        <button class="btn-ghost" onclick="toggleReply(this)">💬 View Reply</button>
+        <button class="btn-ghost danger">🚩 Flag</button>
+      </div>
+      <div class="reply-box">
+        <div class="reply-existing">
+          <div class="reply-label">Your Reply · Dr. Kavya Ramesh · 13 Sep 2026</div>
+          <div class="reply-text">Thank you so much, Ananya! Your trust means everything to us. The CBCT gives us the full picture so we can plan precisely — no guesswork. So glad to hear you're feeling confident about your smile. We look forward to your follow-up! — Dr. Kavya</div>
+        </div>
+        <div style="display:flex;gap:6px;justify-content:flex-end;">
+          <button class="btn-ghost" style="font-size:.7rem;">✏ Edit Reply</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 2: 5★, no reply -->
+    <div class="review-card" data-filter="5star unreplied">
+      <div class="review-header">
+        <div class="reviewer-avatar" style="background:var(--purple-dim);color:var(--purple);">R</div>
+        <div class="reviewer-info">
+          <div class="reviewer-name">Rohit Varma</div>
+          <div class="review-meta">
+            <div class="review-stars">★★★★★</div>
+            <span class="review-date">18 Sep 2026</span>
+            <span class="platform-badge platform-idw">IDW Verified</span>
+            <span class="tag tag-amber" style="font-size:.6rem;">Awaiting reply</span>
+          </div>
+        </div>
+      </div>
+      <div class="review-text">
+        "Went for Invisalign consultation with Dr. Priya. She was incredibly thorough, showed me a digital simulation of my final smile, and gave me a realistic timeline. Zero upselling, very honest. Booked the treatment on the spot."
+      </div>
+      <div style="display:flex;gap:6px;margin-bottom:10px;">
+        <span class="tag tag-teal">Orthodontics</span>
+        <span class="tag tag-green">Verified Appointment</span>
+      </div>
+      <div class="review-actions">
+        <button class="btn-ghost" style="background:var(--teal);color:#fff;border-color:var(--teal);" onclick="toggleReply(this)">💬 Reply Now</button>
+        <button class="btn-ghost danger">🚩 Flag</button>
+        <button class="btn-ghost" onclick="togglePin(this)">📌 Pin</button>
+      </div>
+      <div class="reply-box">
+        <textarea class="reply-textarea" placeholder="Write a professional, personalised reply…&#10;&#10;Tip: Thank the patient by name, mention the treatment, and invite them back. Keep it under 200 words."></textarea>
+        <div class="reply-footer">
+          <button class="btn-ghost" onclick="toggleReply(this.closest('.reply-box').previousElementSibling.querySelector('.btn-ghost'))">Cancel</button>
+          <button class="btn-primary">Post Reply</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 3: 4★, replied -->
+    <div class="review-card" data-filter="all">
+      <div class="review-header">
+        <div class="reviewer-avatar" style="background:var(--green-dim);color:var(--green);">M</div>
+        <div class="reviewer-info">
+          <div class="reviewer-name">Meghna Iyer</div>
+          <div class="review-meta">
+            <div class="review-stars" style="color:var(--amber);">★★★★<span style="color:var(--border);">★</span></div>
+            <span class="review-date">5 Sep 2026</span>
+            <span class="platform-badge platform-idw">IDW Verified</span>
+          </div>
+        </div>
+      </div>
+      <div class="review-text">
+        "Root canal done by Dr. Kavya — very smooth procedure. Waiting time was a bit long (about 40 min past my appointment). Staff very helpful. The clinic is spotlessly clean, which is always reassuring. Would still recommend."
+      </div>
+      <div style="display:flex;gap:6px;margin-bottom:10px;">
+        <span class="tag tag-teal">Root Canal</span>
+      </div>
+      <div class="review-actions">
+        <button class="btn-ghost" onclick="toggleReply(this)">💬 View Reply</button>
+        <button class="btn-ghost danger">🚩 Flag</button>
+      </div>
+      <div class="reply-box">
+        <div class="reply-existing">
+          <div class="reply-label">Your Reply · Karé Dental Studio · 6 Sep 2026</div>
+          <div class="reply-text">Hi Meghna, thank you for your honest feedback! We're so sorry about the wait — we had an emergency procedure that afternoon and appreciate your patience. We've since restructured our emergency slots to prevent this. Your root canal outcome is what matters most — glad it went well. See you for the review appointment! — Karé Team</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 4: 3★, unreplied -->
+    <div class="review-card" style="border-color:rgba(240,106,106,.3);" data-filter="low unreplied">
+      <div class="review-header">
+        <div class="reviewer-avatar" style="background:var(--rose-dim);color:var(--rose);">S</div>
+        <div class="reviewer-info">
+          <div class="reviewer-name">Suresh P.</div>
+          <div class="review-meta">
+            <div class="review-stars"><span style="color:var(--amber);">★★★</span><span style="color:var(--border);">★★</span></div>
+            <span class="review-date">28 Aug 2026</span>
+            <span class="platform-badge platform-idw">IDW Verified</span>
+            <span class="tag tag-rose" style="font-size:.6rem;">⚠ Needs attention</span>
+          </div>
+        </div>
+      </div>
+      <div class="review-text">
+        "Treatment was okay, but the fee quoted at the start changed by the end. Would appreciate more transparency on pricing upfront."
+      </div>
+      <div style="background:var(--rose-dim);border:1px solid var(--rose);border-radius:var(--r-xs);padding:8px 12px;margin-bottom:10px;font-size:.72rem;color:var(--rose);">
+        ⚠ Below-4★ reviews impact your listing rank. Respond professionally within 48 hours.
+      </div>
+      <div class="review-actions">
+        <button class="btn-ghost" style="background:var(--rose);color:#fff;border-color:var(--rose);" onclick="toggleReply(this)">💬 Respond Now</button>
+        <button class="btn-ghost danger">🚩 Flag</button>
+      </div>
+      <div class="reply-box">
+        <textarea class="reply-textarea" placeholder="Address the concern calmly and professionally. Acknowledge the feedback, explain your pricing policy, and invite them to reach out directly.&#10;&#10;Do not: argue, offer refunds publicly, or use patient details."></textarea>
+        <div class="reply-footer">
+          <button class="btn-ghost">Cancel</button>
+          <button class="btn-primary">Post Reply</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /idwReviewList -->
+</div><!-- /panel-idw -->
+
+
+<!-- ══════════ GOOGLE REVIEWS ══════════ -->
+<div id="panel-google" class="sec-panel">
+
+  <div class="google-notice">
+    <div style="font-size:1.2rem;flex-shrink:0;margin-top:1px;">🔍</div>
+    <div class="notice-text">
+      <strong>Google Reviews — Read-only display via Places API.</strong> IDW can display your Google reviews here for your reference, but cannot post replies to Google on your behalf (Google Places API ToS prohibits third-party review management). To reply, tap "Reply on Google" on any card — it opens directly in your Google Business Profile. <a href="#" style="color:var(--purple);">Learn more about dual-platform review strategy →</a>
+    </div>
+  </div>
+
+  <!-- Google summary -->
+  <div class="card">
+    <div class="rating-hero">
+      <div class="rating-big">
+        <div class="rating-number">4.6</div>
+        <div class="stars-row">
+          <span class="star full">★</span><span class="star full">★</span>
+          <span class="star full">★</span><span class="star full">★</span>
+          <span class="star half">★</span>
+        </div>
+        <div class="rating-count">43 Google reviews</div>
+      </div>
+      <div class="rating-bars" id="googleBars"></div>
+    </div>
+  </div>
+
+  <div style="display:flex;gap:8px;margin-bottom:16px;align-items:center;flex-wrap:wrap;">
+    <div style="font-size:.75rem;color:var(--text2);">Last synced: <strong style="color:var(--text);">Today, 9:14 AM</strong></div>
+    <button class="btn-ghost" style="font-size:.72rem;padding:5px 12px;">↺ Sync Now</button>
+    <div style="margin-left:auto;">
+      <a href="#" style="text-decoration:none;">
+        <button class="btn-ghost" style="background:rgba(66,133,244,.15);border-color:rgba(66,133,244,.4);color:#4285F4;font-size:.72rem;padding:5px 12px;">
+          Open Google Business Profile ↗
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <!-- Google review cards -->
+  <div class="review-list">
+
+    <div class="google-review-card">
+      <div class="g-header">
+        <div class="g-avatar">P</div>
+        <div>
+          <div class="g-name">Pallavi Menon</div>
+          <div class="g-meta">
+            <span style="color:var(--amber);">★★★★★</span> · 3 weeks ago · Local Guide
+          </div>
+        </div>
+        <div style="margin-left:auto;">
+          <a href="#" target="_blank"><button class="btn-ghost" style="font-size:.68rem;padding:4px 9px;">Reply on Google ↗</button></a>
+        </div>
+      </div>
+      <div class="g-text">"Best dental clinic in Koramangala. Dr. Kavya took almost an hour for my initial consultation. No rush, no pressure. Booked my smile makeover on the spot. Clinic is super clean and modern."</div>
+      <div class="g-source">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Google Maps · IDW display only — reply via Google Business Profile
+      </div>
+    </div>
+
+    <div class="google-review-card">
+      <div class="g-header">
+        <div class="g-avatar" style="background:var(--amber-dim);color:var(--amber);">K</div>
+        <div>
+          <div class="g-name">Karthik Balasubramanian</div>
+          <div class="g-meta"><span style="color:var(--amber);">★★★★</span><span style="color:var(--text3);">★</span> · 1 month ago</div>
+        </div>
+        <div style="margin-left:auto;">
+          <a href="#" target="_blank"><button class="btn-ghost" style="font-size:.68rem;padding:4px 9px;">Reply on Google ↗</button></a>
+        </div>
+      </div>
+      <div class="g-text">"Good clinic overall. Parking can be tricky on weekday evenings. Treatment quality was excellent — my ceramic crown looks completely natural. Dr. Arjun was very patient in explaining the procedure."</div>
+      <div class="g-source">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Google Maps · IDW display only
+      </div>
+    </div>
+
+    <div style="text-align:center;padding:16px;">
+      <button class="btn-ghost" style="font-size:.78rem;">Load more Google reviews (41 remaining)</button>
+    </div>
+
+  </div>
+</div><!-- /panel-google -->
+
+
+<!-- ══════════ REQUEST REVIEW ══════════ -->
+<div id="panel-request" class="sec-panel">
+
+  <div style="background:var(--teal-dim);border:1px solid var(--teal);border-radius:var(--r-sm);padding:14px;margin-bottom:20px;font-size:.78rem;color:var(--text2);line-height:1.55;">
+    💡 <strong style="color:var(--teal);">Dual Review Strategy:</strong> Send patients both an IDW review link and Google review link in a single message. Reviews on both platforms compound your online trust signal. Best sent within 2 hours of the appointment while experience is fresh.
+  </div>
+
+  <div class="two-col">
+    <!-- SMS / WhatsApp tool -->
+    <div class="request-tool">
+      <div class="card-title" style="margin-bottom:4px;">Patient Details</div>
+      <div class="card-sub" style="margin-bottom:16px;">Send a post-appointment review request</div>
+
+      <div class="form-group">
+        <label class="form-label">Patient Name</label>
+        <input type="text" class="form-input" id="rName" placeholder="e.g. Ananya" oninput="updateTemplate()">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Mobile Number</label>
+        <input type="tel" class="form-input" id="rPhone" placeholder="9XXXXXXXXX" oninput="updateTemplate()">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Treatment Received</label>
+        <select class="form-input" id="rTreatment" onchange="updateTemplate()">
+          <option value="dental treatment">Select treatment</option>
+          <option>Dental Implant</option>
+          <option>Root Canal Treatment</option>
+          <option>Teeth Whitening</option>
+          <option>Ceramic Braces / Invisalign</option>
+          <option>Dental Cleaning</option>
+          <option>Tooth Extraction</option>
+          <option>Smile Makeover</option>
+          <option>Crown / Bridge</option>
+        </select>
+      </div>
+
+      <div class="divider"></div>
+      <div class="template-label">Message Preview</div>
+      <div class="template-box" id="templatePreview">
+        Hi <strong id="tName">there</strong>! 😊 Thank you for visiting <strong>Karé Dental Studio</strong> today for your <strong id="tTreatment">dental treatment</strong>.<br><br>
+        We'd love to hear about your experience! Your feedback helps other patients find trusted dental care.<br><br>
+        ⭐ <strong>Rate us on IndiaDentalWorld:</strong> indiadentalworld.in/clinic/kare-dental-koramangala/review<br>
+        🔍 <strong>Review us on Google:</strong> g.page/kare-dental-studio/review<br><br>
+        Takes under 2 minutes — thank you! 🙏<br>
+        — Dr. Kavya &amp; the Karé Team
+      </div>
+
+      <div class="channel-btns">
+        <button class="channel-btn channel-wa" onclick="sendWhatsApp()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Send via WhatsApp
+        </button>
+        <button class="channel-btn channel-sms" onclick="sendSMS()">
+          📱 Send via SMS
+        </button>
+      </div>
+    </div>
+
+    <!-- Recent requests log -->
+    <div>
+      <div class="card-title" style="margin-bottom:12px;">Recent Requests</div>
+      <div style="display:flex;flex-direction:column;gap:8px;" id="requestLog">
+        <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r-sm);padding:12px;display:flex;gap:10px;align-items:flex-start;">
+          <div style="flex:1;">
+            <div style="font-size:.8rem;font-weight:600;color:var(--text);">Ananya K.</div>
+            <div style="font-size:.68rem;color:var(--text3);">Dental Implant · 12 Sep 2026</div>
+          </div>
+          <span class="tag tag-green">✓ Reviewed</span>
+        </div>
+        <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r-sm);padding:12px;display:flex;gap:10px;align-items:flex-start;">
+          <div style="flex:1;">
+            <div style="font-size:.8rem;font-weight:600;color:var(--text);">Rohit V.</div>
+            <div style="font-size:.68rem;color:var(--text3);">Invisalign · 18 Sep 2026</div>
+          </div>
+          <span class="tag tag-green">✓ Reviewed</span>
+        </div>
+        <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r-sm);padding:12px;display:flex;gap:10px;align-items:flex-start;">
+          <div style="flex:1;">
+            <div style="font-size:.8rem;font-weight:600;color:var(--text);">Kiran M.</div>
+            <div style="font-size:.68rem;color:var(--text3);">Root Canal · 22 Sep 2026</div>
+          </div>
+          <span class="tag tag-amber">Pending</span>
+        </div>
+        <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r-sm);padding:12px;display:flex;gap:10px;align-items:flex-start;">
+          <div style="flex:1;">
+            <div style="font-size:.8rem;font-weight:600;color:var(--text);">Deepa S.</div>
+            <div style="font-size:.68rem;color:var(--text3);">Teeth Whitening · 25 Sep 2026</div>
+          </div>
+          <span class="tag tag-amber">Pending</span>
+        </div>
+        <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r-sm);padding:12px;display:flex;gap:10px;align-items:flex-start;">
+          <div style="flex:1;">
+            <div style="font-size:.8rem;font-weight:600;color:var(--text);">Suresh P.</div>
+            <div style="font-size:.68rem;color:var(--text3);">Extraction · 28 Aug 2026</div>
+          </div>
+          <span class="tag tag-rose">3★ IDW</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /panel-request -->
+
+
+<script>
+/* ── TABS ── */
+function switchTab(id, btn) {
+  document.querySelectorAll('.sec-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.sec-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  if(btn) btn.classList.add('active');
+}
+
+/* ── RATING BARS ── */
+function buildBars(containerId, data) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  const total = data.reduce((a,b) => a+b, 0) || 1;
+  el.innerHTML = [5,4,3,2,1].map((star,i) => {
+    const count = data[i];
+    const pct = Math.round(count/total*100);
+    return `<div class="rating-row">
+      <span class="rating-label">${star}★</span>
+      <div class="rating-bar-wrap"><div class="rating-bar-fill" style="width:${pct}%"></div></div>
+      <span class="rating-pct">${pct}%</span>
+    </div>`;
+  }).join('');
+}
+buildBars('idwBars',    [12, 4, 1, 0, 1]);  // 5★=12, 4★=4, 3★=1, 2★=0, 1★=1
+buildBars('googleBars', [28,10, 3, 1, 1]);  // approx Google dist
+
+/* ── REPLY TOGGLE ── */
+function toggleReply(btn) {
+  const card = btn.closest('.review-card');
+  const box = card.querySelector('.reply-box');
+  box.classList.toggle('open');
+  if (box.classList.contains('open')) {
+    const ta = box.querySelector('textarea');
+    if (ta) ta.focus();
+  }
+}
+
+/* ── PIN TOGGLE ── */
+function togglePin(btn) {
+  const card = btn.closest('.review-card');
+  const isPinned = card.classList.contains('pinned');
+  card.classList.toggle('pinned', !isPinned);
+  const badge = card.querySelector('.pin-badge');
+  if (!isPinned) {
+    if (!badge) {
+      const meta = card.querySelector('.review-meta');
+      const b = document.createElement('span');
+      b.className = 'pin-badge';
+      b.textContent = '📌 Pinned';
+      meta.appendChild(b);
+    }
+    btn.textContent = 'Unpin';
+  } else {
+    if (badge) badge.remove();
+    btn.textContent = '📌 Pin';
+  }
+}
+
+/* ── FILTER ── */
+function setFilter(f, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#idwReviewList .review-card').forEach(card => {
+    const filters = card.dataset.filter || '';
+    if (f === 'all') {
+      card.style.display = '';
+    } else {
+      card.style.display = filters.includes(f) ? '' : 'none';
+    }
+  });
+}
+
+/* ── TEMPLATE UPDATE ── */
+function updateTemplate() {
+  const name = document.getElementById('rName').value.trim() || 'there';
+  const treatment = document.getElementById('rTreatment').value || 'dental treatment';
+  const tName = document.getElementById('tName');
+  const tTreatment = document.getElementById('tTreatment');
+  if (tName) tName.textContent = name;
+  if (tTreatment) tTreatment.textContent = treatment;
+}
+
+/* ── SEND WHATSAPP ── */
+function sendWhatsApp() {
+  const phone = document.getElementById('rPhone').value.replace(/\D/g,'');
+  const name = document.getElementById('rName').value.trim() || 'there';
+  const treatment = document.getElementById('rTreatment').value || 'dental treatment';
+  if (!phone || phone.length < 10) {
+    document.getElementById('rPhone').style.borderColor = '#F06A6A';
+    setTimeout(() => document.getElementById('rPhone').style.borderColor = '', 2000);
+    return;
+  }
+  const msg = encodeURIComponent(
+    `Hi ${name}! 😊 Thank you for visiting Karé Dental Studio today for your ${treatment}.\n\n` +
+    `We'd love to hear about your experience!\n\n` +
+    `⭐ Rate us on IndiaDentalWorld: indiadentalworld.in/clinic/kare-dental-koramangala/review\n` +
+    `🔍 Review us on Google: g.page/kare-dental-studio/review\n\n` +
+    `Takes under 2 minutes — thank you! 🙏\n— Dr. Kavya & the Karé Team`
+  );
+  window.open(`https://wa.me/91${phone}?text=${msg}`, '_blank');
+  addToLog(name, treatment, 'Sent via WhatsApp');
+}
+
+/* ── SEND SMS (deep link) ── */
+function sendSMS() {
+  const phone = document.getElementById('rPhone').value.replace(/\D/g,'');
+  const name = document.getElementById('rName').value.trim() || 'there';
+  const treatment = document.getElementById('rTreatment').value || 'dental treatment';
+  if (!phone || phone.length < 10) {
+    document.getElementById('rPhone').style.borderColor = '#F06A6A';
+    setTimeout(() => document.getElementById('rPhone').style.borderColor = '', 2000);
+    return;
+  }
+  const body = encodeURIComponent(
+    `Hi ${name}! Thank you for visiting Karé Dental Studio. Rate us: indiadentalworld.in/clinic/kare-dental-koramangala/review | Google: g.page/kare-dental-studio/review`
+  );
+  window.open(`sms:+91${phone}?body=${body}`, '_self');
+  addToLog(name, treatment, 'Sent via SMS');
+}
+
+/* ── LOG ENTRY ── */
+function addToLog(name, treatment, note) {
+  const log = document.getElementById('requestLog');
+  const today = new Date().toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});
+  const row = document.createElement('div');
+  row.style.cssText = 'background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r-sm);padding:12px;display:flex;gap:10px;align-items:flex-start;';
+  row.innerHTML = `<div style="flex:1;">
+    <div style="font-size:.8rem;font-weight:600;color:var(--text);">${name}</div>
+    <div style="font-size:.68rem;color:var(--text3);">${treatment} · ${today} · ${note}</div>
+  </div><span class="tag tag-teal">Sent</span>`;
+  log.insertBefore(row, log.firstChild);
+}
+</script>
+
+</body></html>

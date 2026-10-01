@@ -1,0 +1,873 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Team | IndiaDentalWorld</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lora:ital,wght@0,600;1,500&display=swap">
+
+<style>
+:root {
+  --bg:#0A1714;--bg2:#111E1B;--surface:#1A2B27;--surface2:#213530;
+  --border:rgba(0,196,167,.16);--border2:rgba(0,196,167,.08);
+  --teal:#00C4A7;--teal-dim:rgba(0,196,167,.13);--teal-glow:rgba(0,196,167,.25);
+  --rose:#F06A6A;--rose-dim:rgba(240,106,106,.13);
+  --amber:#F5A623;--amber-dim:rgba(245,166,35,.13);
+  --green:#34D399;--green-dim:rgba(52,211,153,.13);
+  --purple:#A78BFA;--purple-dim:rgba(167,139,250,.13);
+  --text:#E2EDEB;--text2:#7FA49F;--text3:#4A706A;
+  --shadow:0 4px 24px rgba(0,0,0,.4);--shadow-sm:0 2px 8px rgba(0,0,0,.25);
+  --r:14px;--r-sm:8px;--r-xs:5px;
+  color-scheme:dark;
+}
+@media(prefers-color-scheme:light){
+  :root:not([data-theme="dark"]){
+    --bg:#EFF4F3;--bg2:#E4EDEB;--surface:#FFF;--surface2:#F5F9F8;
+    --border:rgba(0,153,133,.2);--border2:rgba(0,153,133,.1);
+    --teal:#00897A;--teal-dim:rgba(0,137,122,.1);--teal-glow:rgba(0,137,122,.2);
+    --rose:#D94F4F;--rose-dim:rgba(217,79,79,.1);
+    --amber:#C98A10;--amber-dim:rgba(201,138,16,.1);
+    --green:#1A9E6E;--green-dim:rgba(26,158,110,.1);
+    --purple:#7C3AED;--purple-dim:rgba(124,58,237,.1);
+    --text:#0D1F1C;--text2:#3D6560;--text3:#8AADA8;
+    --shadow:0 4px 24px rgba(0,0,0,.1);--shadow-sm:0 2px 8px rgba(0,0,0,.06);
+    color-scheme:light;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#EFF4F3;--bg2:#E4EDEB;--surface:#FFF;--surface2:#F5F9F8;
+  --border:rgba(0,153,133,.2);--border2:rgba(0,153,133,.1);
+  --teal:#00897A;--teal-dim:rgba(0,137,122,.1);--teal-glow:rgba(0,137,122,.2);
+  --rose:#D94F4F;--rose-dim:rgba(217,79,79,.1);
+  --amber:#C98A10;--amber-dim:rgba(201,138,16,.1);
+  --green:#1A9E6E;--green-dim:rgba(26,158,110,.1);
+  --purple:#7C3AED;--purple-dim:rgba(124,58,237,.1);
+  --text:#0D1F1C;--text2:#3D6560;--text3:#8AADA8;
+  --shadow:0 4px 24px rgba(0,0,0,.1);--shadow-sm:0 2px 8px rgba(0,0,0,.06);
+  color-scheme:light;
+}
+:root[data-theme="dark"]{color-scheme:dark;}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:var(--bg);color:var(--text);
+  min-height:100vh;padding:24px 16px 48px;
+}
+
+/* ── PAGE HEADER ── */
+.page-header{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  margin-bottom:24px;gap:12px;flex-wrap:wrap;
+}
+.page-title{font-family:'Lora',serif;font-size:1.5rem;color:var(--teal);}
+.page-sub{font-size:.8rem;color:var(--text2);margin-top:3px;}
+.btn-primary{
+  padding:9px 20px;border-radius:var(--r-sm);font-size:.82rem;font-weight:700;
+  border:none;background:var(--teal);color:#fff;cursor:pointer;
+  white-space:nowrap;transition:opacity .15s;
+}
+.btn-primary:hover{opacity:.85;}
+.btn-ghost{
+  padding:7px 14px;border-radius:var(--r-xs);font-size:.75rem;font-weight:600;
+  border:1px solid var(--border);background:transparent;color:var(--text2);
+  cursor:pointer;transition:all .15s;
+}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal);}
+.btn-ghost.danger:hover{border-color:var(--rose);color:var(--rose);}
+
+/* ── SCORE NUDGE ── */
+.score-nudge{
+  background:var(--teal-dim);border:1px solid var(--teal);
+  color:var(--teal);border-radius:var(--r-sm);padding:10px 16px;
+  font-size:.75rem;font-weight:600;display:flex;align-items:center;gap:8px;
+  margin-bottom:20px;
+}
+
+/* ── TEAM GRID ── */
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:16px;margin-bottom:24px;
+}
+
+/* ── MEMBER CARD ── */
+.member-card{
+  background:var(--surface);border:1px solid var(--border2);
+  border-radius:var(--r);overflow:hidden;
+  transition:box-shadow .2s,border-color .2s;
+}
+.member-card:hover{box-shadow:var(--shadow);border-color:var(--border);}
+
+.member-header{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:18px 18px 14px;
+}
+.member-avatar{
+  width:64px;height:64px;border-radius:50%;
+  background:var(--bg2);border:2px solid var(--border);
+  flex-shrink:0;overflow:hidden;position:relative;cursor:pointer;
+}
+.member-avatar img{width:100%;height:100%;object-fit:cover;}
+.avatar-overlay{
+  position:absolute;inset:0;background:rgba(0,0,0,.55);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .2s;border-radius:50%;
+  font-size:.6rem;color:#fff;font-weight:700;text-align:center;
+  padding:4px;
+}
+.member-avatar:hover .avatar-overlay{opacity:1;}
+
+.member-info{flex:1;min-width:0;}
+.member-name{font-size:1rem;font-weight:700;color:var(--text);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.member-qual{font-size:.72rem;color:var(--text2);margin-top:2px;line-height:1.4;}
+.member-role{
+  display:inline-block;margin-top:5px;
+  font-size:.65rem;font-weight:700;padding:2px 9px;
+  border-radius:10px;letter-spacing:.03em;
+}
+
+/* completion ring (small) */
+.completion-wrap{
+  display:flex;flex-direction:column;align-items:center;
+  flex-shrink:0;margin-left:auto;
+}
+.completion-ring{width:44px;height:44px;}
+.ring-track{fill:none;stroke:var(--border2);stroke-width:4;}
+.ring-fill{fill:none;stroke-width:4;stroke-linecap:round;
+  transform:rotate(-90deg);transform-origin:50% 50%;
+  transition:stroke-dashoffset .6s ease,stroke .4s;}
+.completion-pct{font-size:.65rem;font-weight:700;color:var(--text2);
+  text-align:center;margin-top:2px;}
+
+/* member body */
+.member-body{padding:0 18px 14px;border-top:1px solid var(--border2);}
+.member-section{margin-top:12px;}
+.section-label{
+  font-size:.65rem;font-weight:700;color:var(--text3);
+  text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;
+}
+
+/* NDC row */
+.ndc-row{
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+}
+.ndc-value{
+  font-size:.78rem;font-weight:600;color:var(--text);
+  font-variant-numeric:tabular-nums;
+}
+.ndc-badge{
+  font-size:.62rem;font-weight:700;padding:2px 8px;
+  border-radius:10px;
+}
+.ndc-verified{background:var(--green-dim);color:var(--green);}
+.ndc-pending{background:var(--amber-dim);color:var(--amber);}
+
+/* specialties */
+.spec-list{display:flex;flex-wrap:wrap;gap:5px;}
+.spec-chip{
+  font-size:.65rem;font-weight:600;padding:3px 9px;
+  border-radius:10px;background:var(--teal-dim);color:var(--teal);
+  border:1px solid var(--border2);
+}
+
+/* bio */
+.member-bio{
+  font-size:.78rem;color:var(--text2);line-height:1.55;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+/* awards */
+.awards-list{display:flex;flex-direction:column;gap:4px;}
+.award-item{
+  display:flex;align-items:flex-start;gap:6px;
+  font-size:.72rem;color:var(--text2);
+}
+.award-icon{color:var(--amber);flex-shrink:0;margin-top:1px;}
+
+/* availability grid */
+.avail-grid{
+  display:grid;grid-template-columns:repeat(7,1fr);gap:3px;
+}
+.avail-day{
+  text-align:center;padding:4px 2px;border-radius:4px;
+  font-size:.58rem;font-weight:700;letter-spacing:.02em;
+  text-transform:uppercase;
+}
+.avail-on{background:var(--teal-dim);color:var(--teal);}
+.avail-off{background:var(--border2);color:var(--text3);}
+
+/* card actions */
+.member-actions{
+  display:flex;gap:8px;padding:12px 18px;
+  border-top:1px solid var(--border2);
+}
+
+/* ── ADD / EDIT FORM ── */
+.form-overlay{
+  display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);
+  z-index:100;align-items:flex-start;justify-content:center;
+  padding:24px 16px;overflow-y:auto;
+}
+.form-overlay.open{display:flex;}
+.form-sheet{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:var(--r);width:100%;max-width:640px;
+  padding:24px;position:relative;margin:auto;
+}
+.form-title{font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:20px;
+  display:flex;align-items:center;justify-content:space-between;}
+.close-btn{
+  background:transparent;border:none;color:var(--text3);
+  font-size:1.2rem;cursor:pointer;padding:4px;line-height:1;
+}
+.close-btn:hover{color:var(--text);}
+
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+@media(max-width:500px){.form-row{grid-template-columns:1fr;}}
+.form-row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px;}
+@media(max-width:500px){.form-row-3{grid-template-columns:1fr;}}
+.form-group{display:flex;flex-direction:column;gap:5px;}
+.form-label{font-size:.72rem;font-weight:600;color:var(--text2);}
+.form-label .req{color:var(--rose);}
+.form-input,.form-select,.form-textarea{
+  background:var(--surface);border:1px solid var(--border);
+  color:var(--text);border-radius:var(--r-xs);padding:9px 12px;
+  font-size:.82rem;font-family:inherit;transition:border-color .15s;
+}
+.form-input:focus,.form-select:focus,.form-textarea:focus{
+  outline:none;border-color:var(--teal);
+}
+.form-textarea{resize:vertical;min-height:70px;line-height:1.5;}
+.char-count{font-size:.65rem;color:var(--text3);text-align:right;margin-top:2px;}
+
+/* avatar upload in form */
+.form-avatar-row{
+  display:flex;align-items:center;gap:16px;margin-bottom:16px;
+  padding:14px;background:var(--surface);border-radius:var(--r-sm);
+  border:1px solid var(--border2);
+}
+.form-avatar-preview{
+  width:56px;height:56px;border-radius:50%;background:var(--bg);
+  border:2px solid var(--border);overflow:hidden;flex-shrink:0;
+}
+.form-avatar-preview img{width:100%;height:100%;object-fit:cover;}
+
+/* day availability toggles */
+.day-toggles{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px;}
+.day-tog{
+  padding:5px 10px;border-radius:20px;font-size:.7rem;font-weight:700;
+  border:1px solid var(--border2);background:var(--surface2);
+  color:var(--text3);cursor:pointer;transition:all .15s;user-select:none;
+}
+.day-tog.on{background:var(--teal);border-color:var(--teal);color:#fff;}
+
+/* specialties multi-select */
+.spec-select{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
+.spec-tog{
+  padding:4px 11px;border-radius:20px;font-size:.68rem;font-weight:600;
+  border:1px solid var(--border2);background:var(--surface2);
+  color:var(--text3);cursor:pointer;transition:all .15s;user-select:none;
+}
+.spec-tog.on{background:var(--teal-dim);border-color:var(--teal);color:var(--teal);}
+
+/* publications */
+.pub-list{display:flex;flex-direction:column;gap:6px;margin-top:6px;}
+.pub-row{display:flex;gap:6px;align-items:center;}
+.pub-row .form-input{flex:1;}
+.remove-pub{
+  padding:6px;border-radius:var(--r-xs);border:1px solid var(--border);
+  background:transparent;color:var(--text3);cursor:pointer;font-size:.8rem;
+  flex-shrink:0;transition:all .15s;
+}
+.remove-pub:hover{border-color:var(--rose);color:var(--rose);}
+
+/* divider */
+.divider{height:1px;background:var(--border2);margin:16px 0;}
+
+/* form footer */
+.form-footer{
+  display:flex;gap:8px;justify-content:flex-end;
+  padding-top:16px;border-top:1px solid var(--border2);margin-top:16px;
+}
+
+/* ── NDC INFO BOX ── */
+.ndc-info{
+  background:var(--purple-dim);border:1px solid var(--purple);
+  border-radius:var(--r-sm);padding:14px;margin-bottom:20px;
+  display:flex;gap:10px;align-items:flex-start;
+}
+.ndc-info-text{font-size:.75rem;color:var(--text2);line-height:1.55;}
+.ndc-info-text strong{color:var(--purple);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:600px){
+  .team-grid{grid-template-columns:1fr;}
+}
+</style>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div>
+    <div class="page-title">Team</div>
+    <div class="page-sub">Karé Dental Studio · 3 members · NDC-verified profiles boost search ranking</div>
+  </div>
+  <button class="btn-primary" onclick="openForm()">+ Add Team Member</button>
+</div>
+
+<!-- NDC INFO -->
+<div class="ndc-info">
+  <div style="font-size:1.2rem;flex-shrink:0;margin-top:1px;">🪪</div>
+  <div class="ndc-info-text">
+    <strong>NDC Verification (National Dental Commission, est. March 2026).</strong>
+    Each dentist's NDC Registration Number is cross-checked against KDC (Karnataka Dental Council) records and, in future, the ABDM HRP API. Verified profiles receive a trust badge on your public listing and add <strong>+5 points</strong> to your Profile Health Score per member. Upload a registration certificate if the auto-check is pending.
+  </div>
+</div>
+
+<!-- SCORE NUDGE -->
+<div class="score-nudge">
+  ⚡ Add Dr. Priya's specialties and bio to unlock +6 profile score
+</div>
+
+<!-- TEAM GRID -->
+<div class="team-grid" id="teamGrid">
+
+  <!-- ── MEMBER 1: Dr. Kavya (Chief) ── -->
+  <div class="member-card">
+    <div class="member-header">
+      <div class="member-avatar">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect width='64' height='64' fill='%230A1714' rx='32'/%3E%3Ccircle cx='32' cy='24' r='13' fill='%2300C4A7' opacity='.3'/%3E%3Cellipse cx='32' cy='50' rx='20' ry='14' fill='%231A2B27'/%3E%3C/svg%3E" alt="Dr. Kavya Ramesh">
+        <div class="avatar-overlay">Change Photo</div>
+      </div>
+      <div class="member-info">
+        <div class="member-name">Dr. Kavya Ramesh</div>
+        <div class="member-qual">BDS, MDS (Prosthodontics) · 11 yrs exp.</div>
+        <span class="member-role" style="background:var(--teal-dim);color:var(--teal);">Chief Dental Officer</span>
+      </div>
+      <div class="completion-wrap">
+        <svg class="completion-ring" viewBox="0 0 44 44">
+          <circle class="ring-track" cx="22" cy="22" r="18"/>
+          <circle class="ring-fill" cx="22" cy="22" r="18"
+            stroke="#34D399" stroke-dasharray="113" stroke-dashoffset="11"/>
+        </svg>
+        <div class="completion-pct">90%</div>
+      </div>
+    </div>
+
+    <div class="member-body">
+      <!-- NDC -->
+      <div class="member-section">
+        <div class="section-label">NDC Registration</div>
+        <div class="ndc-row">
+          <span class="ndc-value">KDC-2013-04872</span>
+          <span class="ndc-badge ndc-verified">✓ Verified</span>
+        </div>
+      </div>
+
+      <!-- Specialties -->
+      <div class="member-section">
+        <div class="section-label">Specialties</div>
+        <div class="spec-list">
+          <span class="spec-chip">Prosthodontics</span>
+          <span class="spec-chip">Implants</span>
+          <span class="spec-chip">Smile Design</span>
+          <span class="spec-chip">Full Mouth Rehab</span>
+        </div>
+      </div>
+
+      <!-- Bio -->
+      <div class="member-section">
+        <div class="section-label">Professional Bio</div>
+        <div class="member-bio">
+          Dr. Kavya Ramesh is a Prosthodontist with over a decade of clinical experience in complex full-mouth rehabilitations and implant-supported prosthetics. She trained at Manipal College of Dental Sciences and has completed advanced fellowship programmes at NYU Dentistry. Her work is cited in the Journal of Indian Prosthodontic Society.
+        </div>
+      </div>
+
+      <!-- Awards -->
+      <div class="member-section">
+        <div class="section-label">Awards & Recognition</div>
+        <div class="awards-list">
+          <div class="award-item"><span class="award-icon">🏆</span><span>Best Young Prosthodontist — IDA Karnataka 2022</span></div>
+          <div class="award-item"><span class="award-icon">🏆</span><span>Excellence in Implantology — NDC Regional Summit 2024</span></div>
+        </div>
+      </div>
+
+      <!-- Availability -->
+      <div class="member-section">
+        <div class="section-label">Availability</div>
+        <div class="avail-grid">
+          <div class="avail-day avail-on">Mon</div>
+          <div class="avail-day avail-on">Tue</div>
+          <div class="avail-day avail-on">Wed</div>
+          <div class="avail-day avail-on">Thu</div>
+          <div class="avail-day avail-on">Fri</div>
+          <div class="avail-day avail-off">Sat</div>
+          <div class="avail-day avail-off">Sun</div>
+        </div>
+        <div style="font-size:.68rem;color:var(--text3);margin-top:5px;">9:00 AM – 6:00 PM</div>
+      </div>
+    </div>
+
+    <div class="member-actions">
+      <button class="btn-ghost" onclick="openForm('kavya')">✏ Edit</button>
+      <button class="btn-ghost" style="margin-left:auto;" onclick="">👁 Preview Public Profile</button>
+    </div>
+  </div>
+
+  <!-- ── MEMBER 2: Dr. Arjun (Implantologist) ── -->
+  <div class="member-card">
+    <div class="member-header">
+      <div class="member-avatar">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect width='64' height='64' fill='%230A1714' rx='32'/%3E%3Ccircle cx='32' cy='24' r='13' fill='%23A78BFA' opacity='.35'/%3E%3Cellipse cx='32' cy='50' rx='20' ry='14' fill='%231A2B27'/%3E%3C/svg%3E" alt="Dr. Arjun Mehta">
+        <div class="avatar-overlay">Change Photo</div>
+      </div>
+      <div class="member-info">
+        <div class="member-name">Dr. Arjun Mehta</div>
+        <div class="member-qual">BDS, MDS (Oral Surgery) · 8 yrs exp.</div>
+        <span class="member-role" style="background:var(--purple-dim);color:var(--purple);">Senior Implantologist</span>
+      </div>
+      <div class="completion-wrap">
+        <svg class="completion-ring" viewBox="0 0 44 44">
+          <circle class="ring-track" cx="22" cy="22" r="18"/>
+          <circle class="ring-fill" cx="22" cy="22" r="18"
+            stroke="#00C4A7" stroke-dasharray="113" stroke-dashoffset="23"/>
+        </svg>
+        <div class="completion-pct">80%</div>
+      </div>
+    </div>
+
+    <div class="member-body">
+      <div class="member-section">
+        <div class="section-label">NDC Registration</div>
+        <div class="ndc-row">
+          <span class="ndc-value">KDC-2016-07341</span>
+          <span class="ndc-badge ndc-verified">✓ Verified</span>
+        </div>
+      </div>
+
+      <div class="member-section">
+        <div class="section-label">Specialties</div>
+        <div class="spec-list">
+          <span class="spec-chip">Dental Implants</span>
+          <span class="spec-chip">Oral Surgery</span>
+          <span class="spec-chip">Bone Grafting</span>
+          <span class="spec-chip">Sinus Lift</span>
+        </div>
+      </div>
+
+      <div class="member-section">
+        <div class="section-label">Professional Bio</div>
+        <div class="member-bio">
+          Dr. Arjun Mehta specialises in complex implant surgeries including full-arch rehabilitation (All-on-4, All-on-6), guided bone regeneration, and sinus lift procedures. He completed his implantology fellowship at the Bangalore Institute of Dental Sciences and has placed over 1,200 implants in 8 years of practice.
+        </div>
+      </div>
+
+      <div class="member-section">
+        <div class="section-label">Awards & Recognition</div>
+        <div class="awards-list">
+          <div class="award-item"><span class="award-icon">🏆</span><span>1200+ Implants Milestone — Straumann Partner 2025</span></div>
+        </div>
+      </div>
+
+      <div class="member-section">
+        <div class="section-label">Availability</div>
+        <div class="avail-grid">
+          <div class="avail-day avail-off">Mon</div>
+          <div class="avail-day avail-on">Tue</div>
+          <div class="avail-day avail-on">Wed</div>
+          <div class="avail-day avail-off">Thu</div>
+          <div class="avail-day avail-on">Fri</div>
+          <div class="avail-day avail-on">Sat</div>
+          <div class="avail-day avail-off">Sun</div>
+        </div>
+        <div style="font-size:.68rem;color:var(--text3);margin-top:5px;">10:00 AM – 7:00 PM</div>
+      </div>
+    </div>
+
+    <div class="member-actions">
+      <button class="btn-ghost" onclick="openForm('arjun')">✏ Edit</button>
+      <button class="btn-ghost" style="margin-left:auto;">👁 Preview Public Profile</button>
+    </div>
+  </div>
+
+  <!-- ── MEMBER 3: Dr. Priya (Orthodontist — incomplete) ── -->
+  <div class="member-card" style="border-color:rgba(245,166,35,.3);">
+    <div class="member-header">
+      <div class="member-avatar" style="border-color:var(--amber);">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect width='64' height='64' fill='%230A1714' rx='32'/%3E%3Ccircle cx='32' cy='24' r='13' fill='%23F5A623' opacity='.25'/%3E%3Cellipse cx='32' cy='50' rx='20' ry='14' fill='%231A2B27'/%3E%3Ctext x='32' y='52' fill='%23F5A623' font-size='9' text-anchor='middle' font-family='sans-serif'%3EAdd photo%3C/text%3E%3C/svg%3E" alt="Dr. Priya Nair — add photo">
+        <div class="avatar-overlay">Add Photo</div>
+      </div>
+      <div class="member-info">
+        <div class="member-name">Dr. Priya Nair</div>
+        <div class="member-qual">BDS, MDS (Orthodontics) · 5 yrs exp.</div>
+        <span class="member-role" style="background:var(--amber-dim);color:var(--amber);">Orthodontist</span>
+      </div>
+      <div class="completion-wrap">
+        <svg class="completion-ring" viewBox="0 0 44 44">
+          <circle class="ring-track" cx="22" cy="22" r="18"/>
+          <circle class="ring-fill" cx="22" cy="22" r="18"
+            stroke="#F5A623" stroke-dasharray="113" stroke-dashoffset="57"/>
+        </svg>
+        <div class="completion-pct" style="color:var(--amber);">50%</div>
+      </div>
+    </div>
+
+    <div class="member-body">
+      <div class="member-section">
+        <div class="section-label">NDC Registration</div>
+        <div class="ndc-row">
+          <span class="ndc-value">KDC-2019-11203</span>
+          <span class="ndc-badge ndc-pending">⏳ Verification pending</span>
+        </div>
+        <div style="margin-top:6px;">
+          <button class="btn-ghost" style="font-size:.68rem;padding:4px 10px;" onclick="openForm('priya')">Upload Registration Certificate →</button>
+        </div>
+      </div>
+
+      <div class="member-section">
+        <div class="section-label">Specialties</div>
+        <div style="font-size:.75rem;color:var(--amber);padding:6px 10px;background:var(--amber-dim);border-radius:var(--r-xs);">
+          ⚠ No specialties added — profile score impact
+        </div>
+      </div>
+
+      <div class="member-section">
+        <div class="section-label">Professional Bio</div>
+        <div style="font-size:.75rem;color:var(--amber);padding:6px 10px;background:var(--amber-dim);border-radius:var(--r-xs);">
+          ⚠ Bio not added — patients read this before booking
+        </div>
+      </div>
+
+      <div class="member-section">
+        <div class="section-label">Availability</div>
+        <div class="avail-grid">
+          <div class="avail-day avail-on">Mon</div>
+          <div class="avail-day avail-off">Tue</div>
+          <div class="avail-day avail-on">Wed</div>
+          <div class="avail-day avail-off">Thu</div>
+          <div class="avail-day avail-on">Fri</div>
+          <div class="avail-day avail-on">Sat</div>
+          <div class="avail-day avail-off">Sun</div>
+        </div>
+        <div style="font-size:.68rem;color:var(--text3);margin-top:5px;">10:00 AM – 5:00 PM</div>
+      </div>
+    </div>
+
+    <div class="member-actions">
+      <button class="btn-primary" onclick="openForm('priya')" style="font-size:.75rem;padding:7px 14px;">⚡ Complete Profile</button>
+      <button class="btn-ghost danger" style="margin-left:auto;">Remove</button>
+    </div>
+  </div>
+
+</div><!-- /teamGrid -->
+
+
+<!-- ══════════ ADD / EDIT FORM ══════════ -->
+<div class="form-overlay" id="memberFormOverlay" onclick="closeFormOnBackdrop(event)">
+  <div class="form-sheet">
+    <div class="form-title">
+      <span id="formTitleText">Add Team Member</span>
+      <button class="close-btn" onclick="closeForm()">✕</button>
+    </div>
+
+    <!-- Avatar upload -->
+    <div class="form-avatar-row">
+      <div class="form-avatar-preview" id="formAvatarPreview">
+        <img id="formAvatarImg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56'%3E%3Crect width='56' height='56' fill='%230A1714' rx='28'/%3E%3Ccircle cx='28' cy='21' r='11' fill='%231A2B27'/%3E%3Cellipse cx='28' cy='44' rx='17' ry='12' fill='%231A2B27'/%3E%3C/svg%3E" alt="Avatar preview">
+      </div>
+      <div>
+        <div style="font-size:.8rem;font-weight:600;color:var(--text);margin-bottom:4px;">Profile Photo</div>
+        <div style="font-size:.72rem;color:var(--text2);margin-bottom:8px;">Square photo recommended · Max 2MB</div>
+        <button class="btn-ghost" onclick="document.getElementById('avatarFileInput').click()" style="font-size:.72rem;padding:5px 12px;">Upload Photo</button>
+        <input type="file" id="avatarFileInput" accept="image/*" hidden onchange="previewAvatar(this)">
+      </div>
+    </div>
+
+    <!-- Basic info -->
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Full Name <span class="req">*</span></label>
+        <input type="text" class="form-input" id="fName" placeholder="Dr. Firstname Lastname">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Role / Designation <span class="req">*</span></label>
+        <select class="form-select" id="fRole">
+          <option value="">Select role</option>
+          <option>Chief Dental Officer</option>
+          <option>Senior Dentist</option>
+          <option>Prosthodontist</option>
+          <option>Orthodontist</option>
+          <option>Implantologist</option>
+          <option>Endodontist</option>
+          <option>Periodontist</option>
+          <option>Pedodontist</option>
+          <option>Oral Surgeon</option>
+          <option>Dental Assistant</option>
+          <option>Dental Hygienist</option>
+          <option>Clinic Manager</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Qualifications <span class="req">*</span></label>
+        <input type="text" class="form-input" id="fQual" placeholder="BDS, MDS (Prosthodontics)">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Years of Experience</label>
+        <input type="number" class="form-input" id="fExp" placeholder="e.g. 8" min="0" max="60">
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- NDC -->
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">NDC / KDC Registration No.</label>
+        <input type="text" class="form-input" id="fNDC" placeholder="KDC-YYYY-NNNNN">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Upload Registration Certificate</label>
+        <button class="btn-ghost" onclick="document.getElementById('ndcCertInput').click()" style="width:100%;padding:9px 12px;text-align:left;font-size:.78rem;">
+          📎 Choose file (PDF / JPG)
+        </button>
+        <input type="file" id="ndcCertInput" accept=".pdf,image/*" hidden>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Specialties -->
+    <div class="form-group" style="margin-bottom:12px;">
+      <label class="form-label">Specialties (select all that apply)</label>
+      <div class="spec-select" id="specSelect">
+        <span class="spec-tog" onclick="toggleSpec(this)">Implants</span>
+        <span class="spec-tog" onclick="toggleSpec(this)">Cosmetic Dentistry</span>
+        <span class="spec-tog" onclick="toggleSpec(this)">Orthodontics</span>
+        <span class="spec-tog" onclick="toggleSpec(this)">Root Canal</span>
+        <span class="spec-tog" onclick="toggleSpec(this)">Oral Surgery</span>
+        <span class="spec-tog" onclick="toggleSpec(this)">Periodontics</span>
+        <span class="spec-tog" onclick="toggleSpec(this)">Prosthodontics</span>
+        <span class="spec-tog" onclick="toggleSpec(this)">Pediatric Dentistry</span>
+        <span class="spec-tog" onclick="toggleSpec(this)">Smile Design</span>
+        <span class="spec-tog" onclick="toggleSpec(this)">Full Mouth Rehab</span>
+        <span class="spec-tog" onclick="toggleSpec(this)">Teeth Whitening</span>
+        <span class="spec-tog" onclick="toggleSpec(this)">Bone Grafting</span>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Bio -->
+    <div class="form-group" style="margin-bottom:4px;">
+      <label class="form-label">Professional Bio <span style="font-weight:400;color:var(--text3);">(max 250 characters)</span></label>
+      <textarea class="form-textarea" id="fBio" maxlength="250"
+        placeholder="Describe clinical experience, training institutions, areas of expertise, and approach to patient care."
+        oninput="updateCharCount(this,'bioCount')"></textarea>
+    </div>
+    <div class="char-count"><span id="bioCount">0</span> / 250</div>
+
+    <div class="divider"></div>
+
+    <!-- Awards -->
+    <div class="form-group" style="margin-bottom:12px;">
+      <label class="form-label">Awards & Recognition</label>
+      <div class="pub-list" id="awardsList">
+        <div class="pub-row">
+          <input type="text" class="form-input" placeholder="e.g. Best Young Dentist — IDA Karnataka 2022">
+          <button class="remove-pub" onclick="removePubRow(this)">✕</button>
+        </div>
+      </div>
+      <button class="btn-ghost" style="margin-top:6px;font-size:.72rem;" onclick="addAwardRow()">+ Add Award</button>
+    </div>
+
+    <!-- Publications -->
+    <div class="form-group" style="margin-bottom:12px;">
+      <label class="form-label">Publications (URLs)</label>
+      <div class="pub-list" id="pubsList">
+        <div class="pub-row">
+          <input type="url" class="form-input" placeholder="https://doi.org/... or PubMed link">
+          <button class="remove-pub" onclick="removePubRow(this)">✕</button>
+        </div>
+      </div>
+      <button class="btn-ghost" style="margin-top:6px;font-size:.72rem;" onclick="addPubRow()">+ Add Publication</button>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Availability -->
+    <div class="form-group" style="margin-bottom:12px;">
+      <label class="form-label">Available Days at This Clinic</label>
+      <div class="day-toggles" id="dayToggles">
+        <span class="day-tog" onclick="toggleDay(this)">Mon</span>
+        <span class="day-tog" onclick="toggleDay(this)">Tue</span>
+        <span class="day-tog" onclick="toggleDay(this)">Wed</span>
+        <span class="day-tog" onclick="toggleDay(this)">Thu</span>
+        <span class="day-tog" onclick="toggleDay(this)">Fri</span>
+        <span class="day-tog" onclick="toggleDay(this)">Sat</span>
+        <span class="day-tog" onclick="toggleDay(this)">Sun</span>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Start Time</label>
+        <input type="time" class="form-input" id="fTimeStart" value="09:00">
+      </div>
+      <div class="form-group">
+        <label class="form-label">End Time</label>
+        <input type="time" class="form-input" id="fTimeEnd" value="18:00">
+      </div>
+    </div>
+
+    <div class="form-footer">
+      <button class="btn-ghost" onclick="closeForm()">Cancel</button>
+      <button class="btn-primary" onclick="saveForm()">Save Member</button>
+    </div>
+  </div>
+</div>
+
+
+<script>
+/* ── FORM OPEN / CLOSE ── */
+function openForm(memberId) {
+  const overlay = document.getElementById('memberFormOverlay');
+  const title = document.getElementById('formTitleText');
+  // Reset form
+  document.getElementById('fName').value = '';
+  document.getElementById('fRole').value = '';
+  document.getElementById('fQual').value = '';
+  document.getElementById('fExp').value = '';
+  document.getElementById('fNDC').value = '';
+  document.getElementById('fBio').value = '';
+  document.getElementById('bioCount').textContent = '0';
+  document.querySelectorAll('.spec-tog').forEach(t => t.classList.remove('on'));
+  document.querySelectorAll('.day-tog').forEach(t => t.classList.remove('on'));
+
+  if (memberId === 'kavya') {
+    title.textContent = 'Edit — Dr. Kavya Ramesh';
+    document.getElementById('fName').value = 'Dr. Kavya Ramesh';
+    document.getElementById('fRole').value = 'Chief Dental Officer';
+    document.getElementById('fQual').value = 'BDS, MDS (Prosthodontics)';
+    document.getElementById('fExp').value = '11';
+    document.getElementById('fNDC').value = 'KDC-2013-04872';
+    const bio = 'Prosthodontist with 11+ years in full-mouth rehabilitation and implant-supported prosthetics. Trained at Manipal College of Dental Sciences. Fellowship at NYU Dentistry.';
+    document.getElementById('fBio').value = bio;
+    document.getElementById('bioCount').textContent = bio.length;
+    ['Prosthodontics','Implants','Smile Design','Full Mouth Rehab'].forEach(s => {
+      document.querySelectorAll('.spec-tog').forEach(t => {
+        if(t.textContent===s) t.classList.add('on');
+      });
+    });
+    ['Mon','Tue','Wed','Thu','Fri'].forEach(d => {
+      document.querySelectorAll('.day-tog').forEach(t => {
+        if(t.textContent===d) t.classList.add('on');
+      });
+    });
+  } else if (memberId === 'arjun') {
+    title.textContent = 'Edit — Dr. Arjun Mehta';
+    document.getElementById('fName').value = 'Dr. Arjun Mehta';
+    document.getElementById('fRole').value = 'Implantologist';
+    document.getElementById('fQual').value = 'BDS, MDS (Oral Surgery)';
+    document.getElementById('fExp').value = '8';
+    document.getElementById('fNDC').value = 'KDC-2016-07341';
+    const bio = 'Implant specialist with 1200+ successful placements. Fellowship at BIDS Bangalore. Expertise in All-on-4, All-on-6, bone grafting, and sinus lift.';
+    document.getElementById('fBio').value = bio;
+    document.getElementById('bioCount').textContent = bio.length;
+    ['Dental Implants','Oral Surgery','Bone Grafting'].forEach(s => {
+      document.querySelectorAll('.spec-tog').forEach(t => {
+        if(t.textContent===s||t.textContent==='Implants') t.classList.add('on');
+      });
+    });
+    ['Tue','Wed','Fri','Sat'].forEach(d => {
+      document.querySelectorAll('.day-tog').forEach(t => {
+        if(t.textContent===d) t.classList.add('on');
+      });
+    });
+  } else if (memberId === 'priya') {
+    title.textContent = 'Edit — Dr. Priya Nair';
+    document.getElementById('fName').value = 'Dr. Priya Nair';
+    document.getElementById('fRole').value = 'Orthodontist';
+    document.getElementById('fQual').value = 'BDS, MDS (Orthodontics)';
+    document.getElementById('fExp').value = '5';
+    document.getElementById('fNDC').value = 'KDC-2019-11203';
+    ['Mon','Wed','Fri','Sat'].forEach(d => {
+      document.querySelectorAll('.day-tog').forEach(t => {
+        if(t.textContent===d) t.classList.add('on');
+      });
+    });
+  } else {
+    title.textContent = 'Add Team Member';
+  }
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeForm() {
+  document.getElementById('memberFormOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeFormOnBackdrop(e) {
+  if (e.target === document.getElementById('memberFormOverlay')) closeForm();
+}
+
+/* ── AVATAR PREVIEW ── */
+function previewAvatar(input) {
+  if (!input.files || !input.files[0]) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    document.getElementById('formAvatarImg').src = e.target.result;
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+/* ── CHAR COUNT ── */
+function updateCharCount(el, countId) {
+  document.getElementById(countId).textContent = el.value.length;
+}
+
+/* ── TOGGLE CHIPS ── */
+function toggleSpec(el) { el.classList.toggle('on'); }
+function toggleDay(el)  { el.classList.toggle('on'); }
+
+/* ── DYNAMIC ROWS ── */
+function addAwardRow() {
+  const list = document.getElementById('awardsList');
+  const row = document.createElement('div');
+  row.className = 'pub-row';
+  row.innerHTML = `<input type="text" class="form-input" placeholder="Award name and year">
+    <button class="remove-pub" onclick="removePubRow(this)">✕</button>`;
+  list.appendChild(row);
+}
+
+function addPubRow() {
+  const list = document.getElementById('pubsList');
+  const row = document.createElement('div');
+  row.className = 'pub-row';
+  row.innerHTML = `<input type="url" class="form-input" placeholder="https://doi.org/...">
+    <button class="remove-pub" onclick="removePubRow(this)">✕</button>`;
+  list.appendChild(row);
+}
+
+function removePubRow(btn) {
+  const row = btn.closest('.pub-row');
+  const list = row.parentElement;
+  if (list.querySelectorAll('.pub-row').length > 1) row.remove();
+}
+
+/* ── SAVE (placeholder) ── */
+function saveForm() {
+  const name = document.getElementById('fName').value.trim();
+  if (!name) {
+    document.getElementById('fName').style.borderColor = '#F06A6A';
+    document.getElementById('fName').focus();
+    setTimeout(() => document.getElementById('fName').style.borderColor = '', 2000);
+    return;
+  }
+  closeForm();
+}
+</script>
+
+</body></html>

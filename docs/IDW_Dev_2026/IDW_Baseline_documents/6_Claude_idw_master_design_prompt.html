@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IDW Master Design Prompt — Complete Website, Pages & Workflows</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A1714;--surface:#121F1C;--card:#182622;--card2:#1E302C;
+  --border:#243C38;--border2:#2E4E48;
+  --teal:#00C4A7;--teal-dk:#009E88;--teal-lt:#082E28;--teal-glow:rgba(0,196,167,.15);
+  --amber:#F5A623;--amber-lt:#2E200A;
+  --rose:#F06A6A;--rose-lt:#2E1010;
+  --green:#34D399;--green-lt:#082E1E;
+  --violet:#A78BFA;--violet-lt:#1A1535;
+  --ink:#E2EDEB;--ink-mid:#7FA49F;--ink-dim:#3D5C58;
+  --r:10px;--r-sm:6px;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit;margin:0;padding:0}
+html{scroll-padding-top:60px;-webkit-text-size-adjust:100%}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--teal);text-decoration:none}
+:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:3px}
+code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--teal-lt);color:var(--teal);padding:1px 6px;border-radius:4px}
+pre{font-family:'JetBrains Mono',monospace;font-size:12.5px;background:var(--card2);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;overflow-x:auto;line-height:1.7;color:var(--ink-mid);margin:16px 0}
+pre strong{color:var(--teal)}
+pre em{color:var(--amber)}
+
+/* Layout */
+.layout{display:grid;grid-template-columns:240px minmax(0,1fr);min-height:100vh}
+@media(max-width:900px){.layout{grid-template-columns:1fr}}
+
+/* Sidebar */
+.sidebar{
+  position:sticky;top:0;height:100vh;overflow-y:auto;
+  background:var(--surface);border-right:1px solid var(--border);
+  padding:0;display:flex;flex-direction:column;
+  scrollbar-width:thin;scrollbar-color:var(--border) transparent;
+}
+@media(max-width:900px){.sidebar{display:none}}
+.sb-brand{
+  padding:20px 18px 16px;border-bottom:1px solid var(--border);
+}
+.sb-brand .logo{font-size:15px;font-weight:800;color:var(--teal)}
+.sb-brand .sub{font-size:11px;color:var(--ink-dim);margin-top:2px}
+.sb-group{padding:14px 18px 0}
+.sb-group-label{font-size:10px;font-weight:700;color:var(--ink-dim);letter-spacing:.08em;margin-bottom:8px}
+.sb-link{
+  display:flex;align-items:center;gap:8px;
+  padding:6px 8px;border-radius:5px;
+  font-size:12px;font-weight:500;color:var(--ink-mid);
+  cursor:pointer;transition:all .12s;margin-bottom:2px;
+  border:none;background:none;text-align:left;width:100%;font-family:inherit;
+}
+.sb-link:hover,.sb-link.active{background:var(--teal-lt);color:var(--teal)}
+.sb-link .num{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-dim);min-width:20px}
+.sb-link.active .num{color:var(--teal)}
+
+/* Main */
+.main{padding:0}
+
+/* Top bar */
+.topbar{
+  position:sticky;top:0;z-index:100;
+  background:rgba(10,23,20,.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  padding:14px clamp(16px,4vw,40px);
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.topbar-title{font-size:13px;font-weight:700;color:var(--ink-mid)}
+.copy-btn{
+  background:var(--teal-lt);border:1px solid rgba(0,196,167,.3);
+  color:var(--teal);font-size:12px;font-weight:700;
+  padding:6px 14px;border-radius:6px;cursor:pointer;font-family:inherit;
+  transition:all .15s;display:flex;align-items:center;gap:6px;
+}
+.copy-btn:hover{background:rgba(0,196,167,.2)}
+.copy-btn svg{width:13px;height:13px}
+.copied-msg{font-size:12px;color:var(--green);display:none;align-items:center;gap:5px}
+.copied-msg.show{display:flex}
+
+/* Content */
+.content{padding:clamp(24px,4vw,48px) clamp(16px,4vw,40px)}
+
+/* Hero */
+.hero-block{
+  background:linear-gradient(135deg,var(--card) 0%,var(--card2) 100%);
+  border:1px solid var(--border2);border-radius:var(--r);
+  padding:clamp(24px,4vw,40px);margin-bottom:40px;
+  position:relative;overflow:hidden;
+}
+.hero-block::before{
+  content:'';position:absolute;top:-40%;right:-10%;
+  width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,var(--teal-glow) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--teal-lt);border:1px solid rgba(0,196,167,.2);
+  color:var(--teal);font-size:11px;font-weight:700;
+  padding:4px 11px;border-radius:20px;margin-bottom:14px;
+  letter-spacing:.05em;
+}
+.hero-block h1{
+  font-size:clamp(22px,4vw,36px);font-weight:800;
+  line-height:1.1;letter-spacing:-.04em;margin-bottom:12px;
+}
+.hero-block h1 span{color:var(--teal)}
+.hero-block p{font-size:14px;color:var(--ink-mid);max-width:66ch;line-height:1.65}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.htag{
+  background:var(--card2);border:1px solid var(--border2);
+  color:var(--ink-mid);font-size:12px;font-weight:600;
+  padding:4px 11px;border-radius:20px;
+}
+
+/* Sections */
+section{margin-bottom:52px;scroll-margin-top:60px}
+.sec-header{display:flex;align-items:center;gap:10px;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+.sec-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);background:var(--teal-lt);padding:3px 8px;border-radius:4px;flex-shrink:0}
+.sec-title{font-size:17px;font-weight:800;letter-spacing:-.3px}
+.sec-intro{font-size:13.5px;color:var(--ink-mid);margin-bottom:18px;max-width:74ch;line-height:1.65}
+
+/* Prompt block */
+.prompt-block{
+  background:var(--card);border:1px solid var(--border2);
+  border-radius:var(--r);overflow:hidden;margin-bottom:20px;
+  position:relative;
+}
+.prompt-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 16px;background:var(--card2);border-bottom:1px solid var(--border);
+}
+.prompt-header .ph-left{display:flex;align-items:center;gap:10px}
+.prompt-type{font-size:10.5px;font-weight:700;color:var(--teal);letter-spacing:.06em}
+.prompt-title{font-size:13px;font-weight:700}
+.copy-mini{
+  background:none;border:1px solid var(--border2);color:var(--ink-dim);
+  font-size:11px;font-weight:600;padding:3px 10px;border-radius:4px;
+  cursor:pointer;font-family:inherit;transition:all .12s;flex-shrink:0;
+}
+.copy-mini:hover{border-color:var(--teal);color:var(--teal);background:var(--teal-lt)}
+.prompt-body{
+  padding:18px 20px;font-size:13px;line-height:1.75;color:var(--ink-mid);
+  white-space:pre-wrap;word-break:break-word;
+}
+.prompt-body .hl-teal{color:var(--teal);font-weight:600}
+.prompt-body .hl-amber{color:var(--amber);font-weight:600}
+.prompt-body .hl-rose{color:var(--rose);font-weight:600}
+.prompt-body .hl-violet{color:var(--violet);font-weight:600}
+.prompt-body .hl-green{color:var(--green);font-weight:600}
+
+/* Tables */
+.tbl-wrap{overflow-x:auto;border-radius:var(--r);border:1px solid var(--border);margin-bottom:20px}
+table{border-collapse:collapse;width:100%;font-size:13px;min-width:500px}
+thead{background:var(--card2)}
+th{text-align:left;font-size:11px;font-weight:700;color:var(--ink-dim);padding:10px 14px;border-bottom:1px solid var(--border);white-space:nowrap}
+td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--card)}
+td:first-child{font-weight:600;color:var(--ink)}
+
+/* Cards */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-bottom:20px}
+.mini-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-sm);padding:13px 14px}
+.mini-card .mc-icon{font-size:18px;margin-bottom:7px}
+.mini-card h4{font-size:12.5px;font-weight:700;margin-bottom:4px}
+.mini-card p{font-size:12px;color:var(--ink-mid);line-height:1.5}
+
+/* Callouts */
+.callout{border-radius:var(--r-sm);padding:14px 16px;margin-bottom:18px;font-size:13px;line-height:1.65}
+.co-teal{background:var(--teal-lt);border-left:3px solid var(--teal)}
+.co-amber{background:var(--amber-lt);border-left:3px solid var(--amber)}
+.co-rose{background:var(--rose-lt);border-left:3px solid var(--rose)}
+.co-violet{background:var(--violet-lt);border-left:3px solid var(--violet)}
+.callout strong{color:var(--teal)}
+.co-amber strong{color:var(--amber)}
+.co-rose strong{color:var(--rose)}
+.co-violet strong{color:var(--violet)}
+
+/* Pills */
+.pill{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px;white-space:nowrap}
+.pi-teal{background:var(--teal-lt);color:var(--teal)}
+.pi-amber{background:var(--amber-lt);color:var(--amber)}
+.pi-rose{background:var(--rose-lt);color:var(--rose)}
+.pi-violet{background:var(--violet-lt);color:var(--violet)}
+.pi-green{background:var(--green-lt);color:var(--green)}
+
+/* Page map */
+.page-tree{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-bottom:20px}
+.page-node{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r-sm);padding:11px 13px;
+  border-left:3px solid var(--teal);
+}
+.page-node.amber{border-left-color:var(--amber)}
+.page-node.rose{border-left-color:var(--rose)}
+.page-node.violet{border-left-color:var(--violet)}
+.page-node.green{border-left-color:var(--green)}
+.pn-route{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--teal);margin-bottom:4px}
+.pn-route.amber{color:var(--amber)}
+.pn-route.rose{color:var(--rose)}
+.pn-route.violet{color:var(--violet)}
+.pn-route.green{color:var(--green)}
+.pn-name{font-size:12.5px;font-weight:700;margin-bottom:2px}
+.pn-desc{font-size:11.5px;color:var(--ink-dim)}
+
+footer{border-top:1px solid var(--border);padding:24px clamp(16px,4vw,40px);font-size:12px;color:var(--ink-dim);text-align:center}
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sb-brand">
+    <div class="logo">IDW Design Prompt</div>
+    <div class="sub">Master UI/UX brief · v1.0</div>
+  </div>
+  <div class="sb-group">
+    <div class="sb-group-label">FOUNDATION</div>
+    <button class="sb-link active" onclick="scrollTo('s0')"><span class="num">00</span>Master prompt</button>
+    <button class="sb-link" onclick="scrollTo('s1')"><span class="num">01</span>Design system</button>
+    <button class="sb-link" onclick="scrollTo('s2')"><span class="num">02</span>Site architecture</button>
+  </div>
+  <div class="sb-group">
+    <div class="sb-group-label">PATIENT PORTAL</div>
+    <button class="sb-link" onclick="scrollTo('s3')"><span class="num">03</span>Homepage</button>
+    <button class="sb-link" onclick="scrollTo('s4')"><span class="num">04</span>Search & results</button>
+    <button class="sb-link" onclick="scrollTo('s5')"><span class="num">05</span>Clinic profile</button>
+    <button class="sb-link" onclick="scrollTo('s6')"><span class="num">06</span>Booking flow</button>
+    <button class="sb-link" onclick="scrollTo('s7')"><span class="num">07</span>Patient dashboard</button>
+  </div>
+  <div class="sb-group">
+    <div class="sb-group-label">CLINIC PORTAL</div>
+    <button class="sb-link" onclick="scrollTo('s8')"><span class="num">08</span>Clinic onboarding</button>
+    <button class="sb-link" onclick="scrollTo('s9')"><span class="num">09</span>PMS dashboard</button>
+    <button class="sb-link" onclick="scrollTo('s10')"><span class="num">10</span>Appointments</button>
+    <button class="sb-link" onclick="scrollTo('s11')"><span class="num">11</span>EMR & charting</button>
+    <button class="sb-link" onclick="scrollTo('s12')"><span class="num">12</span>Billing & invoicing</button>
+    <button class="sb-link" onclick="scrollTo('s13')"><span class="num">13</span>Lab connect</button>
+    <button class="sb-link" onclick="scrollTo('s14')"><span class="num">14</span>Analytics</button>
+  </div>
+  <div class="sb-group">
+    <div class="sb-group-label">B2B PORTALS</div>
+    <button class="sb-link" onclick="scrollTo('s15')"><span class="num">15</span>Vendor storefront</button>
+    <button class="sb-link" onclick="scrollTo('s16')"><span class="num">16</span>Lab portal</button>
+    <button class="sb-link" onclick="scrollTo('s17')"><span class="num">17</span>CDE / institute</button>
+    <button class="sb-link" onclick="scrollTo('s18')"><span class="num">18</span>Jobs board</button>
+  </div>
+  <div class="sb-group">
+    <div class="sb-group-label">SYSTEM</div>
+    <button class="sb-link" onclick="scrollTo('s19')"><span class="num">19</span>Workflows</button>
+    <button class="sb-link" onclick="scrollTo('s20')"><span class="num">20</span>Components</button>
+    <button class="sb-link" onclick="scrollTo('s21')"><span class="num">21</span>Mobile & accessibility</button>
+    <button class="sb-link" onclick="scrollTo('s22')"><span class="num">22</span>Performance rules</button>
+    <button class="sb-link" onclick="scrollTo('s23')"><span class="num">23</span>How to use this doc</button>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+
+<div class="topbar">
+  <span class="topbar-title">IDW Master Design Prompt — Complete Website & Workflow Specification</span>
+  <div style="display:flex;align-items:center;gap:12px">
+    <span class="copied-msg" id="copiedMsg">
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      Copied!
+    </span>
+    <button class="copy-btn" onclick="copyMasterPrompt()">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+      Copy master prompt
+    </button>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- HERO -->
+<div class="hero-block">
+  <div class="hero-kicker">🏥 Healthcare UX · Global Standard</div>
+  <h1>The complete design brief for<br><span>IndiaDentalWorld</span></h1>
+  <p>A single, copy-paste-ready master prompt plus section-by-section page briefs covering every portal, page, workflow and component across the entire IDW platform. Written in the voice of a senior UX director who has shipped Practo, Zocdoc, and Apollo 247 — opinionated, precise, and ready for any design AI, design system, or dev team.</p>
+  <div class="hero-tags">
+    <span class="htag">23 sections</span>
+    <span class="htag">6 stakeholder portals</span>
+    <span class="htag">40+ page types</span>
+    <span class="htag">18 core workflows</span>
+    <span class="htag">Ready for Figma / Claude / v0 / Cursor</span>
+  </div>
+</div>
+
+<!-- S0: MASTER PROMPT -->
+<section id="s0">
+  <div class="sec-header"><span class="sec-num">00</span><h2 class="sec-title">The master prompt — copy and use anywhere</h2></div>
+  <p class="sec-intro">Paste this entire prompt into Figma AI, Claude, v0, Cursor, or any design tool to generate any page or component with full context. Add the relevant section-specific prompt from below immediately after it.</p>
+
+  <div class="prompt-block" id="masterPromptBlock">
+    <div class="prompt-header">
+      <div class="ph-left">
+        <span class="prompt-type">MASTER SYSTEM PROMPT</span>
+        <span class="prompt-title">Use before every page or component request</span>
+      </div>
+      <button class="copy-mini" onclick="copyBlock('masterPromptBlock')">Copy</button>
+    </div>
+    <div class="prompt-body" id="masterPromptText">
+<span class="hl-teal">## ROLE</span>
+You are a principal UX designer with 15 years building global healthcare platforms. Your portfolio includes Practo, Zocdoc, Apollo 247, and Nabla. You design with clinical empathy — understanding that healthcare users are often anxious, in pain, or time-pressured. You never sacrifice clarity for style. Every decision you make must be justified by user need, not aesthetic preference.
+
+<span class="hl-amber">## PLATFORM CONTEXT</span>
+You are designing IndiaDentalWorld (IDW) — India's full-stack dental platform connecting:
+• Patients → find, compare, and book verified dentists
+• Dentists/Clinics → practice management (PMS), EMR, billing, lab orders, inventory
+• Dental Labs → digital work orders, case tracking, invoicing
+• Product Vendors/Dealers → storefronts, e-commerce, targeted campaigns to dentists
+• CDE Institutes → course listings, enrolments, certifications
+• Job seekers/hirers → dental careers board
+
+IDW already has: a live directory of 48,000+ verified dentists across 620+ cities, a mobile app, dental lab directory, CDE courses, events calendar, products store, and health blog. Three revenue layers: subscriptions, transaction commissions, advertising.
+
+<span class="hl-teal">## DESIGN SYSTEM</span>
+Color palette:
+• Primary background: #0A1714 (deep clinical dark)
+• Surface: #121F1C / #182622 (layered dark surfaces)
+• Primary action: #00C4A7 (IDW teal — trust, health, precision)
+• Warning/urgent: #F06A6A (rose — dental pain, emergency states)
+• Attention: #F5A623 (amber — ratings, highlights, CTAs)
+• Success: #34D399 (green — confirmed, available, verified)
+• Text primary: #E2EDEB | Mid: #7FA49F | Dim: #3D5C58
+• Light mode equivalents: swap bg to #F8FAF9, surfaces to #FFFFFF/#F2F5F4, keep teal/rose/amber/green
+
+Typography:
+• UI / headings: Plus Jakarta Sans (400/600/700/800)
+• Clinical voice / quotes: Lora italic (warmth in doctor bios, patient testimonials)
+• Code / data: JetBrains Mono
+• Base size: 15px, line-height 1.6. Heading scale: 13/15/17/20/24/32/40/52px
+
+Spacing: 4px base unit. Common: 4/8/12/16/20/24/32/40/48/64px
+Border radius: 6px (small), 10px (cards), 14px (modals), 20px (pills/chips)
+Shadows: sm: 0 1px 3px rgba(0,0,0,.12) | md: 0 4px 16px rgba(0,0,0,.2) | lg: 0 12px 40px rgba(0,0,0,.35)
+Icons: Lucide or Heroicons (outline weight 1.5–2px). Medical icons: custom SVG only, no emoji in clinical contexts.
+
+<span class="hl-rose">## CLINICAL UX PRINCIPLES — NON-NEGOTIABLE</span>
+1. TRUST FIRST. Every page must earn trust before it asks for action. Verified badges, real credentials, transparent pricing — visible above the fold.
+2. ANXIETY-AWARE. Dental anxiety is real. Language must be calm, direct, never alarming. Emergency states use rose (#F06A6A), never red.
+3. SPEED OVER DELIGHT. A patient in pain needs 2 taps to call, not an animation. Delight is earned after the functional need is met.
+4. ZERO GATING. No essential info (pricing, doctor names, availability) behind a login wall. Login triggers only at booking.
+5. MOBILE FIRST, THUMB ZONE. Primary actions always reachable with the right thumb on a 390px screen. Sticky bottom action bar on all critical flows.
+6. OFFLINE RESILIENCE. Clinic-side tools must show the last-cached state and queue changes for sync. Never a blank screen.
+7. PROGRESSIVE DISCLOSURE. Show the minimum needed to decide. Reveal detail on demand, not upfront.
+8. DATA FIDELITY. Every number shown (ratings, prices, slot times) must be real or clearly marked as estimated. No placeholder UX in production.
+9. ACCESSIBILITY FIRST. WCAG 2.2 AA baseline. Keyboard navigable. Screen-reader tested. Minimum 44×44px touch targets.
+10. NEVER TWO WAYS TO DO THE SAME THING. One canonical path per action. No redundant buttons, no duplicate flows.
+
+<span class="hl-violet">## PAGE OUTPUT FORMAT</span>
+For every page/component requested, deliver:
+1. INTENT — one sentence: what this page/component must achieve for its user.
+2. ABOVE THE FOLD — exact content and component layout for the first viewport.
+3. FULL PAGE SECTIONS — every section in order, with content hierarchy and component type.
+4. CONVERSION ACTIONS — primary (1), secondary (1–2), ghost/tertiary (optional).
+5. EMPTY STATES — what the user sees when there is no data yet.
+6. ERROR STATES — field errors, network failures, permission errors.
+7. MOBILE VARIANT — any layout changes for ≤640px.
+8. ANIMATIONS — only where they carry meaning. State: what triggers, what moves, how long.
+9. ACCESSIBILITY NOTES — any ARIA labels, focus order, or keyboard shortcuts specific to this page.
+10. COMPONENT REUSE — name every component used (from the shared library defined in Section 20).
+
+<span class="hl-amber">## WHAT TO NEVER DO</span>
+• Auto-playing anything (video, audio, carousels)
+• Load-triggered popups or interstitials
+• Skeleton screens that last more than 800ms
+• Fake urgency ("Only 2 slots left!" when it isn't true)
+• Showing competitor clinic names to a returning patient of a specific clinic
+• Using stock dentistry photography (white coat, perfect smile, grey background)
+• Gating essential discovery information behind registration
+• Dark patterns in pricing or cancellation flows
+• Recommending treatments in UI copy (regulatory line)
+• Any AI output presented as a clinical decision rather than an assistive finding
+    </div>
+  </div>
+</section>
+
+<!-- S1: DESIGN SYSTEM -->
+<section id="s1">
+  <div class="sec-header"><span class="sec-num">01</span><h2 class="sec-title">Design system prompt</h2></div>
+  <div class="prompt-block" id="ds-prompt">
+    <div class="prompt-header">
+      <div class="ph-left"><span class="prompt-type">DESIGN SYSTEM</span><span class="prompt-title">Token & component library setup</span></div>
+      <button class="copy-mini" onclick="copyBlock('ds-prompt')">Copy</button>
+    </div>
+    <div class="prompt-body">
+<span class="hl-teal">## DESIGN SYSTEM SETUP PROMPT</span>
+Using the IDW master prompt above, build a complete Figma/code design system with:
+
+<span class="hl-amber">TOKENS</span>
+— Full color token set: bg, surface-1/2/3, border, border-focus, primary, primary-hover, primary-foreground, semantic (success/warning/error/info) with light and dark mode variants
+— Typography scale: display-xl/lg, heading-1 through 4, body-lg/md/sm, caption, mono
+— Spacing: 4px grid, named t-shirt sizes (xs=4, sm=8, md=16, lg=24, xl=40, 2xl=64)
+— Radius: xs=4, sm=6, md=10, lg=14, full=9999
+— Shadow: sm/md/lg/teal-glow
+— Motion: duration-fast=120ms, duration-normal=200ms, duration-slow=350ms, easing=cubic-bezier(.4,0,.2,1)
+
+<span class="hl-teal">ATOMS</span>
+Button: primary / secondary / ghost / destructive / icon-only — 3 sizes (sm/md/lg) — loading state — disabled state
+Input: text / number / tel / date / select / textarea — label + helper + error pattern — with prefix icon variant
+Badge/Pill: status (open/closed/verified/emergency/top-rated) — count — removable
+Avatar: clinic (square, 48/64/80px) — doctor (circle, 40/56px) — initials fallback
+Rating: star display (0–5, half-star) — aggregate row (number + stars + count)
+Spinner: inline (16px) / overlay (48px) / skeleton variants
+Icon: 16/20/24px wrapper with semantic color binding
+
+<span class="hl-amber">MOLECULES</span>
+SearchField: what + where split — voice button — clear button — focus ring
+FilterPill: toggle, active state, dot indicator
+ClinicCard: avatar + name + location + rating + slot + 2 actions — list and grid variants
+DoctorCard: photo + name + quals + tags + book CTA
+ReviewCard: reviewer + date + tag + stars + body + clinic response
+SlotPicker: date row + time grid — available/booked/selected states
+BookingForm: 4-field minimal (name, phone, date, concern) + submit
+FAQItem: accordion — question + answer — animated open/close
+StatCard: icon + value + label — for dashboard widgets
+AlertBanner: info/success/warning/error — dismissable
+
+<span class="hl-teal">ORGANISMS</span>
+SmartSearchBar: full two-field search with intent chips + filters + suggestions dropdown (built in earlier prototype)
+ClinicHero: image + name + badges + rating + trust strip + CTA card
+DoctorGrid: 2-up card layout
+ServicesPricingTable: sortable, bookable rows
+ReviewSummary: aggregate + bar chart + review cards
+LocationMap: embedded map + hours + directions CTA
+MobileActionBar: sticky bottom — book + call + whatsapp
+NavBar: platform-level + clinic-level breadcrumb
+PageFooter: platform links + legal + locale selector
+
+<span class="hl-violet">TEMPLATES</span>
+ClinicProfilePage, SearchResultsPage, BookingFlowPage, PatientDashboard, ClinicPMSDashboard, VendorStorefront, LabPortal, JobsBoard
+    </div>
+  </div>
+</section>
+
+<!-- S2: SITE ARCHITECTURE -->
+<section id="s2">
+  <div class="sec-header"><span class="sec-num">02</span><h2 class="sec-title">Complete site architecture</h2></div>
+  <p class="sec-intro">Every URL the platform will ever serve, grouped by portal. This is the map every designer, developer and SEO team member works from.</p>
+  <div class="page-tree">
+    <div class="page-node"><div class="pn-route">/</div><div class="pn-name">Homepage</div><div class="pn-desc">Patient-facing discovery entry</div></div>
+    <div class="page-node"><div class="pn-route">/:city</div><div class="pn-name">City hub</div><div class="pn-desc">All dentists in a city</div></div>
+    <div class="page-node"><div class="pn-route">/:city/:locality</div><div class="pn-name">Locality hub</div><div class="pn-desc">Dentists in a neighbourhood</div></div>
+    <div class="page-node"><div class="pn-route">/:city/:locality/:slug</div><div class="pn-name">Clinic profile page</div><div class="pn-desc">Individual clinic SEO page</div></div>
+    <div class="page-node"><div class="pn-route">/search</div><div class="pn-name">Search results</div><div class="pn-desc">Filtered, sorted listings</div></div>
+    <div class="page-node"><div class="pn-route">/book/:clinicId</div><div class="pn-name">Booking flow</div><div class="pn-desc">3-step appointment booking</div></div>
+    <div class="page-node amber"><div class="pn-route amber">/patient/dashboard</div><div class="pn-name">Patient home</div><div class="pn-desc">Appointments, records, health wallet</div></div>
+    <div class="page-node amber"><div class="pn-route amber">/patient/records</div><div class="pn-name">Health records</div><div class="pn-desc">Prescriptions, invoices, history</div></div>
+    <div class="page-node amber"><div class="pn-route amber">/patient/appointments</div><div class="pn-name">Appointment history</div><div class="pn-desc">Upcoming + past + recalls</div></div>
+    <div class="page-node rose"><div class="pn-route rose">/clinic/dashboard</div><div class="pn-name">Clinic PMS home</div><div class="pn-desc">Day view, chair status, revenue</div></div>
+    <div class="page-node rose"><div class="pn-route rose">/clinic/appointments</div><div class="pn-name">Appointment manager</div><div class="pn-desc">Calendar + list + chair view</div></div>
+    <div class="page-node rose"><div class="pn-route rose">/clinic/patients/:id</div><div class="pn-name">Patient EMR</div><div class="pn-desc">Full clinical record</div></div>
+    <div class="page-node rose"><div class="pn-route rose">/clinic/charting</div><div class="pn-name">Dental chart</div><div class="pn-desc">Visual tooth chart + findings</div></div>
+    <div class="page-node rose"><div class="pn-route rose">/clinic/treatment-plans</div><div class="pn-name">Treatment plans</div><div class="pn-desc">Create, present, track plans</div></div>
+    <div class="page-node rose"><div class="pn-route rose">/clinic/billing</div><div class="pn-name">Billing & invoicing</div><div class="pn-desc">Invoices, payments, GST</div></div>
+    <div class="page-node rose"><div class="pn-route rose">/clinic/prescriptions</div><div class="pn-name">Prescriptions</div><div class="pn-desc">Digital Rx with drug checks</div></div>
+    <div class="page-node rose"><div class="pn-route rose">/clinic/lab-orders</div><div class="pn-name">Lab connect</div><div class="pn-desc">Work orders, status, dispatch</div></div>
+    <div class="page-node rose"><div class="pn-route rose">/clinic/inventory</div><div class="pn-name">Inventory</div><div class="pn-desc">Stock, expiry, reorder</div></div>
+    <div class="page-node rose"><div class="pn-route rose">/clinic/analytics</div><div class="pn-name">Analytics</div><div class="pn-desc">Revenue, chairs, doctors, recall</div></div>
+    <div class="page-node rose"><div class="pn-route rose">/clinic/profile</div><div class="pn-name">Clinic web presence</div><div class="pn-desc">Edit public-facing page</div></div>
+    <div class="page-node violet"><div class="pn-route violet">/vendor/dashboard</div><div class="pn-name">Vendor home</div><div class="pn-desc">Orders, campaigns, analytics</div></div>
+    <div class="page-node violet"><div class="pn-route violet">/vendor/storefront</div><div class="pn-name">Storefront editor</div><div class="pn-desc">Products, pricing, catalogue</div></div>
+    <div class="page-node violet"><div class="pn-route violet">/vendor/campaigns</div><div class="pn-name">Campaign manager</div><div class="pn-desc">Targeted ads to dentists</div></div>
+    <div class="page-node green"><div class="pn-route green">/lab/dashboard</div><div class="pn-name">Lab home</div><div class="pn-desc">Case queue, status, dispatch</div></div>
+    <div class="page-node green"><div class="pn-route green">/lab/cases/:id</div><div class="pn-name">Case detail</div><div class="pn-desc">Case notes, shade, files, chat</div></div>
+    <div class="page-node"><div class="pn-route">/courses</div><div class="pn-name">CDE courses</div><div class="pn-desc">Browse, filter, enrol</div></div>
+    <div class="page-node"><div class="pn-route">/events</div><div class="pn-name">Events & conferences</div><div class="pn-desc">Calendar, register, sponsor</div></div>
+    <div class="page-node"><div class="pn-route">/jobs</div><div class="pn-name">Jobs board</div><div class="pn-desc">Post, search, apply</div></div>
+    <div class="page-node"><div class="pn-route">/products</div><div class="pn-name">Product store</div><div class="pn-desc">Dental products e-commerce</div></div>
+    <div class="page-node"><div class="pn-route">/blog</div><div class="pn-name">Health blog</div><div class="pn-desc">Patient education, SEO</div></div>
+  </div>
+</section>
+
+<!-- S3: HOMEPAGE -->
+<section id="s3">
+  <div class="sec-header"><span class="sec-num">03</span><h2 class="sec-title">Homepage prompt</h2></div>
+  <div class="prompt-block" id="hp-prompt">
+    <div class="prompt-header">
+      <div class="ph-left"><span class="prompt-type">PAGE PROMPT</span><span class="prompt-title">/ — Patient-facing homepage</span></div>
+      <button class="copy-mini" onclick="copyBlock('hp-prompt')">Copy</button>
+    </div>
+    <div class="prompt-body">
+<span class="hl-teal">INTENT:</span> Convert a first-time visitor with dental anxiety into a confident searcher in under 10 seconds, while signalling platform credibility to every other stakeholder.
+
+<span class="hl-amber">ABOVE THE FOLD:</span>
+• NavBar: IDW logo left | city selector (auto-detected) | For Clinics | For Vendors | Sign in (ghost) | right
+• Hero: full-width, dark bg with radial teal glow. H1: "Find the right dentist. In your words." Sub: one line of reassurance.
+• SmartSearchBar (full implementation from Section 3 spec) centred, max-width 820px
+• Intent chips: 6 common intents (Toothache, Root Canal, Braces, Implants, Cleaning, Kids)
+• Stats strip: 48,000+ dentists · 620+ cities · DCI verified · Real-time slots
+
+<span class="hl-teal">FULL PAGE SECTIONS:</span>
+1. Hero + search (above fold)
+2. Trust section: "Why IDW?" — 4 trust pillars (Verified, Transparent pricing, Real reviews, Book instantly) with icons
+3. Browse by specialty: horizontal scroll chip row — 12 specialties with emoji + label + count
+4. Popular cities: 8 city cards with clinic count and a "search near me" CTA
+5. How it works: 3-step patient journey (Search → Compare → Book) — numbered with illustrations
+6. Featured clinics: 4 ClinicCards in 2×2 grid — highest rated in the detected city
+7. For dental professionals strip: dark CTA card — "Run your entire practice on IDW" — For Clinics + For Labs + For Vendors buttons
+8. Patient testimonials: 3 ReviewCards in carousel (desktop) / stack (mobile) — real text, no stock quotes
+9. Blog preview: 3 latest health articles
+10. Footer: full platform footer with all portals linked
+
+<span class="hl-rose">CONVERSION ACTIONS:</span>
+Primary: SmartSearchBar → Search button
+Secondary: "List your clinic free" (B2B CTA in the professional strip)
+Ghost: City browse links
+
+<span class="hl-violet">EMPTY / LOADING STATES:</span>
+City auto-detect loading: "Detecting your city…" with a 300ms spinner, then city name appears. If fails: default to "India" in the location field.
+Featured clinics: 4 skeleton cards while loading.
+
+<span class="hl-amber">MOBILE (≤640px):</span>
+• SmartSearchBar stacks to single column (What above Where above button)
+• Browse specialty: horizontal scroll, no grid
+• Featured clinics: single column
+• Professional strip: stacked cards
+• MobileActionBar not shown on homepage (no clinic context)
+
+<span class="hl-teal">ANIMATIONS:</span>
+• Search bar focus: border transitions to teal with glow, 200ms ease
+• Intent chips: scale(1.03) on hover, 150ms
+• Section entrance: fade-up 24px, 350ms, staggered 80ms per card — triggered by IntersectionObserver, not scroll position
+• No hero video, no autoplay, no parallax
+    </div>
+  </div>
+</section>
+
+<!-- S4: SEARCH & RESULTS -->
+<section id="s4">
+  <div class="sec-header"><span class="sec-num">04</span><h2 class="sec-title">Search & results page prompt</h2></div>
+  <div class="prompt-block" id="sr-prompt">
+    <div class="prompt-header">
+      <div class="ph-left"><span class="prompt-type">PAGE PROMPT</span><span class="prompt-title">/search — Search results</span></div>
+      <button class="copy-mini" onclick="copyBlock('sr-prompt')">Copy</button>
+    </div>
+    <div class="prompt-body">
+<span class="hl-teal">INTENT:</span> Help a patient efficiently compare verified dentists and choose one with enough information to feel confident — without needing to open each profile.
+
+<span class="hl-amber">ABOVE THE FOLD:</span>
+• Sticky top: compact SmartSearchBar (single-line, pre-filled from query) + filter pills
+• Left panel (desktop): vertical filter sidebar — specialty, distance radius, open now, rating, price range, gender, language, accessibility, same-day slot
+• Right main: results count + sort controls (Relevance / Distance / Rating / Next slot) + results list
+
+<span class="hl-teal">RESULT CARD — must contain (without opening profile):</span>
+1. Clinic avatar (initials fallback, never broken image)
+2. Name + DCI Verified badge + optional Emergency badge
+3. Locality + distance from search location
+4. Star rating + review count (both clickable to review anchor on profile)
+5. Top 3 specialties as pills
+6. Next available slot — Today/Tomorrow/+ date — colour coded (green/amber/neutral)
+7. Indicative price for the searched procedure
+8. Primary CTA: "Book appointment" | Secondary: "View profile"
+9. Open Now / Closed indicator
+
+<span class="hl-rose">LIST vs MAP toggle:</span>
+Map view: Google Maps embed with clinic pins. Pin popover = mini ClinicCard. Active pin = teal, others = muted teal. Map always shows within 10px of current viewport.
+
+<span class="hl-violet">FILTER BEHAVIOUR:</span>
+• Filters update results inline (no full page reload)
+• Active filter count badge on mobile filter button
+• "Clear all" always visible when any filter is active
+• Smart filter suggestions: if searching "root canal", show Endodontics specialty pre-checked
+
+<span class="hl-amber">EMPTY STATE:</span>
+"No clinics match these filters in [locality]." + 3 actions: Expand radius / Clear filters / See all in [city]
+
+<span class="hl-teal">MOBILE:</span>
+• Filter sidebar collapses to bottom sheet (drag handle)
+• Map/List toggle in fixed top bar
+• Single-column results
+• Book button always full-width at card bottom
+    </div>
+  </div>
+</section>
+
+<!-- S5: CLINIC PROFILE -->
+<section id="s5">
+  <div class="sec-header"><span class="sec-num">05</span><h2 class="sec-title">Clinic profile page prompt</h2></div>
+  <div class="prompt-block" id="cp-prompt">
+    <div class="prompt-header">
+      <div class="ph-left"><span class="prompt-type">PAGE PROMPT</span><span class="prompt-title">/:city/:locality/:slug — Clinic profile</span></div>
+      <button class="copy-mini" onclick="copyBlock('cp-prompt')">Copy</button>
+    </div>
+    <div class="prompt-body">
+<span class="hl-teal">INTENT:</span> Give a patient enough verified information to decide — and then book — without leaving the page or making a phone call.
+
+<span class="hl-amber">LAYOUT:</span> Two-column desktop (content left, BookingCard sticky right). Single column mobile with MobileActionBar.
+
+<span class="hl-teal">SECTIONS IN ORDER:</span>
+1. NavBar + breadcrumb (Home → City → Locality → Clinic name)
+2. Hero: gallery (real photos, not stock) + open/closed badge + rating summary + trust badges (DCI, ABDM, Emergency, Languages)
+3. Booking card (sticky, desktop right): next slot preview + 4-field form + Book button + Call + WhatsApp
+4. Doctors section: DoctorCards with qualifications, DCI reg number, specialties, quote, Book with this doctor
+5. Services & pricing table: procedure / description / from price / Book link. Sortable by price.
+6. About: 2–3 paragraphs from clinic's own profile data. Written in Lora serif for warmth.
+7. Facilities: icon grid — X-ray, OPG, sterilisation, parking, wheelchair, UPI
+8. Patient reviews: aggregate summary (star chart) + 6 ReviewCards + "See all reviews" + clinic response visible
+9. FAQs: 5–8 accordion items — locality-specific, procedure-specific, payment, parking, languages
+10. Location & hours: map + address + hour grid + Get Directions CTA
+11. Nearby clinics: 4 ClinicCards (different specialty or different doctor availability)
+12. Footer
+
+<span class="hl-rose">CONVERSION HIERARCHY:</span>
+Primary: Book appointment (BookingCard)
+Secondary: Call Now (tel: link) | WhatsApp
+Tertiary: Save to favourites | Share
+
+<span class="hl-violet">TRUST SIGNALS REQUIRED ABOVE THE FOLD:</span>
+• Verified badge with tooltip: "Registration verified against DCI records"
+• Review count: "312 verified reviews — all from confirmed IDW appointments"
+• Open/closed: live, not static
+• Next slot: live, never cached beyond 5 minutes
+
+<span class="hl-amber">MOBILE ACTION BAR:</span>
+Sticky bottom — [Book appointment (flex:2)] [📞 Call (flex:1)] [WhatsApp (flex:1)]
+    </div>
+  </div>
+</section>
+
+<!-- S6: BOOKING FLOW -->
+<section id="s6">
+  <div class="sec-header"><span class="sec-num">06</span><h2 class="sec-title">Booking flow prompt</h2></div>
+  <div class="prompt-block" id="bf-prompt">
+    <div class="prompt-header">
+      <div class="ph-left"><span class="prompt-type">WORKFLOW PROMPT</span><span class="prompt-title">/book/:clinicId — 3-step booking</span></div>
+      <button class="copy-mini" onclick="copyBlock('bf-prompt')">Copy</button>
+    </div>
+    <div class="prompt-body">
+<span class="hl-teal">INTENT:</span> Reduce time from "I want to book" to "booking confirmed" to under 90 seconds on mobile.
+
+<span class="hl-amber">STEP 1 — Choose slot:</span>
+• Clinic mini-card at top (name, photo, distance) — always visible as context
+• Date picker: horizontal scrolling date chips (Today / Tomorrow / Mon / Tue…), not a calendar
+• Time slots: grid of available times, colour-coded (Green=available, Grey=booked, Teal=selected)
+• Doctor selector: if multiple doctors, show avatar chips to filter slots by doctor
+• Progress: Step 1 of 3 · "Choose a time"
+
+<span class="hl-teal">STEP 2 — Your details:</span>
+• Pre-filled if logged in (name + phone from profile)
+• New users: name (text) + mobile (tel, numeric keyboard) + optional: reason for visit (select, 6 options)
+• Guest booking allowed — do not force account creation here
+• Inline validation, not on-submit errors
+• Progress: Step 2 of 3 · "Your details"
+
+<span class="hl-rose">STEP 3 — Confirm:</span>
+• Summary card: clinic name + doctor + date/time + your name + phone
+• Price estimate for the selected concern (if chosen in step 2)
+• "No payment collected now — the clinic will confirm within 30 minutes"
+• Consent checkbox: "I agree to IDW's booking terms and consent to the clinic contacting me"
+• CTA: "Confirm appointment request" (teal, full-width)
+• Progress: Step 3 of 3 · "Confirm"
+
+<span class="hl-violet">CONFIRMATION STATE (after submit):</span>
+• Full-screen success overlay: animated checkmark + "Request sent!"
+• "You'll hear from Smile Care on WhatsApp within 30 minutes"
+• 2 CTAs: "Add to calendar" | "Back to search"
+• Auto-redirect to patient dashboard after 5 seconds
+
+<span class="hl-amber">ERROR STATES:</span>
+• Slot taken between viewing and confirming: "That slot was just taken. Here are the next 3 available:" + slot chips
+• Network failure: "Something went wrong. Your details are saved — tap to retry." with cached form data
+• Phone number invalid: inline, immediate, not on submit
+
+<span class="hl-teal">DESIGN RULES:</span>
+• Never more than one primary action visible at a time
+• Back button always accessible (top-left chevron)
+• Slot grid: minimum 44px touch target per slot
+• Form fields: 48px height, 16px font (prevents iOS zoom)
+• No modal dialogs — everything inline in the step
+    </div>
+  </div>
+</section>
+
+<!-- S7: PATIENT DASHBOARD -->
+<section id="s7">
+  <div class="sec-header"><span class="sec-num">07</span><h2 class="sec-title">Patient dashboard prompt</h2></div>
+  <div class="prompt-block" id="pd-prompt">
+    <div class="prompt-header">
+      <div class="ph-left"><span class="prompt-type">PAGE PROMPT</span><span class="prompt-title">/patient/dashboard</span></div>
+      <button class="copy-mini" onclick="copyBlock('pd-prompt')">Copy</button>
+    </div>
+    <div class="prompt-body">
+<span class="hl-teal">INTENT:</span> Give a patient a single view of their dental health — upcoming visits, history, records, recalls — that makes them feel in control of their oral health journey.
+
+<span class="hl-amber">SECTIONS:</span>
+1. Welcome strip: "Good morning, [Name]" + oral health score (0–100, gamified) + streak ("3 visits this year — great work!")
+2. Upcoming appointment card: clinic + doctor + date/time + directions CTA + "Can't make it?" reschedule link
+3. Recall alert (if overdue): "It's been 8 months since your last cleaning at Smile Care. Ready to book?" + Book now
+4. Health wallet: last 3 items (prescription / invoice / record) + "View all records"
+5. My dentists: clinics the patient has visited — quick re-book
+6. Oral health timeline: horizontal scroll of all visits, colour-coded by procedure type
+7. Recommended courses: 2 patient-facing oral health tips from IDW blog
+8. Referral card: "Earn ₹100 — refer a friend" + copy referral link
+
+<span class="hl-teal">HEALTH WALLET (sub-page):</span>
+Tabbed: Prescriptions | Invoices | Treatment plans | Reports | Consent forms
+Each item: date + clinic + file type icon + Download + Share
+
+<span class="hl-rose">EMPTY STATE (new patient, no history):</span>
+"Your dental health journey starts here." + animated tooth illustration + "Find your first dentist" CTA
+No empty-looking grid of blank cards.
+
+<span class="hl-violet">MOBILE:</span>
+Bottom nav: Home | Appointments | Records | Profile
+Cards stack vertically with 16px gap
+Health wallet items full-width, swipe-to-download action
+    </div>
+  </div>
+</section>
+
+<!-- S8-14: CLINIC PORTAL -->
+<section id="s8">
+  <div class="sec-header"><span class="sec-num">08–14</span><h2 class="sec-title">Clinic portal prompts</h2></div>
+  <div class="prompt-block" id="clinic-prompt">
+    <div class="prompt-header">
+      <div class="ph-left"><span class="prompt-type">PORTAL PROMPT</span><span class="prompt-title">/clinic/* — Full PMS portal</span></div>
+      <button class="copy-mini" onclick="copyBlock('clinic-prompt')">Copy</button>
+    </div>
+    <div class="prompt-body">
+<span class="hl-teal">## CLINIC PMS PORTAL — GLOBAL RULES</span>
+This portal is a professional tool used 6–8 hours daily by dentists, receptionists and assistants. It must be faster than paper at every common task. Measure speed: target ≤3 taps for any action a dentist performs more than 10 times a day. Left sidebar navigation (desktop). Top tab bar (mobile/tablet).
+
+<span class="hl-amber">## DASHBOARD (/clinic/dashboard)</span>
+INTENT: Show the owner the state of the entire practice in under 5 seconds — today's chairs, money, and alerts.
+ABOVE FOLD:
+• Date + "Good morning, Dr. [Name]" + clinic switcher (multi-branch)
+• Today's stats row: Appointments (booked/completed/cancelled) | Collections (₹) | Chair utilisation (%) | Outstanding (₹)
+• Chair status grid: each chair as a card — current patient + procedure + time remaining + doctor. Colour: green=occupied, amber=between patients, grey=empty.
+• Pending actions: needs-confirm bookings | lab cases due today | low stock alerts | payment pending
+• Doctor-wise production: horizontal bar chart, today vs target
+• Revenue trend: 30-day sparkline
+RIGHT PANEL: Today's appointment timeline (vertical, 30-min slots, colour by procedure)
+
+<span class="hl-teal">## APPOINTMENTS (/clinic/appointments)</span>
+Three views, tab-switchable:
+1. CALENDAR: week/day/month. Drag-and-drop to reschedule. Click slot to create. Colour by doctor.
+2. LIST: tabular — time / patient name / procedure / doctor / status (pending/confirmed/arrived/completed/no-show) / actions
+3. CHAIR VIEW: grid of chairs × time slots. Visual occupancy planner.
+Actions per appointment: Confirm | Reschedule | Mark arrived | Start | Complete | No-show | Cancel (each with undo)
+New appointment: floating + button → bottom sheet on mobile / modal on desktop → patient search or new patient → slot picker → confirm
+
+<span class="hl-rose">## PATIENT EMR (/clinic/patients/:id)</span>
+INTENT: The complete clinical record for one patient — everything the dentist needs, nothing they don't, accessible in 2 taps from any appointment.
+LAYOUT: Patient header (photo / name / age / DOB / phone / medical alerts) always sticky at top.
+TABS:
+• Overview: last visit summary, active treatment plan, outstanding balance, upcoming appointment
+• Clinical history: timeline of all encounters — date / procedure / doctor / notes / images
+• Dental chart: interactive SVG tooth chart (FDI notation). Click any tooth → see history / add finding / mark treatment
+• Treatment plans: active and past — each plan shows: diagnosis / phases / procedures / costs / status / acceptance
+• Prescriptions: list of all prescriptions — date / drugs / dosage / prescribing doctor / PDF download
+• Invoices: all bills — paid / partial / outstanding — with payment history
+• Documents: consent forms, referrals, lab reports, X-rays
+• Notes: SOAP notes (Subjective / Objective / Assessment / Plan) — voice input primary, keyboard secondary
+
+<span class="hl-violet">## DENTAL CHART (/clinic/charting)</span>
+INTENT: The fastest possible clinical charting, designed for gloved hands mid-procedure.
+Full-mouth SVG chart: 32 permanent + 20 primary teeth. FDI notation by default.
+Click/tap a tooth: surface selector popover (mesial/distal/occlusal/buccal/lingual). Mark: caries / filling / crown / missing / RCT / implant / bridge.
+Colour coding: red=caries, blue=filled, gold=crown, grey=missing, teal=RCT, purple=implant.
+Voice shortcut: "Caries mesial 26" → auto-marks without tap.
+Perio chart: toggle to probing depths, BOP, recession, mobility — 6 points per tooth, colour-coded by severity.
+
+<span class="hl-amber">## BILLING (/clinic/billing)</span>
+INTENT: Generate a GST-compliant invoice and collect payment in under 60 seconds at checkout.
+Invoice creation: auto-populated from completed treatment plan. Edit: add/remove items, apply discount, select payment mode (UPI/card/cash/credit).
+GST handling: SAC codes for dental services auto-applied. E-invoice generated above threshold.
+Payment collection: UPI QR shown on screen for patient to scan. SMS payment link option.
+Outstanding dues: filterable list — patient / amount / days overdue / actions (send reminder / mark paid / write off)
+Reports: daily collection / monthly P&L / doctor-wise production / category-wise expenses — all exportable as PDF or CSV.
+
+<span class="hl-teal">## LAB CONNECT (/clinic/lab-orders)</span>
+INTENT: Send a lab work order in under 2 minutes, track it without phone calls, and receive it confirmed in the patient's record.
+New order: patient search → tooth/arch selector → work type (crown/bridge/denture/aligner/other) → shade guide (Vita picker UI) → notes + photo upload → select lab (from clinic's saved labs or IDW lab network) → send.
+Order tracking: kanban columns — Sent / Received by lab / In production / Trial fit / Dispatched / Received at clinic / Fitted.
+Each card: case ID / patient / work type / lab name / due date / days remaining (colour-coded: green/amber/red).
+Rework flow: "Request rework" → reason selector → returns to lab with comment thread.
+    </div>
+  </div>
+</section>
+
+<!-- S15-17: B2B PORTALS -->
+<section id="s15">
+  <div class="sec-header"><span class="sec-num">15–18</span><h2 class="sec-title">B2B portal prompts</h2></div>
+  <div class="prompt-block" id="b2b-prompt">
+    <div class="prompt-header">
+      <div class="ph-left"><span class="prompt-type">PORTAL PROMPT</span><span class="prompt-title">Vendor / Lab / CDE / Jobs portals</span></div>
+      <button class="copy-mini" onclick="copyBlock('b2b-prompt')">Copy</button>
+    </div>
+    <div class="prompt-body">
+<span class="hl-teal">## VENDOR STOREFRONT (/vendor/*)</span>
+DASHBOARD INTENT: Show a vendor how many dentists saw, clicked, and bought their products today — in one view.
+KPI row: Impressions | Clicks | Orders | Revenue | Conversion rate — all for the selected date range.
+Storefront editor: drag-drop product grid. Each product: image upload / name / description / price / stock / category / featured toggle.
+Campaign manager: "Target dentists by" — city / specialty / practice size / purchase history of competing products. Budget input → estimated reach shown in real time. Launch / pause / schedule.
+Order management: new/pending/shipped/delivered — with logistics partner integration.
+Analytics: heatmap of which dentists viewed which products. Top-performing products. Campaign ROI by segment.
+
+<span class="hl-amber">## LAB PORTAL (/lab/*)</span>
+DASHBOARD INTENT: Show the lab what needs to be worked on today, in priority order, without ambiguity.
+Case queue: sorted by due date. Each row: case ID / clinic name / work type / received date / due date / status / action.
+Case detail: all clinical info from the clinic — shade, photos, patient notes, X-rays if shared, measurement fields — plus a comment thread with the clinic.
+Status update: single tap to advance status. Notification sent to clinic automatically on every status change.
+Dispatch: generate delivery challan, notify clinic, upload photo of finished work.
+Invoicing: auto-generated from work orders. PDF download. Payment status tracked.
+
+<span class="hl-rose">## CDE INSTITUTE PORTAL (/institute/*)</span>
+Course listing: title / date / mode (online/offline/hybrid) / city / credit hours / fees / seats available / enrolment CTA.
+Enrolment management: list of enrolled dentists — name / reg number / payment status / attendance / certificate issued.
+Campaign tool: promote course to dentists filtered by: specialty / city / credit hours balance / last course attended date.
+Certificate builder: auto-generated PDF with dentist name, course name, credit hours, date, institute stamp.
+
+<span class="hl-violet">## JOBS BOARD (/jobs)</span>
+Seeker view: filter by role (associate/principal/hygienist/technician) / city / experience / salary range. Card per job: clinic name + role + location + salary range + posted date + Apply button.
+Recruiter view: post a job (form) / manage applications / shortlist / message.
+Profile: dentist's verified credential card — qualifications, DCI number, experience, specialties — portable, shareable link.
+Locum board: short-term shifts posted separately from permanent roles. Filtering by date range and specialty.
+    </div>
+  </div>
+</section>
+
+<!-- S19: WORKFLOWS -->
+<section id="s19">
+  <div class="sec-header"><span class="sec-num">19</span><h2 class="sec-title">Core workflow prompts</h2></div>
+  <div class="prompt-block" id="wf-prompt">
+    <div class="prompt-header">
+      <div class="ph-left"><span class="prompt-type">WORKFLOW PROMPT</span><span class="prompt-title">18 end-to-end workflows</span></div>
+      <button class="copy-mini" onclick="copyBlock('wf-prompt')">Copy</button>
+    </div>
+    <div class="prompt-body">
+<span class="hl-teal">For each workflow below, design: the entry point → each step → the success state → the error states → the notification triggered → the record created.</span>
+
+<span class="hl-amber">PATIENT WORKFLOWS</span>
+WF-P1: Patient finds a dentist (search → compare → select)
+WF-P2: Patient books an appointment (slot → details → confirm)
+WF-P3: Patient cancels or reschedules
+WF-P4: Patient receives a recall notification and re-books
+WF-P5: Patient views and downloads their health records
+WF-P6: Patient refers a friend and claims their reward
+
+<span class="hl-teal">CLINIC WORKFLOWS</span>
+WF-C1: New patient walk-in registration (chair to record in under 2 minutes)
+WF-C2: Appointment confirmation, rescheduling, no-show handling
+WF-C3: Clinical charting during a treatment session (voice-first)
+WF-C4: Treatment plan creation, presentation to patient, acceptance recording
+WF-C5: Digital prescription generation and delivery to patient
+WF-C6: Checkout — invoice generation, payment collection, receipt delivery
+WF-C7: Lab work order creation, tracking and receipt
+WF-C8: Inventory reorder from IDW product store (low-stock alert → order → delivery tracking)
+WF-C9: End-of-day summary — collections, completed procedures, outstanding, tomorrow's schedule
+
+<span class="hl-rose">B2B WORKFLOWS</span>
+WF-B1: Vendor lists a new product and runs a targeted campaign
+WF-B2: Lab receives a work order, updates status, dispatches and invoices
+WF-B3: CDE institute lists a course, targets dentists, manages enrolments and issues certificates
+
+<span class="hl-violet">EACH WORKFLOW SPEC MUST INCLUDE:</span>
+1. User story ("As a [role] I want to [action] so that [benefit]")
+2. Pre-conditions (what must be true before this starts)
+3. Step-by-step UI flow with screen name at each step
+4. Decision points (what happens at each branch)
+5. Notifications triggered (WhatsApp/email/in-app) — to whom, when, what the message contains
+6. Record created/updated in the system
+7. Success state (what the user sees and hears)
+8. Failure modes and how each is handled in the UI
+    </div>
+  </div>
+</section>
+
+<!-- S20: COMPONENTS -->
+<section id="s20">
+  <div class="sec-header"><span class="sec-num">20</span><h2 class="sec-title">Component library prompt</h2></div>
+  <div class="prompt-block" id="comp-prompt">
+    <div class="prompt-header">
+      <div class="ph-left"><span class="prompt-type">COMPONENT PROMPT</span><span class="prompt-title">Shared UI component library</span></div>
+      <button class="copy-mini" onclick="copyBlock('comp-prompt')">Copy</button>
+    </div>
+    <div class="prompt-body">
+<span class="hl-teal">Build the following shared components. Each must have: default / hover / focus / active / disabled / loading states. Light + dark mode. Mobile and desktop sizing. ARIA labels. Animation spec.</span>
+
+<span class="hl-amber">NAVIGATION</span>
+• NavBar: platform top nav — logo / city selector / stakeholder switcher / search icon / notifications bell / avatar menu
+• SidebarNav: clinic PMS left rail — grouped links / active indicator / collapse to icon-only mode
+• Breadcrumb: linkable trail, truncated on mobile
+• TabBar: mobile bottom nav — 4 tabs max, icon + label, active indicator
+
+<span class="hl-teal">SEARCH</span>
+• SmartSearchBar: full two-field with intent chips / filter strip / suggestions dropdown / voice input / AI intent banner (built — reference earlier prototype)
+• FilterSidebar: vertical filter panel — checkbox groups / range sliders / toggle switches / clear all / apply button
+• FilterBottomSheet: mobile equivalent — drag handle / full-screen on expand
+
+<span class="hl-rose">CARDS</span>
+• ClinicCard: list + grid variants / all data fields / loading skeleton
+• DoctorCard: photo + credentials + tags + CTA
+• ReviewCard: reviewer + date + tag + star row + body + clinic reply
+• ServiceRow: procedure + desc + price + action — table row
+• StatCard: icon + metric + label + trend arrow
+• LabCaseCard: kanban card — case ID + clinic + work type + due + status
+
+<span class="hl-violet">FORMS & INPUTS</span>
+• BookingForm: 4-field + submit + alt actions
+• SearchInput: single field + icon + clear
+• DateChipPicker: horizontal scroll date row
+• TimeSlotGrid: available / booked / selected states
+• ShadePicker: Vita shade guide visual selector (for lab orders)
+• ToothSurface Selector: 5-surface tooth popover (mesial/distal/occlusal/buccal/lingual)
+
+<span class="hl-amber">FEEDBACK</span>
+• Toast: success / error / warning / info — top-right, auto-dismiss 4s
+• InlineAlert: form-level or section-level errors
+• FullscreenSuccess: booking confirmed overlay — animated checkmark
+• EmptyState: illustration + heading + CTA — 8 variants (no results / no history / first use / offline / permission denied / error / coming soon / no data)
+• SkeletonLoader: clinic card / table row / dashboard stat — never shown longer than 800ms
+
+<span class="hl-teal">CLINICAL COMPONENTS</span>
+• ToothChart: full-mouth SVG, FDI notation, tap to select, surface marking, colour legend
+• PerioChart: probing depth input grid, BOP toggles, recession input
+• SOAPNote: structured voice/text input for Subjective / Objective / Assessment / Plan
+• PrescriptionBuilder: drug search + dosage + frequency + duration + interaction warning
+• TreatmentPlanCard: phase list + procedure rows + cost total + accept / reject patient action
+    </div>
+  </div>
+</section>
+
+<!-- S21: MOBILE & A11Y -->
+<section id="s21">
+  <div class="sec-header"><span class="sec-num">21</span><h2 class="sec-title">Mobile & accessibility rules prompt</h2></div>
+  <div class="prompt-block" id="mob-prompt">
+    <div class="prompt-header">
+      <div class="ph-left"><span class="prompt-type">SYSTEM PROMPT</span><span class="prompt-title">Mobile-first & WCAG 2.2 AA rules</span></div>
+      <button class="copy-mini" onclick="copyBlock('mob-prompt')">Copy</button>
+    </div>
+    <div class="prompt-body">
+<span class="hl-teal">MOBILE RULES (apply to every page and component)</span>
+• Design for 390px viewport first. Expand to 768, 1024, 1280, 1440.
+• Thumb zone: primary actions in bottom 40% of screen on mobile.
+• MobileActionBar: fixed bottom — every clinic or transaction page must have one. Respect safe-area-inset-bottom.
+• Touch targets: 44×44px minimum. 48×48px for primary CTAs.
+• Form inputs: 48px height, 16px font size minimum (prevents iOS auto-zoom).
+• Tap, never hover: no tooltips that only appear on hover. All tooltip content accessible on tap.
+• Swipe actions: appointments and lab cases support swipe-right (confirm) / swipe-left (reschedule). Show action label during swipe.
+• Offline state: every clinic-side screen shows last cached data with a "Last synced X mins ago" badge when offline. Changes queue locally.
+• No horizontal scroll on the page body — only within explicitly scrollable containers with overflow indicators.
+
+<span class="hl-amber">ACCESSIBILITY RULES (WCAG 2.2 AA)</span>
+• Colour contrast: 4.5:1 for body text, 3:1 for large text and UI components.
+• Focus order: logical, matches visual order. Skip-to-content link at top of every page.
+• ARIA: every icon-only button has aria-label. Every form field has a visible label (not just placeholder). Every modal has role=dialog + aria-labelledby + aria-modal=true.
+• Keyboard: all interactive elements reachable via Tab. Dropdowns navigable with arrow keys. Modals trap focus. Esc closes.
+• Screen reader: every ClinicCard's Book button must read "Book appointment at [Clinic Name]", not just "Book".
+• Animations: all respect prefers-reduced-motion. No flashing content >3Hz.
+• Images: every clinic photo has alt text generated from structured data. Decorative images have alt="".
+• Forms: errors associated to their field via aria-describedby. Required fields marked aria-required=true AND visually.
+• Colour is never the only differentiator: open/closed uses text label in addition to colour.
+
+<span class="hl-rose">INTERNATIONALISATION (i18n)</span>
+• All UI strings externalised to translation keys from day 1.
+• RTL layout supported via CSS logical properties (margin-inline-start not margin-left).
+• Date formats: dd/mm/yyyy for India. Locale-aware for international expansion.
+• Currency: INR ₹ for India. Locale-aware for international.
+• Phone: +91 default prefix, editable. International format on expansion.
+    </div>
+  </div>
+</section>
+
+<!-- S22: PERFORMANCE -->
+<section id="s22">
+  <div class="sec-header"><span class="sec-num">22</span><h2 class="sec-title">Performance & SEO rules prompt</h2></div>
+  <div class="prompt-block" id="perf-prompt">
+    <div class="prompt-header">
+      <div class="ph-left"><span class="prompt-type">SYSTEM PROMPT</span><span class="prompt-title">Speed, CWV & SEO constraints</span></div>
+      <button class="copy-mini" onclick="copyBlock('perf-prompt')">Copy</button>
+    </div>
+    <div class="prompt-body">
+<span class="hl-teal">CORE WEB VITALS TARGETS (75th percentile, real user)</span>
+• LCP ≤ 2.5s: hero image is the LCP element — preload it, WebP/AVIF, correct srcset.
+• INP ≤ 200ms: no long tasks on main thread. Heavy JS deferred. Event handlers passive where possible.
+• CLS ≤ 0.1: every image and dynamic element has explicit width/height reserved. No layout shift from fonts (font-display:swap + size-adjust).
+
+<span class="hl-amber">ARCHITECTURE CONSTRAINTS</span>
+• Static site generation (SSG) or ISR for all clinic profile pages. Pre-rendered HTML in first response — no client-side-only rendering.
+• Clinic data changes → single page regenerated within 60 seconds.
+• Third-party script budget: max 3 external scripts on any patient-facing page (analytics, WhatsApp widget, maps). Every addition requires performance review.
+• Images: WebP primary, AVIF for modern browsers. Lazy load below fold. Hero image preloaded. Max 200KB per hero image.
+• Fonts: subset to Latin + Devanagari only. Preconnect to Google Fonts. font-display:swap.
+
+<span class="hl-teal">SEO RULES</span>
+• One H1 per page, containing clinic name + specialty + locality.
+• Unique meta title + description per clinic page — generated from structured data, never templated.
+• Canonical tags on all filtered/sorted search result URLs.
+• JSON-LD schema: Dentist + Physician + FAQPage + BreadcrumbList + AggregateRating — auto-generated from data, validated in build pipeline.
+• XML sitemap: auto-generated, segmented by city, submitted via Search Console API on every deploy.
+• robots.txt: disallow /book/* /clinic/* /vendor/* /patient/* — only public pages indexed.
+• llms.txt: platform-level file describing IDW to AI crawlers.
+
+<span class="hl-rose">AEO (AI ANSWER ENGINE) RULES</span>
+• Answer-first structure: the first paragraph of every clinic About section answers "What does [clinic name] treat?"
+• FAQ schema must exactly match visible FAQ text — no mismatch.
+• Structured entity statements: "Dr. [Name], [Qualification], practising at [Clinic] in [Locality] since [Year]" in the above-fold section — machine-readable and human-readable.
+• Deliberate crawler access: GPTBot, ClaudeBot, PerplexityBot, Google-Extended explicitly allowed in robots.txt (decision logged and reviewed quarterly).
+    </div>
+  </div>
+</section>
+
+<!-- S23: HOW TO USE -->
+<section id="s23">
+  <div class="sec-header"><span class="sec-num">23</span><h2 class="sec-title">How to use this document</h2></div>
+  <div class="callout co-teal"><strong>To design a specific page:</strong> Copy the Master Prompt (Section 00) + the relevant section prompt. Paste into Claude, v0, Figma AI, or your design tool. The master prompt sets the persona, platform context, and rules. The section prompt sets the specific page brief.</div>
+  <div class="callout co-amber"><strong>To design a component:</strong> Copy the Master Prompt + the Components section (Section 20) + the specific component name. Add "Design only the [component name] component."</div>
+  <div class="callout co-violet"><strong>To design a workflow:</strong> Copy the Master Prompt + Section 19 + the workflow ID (e.g. "WF-C4: Treatment plan creation"). Add "Map and design the complete UI flow for WF-C4."</div>
+  <div class="callout co-rose"><strong>To brief a developer:</strong> This document is the source of truth. Every page URL is in Section 02. Every component is named in Section 20. Every workflow is defined in Section 19. A developer reading this document should never need to guess a screen name, a route, or a component name.</div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Tool</th><th>What to paste</th><th>Best for</th></tr></thead>
+      <tbody>
+        <tr><td>Claude</td><td>Master prompt + any section prompt</td><td>Full page HTML prototypes, component code, workflow maps</td></tr>
+        <tr><td>v0 (Vercel)</td><td>Master prompt + page section + "Build this as a React component"</td><td>Production-ready React/Tailwind components</td></tr>
+        <tr><td>Figma AI</td><td>Master prompt + design system section + "Generate frames for…"</td><td>Wireframes, component variants, design tokens</td></tr>
+        <tr><td>Cursor</td><td>Master prompt + component section + file context</td><td>Building and iterating on code in-IDE</td></tr>
+        <tr><td>ChatGPT / Gemini</td><td>Master prompt + any section</td><td>Copy writing, UX writing, error message language</td></tr>
+        <tr><td>Lovable / Bolt</td><td>Master prompt + homepage or dashboard section</td><td>Full working prototype from one prompt</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</div><!-- /content -->
+<footer>IDW Master Design Prompt · Version 1.0 · September 2026 · Use as a living document — update after every major product decision.</footer>
+</div><!-- /main -->
+</div><!-- /layout -->
+
+<!-- Hidden master prompt for copy -->
+<div id="hiddenMasterPrompt" style="display:none"></div>
+
+<script>
+function scrollTo(id){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+  document.querySelectorAll('.sb-link').forEach(l=>l.classList.remove('active'));
+  document.querySelector(`[onclick="scrollTo('${id}')"]`)?.classList.add('active');
+}
+
+function copyBlock(blockId){
+  const block = document.getElementById(blockId);
+  const body = block.querySelector('.prompt-body');
+  // Get text content without HTML tags
+  const text = body.innerText || body.textContent;
+  navigator.clipboard.writeText(text).then(()=>{
+    const btn = block.querySelector('.copy-mini');
+    const orig = btn.textContent;
+    btn.textContent = '✓ Copied';
+    btn.style.borderColor = 'var(--teal)';
+    btn.style.color = 'var(--teal)';
+    setTimeout(()=>{btn.textContent=orig;btn.style.borderColor='';btn.style.color=''},1800);
+  });
+}
+
+function copyMasterPrompt(){
+  // Collect all prompt bodies
+  const allBlocks = document.querySelectorAll('.prompt-body');
+  let fullText = '# IDW MASTER DESIGN PROMPT — COMPLETE WEBSITE & WORKFLOW SPECIFICATION\n\n';
+  document.querySelectorAll('.prompt-block').forEach((block,i)=>{
+    const header = block.querySelector('.prompt-title')?.textContent || '';
+    const body = block.querySelector('.prompt-body')?.innerText || '';
+    fullText += `${'='.repeat(60)}\n${header}\n${'='.repeat(60)}\n${body}\n\n`;
+  });
+  navigator.clipboard.writeText(fullText).then(()=>{
+    const msg = document.getElementById('copiedMsg');
+    msg.classList.add('show');
+    setTimeout(()=>msg.classList.remove('show'),2500);
+  });
+}
+
+// Scroll spy
+const sections = document.querySelectorAll('section[id]');
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      document.querySelectorAll('.sb-link').forEach(l=>l.classList.remove('active'));
+      const matching = document.querySelector(`.sb-link[onclick="scrollTo('${e.target.id}')"]`);
+      if(matching) matching.classList.add('active');
+    }
+  });
+},{threshold:.3, rootMargin:'-60px 0px 0px 0px'});
+sections.forEach(s=>observer.observe(s));
+</script>
+</body>
+</html>

@@ -1,0 +1,1105 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Profile Guide | IndiaDentalWorld</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Lora:ital,wght@0,600;1,500&display=swap">
+<style>
+/* ── IDW dark-first tokens ── */
+:root {
+  --bg:#0A1714; --bg2:#111E1B; --surface:#1A2B27; --surface2:#213530;
+  --border:rgba(255,255,255,.08); --border2:rgba(255,255,255,.13);
+  --text:#E8F0EE; --text2:#9DB8B2; --text3:#5C7872;
+  --teal:#00C4A7; --teal-dim:rgba(0,196,167,.13);
+  --rose:#F06A6A; --rose-dim:rgba(240,106,106,.13);
+  --amber:#F5A623; --amber-dim:rgba(245,166,35,.13);
+  --green:#34D399; --green-dim:rgba(52,211,153,.13);
+  --purple:#A78BFA; --purple-dim:rgba(167,139,250,.13);
+  --shadow:0 4px 20px rgba(0,0,0,.4);
+  --r-xs:6px; --r-sm:10px; --r-md:14px; --r-lg:18px;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg:#F0F5F4; --bg2:#FFFFFF; --surface:#E4EDEB; --surface2:#D6E5E2;
+    --border:rgba(0,0,0,.08); --border2:rgba(0,0,0,.13);
+    --text:#0D1F1C; --text2:#3D5C57; --text3:#7A9C96;
+    --teal-dim:rgba(0,196,167,.1); --rose-dim:rgba(240,106,106,.1);
+    --amber-dim:rgba(245,166,35,.1); --green-dim:rgba(52,211,153,.1);
+    --purple-dim:rgba(167,139,250,.1); --shadow:0 4px 20px rgba(0,0,0,.1);
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg:#F0F5F4; --bg2:#FFFFFF; --surface:#E4EDEB; --surface2:#D6E5E2;
+  --border:rgba(0,0,0,.08); --border2:rgba(0,0,0,.13);
+  --text:#0D1F1C; --text2:#3D5C57; --text3:#7A9C96;
+  --teal-dim:rgba(0,196,167,.1); --rose-dim:rgba(240,106,106,.1);
+  --amber-dim:rgba(245,166,35,.1); --green-dim:rgba(52,211,153,.1);
+  --purple-dim:rgba(167,139,250,.1); --shadow:0 4px 20px rgba(0,0,0,.1);
+  color-scheme: light;
+}
+:root[data-theme="dark"] { color-scheme: dark; }
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+body {
+  font-family:'Plus Jakarta Sans',system-ui,sans-serif;
+  background:var(--bg); color:var(--text);
+  min-height:100vh; padding:0 16px 48px;
+}
+
+/* ── Header ── */
+.m-header {
+  display:flex; align-items:center; gap:14px;
+  padding:22px 0 20px; border-bottom:1px solid var(--border); margin-bottom:24px;
+}
+.m-icon {
+  width:44px; height:44px; border-radius:var(--r-sm);
+  background:var(--teal-dim); border:1px solid rgba(0,196,167,.25);
+  display:flex; align-items:center; justify-content:center; font-size:1.3rem; flex-shrink:0;
+}
+.m-title { font-family:'Lora',serif; font-size:1.35rem; font-weight:600; }
+.m-subtitle { font-size:.78rem; color:var(--text3); margin-top:2px; }
+.m-badge {
+  margin-left:auto; font-size:.7rem; font-weight:600; letter-spacing:.04em;
+  padding:4px 10px; border-radius:20px;
+  background:var(--green-dim); color:var(--green); border:1px solid rgba(52,211,153,.2);
+}
+
+/* ── Tabs ── */
+.tabs { display:flex; gap:4px; margin-bottom:24px; background:var(--bg2); border:1px solid var(--border); border-radius:var(--r-md); padding:4px; }
+.tab-btn { flex:1; padding:9px 6px; border:none; background:none; color:var(--text2); border-radius:var(--r-sm); font-family:inherit; font-size:.8rem; font-weight:600; cursor:pointer; transition:all .18s; white-space:nowrap; }
+.tab-btn.active { background:var(--surface); color:var(--text); }
+.tab-pane { display:none; }
+.tab-pane.active { display:block; }
+
+/* ── Cards ── */
+.card { background:var(--bg2); border:1px solid var(--border); border-radius:var(--r-md); padding:20px; margin-bottom:16px; }
+.card-title { font-size:.78rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--text3); margin-bottom:14px; }
+
+/* ── Tags ── */
+.tag { display:inline-flex; align-items:center; gap:4px; font-size:.68rem; font-weight:700; letter-spacing:.04em; padding:3px 8px; border-radius:20px; }
+.tag-teal { background:var(--teal-dim); color:var(--teal); }
+.tag-amber { background:var(--amber-dim); color:var(--amber); }
+.tag-rose { background:var(--rose-dim); color:var(--rose); }
+.tag-green { background:var(--green-dim); color:var(--green); }
+.tag-purple { background:var(--purple-dim); color:var(--purple); }
+.tag-grey { background:var(--surface2); color:var(--text3); }
+
+/* ── Buttons ── */
+.btn { padding:9px 18px; border-radius:var(--r-xs); border:none; font-family:inherit; font-size:.82rem; font-weight:600; cursor:pointer; transition:opacity .15s; }
+.btn:hover { opacity:.85; }
+.btn-primary { background:var(--teal); color:#0A1714; }
+.btn-secondary { background:var(--surface2); color:var(--text2); border:1px solid var(--border2); }
+.btn-ghost { background:transparent; color:var(--text2); border:1px solid var(--border); }
+.btn-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:14px; }
+
+/* ══ TAB 1 — PROFILE SCORE ══ */
+
+/* Hero score ring */
+.score-hero {
+  display:flex; flex-direction:column; align-items:center; padding:32px 20px 24px;
+  background:var(--bg2); border:1px solid var(--border); border-radius:var(--r-lg); margin-bottom:20px;
+}
+.score-ring-wrap { position:relative; width:160px; height:160px; margin-bottom:20px; }
+.score-ring-wrap svg { width:100%; height:100%; transform:rotate(-90deg); }
+.score-ring-track { fill:none; stroke:var(--surface2); stroke-width:12; }
+.score-ring-fill { fill:none; stroke-width:12; stroke-linecap:round; transition:stroke-dashoffset 1s ease; }
+.score-ring-label {
+  position:absolute; inset:0; display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+}
+.score-number { font-size:2.4rem; font-weight:700; line-height:1; font-variant-numeric:tabular-nums; }
+.score-max { font-size:.75rem; color:var(--text3); }
+.score-grade { font-size:.95rem; font-weight:700; margin-top:4px; }
+.score-desc { font-size:.82rem; color:var(--text2); text-align:center; max-width:280px; line-height:1.5; }
+.score-headline { font-family:'Lora',serif; font-size:1.1rem; font-weight:600; margin-bottom:6px; }
+
+/* Rank banner */
+.rank-banner {
+  display:flex; align-items:center; gap:14px; padding:14px 16px;
+  background:var(--teal-dim); border:1px solid rgba(0,196,167,.2);
+  border-radius:var(--r-sm); margin-bottom:20px;
+}
+.rank-num { font-size:1.6rem; font-weight:700; color:var(--teal); font-variant-numeric:tabular-nums; min-width:48px; }
+.rank-label { font-size:.78rem; color:var(--text2); line-height:1.5; }
+.rank-trend { margin-left:auto; font-size:.82rem; font-weight:700; color:var(--green); }
+
+/* Section breakdown */
+.section-rows { display:flex; flex-direction:column; gap:10px; }
+.section-row {
+  background:var(--bg2); border:1px solid var(--border);
+  border-radius:var(--r-sm); padding:14px 16px;
+  transition:border-color .15s;
+}
+.section-row:hover { border-color:var(--border2); }
+.section-row-top { display:flex; align-items:center; gap:12px; margin-bottom:10px; }
+.section-emoji { font-size:1.3rem; flex-shrink:0; }
+.section-name { font-weight:700; font-size:.88rem; flex:1; }
+.section-pts {
+  font-size:.78rem; font-weight:700; font-variant-numeric:tabular-nums;
+  padding:3px 10px; border-radius:20px;
+}
+.section-pts.full { background:var(--green-dim); color:var(--green); }
+.section-pts.high { background:var(--teal-dim); color:var(--teal); }
+.section-pts.mid { background:var(--amber-dim); color:var(--amber); }
+.section-pts.low { background:var(--rose-dim); color:var(--rose); }
+.section-chevron { color:var(--text3); font-size:.85rem; cursor:pointer; transition:transform .2s; }
+.section-chevron.open { transform:rotate(90deg); }
+
+.progress-bar-bg { height:6px; background:var(--surface2); border-radius:3px; overflow:hidden; }
+.progress-bar-fill { height:100%; border-radius:3px; transition:width 1s ease; }
+
+.section-detail { display:none; margin-top:12px; padding-top:12px; border-top:1px solid var(--border); }
+.section-detail.open { display:block; }
+.detail-item {
+  display:flex; align-items:flex-start; gap:10px; padding:7px 0;
+  border-bottom:1px solid var(--border); font-size:.8rem;
+}
+.detail-item:last-child { border-bottom:none; padding-bottom:0; }
+.detail-check { flex-shrink:0; width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.7rem; margin-top:1px; }
+.check-done { background:var(--green-dim); color:var(--green); }
+.check-todo { background:var(--surface2); color:var(--text3); border:1px solid var(--border2); }
+.check-warn { background:var(--amber-dim); color:var(--amber); }
+.detail-text { flex:1; line-height:1.45; }
+.detail-pts { font-size:.68rem; font-weight:700; color:var(--text3); flex-shrink:0; }
+
+/* Next actions panel */
+.next-actions { background:var(--amber-dim); border:1px solid rgba(245,166,35,.2); border-radius:var(--r-md); padding:18px 20px; }
+.next-actions-title { font-size:.78rem; font-weight:700; color:var(--amber); letter-spacing:.05em; text-transform:uppercase; margin-bottom:12px; }
+.action-item { display:flex; align-items:flex-start; gap:10px; padding:9px 0; border-bottom:1px solid rgba(245,166,35,.12); }
+.action-item:last-child { border-bottom:none; }
+.action-num { min-width:22px; height:22px; border-radius:50%; background:var(--amber); color:#0A1714; font-size:.68rem; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px; }
+.action-text { flex:1; font-size:.82rem; line-height:1.45; }
+.action-pts { font-size:.72rem; font-weight:700; color:var(--amber); flex-shrink:0; }
+
+/* ══ TAB 2 — VIDEO GUIDES ══ */
+.video-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; }
+.video-card {
+  background:var(--bg2); border:1px solid var(--border); border-radius:var(--r-md);
+  overflow:hidden; transition:border-color .18s, transform .18s;
+}
+.video-card:hover { border-color:var(--teal); transform:translateY(-2px); }
+.video-thumb {
+  position:relative; aspect-ratio:16/9; overflow:hidden; cursor:pointer;
+}
+.video-thumb-bg {
+  width:100%; height:100%; display:flex; align-items:center; justify-content:center;
+  font-size:2.5rem;
+}
+.video-play {
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  background:rgba(0,0,0,.35); opacity:0; transition:opacity .18s;
+}
+.video-card:hover .video-play { opacity:1; }
+.play-btn {
+  width:52px; height:52px; border-radius:50%;
+  background:rgba(0,196,167,.9); display:flex; align-items:center; justify-content:center;
+  font-size:1.3rem; border:none; cursor:pointer;
+}
+.video-duration {
+  position:absolute; bottom:8px; right:8px;
+  background:rgba(0,0,0,.75); color:#fff; font-size:.65rem; font-weight:700;
+  padding:2px 6px; border-radius:4px; letter-spacing:.03em;
+}
+.video-number {
+  position:absolute; top:8px; left:8px;
+  background:var(--teal); color:#0A1714; font-size:.65rem; font-weight:700;
+  padding:2px 7px; border-radius:4px;
+}
+.video-body { padding:14px 16px 16px; }
+.video-title { font-size:.88rem; font-weight:700; margin-bottom:5px; line-height:1.35; }
+.video-desc { font-size:.75rem; color:var(--text2); line-height:1.5; margin-bottom:12px; }
+.video-topics { display:flex; flex-direction:column; gap:4px; margin-bottom:12px; }
+.video-topic { display:flex; align-items:center; gap:7px; font-size:.72rem; color:var(--text2); }
+.video-topic::before { content:'▸'; color:var(--teal); font-size:.65rem; }
+.video-footer { display:flex; justify-content:space-between; align-items:center; }
+.video-modules { font-size:.68rem; color:var(--text3); }
+.watch-btn {
+  padding:6px 14px; background:var(--teal); color:#0A1714;
+  border:none; border-radius:var(--r-xs); font-family:inherit; font-size:.75rem; font-weight:700;
+  cursor:pointer; transition:opacity .15s;
+}
+.watch-btn:hover { opacity:.85; }
+
+/* Progress strip */
+.guide-progress-strip {
+  display:flex; gap:0; margin-bottom:20px; border-radius:var(--r-sm); overflow:hidden;
+  border:1px solid var(--border);
+}
+.gps-item {
+  flex:1; padding:10px 6px; text-align:center;
+  background:var(--surface); border-right:1px solid var(--border);
+  cursor:pointer; transition:background .15s;
+}
+.gps-item:last-child { border-right:none; }
+.gps-item.watched { background:var(--teal-dim); }
+.gps-item:hover { background:var(--surface2); }
+.gps-num { font-size:.65rem; font-weight:700; color:var(--text3); }
+.gps-dot { width:8px; height:8px; border-radius:50%; background:var(--border2); margin:4px auto; }
+.gps-item.watched .gps-dot { background:var(--teal); }
+
+/* ══ TAB 3 — CHECKLIST ══ */
+.checklist-header {
+  display:flex; align-items:center; gap:14px; margin-bottom:20px;
+}
+.cl-score-ring { position:relative; width:72px; height:72px; flex-shrink:0; }
+.cl-score-ring svg { width:100%; height:100%; transform:rotate(-90deg); }
+.cl-ring-track { fill:none; stroke:var(--surface2); stroke-width:8; }
+.cl-ring-fill { fill:none; stroke:var(--green); stroke-width:8; stroke-linecap:round; transition:stroke-dashoffset .5s ease; }
+.cl-ring-label { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+.cl-ring-pct { font-size:.95rem; font-weight:700; color:var(--green); }
+.cl-ring-done { font-size:.6rem; color:var(--text3); }
+.cl-summary { flex:1; }
+.cl-title { font-size:1rem; font-weight:700; margin-bottom:4px; }
+.cl-subtitle { font-size:.78rem; color:var(--text2); line-height:1.45; }
+
+.cl-section { margin-bottom:20px; }
+.cl-section-header {
+  display:flex; align-items:center; gap:10px; padding:10px 14px;
+  background:var(--surface); border:1px solid var(--border2); border-radius:var(--r-sm);
+  cursor:pointer; margin-bottom:2px; transition:background .15s;
+}
+.cl-section-header:hover { background:var(--surface2); }
+.cl-section-emoji { font-size:1.1rem; }
+.cl-section-title { font-size:.85rem; font-weight:700; flex:1; }
+.cl-section-count { font-size:.72rem; color:var(--text3); }
+.cl-section-pbar { flex:0 0 80px; height:4px; background:var(--surface2); border-radius:2px; overflow:hidden; }
+.cl-section-pfill { height:100%; border-radius:2px; background:var(--teal); transition:width .4s; }
+.cl-chevron { color:var(--text3); font-size:.8rem; transition:transform .2s; }
+.cl-chevron.open { transform:rotate(90deg); }
+
+.cl-items { display:none; border:1px solid var(--border); border-top:none; border-radius:0 0 var(--r-sm) var(--r-sm); background:var(--bg2); }
+.cl-items.open { display:block; }
+.cl-item {
+  display:flex; align-items:flex-start; gap:12px; padding:11px 14px;
+  border-bottom:1px solid var(--border); transition:background .12s; cursor:pointer;
+}
+.cl-item:last-child { border-bottom:none; }
+.cl-item:hover { background:var(--surface); }
+.cl-item.done { opacity:.6; }
+.cl-checkbox {
+  flex-shrink:0; width:20px; height:20px; border-radius:4px;
+  border:2px solid var(--border2); background:var(--surface); cursor:pointer;
+  display:flex; align-items:center; justify-content:center; font-size:.75rem;
+  margin-top:1px; transition:all .15s;
+}
+.cl-item.done .cl-checkbox { background:var(--green); border-color:var(--green); color:#fff; }
+.cl-item-content { flex:1; min-width:0; }
+.cl-item-title { font-size:.82rem; font-weight:600; margin-bottom:2px; }
+.cl-item.done .cl-item-title { text-decoration:line-through; color:var(--text3); }
+.cl-item-desc { font-size:.72rem; color:var(--text3); line-height:1.45; }
+.cl-item-meta { display:flex; align-items:center; gap:6px; margin-top:4px; flex-wrap:wrap; }
+.cl-impact { font-size:.65rem; font-weight:700; padding:2px 6px; border-radius:20px; }
+.cl-imp-high { background:var(--green-dim); color:var(--green); }
+.cl-imp-med { background:var(--teal-dim); color:var(--teal); }
+.cl-imp-low { background:var(--surface2); color:var(--text3); }
+.cl-module { font-size:.65rem; color:var(--text3); }
+</style>
+
+<!-- ══ HEADER ══ -->
+<div class="m-header">
+  <div class="m-icon">🏆</div>
+  <div>
+    <div class="m-title">Profile Guide</div>
+    <div class="m-subtitle">Score, optimise &amp; track your IndiaDentalWorld profile</div>
+  </div>
+  <div class="m-badge">M8 · Complete ✓</div>
+</div>
+
+<!-- ══ TABS ══ -->
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab('score',this)">🎯 Profile Score</button>
+  <button class="tab-btn" onclick="switchTab('videos',this)">🎬 Video Guides</button>
+  <button class="tab-btn" onclick="switchTab('checklist',this)">✅ Optimisation Checklist</button>
+</div>
+
+<!-- ══ TAB 1 — PROFILE SCORE ══ -->
+<div class="tab-pane active" id="tab-score">
+
+  <!-- Hero ring -->
+  <div class="score-hero">
+    <div class="score-ring-wrap">
+      <svg viewBox="0 0 160 160">
+        <circle class="score-ring-track" cx="80" cy="80" r="68"/>
+        <circle class="score-ring-fill" id="scoreRingFill" cx="80" cy="80" r="68"
+          stroke="url(#scoreGrad)"
+          stroke-dasharray="427.3"
+          stroke-dashoffset="427.3"/>
+        <defs>
+          <linearGradient id="scoreGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#00C4A7"/>
+            <stop offset="100%" stop-color="#34D399"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <div class="score-ring-label">
+        <div class="score-number" id="scoreNum">0</div>
+        <div class="score-max">/ 100</div>
+      </div>
+    </div>
+    <div class="score-headline" id="scoreHeadline">Calculating…</div>
+    <div class="score-desc" id="scoreDesc">Your profile score determines search ranking on IndiaDentalWorld.</div>
+  </div>
+
+  <!-- Rank banner -->
+  <div class="rank-banner">
+    <div class="rank-num">#4</div>
+    <div class="rank-label">
+      <strong>Koramangala, Bengaluru</strong> · Prosthodontics &amp; Implantology<br>
+      <span style="font-size:.7rem;color:var(--text3);">Ranked by Profile Score + Review Velocity + Response Rate</span>
+    </div>
+    <div class="rank-trend">↑ 2 places this month</div>
+  </div>
+
+  <!-- Section breakdown -->
+  <div class="card-title">Score Breakdown</div>
+  <div class="section-rows" id="sectionRows">
+
+    <!-- S1: Profile Basics 18/20 -->
+    <div class="section-row">
+      <div class="section-row-top">
+        <div class="section-emoji">📋</div>
+        <div class="section-name">Profile Basics</div>
+        <div class="section-pts high">18 / 20 pts</div>
+        <div class="section-chevron" onclick="toggleSection(this)">›</div>
+      </div>
+      <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:90%;background:var(--teal);"></div></div>
+      <div class="section-detail">
+        <div class="detail-item"><div class="detail-check check-done">✓</div><div class="detail-text">Clinic name &amp; tagline</div><div class="detail-pts">2 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-done">✓</div><div class="detail-text">Complete address with Google Maps pin</div><div class="detail-pts">3 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-done">✓</div><div class="detail-text">Business hours (all 7 days)</div><div class="detail-pts">2 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-done">✓</div><div class="detail-text">Phone + WhatsApp contact</div><div class="detail-pts">2 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-done">✓</div><div class="detail-text">Clinic logo uploaded (min 300×300px)</div><div class="detail-pts">2 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-done">✓</div><div class="detail-text">Specialties listed (min 3)</div><div class="detail-pts">3 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-warn">!</div><div class="detail-text">About Us description — add patient-facing narrative (min 80 words)</div><div class="detail-pts">2 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-todo">○</div><div class="detail-text">Emergency contact / after-hours availability</div><div class="detail-pts">2 pts</div></div>
+      </div>
+    </div>
+
+    <!-- S2: Photos 14/20 -->
+    <div class="section-row">
+      <div class="section-row-top">
+        <div class="section-emoji">📸</div>
+        <div class="section-name">Photos &amp; Media</div>
+        <div class="section-pts mid">14 / 20 pts</div>
+        <div class="section-chevron" onclick="toggleSection(this)">›</div>
+      </div>
+      <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:70%;background:var(--amber);"></div></div>
+      <div class="section-detail">
+        <div class="detail-item"><div class="detail-check check-done">✓</div><div class="detail-text">Clinic exterior photo (with alt tag)</div><div class="detail-pts">2 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-done">✓</div><div class="detail-text">Reception / waiting area</div><div class="detail-pts">2 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-done">✓</div><div class="detail-text">Treatment room / equipment</div><div class="detail-pts">2 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-done">✓</div><div class="detail-text">Sterilisation area</div><div class="detail-pts">2 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-warn">!</div><div class="detail-text">Before &amp; After case photos (min 3 sets with patient DPDP consent)</div><div class="detail-pts">4 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-todo">○</div><div class="detail-text">Team photo (all practitioners)</div><div class="detail-pts">2 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-todo">○</div><div class="detail-text">Clinic video walkthrough (min 30 sec)</div><div class="detail-pts">4 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-todo">○</div><div class="detail-text">All photos have descriptive alt tags</div><div class="detail-pts">2 pts</div></div>
+      </div>
+    </div>
+
+    <!-- S3: Reviews 16/20 -->
+    <div class="section-row">
+      <div class="section-row-top">
+        <div class="section-emoji">⭐</div>
+        <div class="section-name">Reviews &amp; Trust</div>
+        <div class="section-pts high">16 / 20 pts</div>
+        <div class="section-chevron" onclick="toggleSection(this)">›</div>
+      </div>
+      <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:80%;background:var(--teal);"></div></div>
+      <div class="section-detail">
+        <div class="detail-item"><div class="detail-check check-done">✓</div><div class="detail-text">IDW rating 4.0+ (currently 4.7)</div><div class="detail-pts">4 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-done">✓</div><div class="detail-text">Minimum 10 IDW reviews</div><div class="detail-pts">3 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-done">✓</div><div class="detail-text">Review response rate ≥70% (currently 78%)</div><div class="detail-pts">3 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-done">✓</div><div class="detail-text">Google Business Profile linked</div><div class="detail-pts">2 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-warn">!</div><div class="detail-text">Respond to all 3-star and below reviews (2 pending)</div><div class="detail-pts">2 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-todo">○</div><div class="detail-text">25+ IDW reviews — unlocks Verified Practice badge</div><div class="detail-pts">4 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-todo">○</div><div class="detail-text">Net Promoter Score response rate ≥50%</div><div class="detail-pts">2 pts</div></div>
+      </div>
+    </div>
+
+    <!-- S4: Content 11/15 -->
+    <div class="section-row">
+      <div class="section-row-top">
+        <div class="section-emoji">✍️</div>
+        <div class="section-name">Content &amp; Blog</div>
+        <div class="section-pts mid">11 / 15 pts</div>
+        <div class="section-chevron" onclick="toggleSection(this)">›</div>
+      </div>
+      <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:73%;background:var(--amber);"></div></div>
+      <div class="section-detail">
+        <div class="detail-item"><div class="detail-check check-done">✓</div><div class="detail-text">Minimum 1 published blog post</div><div class="detail-pts">2 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-done">✓</div><div class="detail-text">NDC-registered author byline on all posts</div><div class="detail-pts">3 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-done">✓</div><div class="detail-text">At least 1 before/after case study published</div><div class="detail-pts">3 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-warn">!</div><div class="detail-text">Post published within last 30 days (recency signal)</div><div class="detail-pts">2 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-todo">○</div><div class="detail-text">5+ blog posts (unlocks Content Creator badge)</div><div class="detail-pts">3 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-todo">○</div><div class="detail-text">Patient FAQ section answered (min 5 questions)</div><div class="detail-pts">2 pts</div></div>
+      </div>
+    </div>
+
+    <!-- S5: Team 12/15 -->
+    <div class="section-row">
+      <div class="section-row-top">
+        <div class="section-emoji">👩‍⚕️</div>
+        <div class="section-name">Team &amp; Credentials</div>
+        <div class="section-pts high">12 / 15 pts</div>
+        <div class="section-chevron" onclick="toggleSection(this)">›</div>
+      </div>
+      <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:80%;background:var(--teal);"></div></div>
+      <div class="section-detail">
+        <div class="detail-item"><div class="detail-check check-done">✓</div><div class="detail-text">Lead doctor profile with photo</div><div class="detail-pts">3 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-done">✓</div><div class="detail-text">NDC registration number verified</div><div class="detail-pts">4 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-done">✓</div><div class="detail-text">Qualifications &amp; specialisation listed</div><div class="detail-pts">2 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-done">✓</div><div class="detail-text">Years of experience stated</div><div class="detail-pts">1 pt</div></div>
+        <div class="detail-item"><div class="detail-check check-todo">○</div><div class="detail-text">All practitioners listed (add associate/hygienist profiles)</div><div class="detail-pts">3 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-todo">○</div><div class="detail-text">Professional memberships / awards mentioned</div><div class="detail-pts">2 pts</div></div>
+      </div>
+    </div>
+
+    <!-- S6: Revenue 7/10 -->
+    <div class="section-row">
+      <div class="section-row-top">
+        <div class="section-emoji">💰</div>
+        <div class="section-name">Revenue &amp; Promotions</div>
+        <div class="section-pts mid">7 / 10 pts</div>
+        <div class="section-chevron" onclick="toggleSection(this)">›</div>
+      </div>
+      <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:70%;background:var(--amber);"></div></div>
+      <div class="section-detail">
+        <div class="detail-item"><div class="detail-check check-done">✓</div><div class="detail-text">Fee schedule published (at least 5 treatments)</div><div class="detail-pts">3 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-done">✓</div><div class="detail-text">Payment modes listed (min 4)</div><div class="detail-pts">2 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-done">✓</div><div class="detail-text">IDW Featured Listing active</div><div class="detail-pts">2 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-todo">○</div><div class="detail-text">Active ASCI-compliant offer published</div><div class="detail-pts">2 pts</div></div>
+        <div class="detail-item"><div class="detail-check check-todo">○</div><div class="detail-text">Government scheme empanelment added (CGHS/PM-JAY)</div><div class="detail-pts">1 pt</div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Next actions -->
+  <div class="next-actions" style="margin-top:20px;">
+    <div class="next-actions-title">🚀 Your Top 5 Actions to Reach 90+ Score</div>
+    <div class="action-item">
+      <div class="action-num">1</div>
+      <div class="action-text"><strong>Add 3 before/after case photos</strong> with DPDP consent — biggest single jump available</div>
+      <div class="action-pts">+4 pts</div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">2</div>
+      <div class="action-text"><strong>Publish a blog post this week</strong> to restore the recency signal (last post: 34 days ago)</div>
+      <div class="action-pts">+2 pts</div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">3</div>
+      <div class="action-text"><strong>Upload clinic video walkthrough</strong> (30+ sec) — boosts engagement 2.3× per IDW data</div>
+      <div class="action-pts">+4 pts</div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">4</div>
+      <div class="action-text"><strong>Respond to 2 pending low-star reviews</strong> on IDW — response rate affects ranking daily</div>
+      <div class="action-pts">+2 pts</div>
+    </div>
+    <div class="action-item">
+      <div class="action-num">5</div>
+      <div class="action-text"><strong>Add team photo + associate profiles</strong> — trust signals for new patients comparing clinics</div>
+      <div class="action-pts">+3 pts</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TAB 2 — VIDEO GUIDES ══ -->
+<div class="tab-pane" id="tab-videos">
+
+  <!-- Progress strip -->
+  <div class="card-title" style="margin-bottom:10px;">Your Viewing Progress</div>
+  <div class="guide-progress-strip" id="guideStrip">
+    <div class="gps-item watched" onclick="markWatched(0,this)" id="gps0"><div class="gps-num">EP 1</div><div class="gps-dot"></div></div>
+    <div class="gps-item watched" onclick="markWatched(1,this)" id="gps1"><div class="gps-num">EP 2</div><div class="gps-dot"></div></div>
+    <div class="gps-item" onclick="markWatched(2,this)" id="gps2"><div class="gps-num">EP 3</div><div class="gps-dot"></div></div>
+    <div class="gps-item" onclick="markWatched(3,this)" id="gps3"><div class="gps-num">EP 4</div><div class="gps-dot"></div></div>
+    <div class="gps-item" onclick="markWatched(4,this)" id="gps4"><div class="gps-num">EP 5</div><div class="gps-dot"></div></div>
+  </div>
+  <div style="font-size:.72rem;color:var(--text3);margin-bottom:18px;">2 of 5 episodes watched · ~28 min remaining</div>
+
+  <div class="video-grid">
+
+    <!-- EP1 -->
+    <div class="video-card">
+      <div class="video-thumb" onclick="playVideo(1)" style="cursor:pointer;">
+        <div class="video-thumb-bg" style="background:linear-gradient(135deg,#0A1714,#1A2B27);">
+          <span>🦷</span>
+        </div>
+        <div class="video-play"><button class="play-btn">▶</button></div>
+        <div class="video-number">EP 1</div>
+        <div class="video-duration">8:14</div>
+      </div>
+      <div class="video-body">
+        <div class="video-title">Welcome to IndiaDentalWorld</div>
+        <div class="video-desc">A complete orientation to your clinic dashboard — what each module does and how IDW helps patients find you.</div>
+        <div class="video-topics">
+          <div class="video-topic">How IndiaDentalWorld ranks clinics</div>
+          <div class="video-topic">The 8 dashboard modules explained</div>
+          <div class="video-topic">Profile Score and why it matters</div>
+          <div class="video-topic">First steps for new clinics</div>
+        </div>
+        <div class="video-footer">
+          <div class="video-modules"><span class="tag tag-teal">M1 Shell</span></div>
+          <button class="watch-btn" onclick="playVideo(1)">▶ Watch</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- EP2 -->
+    <div class="video-card">
+      <div class="video-thumb" onclick="playVideo(2)" style="cursor:pointer;">
+        <div class="video-thumb-bg" style="background:linear-gradient(135deg,#001F1A,#0A3A31);">
+          <span>📊</span>
+        </div>
+        <div class="video-play"><button class="play-btn">▶</button></div>
+        <div class="video-number">EP 2</div>
+        <div class="video-duration">11:32</div>
+      </div>
+      <div class="video-body">
+        <div class="video-title">Getting Found: SEO &amp; Analytics</div>
+        <div class="video-desc">How to read your performance data and take actions that move your clinic up the search rankings on IDW and Google.</div>
+        <div class="video-topics">
+          <div class="video-topic">Search Visibility Score &amp; how to improve it</div>
+          <div class="video-topic">Understanding impressions, clicks &amp; CTR</div>
+          <div class="video-topic">Specialty keywords that drive appointments</div>
+          <div class="video-topic">Linking Google Business Profile for E-E-A-T</div>
+        </div>
+        <div class="video-footer">
+          <div class="video-modules"><span class="tag tag-teal">M2 Analytics</span></div>
+          <button class="watch-btn" onclick="playVideo(2)">▶ Watch</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- EP3 -->
+    <div class="video-card">
+      <div class="video-thumb" onclick="playVideo(3)" style="cursor:pointer;">
+        <div class="video-thumb-bg" style="background:linear-gradient(135deg,#1A0A0A,#2B1A1A);">
+          <span>📸</span>
+        </div>
+        <div class="video-play"><button class="play-btn">▶</button></div>
+        <div class="video-number">EP 3</div>
+        <div class="video-duration">9:47</div>
+      </div>
+      <div class="video-body">
+        <div class="video-title">Trust Signals: Content, Photos &amp; Reviews</div>
+        <div class="video-desc">The three content pillars that convert a profile visitor into a booked patient — and how to build them systematically.</div>
+        <div class="video-topics">
+          <div class="video-topic">DPDP 2025 consent for patient photos</div>
+          <div class="video-topic">Before/after case study best practices</div>
+          <div class="video-topic">Responding to reviews (tone &amp; timing)</div>
+          <div class="video-topic">The WhatsApp review-request workflow</div>
+        </div>
+        <div class="video-footer">
+          <div class="video-modules"><span class="tag tag-teal">M3 Content</span> <span class="tag tag-teal">M5 Reviews</span></div>
+          <button class="watch-btn" onclick="playVideo(3)">▶ Watch</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- EP4 -->
+    <div class="video-card">
+      <div class="video-thumb" onclick="playVideo(4)" style="cursor:pointer;">
+        <div class="video-thumb-bg" style="background:linear-gradient(135deg,#0A0A1A,#1A1A2B);">
+          <span>💰</span>
+        </div>
+        <div class="video-play"><button class="play-btn">▶</button></div>
+        <div class="video-number">EP 4</div>
+        <div class="video-duration">13:05</div>
+      </div>
+      <div class="video-body">
+        <div class="video-title">Revenue &amp; Growth: Fees, Offers &amp; Ads</div>
+        <div class="video-desc">Set up your fee schedule, create ASCI-compliant offers, and use IDW advertising products to grow new patient volume.</div>
+        <div class="video-topics">
+          <div class="video-topic">Publishing fees that attract &amp; qualify patients</div>
+          <div class="video-topic">5 ASCI rules for dental offers in India</div>
+          <div class="video-topic">Featured Listing ROI — reading your dashboard</div>
+          <div class="video-topic">CGHS/PM-JAY empanelment — step by step</div>
+        </div>
+        <div class="video-footer">
+          <div class="video-modules"><span class="tag tag-teal">M6 Revenue</span></div>
+          <button class="watch-btn" onclick="playVideo(4)">▶ Watch</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- EP5 -->
+    <div class="video-card">
+      <div class="video-thumb" onclick="playVideo(5)" style="cursor:pointer;">
+        <div class="video-thumb-bg" style="background:linear-gradient(135deg,#0A1A0A,#1A2B1A);">
+          <span>✍️</span>
+        </div>
+        <div class="video-play"><button class="play-btn">▶</button></div>
+        <div class="video-number">EP 5</div>
+        <div class="video-duration">10:19</div>
+      </div>
+      <div class="video-body">
+        <div class="video-title">Content That Compounds: Blog &amp; Social</div>
+        <div class="video-desc">How to write one article and distribute it across five platforms in under 20 minutes — and why this builds your long-term reputation.</div>
+        <div class="video-topics">
+          <div class="video-topic">Writing for patients, not peers (E-E-A-T)</div>
+          <div class="video-topic">NDC byline &amp; why Google requires it</div>
+          <div class="video-topic">Repurposing blog posts for WhatsApp &amp; Instagram</div>
+          <div class="video-topic">Content calendar: 4 posts/month framework</div>
+        </div>
+        <div class="video-footer">
+          <div class="video-modules"><span class="tag tag-teal">M7 Blog &amp; Social</span></div>
+          <button class="watch-btn" onclick="playVideo(5)">▶ Watch</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="margin-top:16px;padding:14px 16px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);font-size:.75rem;color:var(--text2);">
+    💡 Videos open on IndiaDentalWorld's learning portal. New episodes are released monthly — you'll be notified in your dashboard.
+  </div>
+</div>
+
+<!-- ══ TAB 3 — CHECKLIST ══ -->
+<div class="tab-pane" id="tab-checklist">
+
+  <!-- Header with mini ring -->
+  <div class="checklist-header">
+    <div class="cl-score-ring">
+      <svg viewBox="0 0 72 72">
+        <circle class="cl-ring-track" cx="36" cy="36" r="30"/>
+        <circle class="cl-ring-fill" id="clRingFill" cx="36" cy="36" r="30"
+          stroke-dasharray="188.5" stroke-dashoffset="188.5"/>
+      </svg>
+      <div class="cl-ring-label">
+        <div class="cl-ring-pct" id="clPct">0%</div>
+        <div class="cl-ring-done" id="clDone">0/28</div>
+      </div>
+    </div>
+    <div class="cl-summary">
+      <div class="cl-title">IDW Profile Optimisation Checklist</div>
+      <div class="cl-subtitle">28 actions across 6 categories. Complete all to reach a 95+ profile score and unlock the <strong>Elite Clinic</strong> badge.</div>
+    </div>
+  </div>
+
+  <!-- SECTION: Profile Basics -->
+  <div class="cl-section">
+    <div class="cl-section-header" onclick="toggleCLSection(this)">
+      <div class="cl-section-emoji">📋</div>
+      <div class="cl-section-title">Profile Basics</div>
+      <div class="cl-section-count" id="cl-count-basics">0/5</div>
+      <div class="cl-section-pbar"><div class="cl-section-pfill" id="cl-pbar-basics" style="width:0%"></div></div>
+      <div class="cl-chevron">›</div>
+    </div>
+    <div class="cl-items" data-section="basics">
+      <div class="cl-item done" onclick="toggleItem(this)">
+        <div class="cl-checkbox">✓</div>
+        <div class="cl-item-content">
+          <div class="cl-item-title">Complete address with Google Maps pin</div>
+          <div class="cl-item-desc">Ensures patients find you on both IDW and Google Maps search.</div>
+          <div class="cl-item-meta"><span class="cl-impact cl-imp-high">High impact</span><span class="cl-module">Profile Basics</span></div>
+        </div>
+      </div>
+      <div class="cl-item done" onclick="toggleItem(this)">
+        <div class="cl-checkbox">✓</div>
+        <div class="cl-item-content">
+          <div class="cl-item-title">Business hours listed for all 7 days</div>
+          <div class="cl-item-desc">Patients check hours before calling — incomplete hours lose walk-ins.</div>
+          <div class="cl-item-meta"><span class="cl-impact cl-imp-high">High impact</span><span class="cl-module">Profile Basics</span></div>
+        </div>
+      </div>
+      <div class="cl-item done" onclick="toggleItem(this)">
+        <div class="cl-checkbox">✓</div>
+        <div class="cl-item-content">
+          <div class="cl-item-title">Clinic logo uploaded (min 300×300px)</div>
+          <div class="cl-item-desc">Logo appears in search results and appointment confirmation emails.</div>
+          <div class="cl-item-meta"><span class="cl-impact cl-imp-med">Medium</span><span class="cl-module">Profile Basics</span></div>
+        </div>
+      </div>
+      <div class="cl-item" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-content">
+          <div class="cl-item-title">About Us — patient-facing narrative (80+ words)</div>
+          <div class="cl-item-desc">Describe your philosophy, your team's approach, and why patients choose you. Avoid jargon.</div>
+          <div class="cl-item-meta"><span class="cl-impact cl-imp-high">High impact</span><span class="cl-module">Profile Basics</span></div>
+        </div>
+      </div>
+      <div class="cl-item" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-content">
+          <div class="cl-item-title">Emergency / after-hours contact added</div>
+          <div class="cl-item-desc">Even if unavailable, state it — patients value knowing dental emergencies are covered.</div>
+          <div class="cl-item-meta"><span class="cl-impact cl-imp-low">Low</span><span class="cl-module">Profile Basics</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: Photos & Media -->
+  <div class="cl-section">
+    <div class="cl-section-header" onclick="toggleCLSection(this)">
+      <div class="cl-section-emoji">📸</div>
+      <div class="cl-section-title">Photos &amp; Media</div>
+      <div class="cl-section-count" id="cl-count-photos">0/6</div>
+      <div class="cl-section-pbar"><div class="cl-section-pfill" id="cl-pbar-photos" style="width:0%"></div></div>
+      <div class="cl-chevron">›</div>
+    </div>
+    <div class="cl-items" data-section="photos">
+      <div class="cl-item done" onclick="toggleItem(this)">
+        <div class="cl-checkbox">✓</div>
+        <div class="cl-item-content">
+          <div class="cl-item-title">Clinic exterior photo with descriptive alt tag</div>
+          <div class="cl-item-desc">First impression for search results. Photograph in daylight, signage visible.</div>
+          <div class="cl-item-meta"><span class="cl-impact cl-imp-high">High impact</span><span class="cl-module">M3 Content</span></div>
+        </div>
+      </div>
+      <div class="cl-item done" onclick="toggleItem(this)">
+        <div class="cl-checkbox">✓</div>
+        <div class="cl-item-content">
+          <div class="cl-item-title">Reception and treatment room photos</div>
+          <div class="cl-item-desc">Reduces patient anxiety by showing a clean, modern environment.</div>
+          <div class="cl-item-meta"><span class="cl-impact cl-imp-med">Medium</span><span class="cl-module">M3 Content</span></div>
+        </div>
+      </div>
+      <div class="cl-item done" onclick="toggleItem(this)">
+        <div class="cl-checkbox">✓</div>
+        <div class="cl-item-content">
+          <div class="cl-item-title">Equipment &amp; sterilisation area photos</div>
+          <div class="cl-item-desc">Builds clinical credibility — particularly for implant and cosmetic patients comparing clinics.</div>
+          <div class="cl-item-meta"><span class="cl-impact cl-imp-med">Medium</span><span class="cl-module">M3 Content</span></div>
+        </div>
+      </div>
+      <div class="cl-item" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-content">
+          <div class="cl-item-title">3+ before &amp; after case photos (with DPDP consent)</div>
+          <div class="cl-item-desc">Most powerful trust signal. Obtain written patient consent per DPDP 2025 before uploading.</div>
+          <div class="cl-item-meta"><span class="cl-impact cl-imp-high">High impact</span><span class="cl-module">M3 Content</span></div>
+        </div>
+      </div>
+      <div class="cl-item" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-content">
+          <div class="cl-item-title">Team group photo</div>
+          <div class="cl-item-desc">Humanises the practice. Include all clinical and support staff.</div>
+          <div class="cl-item-meta"><span class="cl-impact cl-imp-med">Medium</span><span class="cl-module">M3 Content</span></div>
+        </div>
+      </div>
+      <div class="cl-item" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-content">
+          <div class="cl-item-title">Clinic video walkthrough (30+ seconds)</div>
+          <div class="cl-item-desc">Profiles with video get 2.3× more appointment requests. Shoot on any modern smartphone.</div>
+          <div class="cl-item-meta"><span class="cl-impact cl-imp-high">High impact</span><span class="cl-module">M3 Content</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: Reviews & Trust -->
+  <div class="cl-section">
+    <div class="cl-section-header" onclick="toggleCLSection(this)">
+      <div class="cl-section-emoji">⭐</div>
+      <div class="cl-section-title">Reviews &amp; Trust</div>
+      <div class="cl-section-count" id="cl-count-reviews">0/5</div>
+      <div class="cl-section-pbar"><div class="cl-section-pfill" id="cl-pbar-reviews" style="width:0%"></div></div>
+      <div class="cl-chevron">›</div>
+    </div>
+    <div class="cl-items" data-section="reviews">
+      <div class="cl-item done" onclick="toggleItem(this)">
+        <div class="cl-checkbox">✓</div>
+        <div class="cl-item-content">
+          <div class="cl-item-title">10+ IDW reviews with 4.0+ average</div>
+          <div class="cl-item-desc">Minimum threshold for IDW's Trusted Practice ranking filter.</div>
+          <div class="cl-item-meta"><span class="cl-impact cl-imp-high">High impact</span><span class="cl-module">M5 Reviews</span></div>
+        </div>
+      </div>
+      <div class="cl-item done" onclick="toggleItem(this)">
+        <div class="cl-checkbox">✓</div>
+        <div class="cl-item-content">
+          <div class="cl-item-title">Review response rate ≥70%</div>
+          <div class="cl-item-desc">Respond within 48 hours. Shows professionalism and boosts ranking.</div>
+          <div class="cl-item-meta"><span class="cl-impact cl-imp-high">High impact</span><span class="cl-module">M5 Reviews</span></div>
+        </div>
+      </div>
+      <div class="cl-item" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-content">
+          <div class="cl-item-title">Respond to all 3-star and below reviews</div>
+          <div class="cl-item-desc">Unanswered low-star reviews deter prospective patients. Respond professionally; never defensively.</div>
+          <div class="cl-item-meta"><span class="cl-impact cl-imp-high">High impact</span><span class="cl-module">M5 Reviews</span></div>
+        </div>
+      </div>
+      <div class="cl-item done" onclick="toggleItem(this)">
+        <div class="cl-checkbox">✓</div>
+        <div class="cl-item-content">
+          <div class="cl-item-title">Google Business Profile linked to IDW</div>
+          <div class="cl-item-desc">Enables automatic Google review import (ToS-compliant read-only).</div>
+          <div class="cl-item-meta"><span class="cl-impact cl-imp-med">Medium</span><span class="cl-module">M5 Reviews</span></div>
+        </div>
+      </div>
+      <div class="cl-item" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-content">
+          <div class="cl-item-title">25+ IDW reviews — unlocks Verified Practice badge</div>
+          <div class="cl-item-desc">Use the WhatsApp review-request workflow in M5 to reach this milestone. Target: 2 requests/week post-appointment.</div>
+          <div class="cl-item-meta"><span class="cl-impact cl-imp-high">High impact</span><span class="cl-module">M5 Reviews</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: Content & Blog -->
+  <div class="cl-section">
+    <div class="cl-section-header" onclick="toggleCLSection(this)">
+      <div class="cl-section-emoji">✍️</div>
+      <div class="cl-section-title">Content &amp; Blog</div>
+      <div class="cl-section-count" id="cl-count-content">0/5</div>
+      <div class="cl-section-pbar"><div class="cl-section-pfill" id="cl-pbar-content" style="width:0%"></div></div>
+      <div class="cl-chevron">›</div>
+    </div>
+    <div class="cl-items" data-section="content">
+      <div class="cl-item done" onclick="toggleItem(this)">
+        <div class="cl-checkbox">✓</div>
+        <div class="cl-item-content">
+          <div class="cl-item-title">1+ published blog post with NDC byline</div>
+          <div class="cl-item-desc">NDC registration number in the byline is Google's E-E-A-T signal for medical content.</div>
+          <div class="cl-item-meta"><span class="cl-impact cl-imp-high">High impact</span><span class="cl-module">M7 Blog</span></div>
+        </div>
+      </div>
+      <div class="cl-item done" onclick="toggleItem(this)">
+        <div class="cl-checkbox">✓</div>
+        <div class="cl-item-content">
+          <div class="cl-item-title">1+ published before/after case study</div>
+          <div class="cl-item-desc">Case studies convert 3× better than generic posts for high-value treatments (implants, orthodontics).</div>
+          <div class="cl-item-meta"><span class="cl-impact cl-imp-high">High impact</span><span class="cl-module">M3 Content</span></div>
+        </div>
+      </div>
+      <div class="cl-item" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-content">
+          <div class="cl-item-title">Post published within the last 30 days</div>
+          <div class="cl-item-desc">Recency is a ranking signal. Aim for at least 1 post every 2 weeks to maintain freshness.</div>
+          <div class="cl-item-meta"><span class="cl-impact cl-imp-med">Medium</span><span class="cl-module">M7 Blog</span></div>
+        </div>
+      </div>
+      <div class="cl-item" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-content">
+          <div class="cl-item-title">5+ published blog posts (Content Creator badge)</div>
+          <div class="cl-item-desc">Unlocks profile badge visible in search results. Aim for evergreen topics: implants, RCT myths, children's dental care.</div>
+          <div class="cl-item-meta"><span class="cl-impact cl-imp-high">High impact</span><span class="cl-module">M7 Blog</span></div>
+        </div>
+      </div>
+      <div class="cl-item" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-content">
+          <div class="cl-item-title">Patient FAQ answered (5+ questions)</div>
+          <div class="cl-item-desc">FAQ content captures long-tail search queries ("how painful is a root canal in Koramangala").</div>
+          <div class="cl-item-meta"><span class="cl-impact cl-imp-med">Medium</span><span class="cl-module">M7 Blog</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: Team & Credentials -->
+  <div class="cl-section">
+    <div class="cl-section-header" onclick="toggleCLSection(this)">
+      <div class="cl-section-emoji">👩‍⚕️</div>
+      <div class="cl-section-title">Team &amp; Credentials</div>
+      <div class="cl-section-count" id="cl-count-team">0/4</div>
+      <div class="cl-section-pbar"><div class="cl-section-pfill" id="cl-pbar-team" style="width:0%"></div></div>
+      <div class="cl-chevron">›</div>
+    </div>
+    <div class="cl-items" data-section="team">
+      <div class="cl-item done" onclick="toggleItem(this)">
+        <div class="cl-checkbox">✓</div>
+        <div class="cl-item-content">
+          <div class="cl-item-title">Lead doctor profile with photo &amp; qualifications</div>
+          <div class="cl-item-desc">Full name, degree (BDS/MDS), specialisation, years of experience, and a professional headshot.</div>
+          <div class="cl-item-meta"><span class="cl-impact cl-imp-high">High impact</span><span class="cl-module">M4 Team</span></div>
+        </div>
+      </div>
+      <div class="cl-item done" onclick="toggleItem(this)">
+        <div class="cl-checkbox">✓</div>
+        <div class="cl-item-content">
+          <div class="cl-item-title">NDC registration number verified</div>
+          <div class="cl-item-desc">Mandatory for all registered practitioners. NDC verification badge appears on your profile.</div>
+          <div class="cl-item-meta"><span class="cl-impact cl-imp-high">High impact</span><span class="cl-module">M4 Team</span></div>
+        </div>
+      </div>
+      <div class="cl-item" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-content">
+          <div class="cl-item-title">All practitioners listed with individual profiles</div>
+          <div class="cl-item-desc">Patients often search by specialty — list associate dentists, hygienists, and visiting consultants.</div>
+          <div class="cl-item-meta"><span class="cl-impact cl-imp-med">Medium</span><span class="cl-module">M4 Team</span></div>
+        </div>
+      </div>
+      <div class="cl-item" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-content">
+          <div class="cl-item-title">Professional memberships or awards listed</div>
+          <div class="cl-item-desc">IDA membership, fellowships, international training — all build patient confidence.</div>
+          <div class="cl-item-meta"><span class="cl-impact cl-imp-low">Low</span><span class="cl-module">M4 Team</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: Revenue & Promotions -->
+  <div class="cl-section">
+    <div class="cl-section-header" onclick="toggleCLSection(this)">
+      <div class="cl-section-emoji">💰</div>
+      <div class="cl-section-title">Revenue &amp; Promotions</div>
+      <div class="cl-section-count" id="cl-count-revenue">0/3</div>
+      <div class="cl-section-pbar"><div class="cl-section-pfill" id="cl-pbar-revenue" style="width:0%"></div></div>
+      <div class="cl-chevron">›</div>
+    </div>
+    <div class="cl-items" data-section="revenue">
+      <div class="cl-item done" onclick="toggleItem(this)">
+        <div class="cl-checkbox">✓</div>
+        <div class="cl-item-content">
+          <div class="cl-item-title">Fee schedule published (5+ treatments)</div>
+          <div class="cl-item-desc">Transparent pricing reduces phone queries and attracts patients ready to book.</div>
+          <div class="cl-item-meta"><span class="cl-impact cl-imp-high">High impact</span><span class="cl-module">M6 Revenue</span></div>
+        </div>
+      </div>
+      <div class="cl-item" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-content">
+          <div class="cl-item-title">Active ASCI-compliant offer published</div>
+          <div class="cl-item-desc">Use the 5-rule checklist in M6 before publishing. Include original price, validity dates, and GST note.</div>
+          <div class="cl-item-meta"><span class="cl-impact cl-imp-med">Medium</span><span class="cl-module">M6 Revenue</span></div>
+        </div>
+      </div>
+      <div class="cl-item" onclick="toggleItem(this)">
+        <div class="cl-checkbox"></div>
+        <div class="cl-item-content">
+          <div class="cl-item-title">Government scheme empanelment added (CGHS or PM-JAY)</div>
+          <div class="cl-item-desc">Empanelled clinics appear in a separate high-intent search filter used by government employees.</div>
+          <div class="cl-item-meta"><span class="cl-impact cl-imp-med">Medium</span><span class="cl-module">M6 Revenue</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ── Tab switching ──
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  if (btn) btn.classList.add('active');
+}
+
+// ── Score ring animation ──
+const TOTAL_SCORE = 78;
+const RING_CIRC = 427.3;
+function animateScore() {
+  const fill = document.getElementById('scoreRingFill');
+  const numEl = document.getElementById('scoreNum');
+  if (!fill || !numEl) return;
+  const offset = RING_CIRC * (1 - TOTAL_SCORE / 100);
+  let grad, headline, desc;
+  if (TOTAL_SCORE >= 90) { grad = '#34D399'; headline = 'Elite Profile'; desc = 'Your profile is in the top tier. You qualify for the Elite Clinic badge.'; }
+  else if (TOTAL_SCORE >= 75) { grad = '#00C4A7'; headline = 'Strong Profile'; desc = 'You\'re ranking well. A few focused improvements will push you into the top 10%.'; }
+  else if (TOTAL_SCORE >= 55) { grad = '#F5A623'; headline = 'Good — Room to Grow'; desc = 'Your profile is visible but missing key trust signals. Follow the action list below.'; }
+  else { grad = '#F06A6A'; headline = 'Needs Attention'; desc = 'Your profile is incomplete. Complete the top 5 actions to see an immediate ranking improvement.'; }
+  fill.style.stroke = grad;
+  setTimeout(function() {
+    fill.style.strokeDashoffset = offset;
+    let n = 0; const step = Math.ceil(TOTAL_SCORE / 40);
+    const t = setInterval(function() {
+      n = Math.min(n + step, TOTAL_SCORE);
+      numEl.textContent = n;
+      if (n >= TOTAL_SCORE) clearInterval(t);
+    }, 25);
+    document.getElementById('scoreHeadline').textContent = headline;
+    document.getElementById('scoreDesc').textContent = desc;
+    document.getElementById('scoreNum').style.color = grad;
+  }, 100);
+}
+window.addEventListener('load', animateScore);
+
+// ── Section accordion ──
+function toggleSection(chevron) {
+  const row = chevron.closest('.section-row');
+  const detail = row.querySelector('.section-detail');
+  detail.classList.toggle('open');
+  chevron.classList.toggle('open');
+}
+
+// ── Checklist logic ──
+const CL_SECTIONS = { basics:5, photos:6, reviews:5, content:5, team:4, revenue:3 };
+function countSection(section) {
+  const items = document.querySelectorAll('.cl-items[data-section="' + section + '"] .cl-item');
+  let done = 0; items.forEach(i => { if (i.classList.contains('done')) done++; });
+  return { done, total: items.length };
+}
+function updateCLProgress() {
+  let totalDone = 0, totalItems = 0;
+  Object.keys(CL_SECTIONS).forEach(function(sec) {
+    const { done, total } = countSection(sec);
+    totalDone += done; totalItems += total;
+    const countEl = document.getElementById('cl-count-' + sec);
+    const pbarEl = document.getElementById('cl-pbar-' + sec);
+    if (countEl) countEl.textContent = done + '/' + total;
+    if (pbarEl) pbarEl.style.width = (total > 0 ? Math.round(done/total*100) : 0) + '%';
+  });
+  const pct = totalItems > 0 ? Math.round(totalDone / totalItems * 100) : 0;
+  const circ = 188.5;
+  const fill = document.getElementById('clRingFill');
+  if (fill) fill.style.strokeDashoffset = circ * (1 - pct / 100);
+  const pctEl = document.getElementById('clPct');
+  if (pctEl) pctEl.textContent = pct + '%';
+  const doneEl = document.getElementById('clDone');
+  if (doneEl) doneEl.textContent = totalDone + '/' + totalItems;
+}
+function toggleItem(item) {
+  item.classList.toggle('done');
+  const cb = item.querySelector('.cl-checkbox');
+  cb.textContent = item.classList.contains('done') ? '✓' : '';
+  updateCLProgress();
+}
+function toggleCLSection(header) {
+  const items = header.nextElementSibling;
+  const chevron = header.querySelector('.cl-chevron');
+  items.classList.toggle('open');
+  chevron.classList.toggle('open');
+}
+// Init checklist
+document.addEventListener('DOMContentLoaded', function() {
+  updateCLProgress();
+  // open first section by default
+  const firstHeader = document.querySelector('.cl-section-header');
+  if (firstHeader) { firstHeader.querySelector('.cl-chevron').classList.add('open'); firstHeader.nextElementSibling.classList.add('open'); }
+});
+
+// ── Video guides ──
+const watchedEps = new Set([0, 1]);
+function markWatched(idx, el) {
+  watchedEps.has(idx) ? watchedEps.delete(idx) : watchedEps.add(idx);
+  el.classList.toggle('watched');
+}
+function playVideo(ep) {
+  showToast('▶ Episode ' + ep + ' — opening on IndiaDentalWorld Learning Portal…');
+}
+
+// ── Toast ──
+function showToast(msg) {
+  let t = document.getElementById('globalToast');
+  if (!t) {
+    t = document.createElement('div');
+    t.id = 'globalToast';
+    t.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--surface2);border:1px solid var(--border2);color:var(--text);padding:10px 20px;border-radius:24px;font-size:.82rem;font-weight:600;opacity:0;transition:all .25s;z-index:999;pointer-events:none;';
+    document.body.appendChild(t);
+  }
+  t.textContent = msg;
+  t.style.opacity = '1'; t.style.transform = 'translateX(-50%) translateY(0)';
+  clearTimeout(t._timer);
+  t._timer = setTimeout(function() { t.style.opacity = '0'; t.style.transform = 'translateX(-50%) translateY(20px)'; }, 2800);
+}
+</script>
+
+</body></html>

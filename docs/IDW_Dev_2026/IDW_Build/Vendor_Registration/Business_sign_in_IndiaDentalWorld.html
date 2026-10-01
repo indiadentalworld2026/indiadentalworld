@@ -1,0 +1,215 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Business sign in | IndiaDentalWorld</title>
+<meta name="description" content="Prototype of the business login for clinics, labs, vendors and institutes. Sample data only.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Lora:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A1714;--bg2:#0E1D19;--bg3:#13261F;--surface:#15271F;--line:rgba(226,237,235,.10);--line2:rgba(226,237,235,.2);--text:#E8F0EE;--text2:#9DBBB6;--text3:#6F918B;--teal:#00C4A7;--teal-text:#00C4A7;--teal-ink:#04211C;--glow:rgba(0,196,167,.16);--amber:#F5A623;--rose:#F06A6A;--green:#34D399;--nav:64px;--gut:clamp(16px,4vw,40px);--serif:'Lora',Georgia,serif;--sans:'Plus Jakarta Sans',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
+:root[data-theme="light"]{--bg:#F5F9F8;--bg2:#EAF2F0;--bg3:#E1EDEA;--surface:#FFFFFF;--line:rgba(10,23,20,.12);--line2:rgba(10,23,20,.22);--text:#0A1714;--text2:#33524C;--text3:#52706A;--teal-text:#00796A;--glow:rgba(0,196,167,.12);--amber:#9A5B00;--rose:#B93A3A;--green:#12795A}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--text);font:400 15px/1.55 var(--sans);-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden;display:flex;flex-direction:column}
+a{color:inherit}button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:6px}
+svg.i{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.skip{position:absolute;left:-999px;top:8px;background:var(--teal);color:var(--teal-ink);padding:8px 14px;border-radius:8px;z-index:100}.skip:focus{left:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--line2);background:transparent;padding:11px 18px;border-radius:10px;font-weight:600;font-size:15px;text-decoration:none;min-height:44px}
+.btn:hover{border-color:var(--teal);color:var(--teal-text)}
+.btn--teal{background:var(--teal);color:var(--teal-ink);border-color:var(--teal)}.btn--teal:hover{color:var(--teal-ink);filter:brightness(1.08)}
+.btn--full{width:100%}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.link{color:var(--teal-text);text-underline-offset:3px;background:none;border:0;padding:0;font-weight:600;text-decoration:underline;cursor:pointer}
+.link[disabled]{color:var(--text3);cursor:default;text-decoration:none}
+.top{height:var(--nav);display:flex;align-items:center;gap:12px;padding:0 var(--gut);border-bottom:1px solid var(--line)}
+.logo{font-weight:700;font-size:17px;text-decoration:none}.logo b{color:var(--teal-text)}
+.sp{flex:1}
+.founder-btn{white-space:nowrap;border:1px dashed var(--amber);color:var(--amber);background:transparent;padding:7px 10px;border-radius:999px;font-size:13px;font-weight:600}
+body.founder .founder-btn{background:var(--amber);color:#1c1200}
+.iconbtn{width:40px;height:40px;border-radius:10px;border:1px solid var(--line);background:transparent;display:grid;place-items:center}
+.sample{background:var(--bg3);border-bottom:1px solid var(--line);text-align:center;font-size:13px;color:var(--text2);padding:7px var(--gut)}
+.stage{flex:1;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(24px,5vw,72px);max-width:1180px;width:100%;margin:0 auto;padding:clamp(24px,5vw,56px) var(--gut)}
+.pitch{align-self:center}
+h1{font:600 clamp(1.9rem,3.6vw,2.7rem)/1.12 var(--serif);letter-spacing:-.01em}
+.pitch p.lede{color:var(--text2);margin:14px 0 24px;max-width:46ch}
+.never{list-style:none;padding:0;display:grid;gap:12px}
+.never li{display:flex;gap:12px;align-items:flex-start;color:var(--text2);font-size:14px}
+.never svg{color:var(--teal-text);margin-top:2px}
+.never b{color:var(--text);display:block;font-size:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:clamp(18px,3vw,28px);min-width:0;align-self:center}
+.seg{display:grid;grid-template-columns:1fr 1fr;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:4px;margin-bottom:20px}
+.seg button{border:0;background:transparent;padding:9px;border-radius:9px;font-weight:600;color:var(--text2)}
+.seg button[aria-selected="true"]{background:var(--glow);color:var(--teal-text)}
+h2{font:700 20px/1.3 var(--sans);margin-bottom:6px}
+.muted{color:var(--text2)}.small{font-size:13px}
+.mono{font-family:var(--mono);font-size:12px;color:var(--text3)}
+label{font-size:13px;font-weight:600;display:block;margin-bottom:6px}
+.field{margin-bottom:16px}
+input[type=text],input[type=tel]{width:100%;background:var(--bg2);color:var(--text);border:1px solid var(--line2);border-radius:10px;padding:12px;font:inherit;min-height:46px}
+.phone{display:flex}
+.phone span{display:grid;place-items:center;padding:0 12px;border:1px solid var(--line2);border-right:0;border-radius:10px 0 0 10px;background:var(--bg3);font-family:var(--mono);color:var(--text2)}
+.phone input{border-radius:0 10px 10px 0}
+.otp{display:flex;gap:8px}
+.otp input{width:100%;min-width:0;text-align:center;font:600 22px var(--mono);padding:10px 0}
+.err{color:var(--rose);font-size:13px;margin-top:8px;min-height:1.2em}
+.err:empty{display:none}
+.step{display:none}.step.on{display:block}
+.chk{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid var(--line);font-weight:400;font-size:14px;margin:0}
+.chk:first-of-type{border-top:0}
+.chk input{width:20px;height:20px;margin-top:2px;accent-color:var(--teal);flex:none}
+.chk .t{display:block;font-weight:600}
+.chk .d{display:block;color:var(--text2);font-size:13px}
+.group{border:1px solid var(--line);border-radius:12px;padding:4px 14px;margin:6px 0 16px}
+.req{color:var(--amber);font-size:12px;font-weight:700}
+.notice{background:var(--bg2);border-radius:10px;padding:12px;font-size:13px;color:var(--text2);margin-top:12px}
+.stop{border:1px solid color-mix(in srgb,var(--amber) 55%,transparent);background:color-mix(in srgb,var(--amber) 8%,transparent);border-radius:12px;padding:14px;margin-top:12px;font-size:14px}
+.done{text-align:center;padding:10px 0}
+.tick{width:56px;height:56px;border-radius:50%;background:var(--glow);color:var(--teal-text);display:grid;place-items:center;margin:0 auto 14px}
+.tick svg{width:28px;height:28px}
+.sumlist{list-style:none;padding:0;margin:14px 0;text-align:left;display:grid;gap:8px;font-size:14px;color:var(--text2)}
+.sumlist b{color:var(--text)}
+.fv{display:none;border:1px dashed var(--amber);border-radius:12px;padding:12px 14px;margin-top:18px;font-size:13px;color:var(--text2);background:color-mix(in srgb,var(--amber) 7%,transparent)}
+body.founder .fv{display:block}.fv b{color:var(--amber)}.fv ul{margin:6px 0 0 18px;padding:0}
+.slot-off{display:none;border:1px dashed var(--line2);border-radius:12px;padding:12px;font-size:13px;color:var(--text3);margin-top:14px}
+body.founder .slot-off{display:block}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--text);color:var(--bg);padding:11px 18px;border-radius:12px;font-weight:600;font-size:14px;opacity:0;pointer-events:none;transition:.2s;z-index:90;max-width:calc(100vw - 32px)}
+.toast.on{opacity:1;transform:translateX(-50%)}
+footer{border-top:1px solid var(--line);padding:20px var(--gut);color:var(--text2);font-size:13px}
+footer .in{max-width:1180px;margin:0 auto;display:flex;gap:10px 24px;flex-wrap:wrap}
+@media (max-width:860px){.stage{grid-template-columns:minmax(0,1fr)}.pitch{order:2}.card{order:1}.top{gap:6px}.logo{font-size:15px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.types{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:18px}
+.types button{border:1px solid var(--line2);background:transparent;border-radius:12px;padding:12px;text-align:left;font-weight:600;display:grid;gap:2px}
+.types button small{font-weight:400;color:var(--text2);font-size:12px}
+.types button[aria-pressed="true"]{border-color:var(--teal);background:var(--glow);color:var(--teal-text)}
+.state-box{border:1px solid var(--line2);border-radius:12px;padding:14px;margin-top:14px;font-size:14px}
+.state-box.ok{border-color:color-mix(in srgb,var(--green) 55%,transparent)}
+.state-box.wait{border-color:color-mix(in srgb,var(--amber) 55%,transparent);background:color-mix(in srgb,var(--amber) 8%,transparent)}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+ <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></symbol>
+ <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
+ <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+ <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+</defs></svg>
+<header class="top">
+ <a class="logo" href="#">India<b>Dental</b>World</a><span class="sp"></span>
+ <button class="founder-btn" id="founderBtn" aria-pressed="false">Founder view</button>
+ <button class="iconbtn" id="themeBtn" aria-label="Switch between dark and light theme"><svg class="i"><use href="#i-sun"/></svg></button>
+</header>
+<div class="sample" role="note">Prototype. No real messages are sent. Use any 6 digits as the code, except 000000 (wrong code). Number ending 99: verified business. Ending 77: registration under review. Anything else: no business account.</div>
+<div class="stage">
+ <section class="pitch" aria-labelledby="h1">
+  <h1 id="h1">Manage your dental business on IndiaDentalWorld</h1>
+  <p class="lede">Clinics, labs, vendors and institutes sign in the same way: your registered mobile number and a code. No password to lose.</p>
+  <ul class="never">
+   <li><svg class="i"><use href="#i-lock"/></svg><span><b>Only the number on your registration</b>Codes go to the mobile number you registered with.</span></li>
+   <li><svg class="i"><use href="#i-check"/></svg><span><b>Check your application</b>Signed in before you are verified? You can see where your application stands.</span></li>
+   <li><svg class="i"><use href="#i-eye"/></svg><span><b>Your data, any time</b>The business owner can download or delete the business data from the dashboard.</span></li>
+  </ul>
+  <div class="fv"><b>Founder view.</b> One login page serves all four business types, so we maintain one flow. The homepage links (/clinic-login, /lab-login, /vendor-login, /institute-login) open this page with the type already selected.
+   <ul><li><b>Revenue:</b> none here. The plans and any paid features appear inside the dashboard, never on login.</li><li><b>Legal:</b> verified status is read from the verification list, not from this page. Unverified businesses can sign in but get no badge and no public listing.</li></ul></div>
+ </section>
+ <main id="main" class="card" tabindex="-1">
+  <h2 id="mh" style="margin-bottom:14px">Sign in to your business</h2>
+  <div class="step on" id="s1">
+   <form id="f1" novalidate>
+    <label id="tl" style="margin-bottom:8px">I am signing in as</label>
+    <div class="types" role="group" aria-labelledby="tl" id="types">
+     <button type="button" data-t="clinic" aria-pressed="true">Clinic<small>Dental clinic or hospital</small></button>
+     <button type="button" data-t="lab" aria-pressed="false">Dental lab<small>Prosthetics, CAD/CAM</small></button>
+     <button type="button" data-t="vendor" aria-pressed="false">Product vendor<small>Equipment and materials</small></button>
+     <button type="button" data-t="institute" aria-pressed="false">Institute<small>College or training</small></button>
+    </div>
+    <div class="field"><label for="ph">Registered mobile number</label><div class="phone"><span>+91</span><input id="ph" type="tel" inputmode="numeric" autocomplete="tel-national" maxlength="10" placeholder="10-digit number"></div><p class="err" id="e1" role="alert"></p></div>
+    <button class="btn btn--teal btn--full" type="submit">Send code</button>
+   </form>
+  </div>
+  <form class="step" id="s2" novalidate>
+   <p class="muted small" style="margin-bottom:18px">Code sent to <b id="sentTo"></b>. <button type="button" class="link" id="change">Change number</button></p>
+   <div class="field"><label id="ol">6-digit code</label><div class="otp" role="group" aria-labelledby="ol" id="otp"></div><p class="err" id="e2" role="alert"></p></div>
+   <button class="btn btn--teal btn--full" type="submit">Verify and sign in</button>
+   <p class="small muted" style="margin-top:12px"><button type="button" class="link" id="resend" disabled>Resend code</button> <span id="timer" class="mono"></span></p>
+   <p class="small muted" style="margin-top:12px">No longer have this number? Contact the <a class="link" href="#">Grievance Officer</a> with your registration documents so we can verify you and change it.</p>
+  </form>
+  <div class="step" id="s3">
+   <div class="done">
+    <div class="tick"><svg class="i"><use href="#i-check"/></svg></div>
+    <h2 id="dh">Signed in</h2>
+    <p class="muted small" id="dp"></p>
+    <div class="state-box" id="sb" style="text-align:left"></div>
+    <div style="margin-top:16px"><a class="btn btn--teal btn--full" id="go" href="#">Go to dashboard</a></div>
+   </div>
+  </div>
+  <div class="step" id="s4">
+   <div class="done">
+    <h2>No business account found</h2>
+    <p class="muted small" id="nf" style="margin:8px 0 16px"></p>
+    <a class="btn btn--teal btn--full" id="reg" href="business-registration.html">Register your business</a>
+    <p style="margin-top:12px"><button type="button" class="link" id="again">Try another number</button></p>
+   </div>
+  </div>
+  <p class="small muted" style="margin-top:20px;border-top:1px solid var(--line);padding-top:14px">Patient? <a class="link" href="patient-signup.html">Sign in or sign up here</a></p>
+ </main>
+</div>
+<footer><div class="in"><a class="link" href="#">Grievance Officer</a><span>Prices shown on IndiaDentalWorld are indicative. Clinics set final prices after examination.</span><a class="link" href="#">Privacy notice</a><a class="link" href="#">Terms</a></div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(function(){
+ var $=function(s){return document.querySelector(s)},$$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+ var T={clinic:['Clinic','clinic-dashboard.html'],lab:['Dental lab','#'],vendor:['Product vendor','#'],institute:['Institute','#']};
+ var type='clinic',phone='',tries=0,tm,tt;
+ function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('on')},2600)}
+ $('#themeBtn').onclick=function(){var r=document.documentElement;r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark')};
+ $('#founderBtn').onclick=function(){var on=document.body.classList.toggle('founder');this.setAttribute('aria-pressed',on)};
+ function show(id){$$('.step').forEach(function(s){s.classList.toggle('on',s.id===id)});var f=$('#'+id+' input,#'+id+' a.btn');if(f&&id!=='s3')f.focus()}
+ function setType(t){type=t;$$('#types button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.t===t)})}
+ $$('#types button').forEach(function(b){b.onclick=function(){setType(b.dataset.t)}});
+ var h=location.hash.slice(1);if(T[h])setType(h);
+ var boxes=[];
+ for(var i=0;i<6;i++){(function(i){var b=document.createElement('input');b.type='text';b.inputMode='numeric';b.maxLength=1;b.setAttribute('aria-label','Digit '+(i+1));b.autocomplete=i===0?'one-time-code':'off';
+  b.addEventListener('input',function(){b.value=b.value.replace(/\D/g,'');if(b.value&&i<5)boxes[i+1].focus()});
+  b.addEventListener('keydown',function(e){if(e.key==='Backspace'&&!b.value&&i>0)boxes[i-1].focus()});
+  b.addEventListener('paste',function(e){var d=(e.clipboardData.getData('text')||'').replace(/\D/g,'').slice(0,6);if(!d)return;e.preventDefault();d.split('').forEach(function(c,k){boxes[k].value=c});boxes[Math.min(d.length,5)].focus()});
+  $('#otp').appendChild(b);boxes.push(b)})(i)}
+ function code(){return boxes.map(function(b){return b.value}).join('')}
+ function startTimer(){var s=30,r=$('#resend');r.disabled=true;clearInterval(tm);function tick(){$('#timer').textContent=s>0?'in '+s+' s':'';if(s<=0){clearInterval(tm);r.disabled=false}s--}tick();tm=setInterval(tick,1000)}
+ $('#f1').onsubmit=function(e){
+  e.preventDefault();var v=$('#ph').value.replace(/\s/g,'');
+  if(!/^[6-9]\d{9}$/.test(v)){$('#e1').textContent='Enter the 10-digit mobile number on your registration.';return}
+  $('#e1').textContent='';phone=v;$('#sentTo').textContent='+91 '+v.slice(0,5)+' '+v.slice(5);
+  boxes.forEach(function(b){b.value=''});tries=0;$('#e2').textContent='';show('s2');startTimer();
+ };
+ $('#change').onclick=function(){clearInterval(tm);show('s1')};
+ $('#again').onclick=function(){$('#ph').value='';show('s1')};
+ $('#resend').onclick=function(){boxes.forEach(function(b){b.value=''});boxes[0].focus();$('#e2').textContent='';startTimer();toast('New code sent')};
+ $('#s2').onsubmit=function(e){
+  e.preventDefault();
+  if(tries>=3){$('#e2').textContent='Too many wrong codes. Try again in 15 minutes.';return}
+  var c=code();if(c.length<6){$('#e2').textContent='Enter all 6 digits.';return}
+  if(c==='000000'){tries++;$('#e2').textContent=tries>=3?'Too many wrong codes. Try again in 15 minutes.':'That code is wrong. '+(3-tries)+' '+(3-tries===1?'try':'tries')+' left.';return}
+  clearInterval(tm);var n=T[type][0];
+  if(/99$/.test(phone)){
+   $('#dh').textContent='Welcome back';$('#dp').textContent=n+' account';
+   $('#sb').className='state-box ok';$('#sb').innerHTML='<b>Verified.</b> Your listing is live with the Verified badge. Registration checked on 12 Mar 2026; next check due in 365 days.';
+   $('#go').textContent='Go to dashboard';$('#go').href=T[type][1];show('s3');
+  }else if(/77$/.test(phone)){
+   $('#dh').textContent='Signed in';$('#dp').textContent=n+' account';
+   $('#sb').className='state-box wait';$('#sb').innerHTML='<b>Registration under review.</b> Submitted 28 Sep 2026. A person is checking your documents, usually within 2 to 3 business days. You will get a message when it is decided. Your listing is not public and has no Verified badge until then.';
+   $('#go').textContent='View my application';$('#go').href='#';show('s3');
+  }else{
+   $('#nf').textContent='We have no '+n.toLowerCase()+' registered with +91 '+phone.slice(0,5)+' '+phone.slice(5)+'. Check the number, or register your business.';show('s4');
+  }
+ };
+})();
+</script>
+</body>
+</html>
+</body></html>

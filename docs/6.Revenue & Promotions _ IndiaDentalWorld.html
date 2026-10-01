@@ -1,0 +1,844 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Revenue & Promotions | IndiaDentalWorld</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lora:ital,wght@0,600;1,500&display=swap">
+
+<style>
+:root {
+  --bg:#0A1714;--bg2:#111E1B;--surface:#1A2B27;--surface2:#213530;
+  --border:rgba(0,196,167,.16);--border2:rgba(0,196,167,.08);
+  --teal:#00C4A7;--teal-dim:rgba(0,196,167,.13);--teal-glow:rgba(0,196,167,.22);
+  --rose:#F06A6A;--rose-dim:rgba(240,106,106,.13);
+  --amber:#F5A623;--amber-dim:rgba(245,166,35,.13);
+  --green:#34D399;--green-dim:rgba(52,211,153,.13);
+  --purple:#A78BFA;--purple-dim:rgba(167,139,250,.13);
+  --text:#E2EDEB;--text2:#7FA49F;--text3:#4A706A;
+  --shadow:0 4px 24px rgba(0,0,0,.4);--shadow-sm:0 2px 8px rgba(0,0,0,.25);
+  --r:14px;--r-sm:8px;--r-xs:5px;
+  color-scheme:dark;
+}
+@media(prefers-color-scheme:light){
+  :root:not([data-theme="dark"]){
+    --bg:#EFF4F3;--bg2:#E4EDEB;--surface:#FFF;--surface2:#F5F9F8;
+    --border:rgba(0,153,133,.2);--border2:rgba(0,153,133,.1);
+    --teal:#00897A;--teal-dim:rgba(0,137,122,.1);--teal-glow:rgba(0,137,122,.18);
+    --rose:#D94F4F;--rose-dim:rgba(217,79,79,.1);
+    --amber:#C98A10;--amber-dim:rgba(201,138,16,.1);
+    --green:#1A9E6E;--green-dim:rgba(26,158,110,.1);
+    --purple:#7C3AED;--purple-dim:rgba(124,58,237,.1);
+    --text:#0D1F1C;--text2:#3D6560;--text3:#8AADA8;
+    --shadow:0 4px 24px rgba(0,0,0,.1);--shadow-sm:0 2px 8px rgba(0,0,0,.06);
+    color-scheme:light;
+  }
+}
+:root[data-theme="light"]{--bg:#EFF4F3;--bg2:#E4EDEB;--surface:#FFF;--surface2:#F5F9F8;--border:rgba(0,153,133,.2);--border2:rgba(0,153,133,.1);--teal:#00897A;--teal-dim:rgba(0,137,122,.1);--teal-glow:rgba(0,137,122,.18);--rose:#D94F4F;--rose-dim:rgba(217,79,79,.1);--amber:#C98A10;--amber-dim:rgba(201,138,16,.1);--green:#1A9E6E;--green-dim:rgba(26,158,110,.1);--purple:#7C3AED;--purple-dim:rgba(124,58,237,.1);--text:#0D1F1C;--text2:#3D6560;--text3:#8AADA8;--shadow:0 4px 24px rgba(0,0,0,.1);color-scheme:light;}
+:root[data-theme="dark"]{color-scheme:dark;}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{height:100%;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100%;padding:24px 16px 40px;}
+
+/* HEADER */
+.page-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px;}
+.page-title{font-family:'Lora',serif;font-size:1.5rem;color:var(--teal);}
+.page-sub{font-size:.8rem;color:var(--text2);margin-top:2px;}
+.rev-pill{background:var(--green-dim);border:1px solid var(--green);color:var(--green);border-radius:var(--r-sm);padding:8px 14px;font-size:.75rem;font-weight:700;display:flex;align-items:center;gap:6px;}
+
+/* TABS */
+.sec-tabs{display:flex;gap:4px;background:var(--bg2);border-radius:var(--r);padding:4px;margin-bottom:24px;border:1px solid var(--border2);overflow-x:auto;}
+.sec-tab{flex:1;min-width:110px;padding:10px 14px;border-radius:10px;font-size:.8rem;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--text2);transition:all .2s;text-align:center;white-space:nowrap;}
+.sec-tab.active{background:var(--teal);color:#fff;}
+.sec-tab:hover:not(.active){background:var(--surface);color:var(--text);}
+.sec-panel{display:none;}
+.sec-panel.active{display:block;}
+
+/* CARDS */
+.card{background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:20px;margin-bottom:16px;}
+.card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px;}
+.card-title{font-size:.95rem;font-weight:700;color:var(--text);}
+.card-sub{font-size:.75rem;color:var(--text2);margin-top:2px;}
+
+/* TAGS */
+.tag{font-size:.68rem;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.03em;}
+.tag-teal{background:var(--teal-dim);color:var(--teal);}
+.tag-amber{background:var(--amber-dim);color:var(--amber);}
+.tag-green{background:var(--green-dim);color:var(--green);}
+.tag-rose{background:var(--rose-dim);color:var(--rose);}
+.tag-purple{background:var(--purple-dim);color:var(--purple);}
+
+/* BUTTONS */
+.btn-primary{padding:8px 18px;border-radius:var(--r-xs);font-size:.8rem;font-weight:700;border:none;background:var(--teal);color:#fff;cursor:pointer;transition:opacity .15s;font-family:inherit;}
+.btn-primary:hover{opacity:.85;}
+.btn-ghost{padding:7px 14px;border-radius:var(--r-xs);font-size:.78rem;font-weight:600;border:1px solid var(--border);background:transparent;color:var(--text2);cursor:pointer;transition:all .15s;font-family:inherit;}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal);}
+.btn-ghost.danger:hover{border-color:var(--rose);color:var(--rose);}
+.btn-sm{padding:4px 11px;font-size:.7rem;}
+
+/* FORM ELEMENTS */
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+@media(max-width:520px){.form-row{grid-template-columns:1fr;}}
+.form-row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px;}
+@media(max-width:600px){.form-row-3{grid-template-columns:1fr 1fr;}}
+@media(max-width:380px){.form-row-3{grid-template-columns:1fr;}}
+.form-group{display:flex;flex-direction:column;gap:5px;}
+.form-label{font-size:.73rem;font-weight:600;color:var(--text2);}
+.form-input,.form-select,.form-textarea{background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:var(--r-xs);padding:9px 12px;font-size:.82rem;font-family:inherit;transition:border-color .15s;width:100%;}
+.form-textarea{resize:vertical;min-height:68px;}
+.form-input:focus,.form-select:focus,.form-textarea:focus{outline:none;border-color:var(--teal);}
+.inline-form{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:18px;margin-top:14px;display:none;}
+.inline-form.open{display:block;}
+
+/* INFO BOX */
+.info-box{display:flex;gap:10px;border-radius:var(--r-sm);padding:14px;margin-bottom:18px;align-items:flex-start;}
+.info-box.amber{background:var(--amber-dim);border:1px solid var(--amber);}
+.info-box.purple{background:var(--purple-dim);border:1px solid var(--purple);}
+.info-box.teal{background:var(--teal-dim);border:1px solid var(--teal);}
+.info-box.green{background:var(--green-dim);border:1px solid var(--green);}
+.info-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px;}
+.info-text{font-size:.75rem;color:var(--text2);line-height:1.55;}
+.info-text strong{color:inherit;}
+.info-box.amber .info-text strong{color:var(--amber);}
+.info-box.purple .info-text strong{color:var(--purple);}
+.info-box.teal .info-text strong{color:var(--teal);}
+.info-box.green .info-text strong{color:var(--green);}
+
+/* FEE TABLE */
+.fee-table{width:100%;border-collapse:collapse;font-size:.8rem;}
+.fee-table th{text-align:left;padding:10px 12px;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--text3);border-bottom:1px solid var(--border2);white-space:nowrap;}
+.fee-table td{padding:11px 12px;border-bottom:1px solid var(--border2);vertical-align:middle;}
+.fee-table tr:last-child td{border-bottom:none;}
+.fee-table tr:hover td{background:var(--surface2);}
+.fee-price{font-weight:700;color:var(--text);font-variant-numeric:tabular-nums;}
+.fee-range{font-size:.7rem;color:var(--text3);font-weight:400;display:block;}
+.fee-table-wrap{overflow-x:auto;border-radius:var(--r-sm);border:1px solid var(--border2);}
+.visibility-toggle{display:flex;align-items:center;gap:6px;cursor:pointer;}
+.toggle-pill{width:34px;height:18px;border-radius:9px;background:var(--border);position:relative;transition:background .2s;flex-shrink:0;}
+.toggle-pill.on{background:var(--teal);}
+.toggle-pill::after{content:'';position:absolute;top:3px;left:3px;width:12px;height:12px;border-radius:50%;background:#fff;transition:transform .2s;}
+.toggle-pill.on::after{transform:translateX(16px);}
+.toggle-label{font-size:.7rem;color:var(--text2);}
+
+/* OFFER CARDS */
+.offer-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
+.offer-card{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r);padding:16px;position:relative;}
+.offer-card.active-offer{border-color:var(--teal);}
+.offer-title{font-size:.9rem;font-weight:700;color:var(--text);margin-bottom:6px;}
+.offer-desc{font-size:.78rem;color:var(--text2);line-height:1.55;margin-bottom:10px;}
+.offer-meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px;}
+.offer-validity{font-size:.7rem;color:var(--text3);}
+.offer-tc{font-size:.67rem;color:var(--text3);border-top:1px solid var(--border2);padding-top:8px;line-height:1.5;}
+.offer-actions{display:flex;gap:6px;margin-top:10px;}
+.asci-badge{display:inline-flex;align-items:center;gap:4px;background:var(--purple-dim);color:var(--purple);font-size:.62rem;font-weight:700;padding:2px 8px;border-radius:10px;}
+
+/* AD PRODUCT CARDS */
+.ad-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;}
+.ad-card{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:10px;}
+.ad-card.active-plan{border-color:var(--teal);background:var(--surface);}
+.ad-icon{font-size:2rem;}
+.ad-name{font-size:1rem;font-weight:700;color:var(--text);}
+.ad-tagline{font-size:.75rem;color:var(--text2);line-height:1.5;}
+.ad-price{font-size:1.2rem;font-weight:800;color:var(--teal);font-variant-numeric:tabular-nums;}
+.ad-price-note{font-size:.68rem;color:var(--text3);font-weight:400;}
+.ad-features{list-style:none;display:flex;flex-direction:column;gap:6px;padding:0;}
+.ad-features li{font-size:.75rem;color:var(--text2);display:flex;gap:7px;align-items:flex-start;}
+.ad-features li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px;}
+.ad-cta{margin-top:auto;}
+
+/* ROI CALC */
+.roi-box{background:var(--surface2);border:1px solid var(--border2);border-radius:var(--r-sm);padding:16px;margin-top:16px;}
+.roi-title{font-size:.82rem;font-weight:700;color:var(--text);margin-bottom:12px;}
+.roi-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;align-items:end;}
+@media(max-width:500px){.roi-row{grid-template-columns:1fr 1fr;}}
+.roi-result{background:var(--teal-dim);border:1px solid var(--teal);border-radius:var(--r-xs);padding:12px;text-align:center;}
+.roi-result-label{font-size:.7rem;color:var(--teal);font-weight:600;margin-bottom:4px;}
+.roi-result-value{font-size:1.4rem;font-weight:800;color:var(--teal);font-variant-numeric:tabular-nums;}
+
+/* PAYMENT MODES */
+.payment-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;}
+.payment-card{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r-sm);padding:14px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:border-color .15s,background .15s;user-select:none;}
+.payment-card.on{border-color:var(--teal);background:var(--teal-dim);}
+.payment-card.scheme{border-color:var(--amber);background:var(--amber-dim);}
+.payment-card.scheme.on{border-color:var(--green);background:var(--green-dim);}
+.pay-icon{font-size:1.4rem;flex-shrink:0;}
+.pay-info{flex:1;min-width:0;}
+.pay-name{font-size:.82rem;font-weight:700;color:var(--text);}
+.pay-sub{font-size:.68rem;color:var(--text2);margin-top:1px;}
+.pay-check{width:18px;height:18px;border-radius:4px;border:2px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s;}
+.payment-card.on .pay-check,.payment-card.scheme.on .pay-check{border-color:var(--green);background:var(--green);}
+.pay-check::after{content:'✓';color:#fff;font-size:.7rem;font-weight:800;opacity:0;}
+.payment-card.on .pay-check::after,.payment-card.scheme.on .pay-check::after{opacity:1;}
+
+/* SCHEME DETAIL */
+.scheme-detail{background:var(--bg2);border:1px solid var(--amber);border-radius:var(--r-sm);padding:14px;margin-top:10px;display:none;}
+.scheme-detail.show{display:block;}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--border2);margin:20px 0;}
+
+/* GST NOTE */
+.gst-note{font-size:.7rem;color:var(--text3);display:flex;align-items:center;gap:6px;margin-top:10px;}
+</style>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div>
+    <div class="page-title">Revenue & Promotions</div>
+    <div class="page-sub">Fee Schedule · Offers · IDW Ad Products · Payment Modes — Karé Dental Studio</div>
+  </div>
+  <div class="rev-pill">💰 Revenue levers active</div>
+</div>
+
+<!-- SECTION TABS -->
+<div class="sec-tabs">
+  <button class="sec-tab active" onclick="switchTab('fees',this)">💳 Fee Schedule</button>
+  <button class="sec-tab" onclick="switchTab('offers',this)">🎁 Offers</button>
+  <button class="sec-tab" onclick="switchTab('adproducts',this)">📣 IDW Ad Products</button>
+  <button class="sec-tab" onclick="switchTab('payments',this)">🏦 Payment Modes</button>
+</div>
+
+
+<!-- ══════════ FEE SCHEDULE ══════════ -->
+<div id="panel-fees" class="sec-panel active">
+
+  <div class="info-box amber">
+    <div class="info-icon">⚖️</div>
+    <div class="info-text">
+      <strong>Disclosure guidelines (ASCI + Consumer Protection Act, 2019)</strong> — Fees shown on your IDW profile must be labelled as "starting from" or "approximate". Actual fees depend on clinical assessment and must be communicated to the patient before treatment. Do not list promotional prices without clearly showing the original price and discount percentage.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">Treatment Fees</div>
+        <div class="card-sub">Indicative fees shown publicly — actual fees quoted at consultation</div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <div class="visibility-toggle" onclick="togglePublic(this)" title="Toggle public visibility">
+          <div class="toggle-pill on"></div>
+          <span class="toggle-label">Fees visible on profile</span>
+        </div>
+        <button class="btn-primary btn-sm" onclick="toggleFeeForm()">+ Add</button>
+      </div>
+    </div>
+
+    <div class="fee-table-wrap">
+      <table class="fee-table" id="feeTable">
+        <thead>
+          <tr>
+            <th>Treatment</th>
+            <th>Specialty</th>
+            <th>Starting from</th>
+            <th>Typical range</th>
+            <th>GST</th>
+            <th>Visible</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:600;">Dental Consultation</td>
+            <td><span class="tag tag-teal">General</span></td>
+            <td class="fee-price">₹300</td>
+            <td><span class="fee-range">₹300 – ₹500</span></td>
+            <td><span class="tag tag-amber">18%</span></td>
+            <td><div class="toggle-pill on" onclick="this.classList.toggle('on')" style="cursor:pointer;"></div></td>
+            <td><button class="btn-ghost btn-sm danger">Del</button></td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;">Dental Implant (single)</td>
+            <td><span class="tag tag-purple">Implants</span></td>
+            <td class="fee-price">₹25,000</td>
+            <td><span class="fee-range">₹25,000 – ₹50,000</span></td>
+            <td><span class="tag tag-amber">18%</span></td>
+            <td><div class="toggle-pill on" onclick="this.classList.toggle('on')" style="cursor:pointer;"></div></td>
+            <td><button class="btn-ghost btn-sm danger">Del</button></td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;">Ceramic / PFM Crown</td>
+            <td><span class="tag tag-teal">Prosthetics</span></td>
+            <td class="fee-price">₹6,000</td>
+            <td><span class="fee-range">₹6,000 – ₹12,000</span></td>
+            <td><span class="tag tag-amber">18%</span></td>
+            <td><div class="toggle-pill on" onclick="this.classList.toggle('on')" style="cursor:pointer;"></div></td>
+            <td><button class="btn-ghost btn-sm danger">Del</button></td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;">Root Canal Treatment</td>
+            <td><span class="tag tag-amber">Endodontics</span></td>
+            <td class="fee-price">₹4,500</td>
+            <td><span class="fee-range">₹4,500 – ₹9,000</span></td>
+            <td><span class="tag tag-amber">18%</span></td>
+            <td><div class="toggle-pill on" onclick="this.classList.toggle('on')" style="cursor:pointer;"></div></td>
+            <td><button class="btn-ghost btn-sm danger">Del</button></td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;">Laser Teeth Whitening</td>
+            <td><span class="tag tag-teal">Cosmetic</span></td>
+            <td class="fee-price">₹8,000</td>
+            <td><span class="fee-range">₹8,000 – ₹15,000</span></td>
+            <td><span class="tag tag-amber">18%</span></td>
+            <td><div class="toggle-pill on" onclick="this.classList.toggle('on')" style="cursor:pointer;"></div></td>
+            <td><button class="btn-ghost btn-sm danger">Del</button></td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;">Ceramic Braces (full arch)</td>
+            <td><span class="tag tag-green">Orthodontics</span></td>
+            <td class="fee-price">₹45,000</td>
+            <td><span class="fee-range">₹45,000 – ₹75,000</span></td>
+            <td><span class="tag tag-amber">18%</span></td>
+            <td><div class="toggle-pill on" onclick="this.classList.toggle('on')" style="cursor:pointer;"></div></td>
+            <td><button class="btn-ghost btn-sm danger">Del</button></td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;">Scaling & Polishing</td>
+            <td><span class="tag tag-teal">Periodontics</span></td>
+            <td class="fee-price">₹800</td>
+            <td><span class="fee-range">₹800 – ₹1,500</span></td>
+            <td><span class="tag tag-amber">18%</span></td>
+            <td><div class="toggle-pill" onclick="this.classList.toggle('on')" style="cursor:pointer;"></div></td>
+            <td><button class="btn-ghost btn-sm danger">Del</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="gst-note">ℹ️ All prices exclude GST at 18%. GST applicable on dental services per CBIC notification. Ayushman Bharat / CGHS rates governed by government fee schedule — do not list those separately.</div>
+
+    <!-- Add Fee Form -->
+    <div id="feeForm" class="inline-form">
+      <div style="font-size:.85rem;font-weight:700;color:var(--text);margin-bottom:12px;">Add Treatment Fee</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Treatment Name *</label>
+          <input type="text" class="form-input" placeholder="e.g. Zirconia Crown">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Specialty *</label>
+          <select class="form-select">
+            <option value="">Select</option>
+            <option>General</option><option>Implants</option><option>Cosmetic</option>
+            <option>Orthodontics</option><option>Endodontics</option>
+            <option>Periodontics</option><option>Oral Surgery</option>
+            <option>Prosthetics</option><option>Pediatric</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row-3">
+        <div class="form-group">
+          <label class="form-label">Starting price (₹) *</label>
+          <input type="number" class="form-input" placeholder="e.g. 5000">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Upper range (₹)</label>
+          <input type="number" class="form-input" placeholder="e.g. 10000">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Show publicly</label>
+          <select class="form-select">
+            <option value="yes">Yes</option>
+            <option value="no">No (consultation only)</option>
+          </select>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;justify-content:flex-end;">
+        <button class="btn-ghost" onclick="toggleFeeForm()">Cancel</button>
+        <button class="btn-primary" onclick="addFeeRow()">Add to Schedule</button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /panel-fees -->
+
+
+<!-- ══════════ OFFERS ══════════ -->
+<div id="panel-offers" class="sec-panel">
+
+  <div class="info-box amber">
+    <div class="info-icon">📋</div>
+    <div class="info-text">
+      <strong>ASCI Guidelines for Dental Offers</strong> — All promotional offers must (1) state the original price alongside the discounted price, (2) include a valid start and end date, (3) carry T&amp;C including "subject to clinical assessment", (4) not use the word "free" for procedures that attract GST, and (5) not make comparative claims ("cheapest in Bengaluru") without substantiation. IDW auto-labels all offers as <em>Promotional Offer</em> in compliance with ASCI Code § 4.
+    </div>
+  </div>
+
+  <div class="card-head">
+    <div>
+      <div class="card-title">Active Offers</div>
+      <div class="card-sub">2 offers live · Tap "Add Offer" to create a new promotion</div>
+    </div>
+    <button class="btn-primary" onclick="toggleOfferForm()">+ Add Offer</button>
+  </div>
+
+  <!-- Add Offer Form -->
+  <div id="offerForm" class="inline-form" style="margin-bottom:16px;">
+    <div style="font-size:.85rem;font-weight:700;color:var(--text);margin-bottom:12px;">New Promotional Offer</div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Offer Title *</label>
+        <input type="text" class="form-input" placeholder="e.g. Monsoon Smile Package">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Treatment *</label>
+        <select class="form-select">
+          <option value="">Select treatment</option>
+          <option>Dental Consultation</option><option>Scaling & Polishing</option>
+          <option>Teeth Whitening</option><option>Dental Implant</option>
+          <option>Ceramic Braces</option><option>Root Canal Treatment</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row-3">
+      <div class="form-group">
+        <label class="form-label">Original price (₹) *</label>
+        <input type="number" class="form-input" placeholder="e.g. 1200">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Offer price (₹) *</label>
+        <input type="number" class="form-input" placeholder="e.g. 800">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Valid until *</label>
+        <input type="date" class="form-input">
+      </div>
+    </div>
+    <div class="form-group" style="margin-bottom:12px;">
+      <label class="form-label">Offer description (what's included)</label>
+      <textarea class="form-textarea" placeholder="e.g. Full mouth scaling, polishing and fluoride application. Valid for new patients only."></textarea>
+    </div>
+    <div class="form-group" style="margin-bottom:12px;">
+      <label class="form-label">Terms & Conditions (ASCI mandatory)</label>
+      <textarea class="form-textarea" placeholder="e.g. Subject to clinical assessment. Valid for new patients only. Cannot be combined with other offers. GST additional."></textarea>
+    </div>
+    <!-- ASCI checklist -->
+    <div style="background:var(--purple-dim);border:1px solid var(--purple);border-radius:var(--r-xs);padding:12px;margin-bottom:12px;">
+      <div style="font-size:.73rem;font-weight:700;color:var(--purple);margin-bottom:8px;">ASCI Compliance Checklist</div>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <label style="display:flex;gap:8px;align-items:center;font-size:.73rem;color:var(--text2);cursor:pointer;">
+          <input type="checkbox" style="accent-color:var(--teal);">
+          Original price is clearly shown alongside offer price
+        </label>
+        <label style="display:flex;gap:8px;align-items:center;font-size:.73rem;color:var(--text2);cursor:pointer;">
+          <input type="checkbox" style="accent-color:var(--teal);">
+          Offer validity dates are specified
+        </label>
+        <label style="display:flex;gap:8px;align-items:center;font-size:.73rem;color:var(--text2);cursor:pointer;">
+          <input type="checkbox" style="accent-color:var(--teal);">
+          T&C include "subject to clinical assessment"
+        </label>
+        <label style="display:flex;gap:8px;align-items:center;font-size:.73rem;color:var(--text2);cursor:pointer;">
+          <input type="checkbox" style="accent-color:var(--teal);">
+          GST applicability is mentioned in T&C
+        </label>
+        <label style="display:flex;gap:8px;align-items:center;font-size:.73rem;color:var(--text2);cursor:pointer;">
+          <input type="checkbox" style="accent-color:var(--teal);">
+          No unsubstantiated superlative claims ("best", "cheapest", "only")
+        </label>
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;justify-content:flex-end;">
+      <button class="btn-ghost" onclick="toggleOfferForm()">Cancel</button>
+      <button class="btn-primary">Publish Offer</button>
+    </div>
+  </div>
+
+  <!-- Offer Cards -->
+  <div class="offer-grid">
+
+    <div class="offer-card active-offer">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <span class="tag tag-green" style="margin-bottom:6px;display:inline-block;">Live</span>
+          <span class="asci-badge" style="margin-left:4px;">ASCI ✓</span>
+        </div>
+        <div style="font-size:1.1rem;font-weight:800;color:var(--teal);">₹800 <span style="font-size:.75rem;font-weight:400;color:var(--text3);text-decoration:line-through;">₹1,200</span></div>
+      </div>
+      <div class="offer-title">New Patient Welcome Pack</div>
+      <div class="offer-desc">Full mouth examination, digital X-ray (2 films), and professional scaling in one visit. Ideal for patients who haven't seen a dentist in over a year.</div>
+      <div class="offer-meta">
+        <span class="tag tag-teal">General Dentistry</span>
+        <span class="offer-validity">Valid until 31 Oct 2026</span>
+      </div>
+      <div class="offer-tc">T&C: New patients only. Subject to clinical assessment. Cannot be combined with other offers. GST at 18% additional. IDW Promotional Offer — ASCI § 4 compliant.</div>
+      <div class="offer-actions">
+        <button class="btn-ghost btn-sm">Edit</button>
+        <button class="btn-ghost btn-sm danger">Remove</button>
+      </div>
+    </div>
+
+    <div class="offer-card active-offer">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+        <div>
+          <span class="tag tag-green" style="margin-bottom:6px;display:inline-block;">Live</span>
+          <span class="asci-badge" style="margin-left:4px;">ASCI ✓</span>
+        </div>
+        <div style="font-size:1.1rem;font-weight:800;color:var(--teal);">₹9,500 <span style="font-size:.75rem;font-weight:400;color:var(--text3);text-decoration:line-through;">₹13,000</span></div>
+      </div>
+      <div class="offer-title">Smile Makeover Package</div>
+      <div class="offer-desc">Laser whitening (single session) + scaling and polishing + fluoride treatment. Results last 12–18 months with proper maintenance.</div>
+      <div class="offer-meta">
+        <span class="tag tag-purple">Cosmetic</span>
+        <span class="offer-validity">Valid until 15 Nov 2026</span>
+      </div>
+      <div class="offer-tc">T&C: Subject to clinical assessment — whitening not suitable for all patients. GST at 18% additional. IDW Promotional Offer — ASCI § 4 compliant.</div>
+      <div class="offer-actions">
+        <button class="btn-ghost btn-sm">Edit</button>
+        <button class="btn-ghost btn-sm danger">Remove</button>
+      </div>
+    </div>
+
+  </div>
+
+</div><!-- /panel-offers -->
+
+
+<!-- ══════════ IDW AD PRODUCTS ══════════ -->
+<div id="panel-adproducts" class="sec-panel">
+
+  <div class="info-box teal">
+    <div class="info-icon">📣</div>
+    <div class="info-text">
+      <strong>IDW Ad Products — Win-Win-Win.</strong> Every product must deliver measurable value to the patient (relevant discovery), the clinic (qualified leads), and IDW (sustainable revenue). All ads are labelled "Sponsored" in search results per ASCI and Google guidelines. Pricing below is indicative — your account manager sets the final rate.
+    </div>
+  </div>
+
+  <div class="ad-grid">
+
+    <!-- Featured Listing -->
+    <div class="ad-card active-plan">
+      <div class="ad-icon">🔝</div>
+      <div>
+        <div class="ad-name">Featured Listing</div>
+        <span class="tag tag-green" style="margin-top:4px;display:inline-block;">Active — Current Plan</span>
+      </div>
+      <div class="ad-tagline">Your clinic appears at the top of search results for your city and selected specialties. Labelled "Sponsored" per ASCI/Google guidelines.</div>
+      <div><div class="ad-price">₹2,999 <span class="ad-price-note">/ month</span></div></div>
+      <ul class="ad-features">
+        <li>Top-3 placement in Bengaluru search results</li>
+        <li>Up to 3 specialty categories covered</li>
+        <li>Click-to-call and WhatsApp direct button</li>
+        <li>Impression and click analytics dashboard</li>
+        <li>Auto-pauses when you are not accepting appointments</li>
+      </ul>
+      <div class="ad-cta">
+        <div style="background:var(--green-dim);border:1px solid var(--green);border-radius:var(--r-xs);padding:10px 12px;font-size:.75rem;color:var(--green);font-weight:600;">
+          ✓ Active · Renews 15 Oct 2026 · 312 impressions this month
+        </div>
+      </div>
+    </div>
+
+    <!-- Specialty Spotlight -->
+    <div class="ad-card">
+      <div class="ad-icon">🦷</div>
+      <div>
+        <div class="ad-name">Specialty Spotlight</div>
+        <span class="tag tag-amber" style="margin-top:4px;display:inline-block;">Not Active</span>
+      </div>
+      <div class="ad-tagline">Highlighted as a top specialist in one procedure category — "Top Implantologist in Bengaluru". Patient sees your photo, rating, and a call button inline.</div>
+      <div><div class="ad-price">₹1,999 <span class="ad-price-note">/ specialty / month</span></div></div>
+      <ul class="ad-features">
+        <li>Specialty category badge on your profile</li>
+        <li>Appears in "Top [Specialty] in [City]" editorial pages</li>
+        <li>Patient education content linked to your profile</li>
+        <li>Qualified leads — patient has already searched for the procedure</li>
+      </ul>
+      <div class="ad-cta">
+        <button class="btn-primary" style="width:100%;">Activate Specialty Spotlight</button>
+      </div>
+    </div>
+
+    <!-- Demand Intelligence -->
+    <div class="ad-card">
+      <div class="ad-icon">📊</div>
+      <div>
+        <div class="ad-name">Demand Intelligence</div>
+        <span class="tag tag-purple" style="margin-top:4px;display:inline-block;">Premium Add-on</span>
+      </div>
+      <div class="ad-tagline">See what dental procedures patients in your area are searching for this month — so you know exactly which services to promote and what content to create.</div>
+      <div><div class="ad-price">₹999 <span class="ad-price-note">/ month</span></div></div>
+      <ul class="ad-features">
+        <li>Top 10 searched procedures in your pin code this month</li>
+        <li>Trend direction (rising / stable / falling demand)</li>
+        <li>Content recommendation: "Write about [topic] this week"</li>
+        <li>Competitor gap analysis — what nearby clinics rank for</li>
+        <li>Exportable monthly report for your team</li>
+      </ul>
+      <div class="ad-cta">
+        <button class="btn-primary" style="width:100%;background:var(--purple);">Unlock Demand Intelligence</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ROI Calculator -->
+  <div class="roi-box">
+    <div class="roi-title">📐 ROI Estimator — Featured Listing</div>
+    <div class="roi-row">
+      <div class="form-group">
+        <label class="form-label">Monthly impressions (est.)</label>
+        <input type="number" class="form-input" id="roiImpr" value="300" oninput="calcROI()">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Click-to-call rate (%)</label>
+        <input type="number" class="form-input" id="roiCTR" value="4" oninput="calcROI()">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Avg. treatment value (₹)</label>
+        <input type="number" class="form-input" id="roiATV" value="8000" oninput="calcROI()">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Conversion rate (%)</label>
+        <input type="number" class="form-input" id="roiConv" value="30" oninput="calcROI()">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Ad spend (₹/month)</label>
+        <input type="number" class="form-input" id="roiSpend" value="2999" oninput="calcROI()">
+      </div>
+      <div class="roi-result" id="roiResult">
+        <div class="roi-result-label">Estimated monthly revenue</div>
+        <div class="roi-result-value" id="roiValue">₹28,800</div>
+        <div style="font-size:.68rem;color:var(--teal);margin-top:4px;" id="roiROAS">ROAS: 9.6×</div>
+      </div>
+    </div>
+    <div style="font-size:.68rem;color:var(--text3);margin-top:10px;">Estimate only. Actual results depend on profile completeness, competition, and market demand in your area.</div>
+  </div>
+
+</div><!-- /panel-adproducts -->
+
+
+<!-- ══════════ PAYMENT MODES ══════════ -->
+<div id="panel-payments" class="sec-panel">
+
+  <div class="info-box teal">
+    <div class="info-icon">💳</div>
+    <div class="info-text">
+      <strong>Payment modes shown on your IDW profile</strong> — Patients filter by payment mode before booking. Enabling more modes increases your discoverability by patients who rely on insurance, EMI, or government schemes.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-title">Standard Payment Modes</div>
+      <div class="card-sub">Tap to toggle — selected modes appear on your profile</div>
+    </div>
+    <div class="payment-grid">
+
+      <div class="payment-card on" onclick="this.classList.toggle('on')">
+        <div class="pay-icon">💵</div>
+        <div class="pay-info">
+          <div class="pay-name">Cash</div>
+          <div class="pay-sub">Always accepted</div>
+        </div>
+        <div class="pay-check"></div>
+      </div>
+
+      <div class="payment-card on" onclick="this.classList.toggle('on')">
+        <div class="pay-icon">📱</div>
+        <div class="pay-info">
+          <div class="pay-name">UPI / QR Code</div>
+          <div class="pay-sub">GPay, PhonePe, Paytm</div>
+        </div>
+        <div class="pay-check"></div>
+      </div>
+
+      <div class="payment-card on" onclick="this.classList.toggle('on')">
+        <div class="pay-icon">💳</div>
+        <div class="pay-info">
+          <div class="pay-name">Debit / Credit Card</div>
+          <div class="pay-sub">Visa, Mastercard, RuPay</div>
+        </div>
+        <div class="pay-check"></div>
+      </div>
+
+      <div class="payment-card" onclick="this.classList.toggle('on')">
+        <div class="pay-icon">🏦</div>
+        <div class="pay-info">
+          <div class="pay-name">Net Banking</div>
+          <div class="pay-sub">All major banks</div>
+        </div>
+        <div class="pay-check"></div>
+      </div>
+
+      <div class="payment-card" onclick="this.classList.toggle('on')">
+        <div class="pay-icon">📄</div>
+        <div class="pay-info">
+          <div class="pay-name">Cheque</div>
+          <div class="pay-sub">Account payee only</div>
+        </div>
+        <div class="pay-check"></div>
+      </div>
+
+      <div class="payment-card on" onclick="this.classList.toggle('on')">
+        <div class="pay-icon">📅</div>
+        <div class="pay-info">
+          <div class="pay-name">Bank EMI</div>
+          <div class="pay-sub">3, 6, 12, 24 months</div>
+        </div>
+        <div class="pay-check"></div>
+      </div>
+
+      <div class="payment-card on" onclick="this.classList.toggle('on')">
+        <div class="pay-icon">🏥</div>
+        <div class="pay-info">
+          <div class="pay-name">Health Fintech EMI</div>
+          <div class="pay-sub">Bajaj Finserv, CashE, Zest</div>
+        </div>
+        <div class="pay-check"></div>
+      </div>
+
+      <div class="payment-card on" onclick="this.classList.toggle('on')">
+        <div class="pay-icon">🛡️</div>
+        <div class="pay-info">
+          <div class="pay-name">Health Insurance</div>
+          <div class="pay-sub">Mediclaim / TPA</div>
+        </div>
+        <div class="pay-check"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-title">Government Schemes</div>
+      <div class="card-sub">Empanel with schemes to reach underserved patients — and appear in government-scheme filters on IDW</div>
+    </div>
+
+    <div class="payment-grid">
+
+      <div class="payment-card scheme on" onclick="toggleScheme(this,'cghs-detail')">
+        <div class="pay-icon">🏛️</div>
+        <div class="pay-info">
+          <div class="pay-name">CGHS / ECHS</div>
+          <div class="pay-sub">Central Govt & Ex-servicemen</div>
+        </div>
+        <div class="pay-check"></div>
+      </div>
+
+      <div class="payment-card scheme" onclick="toggleScheme(this,'pmjay-detail')">
+        <div class="pay-icon">🇮🇳</div>
+        <div class="pay-info">
+          <div class="pay-name">Ayushman Bharat</div>
+          <div class="pay-sub">PM-JAY empanelled</div>
+        </div>
+        <div class="pay-check"></div>
+      </div>
+
+    </div>
+
+    <!-- CGHS Detail -->
+    <div id="cghs-detail" class="scheme-detail show">
+      <div style="font-size:.82rem;font-weight:700;color:var(--amber);margin-bottom:8px;">🏛️ CGHS / ECHS Empanelment Details</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">CGHS Empanelment Number</label>
+          <input type="text" class="form-input" value="CGHS/BLR/DENT/2021/04872" placeholder="e.g. CGHS/BLR/DENT/XXXX/XXXXX">
+        </div>
+        <div class="form-group">
+          <label class="form-label">ECHS Empanelment Number</label>
+          <input type="text" class="form-input" placeholder="e.g. ECHS/BLR/XXXXX">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Empanelment valid until</label>
+          <input type="date" class="form-input" value="2027-03-31">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Nearest CGHS Wellness Centre</label>
+          <input type="text" class="form-input" placeholder="e.g. CGHS WC, Koramangala, Bengaluru">
+        </div>
+      </div>
+      <div style="font-size:.72rem;color:var(--text3);margin-top:4px;">CGHS dental procedures covered: extraction, scaling, RCT, dentures, crowns. Implants not covered under CGHS. ECHS covers basic restorative. Reimbursement at CGHS rates — do not collect additional fee from the beneficiary.</div>
+      <div style="display:flex;justify-content:flex-end;margin-top:10px;">
+        <button class="btn-primary btn-sm">Save CGHS Details</button>
+      </div>
+    </div>
+
+    <!-- PM-JAY Detail -->
+    <div id="pmjay-detail" class="scheme-detail">
+      <div style="font-size:.82rem;font-weight:700;color:var(--amber);margin-bottom:8px;">🇮🇳 Ayushman Bharat (PM-JAY) Empanelment</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">HEM ID (Hospital Empanelment Module)</label>
+          <input type="text" class="form-input" placeholder="e.g. HEM/KA/BLR/2023/XXXXX">
+        </div>
+        <div class="form-group">
+          <label class="form-label">State Nodal Agency</label>
+          <input type="text" class="form-input" value="Arogyakarnataka" placeholder="e.g. Arogyakarnataka">
+        </div>
+      </div>
+      <div style="font-size:.72rem;color:var(--text3);margin-top:4px;">PM-JAY covers select dental procedures under HBP (Health Benefit Package). Verify applicable dental HBP codes with your state's nodal agency before empanelment. Do not advertise PM-JAY coverage for procedures not covered under your approved HBP codes.</div>
+      <div style="display:flex;justify-content:flex-end;margin-top:10px;">
+        <button class="btn-primary btn-sm">Save PM-JAY Details</button>
+      </div>
+    </div>
+
+  </div>
+
+</div><!-- /panel-payments -->
+
+
+<script>
+/* TAB SWITCHING */
+function switchTab(id, btn) {
+  document.querySelectorAll('.sec-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.sec-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+/* FEE TABLE VISIBILITY TOGGLE */
+function togglePublic(el) {
+  const pill = el.querySelector('.toggle-pill');
+  const label = el.querySelector('.toggle-label');
+  pill.classList.toggle('on');
+  label.textContent = pill.classList.contains('on') ? 'Fees visible on profile' : 'Fees hidden (private)';
+}
+
+/* FEE FORM TOGGLE */
+function toggleFeeForm() {
+  document.getElementById('feeForm').classList.toggle('open');
+}
+
+/* ADD FEE ROW (demo) */
+function addFeeRow() {
+  const tbody = document.querySelector('#feeTable tbody');
+  const tr = document.createElement('tr');
+  tr.innerHTML = `<td style="font-weight:600;">New Treatment</td>
+    <td><span class="tag tag-teal">General</span></td>
+    <td class="fee-price">₹0</td>
+    <td><span class="fee-range">—</span></td>
+    <td><span class="tag tag-amber">18%</span></td>
+    <td><div class="toggle-pill on" onclick="this.classList.toggle('on')" style="cursor:pointer;"></div></td>
+    <td><button class="btn-ghost btn-sm danger" onclick="this.closest('tr').remove()">Del</button></td>`;
+  tbody.appendChild(tr);
+  toggleFeeForm();
+}
+
+/* OFFER FORM TOGGLE */
+function toggleOfferForm() {
+  document.getElementById('offerForm').classList.toggle('open');
+}
+
+/* ROI CALCULATOR */
+function calcROI() {
+  const impr = parseFloat(document.getElementById('roiImpr').value) || 0;
+  const ctr  = parseFloat(document.getElementById('roiCTR').value)  || 0;
+  const atv  = parseFloat(document.getElementById('roiATV').value)  || 0;
+  const conv = parseFloat(document.getElementById('roiConv').value) || 0;
+  const spend= parseFloat(document.getElementById('roiSpend').value)|| 1;
+  const rev  = impr * (ctr/100) * (conv/100) * atv;
+  const roas = spend > 0 ? (rev / spend).toFixed(1) : '—';
+  document.getElementById('roiValue').textContent = '₹' + Math.round(rev).toLocaleString('en-IN');
+  document.getElementById('roiROAS').textContent   = 'ROAS: ' + roas + '×';
+}
+
+/* SCHEME DETAIL TOGGLE */
+function toggleScheme(card, detailId) {
+  card.classList.toggle('on');
+  const detail = document.getElementById(detailId);
+  detail.classList.toggle('show');
+}
+</script>
+
+</body></html>

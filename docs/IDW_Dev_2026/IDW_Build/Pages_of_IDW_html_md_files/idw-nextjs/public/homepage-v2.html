@@ -1,0 +1,1069 @@
+<!doctype html>
+<html lang="en-IN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IndiaDentalWorld | Find verified dentists across India</title>
+<meta name="description" content="Search verified dentists and dental clinics near you. Compare indicative prices, read reviews from confirmed visits and find a clinic in your city. Free for patients.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://www.indiadentalworld.com/">
+<link rel="alternate" hreflang="en-in" href="https://www.indiadentalworld.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="IndiaDentalWorld">
+<meta property="og:title" content="IndiaDentalWorld | Find verified dentists across India">
+<meta property="og:description" content="Search verified dentists near you. Compare indicative prices and read reviews from confirmed visits.">
+<meta property="og:url" content="https://www.indiadentalworld.com/">
+<meta property="og:image" content="https://www.indiadentalworld.com/og/home-1200x630.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0A1714">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<!--
+  DEVELOPER NOTES (IDW homepage, prototype v2)
+  1. Sample data everywhere: clinic names, ratings, authors, reviews. Replace with live data. Nothing numeric is shown unless it can be counted.
+  2. The Smart Search (hero) keeps the approved workflow: two fields (what + where), intent chips, rich suggestions, intent banner,
+     voice search, contextual filters, GPS option first, no login gate. Voice and GPS are simulated here; build with real services.
+  3. Revenue slots are OFF by default (launch state). Founder view (button, bottom left) switches them on and shows the legal rule for each.
+  4. No "top", "best" or "No. 1" copy anywhere (NMC/ASCI). Ratings render only when a clinic has 3 or more reviews.
+  5. All sections are server-rendered. JS only drives the search box, theme, menu and founder view.
+  6. Allow GPTBot, ClaudeBot and PerplexityBot in robots.txt. Add og image, logo and sitemap before launch.
+-->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"Organization","@id":"https://www.indiadentalworld.com/#org","name":"IndiaDentalWorld","url":"https://www.indiadentalworld.com/","logo":"https://www.indiadentalworld.com/logo.png","sameAs":["https://instagram.com/indiadentalworld","https://linkedin.com/company/indiadentalworld"]},
+ {"@type":"WebSite","@id":"https://www.indiadentalworld.com/#site","url":"https://www.indiadentalworld.com/","name":"IndiaDentalWorld","inLanguage":"en-IN","publisher":{"@id":"https://www.indiadentalworld.com/#org"},
+  "potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.indiadentalworld.com/search?what={search_term_string}"},"query-input":"required name=search_term_string"}},
+ {"@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"How does IndiaDentalWorld verify a clinic?","acceptedAnswer":{"@type":"Answer","text":"We check the clinic's DCI registration and confirm its address before the Verified badge appears. Clinics still being checked show Verification pending."}},
+  {"@type":"Question","name":"Is IndiaDentalWorld free for patients?","acceptedAnswer":{"@type":"Answer","text":"Yes. Searching and comparing clinics is free and needs no sign-in. Clinics pay IndiaDentalWorld, not patients."}},
+  {"@type":"Question","name":"Are the prices on IndiaDentalWorld final?","acceptedAnswer":{"@type":"Answer","text":"No. Prices are indicative ranges shared by clinics. The final cost depends on your examination and treatment plan, and the clinic confirms it before treatment."}},
+  {"@type":"Question","name":"How do reviews work?","acceptedAnswer":{"@type":"Answer","text":"Only patients with a completed appointment can leave a review. Clinics can reply publicly but cannot edit, hide or buy reviews."}},
+  {"@type":"Question","name":"What should I do in a dental emergency?","acceptedAnswer":{"@type":"Answer","text":"Call 112 or go to the nearest hospital. IndiaDentalWorld does not give medical advice. For a toothache that can wait, search Toothache to see clinics open now."}},
+  {"@type":"Question","name":"Do I need to sign in to search?","acceptedAnswer":{"@type":"Answer","text":"No. You only sign in when you want to book an appointment."}}
+ ]}
+]}
+</script>
+<style>
+:root{
+  --bg:#0A1714; --bg2:#0E1D19; --bg3:#13261F; --surface:#15271F; --surface-solid:#14241F;
+  --line:rgba(226,237,235,.10); --line2:rgba(226,237,235,.2);
+  --text:#E8F0EE; --text2:#9DBBB6; --text3:#6F918B;
+  --teal:#00C4A7; --teal-text:#00C4A7; --teal-ink:#04211C; --glow:rgba(0,196,167,.16);
+  --amber:#F5A623; --rose:#F06A6A; --green:#34D399;
+  --nav:72px; --gut:clamp(20px,5vw,56px); --sec:clamp(36px,4.88vw,66px);
+  --serif:'Lora',Georgia,'Times New Roman',serif; --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --bg:#F2F6F5; --bg2:#E9F0EE; --bg3:#E1EAE7; --surface:#FFFFFF; --surface-solid:#FFFFFF;
+  --line:rgba(10,23,20,.11); --line2:rgba(10,23,20,.2);
+  --text:#0C1D19; --text2:#44625C; --text3:#6B8882;
+  --teal:#00A78F; --teal-text:#00665B; --teal-ink:#03211C; --glow:rgba(0,167,143,.14);
+  --amber:#B8730F; --rose:#B93232; --green:#0F7A52; color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:11.2px;scroll-behavior:smooth;scroll-padding-top:calc(var(--nav) + 12px);-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:15.6px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+ul{list-style:none}
+svg.i{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:12px;top:-60px;z-index:200;background:var(--teal);color:var(--teal-ink);padding:10px 16px;border-radius:10px;font-weight:700}
+.skip:focus{top:12px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:1200px;margin:0 auto;padding:0 var(--gut)}
+.sec{position:relative;padding:var(--sec) 0}
+.sec--alt{background:var(--bg2);border-block:1px solid var(--line)}
+h1,h2,.serif{font-family:var(--serif);font-weight:500;letter-spacing:-.02em}
+h2.title{font-size:clamp(1.44rem,3.04vw,2.32rem);line-height:1.1;max-width:16ch}
+.lede{color:var(--text2);font-size:clamp(1.2rem,1.56vw,1.34rem);max-width:46ch;margin-top:13px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border-radius:999px;font-weight:700;font-size:1.3rem;transition:transform .2s,background .2s,border-color .2s}
+.nav .btn{font-size:.95rem}
+.btn--teal{background:var(--teal);color:var(--teal-ink)}
+.btn--teal:hover{transform:translateY(-1px);filter:brightness(1.06)}
+.btn--ghost{border:1px solid var(--line2)}
+.btn--ghost:hover{border-color:var(--teal)}
+.link{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--teal-text);border-bottom:1px solid transparent;transition:border-color .2s}
+.link:hover{border-color:currentColor}
+.sponsored{display:inline-flex;align-items:center;background:#F5A623;color:#1A1100;font-weight:700;font-size:10px;line-height:1;padding:4px 7px;border-radius:5px}
+.slot-off{display:none!important}
+
+/* ---------- NAV ---------- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;height:var(--nav);font-family:'Plus Jakarta Sans',system-ui,sans-serif;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+.nav.is-solid{background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.nav__in{height:100%;display:flex;align-items:center;gap:36px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:600;font-size:1.28rem;letter-spacing:-.01em}
+.logo b{font-weight:600;color:var(--teal-text)}
+.logo svg{width:26px;height:26px}
+.nav__links{display:flex;gap:30px;font-size:.92rem;font-weight:500;color:var(--text2)}
+.nav__links a:hover{color:var(--text)}
+.nav__end{margin-left:auto;display:flex;align-items:center;gap:14px}
+.nav__signin{font-size:.92rem;font-weight:600;color:var(--text2)}
+.nav__signin:hover{color:var(--text)}
+.iconbtn{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:1.05rem;color:var(--text2);transition:border-color .2s,color .2s}
+.iconbtn:hover{border-color:var(--teal);color:var(--text)}
+.nav__menu{display:none}
+.mobile-panel{display:none}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:0;display:flex;align-items:center;padding:calc(var(--nav) + 22px) 0 40px;overflow:clip;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:
+  radial-gradient(55% 60% at 80% 42%,var(--glow),transparent 70%),
+  radial-gradient(40% 40% at 4% 96%,rgba(0,196,167,.07),transparent 70%)}
+.hero__art{position:absolute;z-index:-1;right:-12vw;top:42%;width:min(58vw,820px);transform:translateY(-50%);pointer-events:none}
+.hero__art svg{width:100%;height:auto;overflow:visible}
+.hero__art .t,.hero__art .ti{fill:none;stroke:var(--teal);stroke-width:1.2;stroke-linejoin:round}
+.hero__art .t{opacity:.55;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.7s cubic-bezier(.3,.7,.2,1) forwards;animation-delay:calc(var(--i) * 70ms + 250ms)}
+.hero__art .ti{opacity:.22;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.7s cubic-bezier(.3,.7,.2,1) forwards;animation-delay:calc(var(--i) * 70ms + 450ms)}
+.hero__art .gum{fill:none;stroke:var(--teal);stroke-width:1;opacity:.28;stroke-linecap:round}
+.hero__art .t.lit{opacity:1;stroke-width:1.6;fill:rgba(0,196,167,.14)}
+.hero__art .glow{opacity:0;animation:glow 1.6s ease-out 2.1s forwards}
+.hero__art .dot{fill:var(--teal);opacity:0;animation:glow 1s ease-out 2.4s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes glow{to{opacity:1}}
+.hero__copy{max-width:780px}
+.hero__copy{text-align:center;margin:0 auto}
+.hero__copy .hero__lede{margin-left:auto;margin-right:auto}
+.hero__copy .finder,.hero__copy .plank{margin-left:auto;margin-right:auto}
+.hero__copy .chips,.hero__copy .ctx,.hero__copy .hero__meta{justify-content:center}
+.hero__copy .chips{max-width:840px;margin-left:auto;margin-right:auto}
+.stats-band{padding:96px 0 0;background:transparent;border-bottom:1px solid var(--line)}
+.hero__stats{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));width:min(780px,100%);margin:0 auto;border:0;border-radius:0;background:transparent}
+.hero__stats::before{content:"";position:absolute;top:20%;left:0;right:0;height:1px;background:var(--line2)}
+.hero__stat{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:70px;padding:10px 12px}
+.hero__stat::after{content:"";position:absolute;top:20%;right:-1px;width:2px;height:80%;background:var(--line2)}
+.hero__stat:last-child::after{display:none}
+.hero__stat strong{font-family:var(--serif);font-size:1.34rem;font-weight:600;line-height:1.15;color:var(--text)}
+.hero__stat span{margin-top:4px;color:var(--text3);font-size:.98rem;font-weight:600;letter-spacing:.035em;text-transform:uppercase}
+.hero__stat strong,.hero__stat span{position:relative;top:10%}
+.display{font-size:clamp(34.56px,4.8vw,65.28px);line-height:1.04;letter-spacing:-.03em}
+.display span{display:block;color:var(--text2)}
+.rise{opacity:0;transform:translateY(18px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+.hero__lede{margin-top:16px;max-width:50ch;color:var(--text2);font-size:clamp(1.2rem,1.56vw,1.34rem)}
+.finder{position:relative;margin-top:30px;max-width:840px}
+.plank{display:grid;grid-template-columns:1.3fr 1fr auto;background:color-mix(in srgb,var(--surface-solid) 80%,transparent);border:1px solid var(--line2);border-radius:22px;box-shadow:0 34px 90px -34px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.05);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.plank:focus-within{border-color:var(--teal);box-shadow:0 0 0 4px var(--glow),0 34px 90px -34px rgba(0,0,0,.65)}
+.field{position:relative;display:flex;align-items:center;gap:10px;padding:9px 15px;min-height:58px;cursor:text}
+.field+.field{border-left:1px solid var(--line)}
+.field>svg{font-size:1.2rem;color:var(--text3)}
+.field__body{flex:1;min-width:0;display:flex;flex-direction:column}
+.field__label{display:none}
+.field input{width:100%;background:none;border:0;outline:0;color:var(--text);font:inherit;font-size:1.3rem;font-weight:500;padding:0}
+.field input::placeholder{color:var(--text3);font-weight:400}
+.field__x{display:none;width:28px;height:28px;border-radius:50%;place-items:center;color:var(--text2)}
+.field__x.on{display:grid}
+.field__x:hover{background:var(--line)}
+.mic{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-size:1rem;color:var(--teal-text);border:1px solid var(--line);flex-shrink:0;transition:background .2s,border-color .2s}
+.mic:hover{border-color:var(--teal);background:var(--glow)}
+.go{min-height:42px;margin:6px;padding:0 27px;border-radius:12px;background:var(--teal);color:var(--teal-ink);font-weight:700;font-size:1.35rem;display:inline-flex;align-items:center;gap:9px;transition:filter .2s}
+.go:hover{filter:brightness(1.07)}
+.sug{display:none;position:absolute;z-index:60;left:0;right:0;top:calc(100% + 10px);background:var(--surface-solid);border:1px solid var(--line2);border-radius:20px;box-shadow:0 40px 90px -30px rgba(0,0,0,.7);max-height:min(460px,60vh);overflow:auto;padding:8px}
+.sug.open{display:block}
+.sug__h{font-size:.78rem;font-weight:600;color:var(--text2);padding:12px 12px 6px}
+.opt{display:flex;align-items:center;gap:14px;padding:11px 12px;border-radius:12px;cursor:pointer;width:100%;text-align:left}
+.opt:hover,.opt:focus-visible{background:var(--bg3);outline:0}
+.opt__glyph{width:38px;height:38px;border-radius:50%;border:1px solid var(--line2);display:grid;place-items:center;color:var(--teal-text);font-family:var(--serif);font-weight:600;flex-shrink:0}
+.opt__main{flex:1;min-width:0}
+.opt__t{display:block;font-weight:600;font-size:1.06rem;line-height:1.3}
+.opt__s{display:block;font-size:.96rem;color:var(--text2)}
+.opt__r{text-align:right;font-size:.92rem;color:var(--text2);flex-shrink:0}
+.opt__r b{display:block;color:var(--green);font-size:.96rem}
+.opt__r b.later{color:var(--amber)}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;padding:1px 8px;border-radius:999px;margin-left:6px;vertical-align:1px}
+.tag--open{background:rgba(52,211,153,.14);color:var(--green)}
+.tag--emerg{background:rgba(240,106,106,.14);color:var(--rose)}
+.intent{display:flex;align-items:center;gap:12px;margin:2px 2px 6px;padding:11px 14px;border-radius:14px;background:var(--glow);border:1px solid color-mix(in srgb,var(--teal) 35%,transparent);font-size:1rem}
+.intent i{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0}
+.intent button{margin-left:auto;font-weight:700;color:var(--teal-text);white-space:nowrap}
+.sug__note{font-size:.92rem;color:var(--text2);padding:8px 12px 10px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.chip{padding:9px 18px;border-radius:999px;border:1px solid var(--line2);font-size:1.2rem;font-weight:500;color:var(--text2);transition:border-color .2s,color .2s,background .2s}
+.chip:hover,.chip[aria-pressed="true"]{border-color:var(--teal);color:var(--text);background:var(--glow)}
+.ctx{display:none;flex-wrap:wrap;align-items:center;gap:8px;margin-top:16px}
+.ctx.on{display:flex}
+.ctx__t{font-size:.96rem;color:var(--text2);margin-right:4px}
+.pill{padding:6px 14px;border-radius:999px;border:1px solid var(--line);font-size:.96rem;color:var(--text2)}
+.pill[aria-pressed="true"]{border-color:var(--teal);color:var(--teal-text);background:var(--glow)}
+.hero__meta{margin-top:13px;font-size:1.2rem;color:var(--text2);display:flex;flex-wrap:wrap;gap:7px 24px}
+.hero__meta span{display:inline-flex;align-items:center;gap:8px}
+.hero__meta svg{color:var(--teal-text)}
+
+/* ---------- TRUST ---------- */
+.trust{padding:0;border-bottom:1px solid var(--line);background:var(--bg2)}
+.trust__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:40px}
+.trust__item{position:relative;padding:20px 0}
+.trust__item::after{content:"";position:absolute;z-index:1;top:50%;right:-20px;transform:translate(50%,-50%);width:2px;height:60%;background:var(--line2)}
+.trust__item:last-child::after{display:none}
+.trust__item svg{font-size:1.5rem;color:var(--teal-text);margin-bottom:18px}
+.trust__item h3{font-size:1.35rem;font-weight:700;line-height:1.3}
+.trust__item p{margin-top:6px;color:var(--text2);font-size:1.25rem;line-height:1.55}
+
+/* ---------- NEEDS INDEX ---------- */
+.needs{display:grid;grid-template-columns:1fr;gap:20px;align-items:start}
+.needs__aside{position:static;max-width:780px}
+.needs__aside .btn{margin-top:30px}
+.needs .treatment-cards{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+.needs .treatment-card{position:relative;width:100%;margin-inline:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;aspect-ratio:1/1;min-height:0;padding:12px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(145deg,var(--surface),color-mix(in srgb,var(--surface) 78%,var(--bg2)));text-align:center;transition:border-color .2s,transform .2s,background .2s}
+.needs .treatment-card:hover{border-color:color-mix(in srgb,var(--teal) 55%,transparent);background:linear-gradient(145deg,var(--surface),color-mix(in srgb,var(--teal) 8%,var(--surface)));transform:translateY(-2px)}
+.treatment-card__icon{width:32px;height:32px;display:grid;place-items:center;border:1px solid color-mix(in srgb,var(--teal) 32%,transparent);border-radius:10px;background:var(--glow);color:var(--teal-text)}
+.treatment-card__icon svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round}
+.treatment-card strong{font-size:1.1rem;line-height:1.3;text-align:center;text-wrap:balance}
+.treatment-card small{color:var(--text3);font-size:.92rem;line-height:1.35;text-align:center}
+.treatment-card__arrow{position:absolute;right:14px;bottom:13px;color:var(--teal-text);opacity:.85}
+.treatment-card__arrow svg{width:15px;height:15px}
+.row{display:grid;grid-template-columns:1fr auto;gap:6px 24px;align-items:center;padding:28px 0;border-top:1px solid var(--line);transition:padding .25s}
+.rows li:last-child .row{border-bottom:1px solid var(--line)}
+.row h3{font-family:var(--serif);font-weight:500;font-size:clamp(1.12rem,2.08vw,1.6rem);letter-spacing:-.015em;line-height:1.2;transition:color .2s}
+.row p{grid-column:1;color:var(--text2);font-size:1.27rem;max-width:48ch}
+.row__go{grid-row:1/3;grid-column:2;display:flex;align-items:center;gap:8px;font-size:1.2rem;font-weight:600;color:var(--text2);transition:color .2s,transform .25s}
+.row:hover{padding-left:12px}
+.row:hover h3,.row:hover .row__go{color:var(--teal-text)}
+.row:hover .row__go{transform:translateX(-6px)}
+.row__live{display:inline-flex;align-items:center;gap:8px;font-size:1.15rem;color:var(--text2);margin-left:12px;font-family:var(--sans);letter-spacing:0}
+.row__live i{width:8px;height:8px;border-radius:50%;background:var(--rose)}
+.row .sponsored{margin:6px 10px 0 0}
+.emerg{margin-top:18px;font-size:1.2rem;color:var(--text2);display:flex;gap:10px;align-items:flex-start}
+.emerg svg{color:var(--rose);margin-top:4px}
+
+/* ---------- CLINICS ---------- */
+.head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:36px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{position:relative;display:flex;flex-direction:column;gap:18px;padding:26px 24px 24px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,var(--surface),transparent 120%);transition:border-color .25s,transform .25s}
+.card:hover{border-color:color-mix(in srgb,var(--teal) 50%,transparent);transform:translateY(-3px)}
+.card--spon{border-color:color-mix(in srgb,var(--amber) 55%,transparent)}
+.card__top{display:flex;align-items:center;gap:14px}
+.tile{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;font-family:var(--serif);font-weight:600;font-size:1.2rem;color:#fff;flex-shrink:0}
+.tile--1{background:linear-gradient(135deg,#00C4A7,#00725F)}
+.tile--2{background:linear-gradient(135deg,#6366F1,#3F3AB0)}
+.tile--3{background:linear-gradient(135deg,#D98A0B,#A8630A)}
+.tile--4{background:linear-gradient(135deg,#119C8E,#0B645A)}
+.card h3{font-size:1.1rem;font-weight:700;line-height:1.3}
+.card__loc{font-size:1.2rem;color:var(--text2)}
+.card dl{display:grid;gap:8px;font-size:1.2rem}
+.card dl div{display:flex;justify-content:space-between;gap:12px}
+.card dt{color:var(--text2)}
+.card dd{font-weight:600;text-align:right}
+.verified{display:inline-flex;align-items:center;gap:6px;font-size:1.15rem;font-weight:700;color:var(--green)}
+.card .link{margin-top:auto;padding-top:6px}
+.card .sponsored{align-self:flex-start}
+.note{margin-top:24px;font-size:1.2rem;color:var(--text2);max-width:70ch}
+.note a{color:var(--teal-text);border-bottom:1px solid currentColor}
+
+/* ---------- HOW ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,5vw,72px);margin-top:42px;counter-reset:s}
+.step{position:relative;padding-top:34px;border-top:1px solid var(--line2)}
+.step::before{counter-increment:s;content:counter(s);position:absolute;top:-1px;left:0;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:var(--bg2);border:1px solid var(--teal);color:var(--teal-text);display:grid;place-items:center;font-family:var(--serif);font-weight:600}
+.step h3{font-family:var(--serif);font-weight:500;font-size:1.6rem;letter-spacing:-.01em}
+.step p{margin-top:12px;color:var(--text2);max-width:34ch}
+
+/* ---------- REVIEWS ---------- */
+.rv{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(40px,7vw,100px);align-items:start}
+.facts{margin-top:28px;display:grid;gap:20px}
+.facts li{display:grid;grid-template-columns:30px 1fr;gap:6px 14px}
+.facts svg{color:var(--teal-text);font-size:1.3rem;margin-top:3px;grid-row:1/3}
+.facts b{font-weight:700}
+.facts span{color:var(--text2);font-size:1.26rem}
+.quote{padding:30px 32px;border:1px solid var(--line);border-radius:24px;background:var(--surface)}
+.quote+.quote{margin-top:18px;margin-left:clamp(0px,4vw,48px)}
+.quote blockquote{font-family:var(--serif);font-size:1.5rem;line-height:1.55;font-weight:500;letter-spacing:-.01em}
+.quote footer{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin-top:20px;font-size:1.18rem;color:var(--text2);padding:0;background:none;border:0}
+.quote footer b{color:var(--text);font-weight:600}
+.stars{color:var(--amber);letter-spacing:2px}
+.sample{font-size:.78rem;border:1px dashed var(--line2);padding:2px 9px;border-radius:999px}
+
+/* ---------- FOR CLINICS ---------- */
+.pro{position:relative;display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(32px,6vw,80px);align-items:center;padding:clamp(36px,6vw,80px);border:1px solid var(--line2);border-radius:34px;overflow:hidden;background:linear-gradient(135deg,var(--bg3),var(--bg) 70%)}
+.pro::before{content:"";position:absolute;inset:-30% -10% auto auto;width:70%;height:120%;background:radial-gradient(closest-side,var(--glow),transparent);z-index:0}
+.pro>*{position:relative;z-index:1}
+.pro h2{font-size:clamp(1.6rem,3.36vw,2.64rem);line-height:1.08;max-width:15ch}
+.pro ul{margin:30px 0 36px;display:grid;gap:14px;color:var(--text2)}
+.pro li{display:flex;gap:12px;align-items:flex-start}
+.pro li svg{color:var(--teal-text);margin-top:5px;font-size:1.05rem}
+.pro__btns{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.pro__small{margin-top:14px;font-size:1.2rem;color:var(--text2)}
+.mock{border:1px solid var(--line2);border-radius:24px;background:var(--surface-solid);padding:26px;box-shadow:0 40px 90px -40px rgba(0,0,0,.7);transform:rotate(1.4deg)}
+.mock__top{display:flex;gap:14px;align-items:center}
+.mock h4{font-size:1.02rem;font-weight:700}
+.mock p{font-size:1.18rem;color:var(--text2)}
+.bars{margin-top:22px;display:grid;gap:10px}
+.bars i{display:block;height:9px;border-radius:5px;background:var(--line)}
+.mock__row{margin-top:22px;display:flex;gap:10px}
+.mock__row span{flex:1;text-align:center;padding:10px;border-radius:12px;border:1px solid var(--line);font-size:1.15rem;color:var(--text2)}
+.mock__row span:first-child{background:var(--teal);color:var(--teal-ink);font-weight:700;border-color:var(--teal)}
+
+body.menu-open .founder-btn{display:none}
+.dd{position:relative}
+.dd__btn{display:inline-flex;align-items:center;gap:6px;font:inherit;color:inherit;font-weight:inherit;cursor:pointer}
+.dd__btn:hover{color:var(--text)}
+.dd__car{transform:rotate(90deg);font-size:.8em}
+.dd__menu{position:absolute;top:calc(100% + 14px);left:-16px;min-width:290px;padding:8px;border-radius:18px;background:var(--surface-solid);border:1px solid var(--line2);box-shadow:0 24px 60px -20px rgba(0,0,0,.65);display:none;z-index:120}
+.dd--end .dd__menu{left:auto;right:-8px;min-width:250px}
+.dd.on .dd__menu{display:block}
+.dd.on .dd__car{transform:rotate(-90deg)}
+.dd__menu a{display:block;padding:11px 14px;border-radius:12px;color:var(--text)}
+.dd__menu a:hover,.dd__menu a:focus-visible{background:var(--bg3)}
+.dd__menu b{display:block;font-size:1rem;font-weight:600}
+.dd__menu span{display:block;font-size:.92rem;color:var(--text2);margin-top:2px;font-weight:400}
+.mp__h{font-size:.82rem;color:var(--text2);padding:18px 0 4px}
+.pro__login{margin-top:18px;font-size:1.1rem;color:var(--text2)}
+.pro__login a{color:var(--teal-text);font-weight:600;border-bottom:1px solid var(--line2)}
+.biz{position:relative;margin-top:clamp(36px,5.2vw,66px)}
+.biz__h{font-family:var(--serif);font-weight:500;font-size:clamp(1.28rem,2.4vw,1.84rem);letter-spacing:-.015em;line-height:1.15}
+.biz__lede{color:var(--text2);margin-top:12px;max-width:52ch}
+.biz__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:36px;border-top:1px solid var(--line2)}
+.biz__card{padding:30px clamp(20px,3vw,40px) 8px 0;display:flex;flex-direction:column;gap:12px}
+.biz__card+.biz__card{padding-left:clamp(20px,3vw,40px);border-left:1px solid var(--line)}
+.biz__card h4{font-family:var(--serif);font-weight:500;font-size:1.35rem}
+.biz__card p{color:var(--text2);font-size:1.26rem;max-width:34ch}
+.biz__act{margin-top:auto !important;padding-bottom:8px;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin-top:10px}
+.biz__act .btn{min-height:42px}
+@media(max-width:900px){.biz__grid{grid-template-columns:1fr}.biz__card,.biz__card+.biz__card{padding:26px 0;border-left:0;border-bottom:1px solid var(--line)}}
+.who{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:28px;color:var(--text2);font-size:1.26rem}
+.who a{border-bottom:1px solid var(--line2);padding-bottom:2px}
+.who a:hover{color:var(--text);border-color:var(--teal)}
+
+/* ---------- CITIES ---------- */
+.cities{display:flex;flex-wrap:wrap;gap:12px;margin-top:44px}
+.cities a{padding:11px 22px;border-radius:999px;border:1px solid var(--line2);font-weight:500;transition:border-color .2s,background .2s}
+.cities a:hover{border-color:var(--teal);background:var(--glow)}
+.cities__sub{margin-top:22px;color:var(--text2);font-size:1.22rem}
+
+/* ---------- GUIDES ---------- */
+.guides{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,3vw,40px)}
+.guide{display:flex;flex-direction:column;gap:14px;padding-top:26px;border-top:1px solid var(--line2);transition:border-color .2s}
+.guide:hover{border-color:var(--teal)}
+.guide small{font-size:.86rem;font-weight:600;color:var(--teal-text)}
+.guide h3{font-family:var(--serif);font-weight:500;font-size:1.55rem;line-height:1.22;letter-spacing:-.015em}
+.guide p{color:var(--text2);font-size:1.25rem;margin-top:auto}
+.guide .sponsored{align-self:flex-start}
+
+/* ---------- FAQ ---------- */
+.faq{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(40px,7vw,110px);align-items:start}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;font-size:1.08rem;font-weight:600}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary svg{color:var(--teal-text);transition:transform .25s}
+.faq details[open] summary svg{transform:rotate(45deg)}
+.faq details p{padding:0 40px 20px 0;color:var(--text2);max-width:60ch;font-size:1.25rem}
+
+/* ---------- FINAL CTA ---------- */
+.final{text-align:center;overflow:clip;isolation:isolate}
+.final::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(50% 70% at 50% 100%,var(--glow),transparent 70%)}
+.final h2{font-size:clamp(1.92rem,4.8vw,3.84rem);line-height:1.04;margin:0 auto;max-width:14ch}
+.final p{margin:16px auto 0;color:var(--text2);max-width:46ch;font-size:1.3rem}
+.final .btns{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:28px}
+.final small{display:block;margin-top:20px;color:var(--text2);font-size:.84rem}
+
+/* ---------- FOOTER ---------- */
+.foot{border-top:1px solid var(--line);background:var(--bg2);padding:50px 0 32px;font-size:1.2rem}
+.foot__grid{display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:40px}
+.foot h4{font-size:.92rem;font-weight:700;margin-bottom:16px}
+.foot li+li{margin-top:10px}
+.foot li a{color:var(--text2)}
+.foot li a:hover{color:var(--text)}
+.foot__about p{color:var(--text2);max-width:34ch;margin-top:16px}
+.news{margin-top:26px;display:grid;gap:12px;max-width:340px}
+.news__row{display:flex;gap:8px}
+.news input[type=email]{flex:1;min-width:0;background:var(--surface-solid);border:1px solid var(--line2);border-radius:12px;padding:11px 14px;color:var(--text);font:inherit;font-size:1.2rem}
+.news button{padding:0 18px;border-radius:12px;background:var(--teal);color:var(--teal-ink);font-weight:700;font-size:1.18rem}
+.news button:disabled{opacity:.45;cursor:not-allowed}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:.96rem;color:var(--text2);line-height:1.5;cursor:pointer}
+.consent input{width:18px;height:18px;accent-color:var(--teal);margin-top:2px;flex-shrink:0}
+.legal{margin-top:38px;padding-top:22px;border-top:1px solid var(--line);display:grid;gap:8px;font-size:1.13rem;color:var(--text2)}
+.legal strong{color:var(--text)}
+
+/* ---------- FOUNDER VIEW + PROTOTYPE CHIPS ---------- */
+.fv{display:none}
+body.founder .fv{display:block;position:absolute;z-index:40;top:18px;right:var(--gut);max-width:340px;padding:14px 16px;border:1px dashed var(--amber);border-radius:14px;background:color-mix(in srgb,var(--bg) 88%,var(--amber) 12%);backdrop-filter:blur(8px);font-size:.82rem;line-height:1.5;color:var(--text)}
+.fv b{display:block;margin-bottom:6px;color:var(--amber);font-size:.86rem}
+.fv span{display:block;margin-top:4px}
+.fv em{font-style:normal;font-weight:700}
+body.founder .sec,body.founder .trust{outline:1px dashed color-mix(in srgb,var(--amber) 60%,transparent);outline-offset:-1px}
+body.founder .slot-off{display:inline-flex!important}
+body.founder .card.slot-off{display:flex!important}
+body.founder .row .slot-off{display:inline-flex!important}
+body.founder .guide.slot-off{display:flex!important}
+body.founder .org-extra{display:none}
+.founder-btn{position:fixed;left:16px;bottom:16px;z-index:150;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:var(--surface-solid);border:1px solid var(--line2);font-size:.86rem;font-weight:600;box-shadow:0 14px 40px -14px rgba(0,0,0,.6)}
+.founder-btn[aria-pressed="true"]{border-color:var(--amber);color:var(--amber)}
+.proto{position:fixed;right:16px;bottom:16px;z-index:150;font-size:.78rem;color:var(--text2);padding:7px 12px;border-radius:999px;border:1px dashed var(--line2);background:color-mix(in srgb,var(--bg) 85%,transparent);pointer-events:none}
+.toast{position:fixed;left:50%;bottom:76px;transform:translate(-50%,20px);opacity:0;z-index:160;max-width:min(92vw,560px);padding:14px 20px;border-radius:14px;background:var(--surface-solid);border:1px solid var(--teal);font-size:.9rem;transition:opacity .3s,transform .3s;pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.toast code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.82rem;color:var(--teal-text);word-break:break-all}
+
+/* voice overlay */
+.voice{position:fixed;inset:0;z-index:300;display:none;place-items:center;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);padding:24px}
+.voice.on{display:grid}
+.voice__box{text-align:center;max-width:520px}
+.ring{width:96px;height:96px;margin:0 auto 28px;border-radius:50%;display:grid;place-items:center;font-size:2rem;color:var(--teal-ink);background:var(--teal);box-shadow:0 0 0 0 var(--glow);animation:ring 1.8s ease-out infinite}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(0,196,167,.45)}100%{box-shadow:0 0 0 38px rgba(0,196,167,0)}}
+.voice h2{font-size:1.9rem}
+.voice p{margin-top:12px;color:var(--text2)}
+.voice .btn{margin-top:28px}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:1000px){
+  .nav__links{display:none}
+  .nav__menu{display:grid}
+  .nav__signin{display:none}
+  .mobile-panel.on{display:grid;max-height:calc(100vh - var(--nav));overflow-y:auto;position:fixed;inset:var(--nav) 0 auto 0;z-index:99;gap:4px;padding:16px var(--gut) 26px;background:var(--bg);border-bottom:1px solid var(--line)}
+  .mobile-panel a{padding:14px 0;border-bottom:1px solid var(--line);font-weight:600}
+  .hero__art{width:112vw;right:-38vw;opacity:.5}
+  .trust__grid{grid-template-columns:repeat(2,1fr)}
+  .trust__item:nth-child(2)::after,.trust__item:nth-child(4)::after{display:none}
+  .trust__item:nth-child(odd),.trust__item:nth-child(even){padding-right:0}
+  .needs,.rv,.faq,.pro{grid-template-columns:1fr}
+  .needs__aside{position:static}
+  .needs .treatment-cards{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .guides{grid-template-columns:1fr}
+  .foot__grid{grid-template-columns:1fr 1fr}
+  .foot__about{grid-column:1/-1}
+  .mock{transform:none}
+  body.founder .fv{position:static;max-width:none;margin:0 var(--gut) 24px}
+}
+@media (max-width:680px){
+  :root{--nav:64px}
+  .nav .btn{display:none}
+  .hero{padding-bottom:40px}
+  .hero__stats{grid-template-columns:repeat(2,minmax(0,1fr));width:min(100%,420px);margin-top:0}
+  .hero__stats::before{top:10%}
+  .hero__stat:nth-child(2)::after{display:none}
+  .hero__stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .hero__stat:nth-child(n+3)::after{top:0;height:100%}
+  .hero__stat{min-height:62px}
+  .hero__stat strong{font-size:1.2rem}
+  .hero__stat:nth-child(n+3) strong,.hero__stat:nth-child(n+3) span{top:0}
+  .plank{grid-template-columns:1fr}
+  .field+.field{border-left:0;border-top:1px solid var(--line)}
+.field{min-height:54px;padding:8px 14px}
+.go{margin:6px;min-height:42px;justify-content:center}
+  .chips,.ctx{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:calc(var(--gut) * -1);padding-inline:var(--gut)}
+  .chips::-webkit-scrollbar,.ctx::-webkit-scrollbar{display:none}
+  .chip,.pill{white-space:nowrap;flex-shrink:0}
+  .trust__grid{grid-template-columns:1fr}
+  .trust__item{padding:20px 0}
+  .trust__item::after{display:none}
+  .trust__item:not(:last-child)::before{content:"";position:absolute;left:20%;right:20%;bottom:0;height:1px;background:var(--line)}
+  .row{grid-template-columns:1fr}
+  .row__go{display:none}
+  .cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(var(--gut) * -1);padding:4px var(--gut) 14px;gap:14px;scrollbar-width:none}
+  .cards::-webkit-scrollbar{display:none}
+  .card{flex:0 0 82%;scroll-snap-align:center}
+  .steps{grid-template-columns:1fr;gap:40px}
+  .head{margin-bottom:36px}
+  .quote{padding:24px}
+  .quote+.quote{margin-left:0}
+  .foot__grid{grid-template-columns:1fr 1fr}
+  .proto{display:none}
+  .needs .treatment-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .needs .treatment-card{width:100%;aspect-ratio:1/1;min-height:0;padding:10px}
+  .treatment-card__icon{width:26px;height:26px;border-radius:9px}
+  .treatment-card__icon svg{width:17px;height:17px}
+  .treatment-card strong{font-size:.96rem}
+  .treatment-card small{font-size:.78rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rise{animation:none;opacity:1;transform:none}
+  .hero__art .t,.hero__art .ti{animation:none;stroke-dashoffset:0}
+  .hero__art .glow,.hero__art .dot{animation:none;opacity:1}
+  .ring{animation:none}
+}
+</style>
+</head>
+<body id="top">
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+ <radialGradient id="lg"><stop offset="0" stop-color="#00C4A7" stop-opacity=".55"/><stop offset="1" stop-color="#00C4A7" stop-opacity="0"/></radialGradient>
+ <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></symbol>
+ <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+ <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="8"/></symbol>
+ <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></symbol>
+ <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+ <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+ <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+ <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+ <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+ <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+ <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></symbol>
+ <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v6c0 4.5 3 7.6 7 9 4-1.4 7-4.5 7-9V6l-7-3z"/><path d="m9 12 2.2 2.2L15.5 10"/></symbol>
+ <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></symbol>
+ <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 16.8 6.6 19.7l1.1-6.1L3.2 9.4l6.1-.8L12 3z"/></symbol>
+ <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+ <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5z"/></symbol>
+ <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3z"/><path d="M12 10v4.5M12 17.5v.2"/></symbol>
+</defs></svg>
+
+<!-- ======================= NAV ======================= -->
+<header class="nav" id="nav">
+  <div class="wrap nav__in">
+    <a class="logo" href="/" aria-label="IndiaDentalWorld home">
+      <svg viewBox="0 0 32 32" fill="none" stroke="#00C4A7" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M9 5c-3 0-5 2.2-5 5.4 0 3 1.4 4.6 2 7.4.5 2.4.6 7.2 3 7.2 1.8 0 1.6-5 3-5.8 1.2-.7 2.6-.7 3.8 0 1.4.8 1.2 5.8 3 5.8 2.4 0 2.5-4.800 3-7.200.6-2.800 2-4.400 2-7.400C28 7.200 26 5 23 5c-2.600 0-3.400 1.200-7 1.200S11.600 5 9 5z"/></svg>
+      <span>India<b>Dental</b>World</span>
+    </a>
+    <nav class="nav__links" aria-label="Main">
+      <a href="#finder">Find a dentist</a>
+      <a href="#needs">Treatments</a>
+      <div class="dd" id="ddBiz">
+        <button class="dd__btn" type="button" aria-expanded="false" aria-controls="ddBizMenu">For business <svg class="i dd__car"><use href="#i-arrow"/></svg></button>
+        <div class="dd__menu" id="ddBizMenu" role="menu">
+          <a role="menuitem" href="/list-your-clinic"><b>Dental clinics</b><span>List your clinic and get verified</span></a>
+          <a role="menuitem" href="/register/lab"><b>Dental labs</b><span>Show your work types and turnaround</span></a>
+          <a role="menuitem" href="/register/vendor"><b>Product vendors</b><span>List instruments, materials and equipment</span></a>
+          <a role="menuitem" href="/register/institute"><b>Institutes and colleges</b><span>Publish courses and workshops</span></a>
+        </div>
+      </div>
+      <a href="#guides">Guides</a>
+    </nav>
+    <div class="nav__end">
+      <button class="iconbtn" id="themeBtn" aria-label="Switch between dark and light theme"><svg class="i"><use href="#i-sun"/></svg></button>
+      <div class="dd dd--end nav__signin" id="ddSign">
+        <button class="dd__btn" type="button" aria-expanded="false" aria-controls="ddSignMenu">Sign in <svg class="i dd__car"><use href="#i-arrow"/></svg></button>
+        <div class="dd__menu" id="ddSignMenu" role="menu">
+          <a role="menuitem" href="/sign-in"><b>Patient</b><span>Bookings and reviews</span></a>
+          <a role="menuitem" href="/clinic-login"><b>Clinic</b><span>Profile, slots and reviews</span></a>
+          <a role="menuitem" href="/lab-login"><b>Dental lab</b></a>
+          <a role="menuitem" href="/vendor-login"><b>Product vendor</b></a>
+          <a role="menuitem" href="/institute-login"><b>Institute or college</b></a>
+        </div>
+      </div>
+      <a class="btn btn--ghost" href="/list-your-clinic" style="min-height:42px">List your clinic</a>
+      <button class="iconbtn nav__menu" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel"><svg class="i"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-panel" id="mobilePanel">
+  <a href="#finder">Find a dentist</a><a href="#needs">Treatments</a><a href="#guides">Guides</a>
+  <p class="mp__h">Register your business</p>
+  <a href="/list-your-clinic">Dental clinic</a><a href="/register/lab">Dental lab</a><a href="/register/vendor">Product vendor</a><a href="/register/institute">Institute or college</a>
+  <p class="mp__h">Sign in</p>
+  <a href="/sign-in">Patient</a><a href="/clinic-login">Clinic</a><a href="/lab-login">Dental lab</a><a href="/vendor-login">Product vendor</a><a href="/institute-login">Institute or college</a>
+</div>
+
+<main id="main">
+
+<!-- ======================= HERO + SMART SEARCH ======================= -->
+<section class="hero" id="finder" aria-labelledby="h1">
+  <div class="hero__art" aria-hidden="true">
+    <svg viewBox="0 0 900 720" fill="none">
+<polyline class="gum" stroke-dasharray="2 7" points="51.9,350.1 55.0,367.0 59.1,383.8 64.0,400.4 69.7,416.8 76.4,432.9 83.9,448.7 92.2,464.2 101.4,479.3 111.3,494.0 122.0,508.2 133.5,522.0 145.7,535.2 158.6,548.0 172.1,560.1 186.3,571.7 201.0,582.6 216.4,593.0 232.2,602.6 248.6,611.6 265.4,619.8 282.7,627.3 300.3,634.1 318.2,640.1 336.5,645.4 355.0,649.8 373.8,653.5 392.7,656.3 411.7,658.4 430.8,659.6 450.0,660.0 469.2,659.6 488.3,658.4 507.3,656.3 526.2,653.5 545.0,649.8 563.5,645.4 581.8,640.1 599.7,634.1 617.3,627.3 634.6,619.8 651.4,611.6 667.8,602.6 683.6,593.0 699.0,582.6 713.7,571.7 727.9,560.1 741.4,548.0 754.3,535.2 766.5,522.0 778.0,508.2 788.7,494.0 798.6,479.3 807.8,464.2 816.1,448.7 823.6,432.9 830.3,416.8 836.0,400.4 840.9,383.8 845.0,367.0 848.1,350.1"/><polyline class="gum" stroke-dasharray="1 11" points="-21.1,359.3 -17.4,379.3 -12.6,399.2 -6.8,418.9 0.0,438.2 7.9,457.3 16.8,476.0 26.7,494.3 37.5,512.1 49.2,529.5 61.9,546.4 75.5,562.7 89.9,578.4 105.1,593.4 121.1,607.8 137.9,621.5 155.4,634.5 173.5,646.7 192.3,658.1 211.7,668.7 231.6,678.4 252.0,687.3 272.8,695.4 294.1,702.5 315.7,708.7 337.6,713.9 359.8,718.3 382.2,721.6 404.7,724.1 427.3,725.5 450.0,726.0 472.7,725.5 495.3,724.1 517.8,721.6 540.2,718.3 562.4,713.9 584.3,708.7 605.9,702.5 627.2,695.4 648.0,687.3 668.4,678.4 688.3,668.7 707.7,658.1 726.5,646.7 744.6,634.5 762.1,621.5 778.9,607.8 794.9,593.4 810.1,578.4 824.5,562.7 838.1,546.4 850.8,529.5 862.5,512.1 873.3,494.3 883.2,476.0 892.1,457.3 900.0,438.2 906.8,418.9 912.6,399.2 917.4,379.3 921.1,359.3"/><g transform="translate(472.7 599.3) rotate(-3.5)"><path class="t" style="--i:0" pathLength="1" d="M-6.8,-16.0 H6.8 Q19.0,-16.0 19.0,-3.8 V3.8 Q19.0,16.0 6.8,16.0 H-6.8 Q-19.0,16.0 -19.0,3.8 V-3.8 Q-19.0,-16.0 -6.8,-16.0 Z"/><path class="ti" style="--i:0" pathLength="1" d="M-3.8,-9.0 H3.8 Q12.0,-9.0 12.0,-0.8 V0.8 Q12.0,9.0 3.8,9.0 H-3.8 Q-12.0,9.0 -12.0,0.8 V-0.8 Q-12.0,-9.0 -3.8,-9.0 Z"/></g><g transform="translate(514.5 594.4) rotate(-10.0)"><path class="t" style="--i:1" pathLength="1" d="M-4.6,-15.0 H4.6 Q16.0,-15.0 16.0,-3.6 V3.6 Q16.0,15.0 4.6,15.0 H-4.6 Q-16.0,15.0 -16.0,3.6 V-3.6 Q-16.0,-15.0 -4.6,-15.0 Z"/><path class="ti" style="--i:1" pathLength="1" d="M-1.6,-8.0 H1.6 Q9.0,-8.0 9.0,-0.6 V0.6 Q9.0,8.0 1.6,8.0 H-1.6 Q-9.0,8.0 -9.0,0.6 V-0.6 Q-9.0,-8.0 -1.6,-8.0 Z"/></g><circle class="glow" cx="554.3" cy="585.1" r="64" fill="url(#lg)"/><g transform="translate(554.3 585.1) rotate(-16.3)"><path class="t lit" style="--i:2" pathLength="1" d="M-4.3,-20.0 H4.3 Q18.0,-20.0 18.0,-6.3 V6.3 Q18.0,20.0 4.3,20.0 H-4.3 Q-18.0,20.0 -18.0,6.3 V-6.3 Q-18.0,-20.0 -4.3,-20.0 Z"/><path class="ti" style="--i:2" pathLength="1" d="M-1.3,-13.0 H1.3 Q11.0,-13.0 11.0,-3.3 V3.3 Q11.0,13.0 1.3,13.0 H-1.3 Q-11.0,13.0 -11.0,3.3 V-3.3 Q-11.0,-13.0 -1.3,-13.0 Z"/></g><circle class="dot" cx="554.3" cy="585.1" r="3.2"/><g transform="translate(596.3 569.9) rotate(-23.5)"><path class="t" style="--i:3" pathLength="1" d="M-4.8,-21.0 H4.8 Q20.0,-21.0 20.0,-5.8 V5.8 Q20.0,21.0 4.8,21.0 H-4.8 Q-20.0,21.0 -20.0,5.8 V-5.8 Q-20.0,-21.0 -4.8,-21.0 Z"/><path class="ti" style="--i:3" pathLength="1" d="M-1.8,-14.0 H1.8 Q13.0,-14.0 13.0,-2.8 V2.8 Q13.0,14.0 1.8,14.0 H-1.8 Q-13.0,14.0 -13.0,2.8 V-2.8 Q-13.0,-14.0 -1.8,-14.0 Z"/></g><g transform="translate(637.4 548.7) rotate(-31.1)"><path class="t" style="--i:4" pathLength="1" d="M-4.8,-21.0 H4.8 Q20.0,-21.0 20.0,-5.8 V5.8 Q20.0,21.0 4.8,21.0 H-4.8 Q-20.0,21.0 -20.0,5.8 V-5.8 Q-20.0,-21.0 -4.8,-21.0 Z"/><path class="ti" style="--i:4" pathLength="1" d="M-1.8,-14.0 H1.8 Q13.0,-14.0 13.0,-2.8 V2.8 Q13.0,14.0 1.8,14.0 H-1.8 Q-13.0,14.0 -13.0,2.8 V-2.8 Q-13.0,-14.0 -1.8,-14.0 Z"/></g><g transform="translate(680.9 517.3) rotate(-40.4)"><path class="t" style="--i:5" pathLength="1" d="M-6.7,-29.0 H6.7 Q28.0,-29.0 28.0,-7.7 V7.7 Q28.0,29.0 6.7,29.0 H-6.7 Q-28.0,29.0 -28.0,7.7 V-7.7 Q-28.0,-29.0 -6.7,-29.0 Z"/><path class="ti" style="--i:5" pathLength="1" d="M-3.7,-22.0 H3.7 Q21.0,-22.0 21.0,-4.7 V4.7 Q21.0,22.0 3.7,22.0 H-3.7 Q-21.0,22.0 -21.0,4.7 V-4.7 Q-21.0,-22.0 -3.7,-22.0 Z"/></g><g transform="translate(722.4 474.6) rotate(-51.4)"><path class="t" style="--i:6" pathLength="1" d="M-6.5,-28.0 H6.5 Q27.0,-28.0 27.0,-7.5 V7.5 Q27.0,28.0 6.5,28.0 H-6.5 Q-27.0,28.0 -27.0,7.5 V-7.5 Q-27.0,-28.0 -6.5,-28.0 Z"/><path class="ti" style="--i:6" pathLength="1" d="M-3.5,-21.0 H3.5 Q20.0,-21.0 20.0,-4.5 V4.5 Q20.0,21.0 3.5,21.0 H-3.5 Q-20.0,21.0 -20.0,4.5 V-4.5 Q-20.0,-21.0 -3.5,-21.0 Z"/></g><g transform="translate(751.9 429.9) rotate(-61.8)"><path class="t" style="--i:7" pathLength="1" d="M-5.5,-23.0 H5.5 Q23.0,-23.0 23.0,-5.5 V5.5 Q23.0,23.0 5.5,23.0 H-5.5 Q-23.0,23.0 -23.0,5.5 V-5.5 Q-23.0,-23.0 -5.5,-23.0 Z"/><path class="ti" style="--i:7" pathLength="1" d="M-2.5,-16.0 H2.5 Q16.0,-16.0 16.0,-2.5 V2.5 Q16.0,16.0 2.5,16.0 H-2.5 Q-16.0,16.0 -16.0,2.5 V-2.5 Q-16.0,-16.0 -2.5,-16.0 Z"/></g><g transform="translate(427.3 599.3) rotate(3.5)"><path class="t" style="--i:8" pathLength="1" d="M-6.8,-16.0 H6.8 Q19.0,-16.0 19.0,-3.8 V3.8 Q19.0,16.0 6.8,16.0 H-6.8 Q-19.0,16.0 -19.0,3.8 V-3.8 Q-19.0,-16.0 -6.8,-16.0 Z"/><path class="ti" style="--i:8" pathLength="1" d="M-3.8,-9.0 H3.8 Q12.0,-9.0 12.0,-0.8 V0.8 Q12.0,9.0 3.8,9.0 H-3.8 Q-12.0,9.0 -12.0,0.8 V-0.8 Q-12.0,-9.0 -3.8,-9.0 Z"/></g><g transform="translate(385.5 594.4) rotate(10.0)"><path class="t" style="--i:9" pathLength="1" d="M-4.6,-15.0 H4.6 Q16.0,-15.0 16.0,-3.6 V3.6 Q16.0,15.0 4.6,15.0 H-4.6 Q-16.0,15.0 -16.0,3.6 V-3.6 Q-16.0,-15.0 -4.6,-15.0 Z"/><path class="ti" style="--i:9" pathLength="1" d="M-1.6,-8.0 H1.6 Q9.0,-8.0 9.0,-0.6 V0.6 Q9.0,8.0 1.6,8.0 H-1.6 Q-9.0,8.0 -9.0,0.6 V-0.6 Q-9.0,-8.0 -1.6,-8.0 Z"/></g><g transform="translate(345.7 585.1) rotate(16.3)"><path class="t" style="--i:10" pathLength="1" d="M-4.3,-20.0 H4.3 Q18.0,-20.0 18.0,-6.3 V6.3 Q18.0,20.0 4.3,20.0 H-4.3 Q-18.0,20.0 -18.0,6.3 V-6.3 Q-18.0,-20.0 -4.3,-20.0 Z"/><path class="ti" style="--i:10" pathLength="1" d="M-1.3,-13.0 H1.3 Q11.0,-13.0 11.0,-3.3 V3.3 Q11.0,13.0 1.3,13.0 H-1.3 Q-11.0,13.0 -11.0,3.3 V-3.3 Q-11.0,-13.0 -1.3,-13.0 Z"/></g><g transform="translate(303.7 569.9) rotate(23.5)"><path class="t" style="--i:11" pathLength="1" d="M-4.8,-21.0 H4.8 Q20.0,-21.0 20.0,-5.8 V5.8 Q20.0,21.0 4.8,21.0 H-4.8 Q-20.0,21.0 -20.0,5.8 V-5.8 Q-20.0,-21.0 -4.8,-21.0 Z"/><path class="ti" style="--i:11" pathLength="1" d="M-1.8,-14.0 H1.8 Q13.0,-14.0 13.0,-2.8 V2.8 Q13.0,14.0 1.8,14.0 H-1.8 Q-13.0,14.0 -13.0,2.8 V-2.8 Q-13.0,-14.0 -1.8,-14.0 Z"/></g><g transform="translate(262.6 548.7) rotate(31.1)"><path class="t" style="--i:12" pathLength="1" d="M-4.8,-21.0 H4.8 Q20.0,-21.0 20.0,-5.8 V5.8 Q20.0,21.0 4.8,21.0 H-4.8 Q-20.0,21.0 -20.0,5.8 V-5.8 Q-20.0,-21.0 -4.8,-21.0 Z"/><path class="ti" style="--i:12" pathLength="1" d="M-1.8,-14.0 H1.8 Q13.0,-14.0 13.0,-2.8 V2.8 Q13.0,14.0 1.8,14.0 H-1.8 Q-13.0,14.0 -13.0,2.8 V-2.8 Q-13.0,-14.0 -1.8,-14.0 Z"/></g><g transform="translate(219.1 517.3) rotate(40.4)"><path class="t" style="--i:13" pathLength="1" d="M-6.7,-29.0 H6.7 Q28.0,-29.0 28.0,-7.7 V7.7 Q28.0,29.0 6.7,29.0 H-6.7 Q-28.0,29.0 -28.0,7.7 V-7.7 Q-28.0,-29.0 -6.7,-29.0 Z"/><path class="ti" style="--i:13" pathLength="1" d="M-3.7,-22.0 H3.7 Q21.0,-22.0 21.0,-4.7 V4.7 Q21.0,22.0 3.7,22.0 H-3.7 Q-21.0,22.0 -21.0,4.7 V-4.7 Q-21.0,-22.0 -3.7,-22.0 Z"/></g><g transform="translate(177.6 474.6) rotate(51.4)"><path class="t" style="--i:14" pathLength="1" d="M-6.5,-28.0 H6.5 Q27.0,-28.0 27.0,-7.5 V7.5 Q27.0,28.0 6.5,28.0 H-6.5 Q-27.0,28.0 -27.0,7.5 V-7.5 Q-27.0,-28.0 -6.5,-28.0 Z"/><path class="ti" style="--i:14" pathLength="1" d="M-3.5,-21.0 H3.5 Q20.0,-21.0 20.0,-4.5 V4.5 Q20.0,21.0 3.5,21.0 H-3.5 Q-20.0,21.0 -20.0,4.5 V-4.5 Q-20.0,-21.0 -3.5,-21.0 Z"/></g><g transform="translate(148.1 429.9) rotate(61.8)"><path class="t" style="--i:15" pathLength="1" d="M-5.5,-23.0 H5.5 Q23.0,-23.0 23.0,-5.5 V5.5 Q23.0,23.0 5.5,23.0 H-5.5 Q-23.0,23.0 -23.0,5.5 V-5.5 Q-23.0,-23.0 -5.5,-23.0 Z"/><path class="ti" style="--i:15" pathLength="1" d="M-2.5,-16.0 H2.5 Q16.0,-16.0 16.0,-2.5 V2.5 Q16.0,16.0 2.5,16.0 H-2.5 Q-16.0,16.0 -16.0,2.5 V-2.5 Q-16.0,-16.0 -2.5,-16.0 Z"/></g>
+    </svg>
+  </div>
+  <div class="wrap" style="width:100%">
+    <aside class="fv" style="top:calc(var(--nav) + 8px)"><b>Hero and Smart Search</b>
+      <span><em>Why it is here:</em> the visitor's first job is to find a dentist. The approved Smart Search workflow is kept as built.</span>
+      <span><em>Searchability:</em> one H1, search action markup (sitelinks search box), text is server-rendered.</span>
+      <span><em>Revenue:</em> none on this block. It feeds search, then the clinic profile where booking lives.</span>
+      <span><em>Legal:</em> no superlatives. Location only on opt-in. Search history stored only with consent. Emergency line is in the footer.</span></aside>
+    <div class="hero__copy">
+      <h1 class="display rise" id="h1" style="animation-delay:.1s">Find the right dentist.<span>In your words.</span></h1>
+      <p class="hero__lede rise" style="animation-delay:.3s">Describe the pain, the treatment or the clinic you have in mind. IDW finds verified dentists near you and shows what each one offers.</p>
+
+      <div class="finder rise" style="animation-delay:.5s" id="searchBox">
+        <form class="plank" role="search" aria-label="Search dentists" onsubmit="doSearch();return false" autocomplete="off">
+          <label class="field" for="whatInput">
+            <svg class="i" aria-hidden="true"><use href="#i-search"/></svg>
+            <span class="field__body">
+              <input id="whatInput" type="text" aria-label="Treatment or clinic name" placeholder="Pain, treatment or clinic name" role="combobox" aria-expanded="false" aria-controls="sug" aria-autocomplete="list"></span>
+            <button type="button" class="field__x" id="whatClear" aria-label="Clear what you need"><svg class="i"><use href="#i-x"/></svg></button>
+            <button type="button" class="mic" id="micBtn" aria-label="Search by voice"><svg class="i"><use href="#i-mic"/></svg></button>
+          </label>
+          <label class="field" for="whereInput">
+            <svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>
+            <span class="field__body">
+              <input id="whereInput" type="text" aria-label="Area or city" placeholder="Area or city" role="combobox" aria-expanded="false" aria-controls="sug" aria-autocomplete="list"></span>
+            <button type="button" class="field__x" id="whereClear" aria-label="Clear location"><svg class="i"><use href="#i-x"/></svg></button>
+          </label>
+          <button class="go" type="submit"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg>Search</button>
+        </form>
+        <div class="sug" id="sug" role="listbox" aria-label="Suggestions"></div>
+      </div>
+
+      <div class="chips" role="group" aria-label="Common searches">
+        <button class="chip" type="button" data-q="Toothache" aria-pressed="false">Toothache</button>
+        <button class="chip" type="button" data-q="Root canal" aria-pressed="false">Root canal</button>
+        <button class="chip" type="button" data-q="Braces or aligners" aria-pressed="false">Braces and aligners</button>
+        <button class="chip" type="button" data-q="Implants" aria-pressed="false">Implants</button>
+        <button class="chip" type="button" data-q="Cleaning" aria-pressed="false">Cleaning</button>
+        <button class="chip" type="button" data-q="Kids dentist" aria-pressed="false">Kids dentist</button>
+      </div>
+      <div class="ctx" id="ctx" role="group" aria-label="Refine your search"></div>
+
+      <p class="hero__meta"><span><svg class="i"><use href="#i-check"/></svg>Free for patients</span><span><svg class="i"><use href="#i-check"/></svg>No sign-in to search</span><span><svg class="i"><use href="#i-check"/></svg>Verified clinics only carry the Verified badge</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= TRUST ======================= -->
+<section class="trust sec" style="padding:0" aria-label="Why patients trust IndiaDentalWorld">
+  <div class="stats-band" aria-label="IndiaDentalWorld statistics">
+    <div class="wrap">
+      <div class="hero__stats">
+        <div class="hero__stat"><strong>48,000+</strong><span>Patients</span></div>
+        <div class="hero__stat"><strong>620+</strong><span>Cities</span></div>
+        <div class="hero__stat"><strong>12,000+</strong><span>Clinics</span></div>
+        <div class="hero__stat"><strong>9,500+</strong><span>Open slots</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap" style="position:relative">
+    <aside class="fv" style="top:8px"><b>Trust strip</b>
+      <span><em>Why it is here:</em> a first-time visitor must trust the page within 60 seconds (your 4-way test, question 2).</span>
+      <span><em>Searchability:</em> plain-language proof of how verification works supports E-E-A-T.</span>
+      <span><em>Revenue:</em> none directly, lifts conversion on every other block.</span>
+      <span><em>Legal:</em> every claim must be true on launch day. That is why there are no vanity counts like "48,000 dentists".</span></aside>
+    <div class="trust__grid">
+      <div class="trust__item"><svg class="i"><use href="#i-shield"/></svg><h3>IDW Verified</h3><p>A clinic's DCI registration is checked before the Verified badge appears.</p></div>
+      <div class="trust__item"><svg class="i"><use href="#i-home"/></svg><h3>Address confirmed</h3><p>We confirm where the clinic is and who runs it.</p></div>
+      <div class="trust__item"><svg class="i"><use href="#i-star"/></svg><h3>Reviews from real visits</h3><p>Only patients with a completed appointment can review. Clinics cannot buy, edit or hide reviews.</p></div>
+      <div class="trust__item"><svg class="i"><use href="#i-lock"/></svg><h3>Your data stays yours</h3><p>We never sell your search history. Data is hosted in India under the DPDP Act, 2025.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= NEEDS INDEX ======================= -->
+<section class="sec" id="needs" aria-labelledby="needs-h">
+  <aside class="fv"><b>Treatment index</b>
+    <span><em>Why it is here:</em> most patients arrive with one need. One tap sends them to the right results.</span>
+    <span><em>Searchability:</em> twelve crawlable links to treatment results pages, the main internal-link hub for search.</span>
+    <span><em>Revenue:</em> one labelled category sponsor per treatment, from Month 6. Shown here only in founder view.</span>
+    <span><em>Legal:</em> descriptions are plain, not medical advice. Sponsor label is 12.5px and always visible. Emergencies point to 112.</span></aside>
+  <div class="wrap needs">
+    <div class="needs__aside">
+      <h2 class="title" id="needs-h">Start with what you need.</h2>
+      <p class="lede">Choose a treatment and we will show verified clinics that offer it, close to you.</p>
+      <a class="btn btn--ghost" href="#finder" data-focus-search>Search in your own words</a>
+    </div>
+    <div>
+      <ul class="rows treatment-cards">
+        <li><a class="treatment-card" href="/search?what=toothache&open=true"><span class="treatment-card__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 7c-4 0-7 3-7 8 0 5 3 7 4 12 1 6 2 14 5 14 3 0 2-10 8-10s5 10 8 10c3 0 4-8 5-14 1-5 4-7 4-12 0-5-3-8-7-8-4 0-6 2-10 2s-6-2-10-2Z"/><path d="M24 14v10m-5-5h10"/></svg></span><strong>Toothache</strong><small>Clinics open now</small><span class="treatment-card__arrow"><svg class="i"><use href="#i-arrow"/></svg></span></a></li>
+        <li><a class="treatment-card" href="/search?what=root-canal"><span class="treatment-card__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 7c-4 0-7 3-7 8 0 5 3 7 4 12 1 6 2 14 5 14 3 0 2-10 8-10s5 10 8 10c3 0 4-8 5-14 1-5 4-7 4-12 0-5-3-8-7-8-4 0-6 2-10 2s-6-2-10-2Z"/><path d="M24 29v8m0-18c-3 0-5-2-5-5m5 5c3 0 5-2 5-5"/></svg></span><strong>Root canal</strong><small>Relieve infection</small><span class="treatment-card__arrow"><svg class="i"><use href="#i-arrow"/></svg></span></a></li>
+        <li><a class="treatment-card" href="/search?what=braces-aligners"><span class="treatment-card__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 14c5-5 27-5 32 0v18c-5 5-27 5-32 0V14Z"/><path d="M12 23h24M16 18v10m8-10v10m8-10v10"/><rect x="13" y="20" width="6" height="6" rx="1"/><rect x="21" y="20" width="6" height="6" rx="1"/><rect x="29" y="20" width="6" height="6" rx="1"/></svg></span><strong>Braces &amp; aligners</strong><small>Orthodontic care</small><span class="treatment-card__arrow"><svg class="i"><use href="#i-arrow"/></svg></span></a></li>
+        <li><a class="treatment-card" href="/search?what=dental-implants"><span class="treatment-card__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M17 6c-4 0-7 3-7 8 0 4 2 7 4 12l3 12c1 4 3 4 4 0l3-10 3 10c1 4 3 4 4 0l3-12c2-5 4-8 4-12 0-5-3-8-7-8-4 0-5 2-10 2s-6-2-10-2Z"/><path d="M24 20v16m-4-9 4 3 4-3m-7 8 3 2 3-2"/></svg></span><strong>Dental implants</strong><small>Replace missing teeth</small><span class="treatment-card__arrow"><svg class="i"><use href="#i-arrow"/></svg></span></a></li>
+        <li><a class="treatment-card" href="/search?what=cleaning-gum-care"><span class="treatment-card__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 33 29 14a6 6 0 0 1 9 9L19 42l-9-9Z"/><path d="m26 17 5 5M8 9l3 3m10-7v5M5 22h5m26 10 4 4m-5 3 3 3"/></svg></span><strong>Cleaning &amp; gum care</strong><small>Preventive care</small><span class="treatment-card__arrow"><svg class="i"><use href="#i-arrow"/></svg></span></a></li>
+        <li><a class="treatment-card" href="/search?what=smile-design-whitening"><span class="treatment-card__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M9 28c8 9 22 9 30 0M13 25c7 6 15 6 22 0"/><path d="m35 7 1.6 4.4L41 13l-4.4 1.6L35 19l-1.6-4.4L29 13l4.4-1.6L35 7Z"/></svg></span><strong>Smile design</strong><small>Whitening &amp; cosmetic care</small><span class="treatment-card__arrow"><svg class="i"><use href="#i-arrow"/></svg></span></a></li>
+        <li><a class="treatment-card" href="/search?what=childrens-dentistry"><span class="treatment-card__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 7c-4 0-7 3-7 8 0 5 3 7 4 12 1 6 2 14 5 14 3 0 2-10 8-10s5 10 8 10c3 0 4-8 5-14 1-5 4-7 4-12 0-5-3-8-7-8-4 0-6 2-10 2s-6-2-10-2Z"/><path d="M17 21h.1m14 0h.1m-11 7c2 2 6 2 8 0"/></svg></span><strong>Kids dentist</strong><small>Care for children</small><span class="treatment-card__arrow"><svg class="i"><use href="#i-arrow"/></svg></span></a></li>
+        <li><a class="treatment-card" href="/search?what=wisdom-teeth-extraction"><span class="treatment-card__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 7c-4 0-7 3-7 8 0 5 3 7 4 12 1 6 2 14 5 14 3 0 2-10 8-10s5 10 8 10c3 0 4-8 5-14 1-5 4-7 4-12 0-5-3-8-7-8-4 0-6 2-10 2s-6-2-10-2Z"/><path d="M17 17h.1m14 0h.1m-14 9h14"/></svg></span><strong>Wisdom teeth</strong><small>Extraction &amp; oral surgery</small><span class="treatment-card__arrow"><svg class="i"><use href="#i-arrow"/></svg></span></a></li>
+        <li><a class="treatment-card" href="/search?what=tooth-extraction"><span class="treatment-card__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 7c-4 0-7 3-7 8 0 5 3 7 4 12 1 6 2 14 5 14 3 0 2-10 8-10s5 10 8 10c3 0 4-8 5-14 1-5 4-7 4-12 0-5-3-8-7-8-4 0-6 2-10 2s-6-2-10-2Z"/><path d="M24 12v17m-6-6 6 6 6-6"/></svg></span><strong>Tooth extraction</strong><small>Extractions &amp; oral surgery</small><span class="treatment-card__arrow"><svg class="i"><use href="#i-arrow"/></svg></span></a></li>
+        <li><a class="treatment-card" href="/search?what=dental-crowns"><span class="treatment-card__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="m8 15 5 25h22l5-25-10 8-6-16-6 16-10-8Z"/><path d="M15 34h18"/></svg></span><strong>Dental crowns</strong><small>Restore damaged teeth</small><span class="treatment-card__arrow"><svg class="i"><use href="#i-arrow"/></svg></span></a></li>
+        <li><a class="treatment-card" href="/search?what=tooth-fillings"><span class="treatment-card__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 7c-4 0-7 3-7 8 0 5 3 7 4 12 1 6 2 14 5 14 3 0 2-10 8-10s5 10 8 10c3 0 4-8 5-14 1-5 4-7 4-12 0-5-3-8-7-8-4 0-6 2-10 2s-6-2-10-2Z"/><path d="M19 18h10v7H19z"/></svg></span><strong>Tooth fillings</strong><small>Repair cavities</small><span class="treatment-card__arrow"><svg class="i"><use href="#i-arrow"/></svg></span></a></li>
+        <li><a class="treatment-card" href="/search?what=dentures"><span class="treatment-card__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 18c3 18 31 18 34 0M12 19v9m8-8v11m8-11v11m8-12v9"/><path d="M10 16h28"/></svg></span><strong>Dentures</strong><small>Replace missing teeth</small><span class="treatment-card__arrow"><svg class="i"><use href="#i-arrow"/></svg></span></a></li>
+      </ul>
+      <p class="emerg"><svg class="i"><use href="#i-alert"/></svg><span>In a dental emergency, call 112 or go to the nearest hospital. IDW does not give medical advice.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CLINICS NEAR YOU ======================= -->
+<section class="sec sec--alt" id="clinics" aria-labelledby="clinics-h">
+  <aside class="fv"><b>Verified clinics near you</b>
+    <span><em>Your question, answered:</em> not "top rated" or "best". Lists like that can mislead, are restricted in medical advertising (NMC, ASCI) and need real reviews you do not have yet.</span>
+    <span><em>Searchability:</em> links to clinic profiles and a local-clinic list, strong for local intent.</span>
+    <span><em>Revenue:</em> one labelled sponsored slot (Layer 3, off until 500+ daily sessions). Max 1 paid in 4 shown, verified clinics only.</span>
+    <span><em>Legal:</em> ranking basis is stated. Ratings show only with 3+ reviews. Paid clinics must match the visitor's area and be DCI verified.</span></aside>
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <h2 class="title" id="clinics-h">Verified clinics near you.</h2>
+        <p class="lede">Showing Bengaluru as a sample. Allow your location or choose a city to see clinics around you.</p>
+      </div>
+      <a class="btn btn--ghost" href="#finder" data-focus-where>Change location</a>
+    </div>
+    <div class="cards">
+      <article class="card slot-off card--spon">
+        <span class="sponsored">Sponsored</span>
+        <div class="card__top"><span class="tile tile--2" aria-hidden="true">PD</span><div><h3>PearlDent Multispeciality</h3><p class="card__loc">Indiranagar, 3.4 km</p></div></div>
+        <span class="verified"><svg class="i"><use href="#i-check"/></svg>DCI Verified</span>
+        <dl><div><dt>Rating</dt><dd>4.7 from 189 reviews</dd></div><div><dt>Next slot</dt><dd>Today 4:00 PM</dd></div></dl>
+        <a class="link" href="/clinics/pearldent-multispeciality-indiranagar">View profile <svg class="i"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="card">
+        <div class="card__top"><span class="tile tile--1" aria-hidden="true">SC</span><div><h3>SmileCare Dental Clinic</h3><p class="card__loc">Koramangala, 2.1 km</p></div></div>
+        <span class="verified"><svg class="i"><use href="#i-check"/></svg>DCI Verified</span>
+        <dl><div><dt>Rating</dt><dd>4.8 from 312 reviews</dd></div><div><dt>Next slot</dt><dd>Today 5:30 PM</dd></div></dl>
+        <a class="link" href="/clinics/smilecare-dental-clinic-koramangala">View profile <svg class="i"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="card">
+        <div class="card__top"><span class="tile tile--3" aria-hidden="true">DP</span><div><h3>Dental Plus Clinic</h3><p class="card__loc">HSR Layout, 4.2 km</p></div></div>
+        <span class="verified"><svg class="i"><use href="#i-check"/></svg>DCI Verified</span>
+        <dl><div><dt>Rating</dt><dd>4.6 from 204 reviews</dd></div><div><dt>Next slot</dt><dd>Tomorrow 10:00 AM</dd></div></dl>
+        <a class="link" href="/clinics/dental-plus-clinic-hsr-layout">View profile <svg class="i"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="card">
+        <div class="card__top"><span class="tile tile--4" aria-hidden="true">MO</span><div><h3>Molar &amp; Co Dental Studio</h3><p class="card__loc">BTM Layout, 3.8 km</p></div></div>
+        <span class="verified"><svg class="i"><use href="#i-check"/></svg>DCI Verified</span>
+        <dl><div><dt>Rating</dt><dd>New on IDW</dd></div><div><dt>Next slot</dt><dd>Today 3:00 PM</dd></div></dl>
+        <a class="link" href="/clinics/molar-and-co-dental-studio-btm-layout">View profile <svg class="i"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="card org-extra" style="display:none">
+        <div class="card__top"><span class="tile tile--2" aria-hidden="true">KD</span><div><h3>Kare Dental Specialists</h3><p class="card__loc">Banashankari, 5.7 km</p></div></div>
+      </article>
+    </div>
+    <p class="note">Ordered by distance, verification, profile completeness and patient reviews. Payment does not change this order. Any paid placement is labelled Sponsored. <a href="#how-ranked">How we rank</a>. Prices on clinic pages are indicative only.
+      <a class="link" style="margin-left:14px" href="/dentists/bengaluru">See all verified clinics in Bengaluru <svg class="i"><use href="#i-arrow"/></svg></a></p>
+  </div>
+</section>
+
+<!-- ======================= HOW IT WORKS ======================= -->
+<section class="sec" id="how" aria-labelledby="how-h">
+  <aside class="fv"><b>How it works</b>
+    <span><em>Why it is here:</em> removes the fear of the unknown for first-time visitors.</span>
+    <span><em>Searchability:</em> clear steps are eligible for rich answers and are easy for AI assistants to quote.</span>
+    <span><em>Revenue:</em> none. Booking happens on the clinic's profile page.</span>
+    <span><em>Legal:</em> steps must match the real flow, including "no sign-in until you book".</span></aside>
+  <div class="wrap">
+    <h2 class="title" id="how-h">Three steps, no phone calls.</h2>
+    <div class="steps">
+      <div class="step"><h3>Search</h3><p>Say what you need and where. Pain, a treatment or a clinic name all work.</p></div>
+      <div class="step"><h3>Compare</h3><p>See indicative prices, reviews from confirmed visits and the next free slot, before you commit.</p></div>
+      <div class="step"><h3>Book</h3><p>Choose a slot on the clinic's profile and sign in only at that point. Confirmation comes by WhatsApp.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= REVIEWS ======================= -->
+<section class="sec sec--alt" id="reviews" aria-labelledby="rv-h">
+  <aside class="fv"><b>Reviews you can check</b>
+    <span><em>Why it is here:</em> reviews are the strongest trust signal. At launch you have none, so this block explains the mechanism instead of showing invented praise.</span>
+    <span><em>Searchability:</em> strengthens E-E-A-T. Real reviews later feed star ratings in search results.</span>
+    <span><em>Revenue:</em> none. Reviews can never be paid for.</span>
+    <span><em>Legal:</em> fake or incentivised reviews are banned by Google and consumer-protection rules. The two samples are labelled and must go before launch.</span></aside>
+  <div class="wrap rv">
+    <div>
+      <h2 class="title" id="rv-h">Reviews you can check.</h2>
+      <p class="lede">Every review on IDW is linked to a completed appointment.</p>
+      <ul class="facts">
+        <li><svg class="i"><use href="#i-check"/></svg><b>Linked to a visit</b><span>No appointment, no review.</span></li>
+        <li><svg class="i"><use href="#i-lock"/></svg><b>Not for sale</b><span>Clinics cannot edit, hide or pay for reviews.</span></li>
+        <li><svg class="i"><use href="#i-chat"/></svg><b>Open to reply</b><span>Clinics can respond in public, so you see both sides.</span></li>
+      </ul>
+    </div>
+    <div>
+      <figure class="quote"><blockquote>The price at the clinic was the range I saw on IDW. I knew what to expect before I walked in.</blockquote>
+        <footer><span class="stars" aria-label="5 out of 5">★★★★★</span><b>Aishwarya M.</b><span>Bengaluru, braces</span><span class="sample">Sample review</span></footer></figure>
+      <figure class="quote"><blockquote>I had a toothache on a Sunday. I found a clinic that was open and had a slot within the hour.</blockquote>
+        <footer><span class="stars" aria-label="5 out of 5">★★★★★</span><b>Rahul K.</b><span>Mumbai, emergency visit</span><span class="sample">Sample review</span></footer></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FOR CLINICS ======================= -->
+<section class="sec" id="for-clinics" aria-labelledby="pro-h">
+  <aside class="fv"><b>For clinics</b>
+    <span><em>Why it is here:</em> your plan needs 50 real clinics before any marketing spend. This is the supply-side door.</span>
+    <span><em>Searchability:</em> captures clinic owners searching for a listing platform.</span>
+    <span><em>Revenue:</em> Layer 2. Free listing, premium plans from ₹999 to ₹2,999 a month. GST is invoiced.</span>
+    <span><em>Legal:</em> "verified within 48 hours" and plan prices must match the real policy before launch.</span></aside>
+  <div class="wrap">
+    <div class="pro">
+      <div>
+        <h2 id="pro-h">Be found by patients in your area.</h2>
+        <ul>
+          <li><svg class="i"><use href="#i-check"/></svg>List your clinic for free and get verified within 48 hours.</li>
+          <li><svg class="i"><use href="#i-check"/></svg>Keep your hours, prices and doctors in one place.</li>
+          <li><svg class="i"><use href="#i-check"/></svg>Answer reviews from real patients.</li>
+        </ul>
+        <div class="pro__btns"><a class="btn btn--teal" href="/list-your-clinic">List your clinic</a><a class="link" href="/for-clinics">See how it works <svg class="i"><use href="#i-arrow"/></svg></a></div>
+        <p class="pro__small">No setup fee. Premium plans start at ₹999 a month and are optional.</p>
+      </div>
+      <div class="mock" aria-hidden="true">
+        <div class="mock__top"><span class="tile tile--1">YC</span><div><h4>Your clinic name</h4><p>Your locality, your city</p></div></div>
+        <span class="verified" style="margin-top:18px"><svg class="i"><use href="#i-check"/></svg>DCI Verified</span>
+        <div class="bars"><i style="width:92%"></i><i style="width:74%"></i><i style="width:58%"></i></div>
+        <div class="mock__row"><span>View profile</span><span>Reviews</span></div>
+      </div>
+    </div>
+    <p class="pro__login">Already listed? <a href="/clinic-login">Clinic login</a></p>
+    <div class="biz" id="for-business">
+      <aside class="fv"><b>Labs, vendors and institutes</b>
+        <span><em>Why it is here:</em> same register-and-login path as clinics, so every kind of dental business has an obvious door. Each one is a separate wizard and login.</span>
+        <span><em>Searchability:</em> one landing page per audience (/for-dental-labs, /for-vendors, /for-institutes) targets "dental lab directory" style searches.</span>
+        <span><em>Revenue:</em> Layer 2 listings and Layer 3 brand partnerships. Plans and prices are not defined yet. Sponsored vendor placement waits for traffic proof.</span>
+        <span><em>Legal:</em> verify GST and licences before listing. Vendor claims for devices and materials must not be misleading (CDSCO, ASCI). Course accreditation claims must be checkable.</span></aside>
+      <h3 class="biz__h">Dental labs, suppliers and institutes</h3>
+      <p class="biz__lede">Every kind of dental business gets its own listing and its own login.</p>
+      <div class="biz__grid">
+        <article class="biz__card"><h4>Dental labs</h4><p>Show your work types, turnaround time and the clinics you serve.</p>
+          <div class="biz__act"><a class="btn btn--ghost" href="/register/lab">Register</a><a class="link" href="/lab-login">Log in</a></div></article>
+        <article class="biz__card"><h4>Product vendors</h4><p>List instruments, materials and equipment for clinics.</p>
+          <div class="biz__act"><a class="btn btn--ghost" href="/register/vendor">Register</a><a class="link" href="/vendor-login">Log in</a></div></article>
+        <article class="biz__card"><h4>Institutes and colleges</h4><p>Publish courses, workshops and CDE programmes for dentists.</p>
+          <div class="biz__act"><a class="btn btn--ghost" href="/register/institute">Register</a><a class="link" href="/institute-login">Log in</a></div></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CITIES ======================= -->
+<section class="sec sec--alt" id="cities" aria-labelledby="cities-h" style="padding-block:clamp(64px,8vw,110px)">
+  <aside class="fv"><b>Cities</b>
+    <span><em>Why it is here:</em> patients in smaller cities search by city name. This is where your Tier 2 findability starts.</span>
+    <span><em>Searchability:</em> plain links to every city page, an internal-link hub for crawlers.</span>
+    <span><em>Revenue:</em> later, priority placement by city for clinics rated 4.0 or higher, labelled.</span>
+    <span><em>Legal:</em> no counts shown until they are real.</span></aside>
+  <div class="wrap">
+    <h2 class="title" id="cities-h" style="max-width:22ch">Find dentists in your city.</h2>
+    <nav class="cities" aria-label="Dentists by city">
+      <a href="/dentists/bengaluru">Bengaluru</a><a href="/dentists/mumbai">Mumbai</a><a href="/dentists/delhi-ncr">Delhi NCR</a><a href="/dentists/chennai">Chennai</a><a href="/dentists/hyderabad">Hyderabad</a><a href="/dentists/kolkata">Kolkata</a><a href="/dentists/pune">Pune</a><a href="/dentists/ahmedabad">Ahmedabad</a><a href="/dentists/jaipur">Jaipur</a><a href="/dentists/lucknow">Lucknow</a><a href="/dentists/surat">Surat</a><a href="/dentists/kochi">Kochi</a><a href="/dentists/chandigarh">Chandigarh</a>
+    </nav>
+    <p class="cities__sub">Not listed? <a class="link" href="#finder" data-focus-where>Search any city or area</a></p>
+  </div>
+</section>
+
+<!-- ======================= GUIDES ======================= -->
+<section class="sec" id="guides" aria-labelledby="guides-h">
+  <aside class="fv"><b>Guides</b>
+    <span><em>Why it is here:</em> teaches before it sells. Builds the expertise Google and AI assistants look for.</span>
+    <span><em>Searchability:</em> every guide is a long-tail landing page with an identified, qualified author (E-E-A-T).</span>
+    <span><em>Revenue:</em> one labelled partner-content slot (brand supported, editorially independent). Off at launch.</span>
+    <span><em>Legal:</em> author qualification on every article. The three authors here are samples.</span></aside>
+  <div class="wrap">
+    <div class="head"><h2 class="title" id="guides-h">Guides written by dentists.</h2><a class="link" href="/guides">All guides <svg class="i"><use href="#i-arrow"/></svg></a></div>
+    <div class="guides">
+      <a class="guide" href="/guides/dental-implant-cost-india"><small>Implants</small><h3>How much do dental implants cost in India in 2026?</h3><p>8 min read. Dr. Ramesh Iyer, MDS (sample author)</p></a>
+      <a class="guide" href="/guides/metal-vs-ceramic-braces"><small>Braces</small><h3>Metal or ceramic braces: which suits you?</h3><p>6 min read. Dr. Sunita Rao, BDS (sample author)</p></a>
+      <a class="guide" href="/guides/root-canal-step-by-step"><small>Root canal</small><h3>What to expect during a root canal, step by step</h3><p>10 min read. Dr. Anil Kumar, MDS (sample author)</p></a>
+      <a class="guide slot-off" href="/guides/invisalign-guide-2026"><span class="sponsored">Partner content</span><small>Aligners</small><h3>A plain guide to clear aligners in 2026</h3><p>Supported by Align Technology. Written independently by a dentist.</p></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FAQ ======================= -->
+<section class="sec sec--alt" id="faq" aria-labelledby="faq-h">
+  <aside class="fv"><b>Questions</b>
+    <span><em>Why it is here:</em> answers the doubts that stop people from searching.</span>
+    <span><em>Searchability:</em> FAQ markup is included, which makes these answers eligible for rich results and AI citations.</span>
+    <span><em>Revenue:</em> none.</span>
+    <span><em>Legal:</em> each answer must match your real policy. Check the verification, payment and review answers.</span></aside>
+  <div class="wrap faq">
+    <div><h2 class="title" id="faq-h">Questions people ask.</h2></div>
+    <div>
+      <details><summary>How does IDW verify a clinic?<svg class="i"><use href="#i-plus"/></svg></summary><p>We check the clinic's DCI registration and confirm its address before the Verified badge appears. Clinics still being checked show "Verification pending".</p></details>
+      <details><summary>Is IDW free for patients?<svg class="i"><use href="#i-plus"/></svg></summary><p>Yes. Searching and comparing clinics is free and needs no sign-in. Clinics pay IDW, not patients.</p></details>
+      <details><summary>Are the prices final?<svg class="i"><use href="#i-plus"/></svg></summary><p>No. Prices are indicative ranges shared by clinics. The final cost depends on your examination and treatment plan, and the clinic confirms it before treatment.</p></details>
+      <details id="how-ranked"><summary>How do you rank clinics?<svg class="i"><use href="#i-plus"/></svg></summary><p>By distance, verification, profile completeness, rating, current availability and, to a small degree, the clinic's plan. Up to two listings on a results page can be paid placements. They are always labelled Sponsored and never change the order of the rest.</p></details>
+      <details><summary>How do reviews work?<svg class="i"><use href="#i-plus"/></svg></summary><p>Only patients with a completed appointment can review. Clinics can reply in public but cannot edit, hide or buy reviews.</p></details>
+      <details><summary>What should I do in a dental emergency?<svg class="i"><use href="#i-plus"/></svg></summary><p>Call 112 or go to the nearest hospital. IDW does not give medical advice. For a toothache that can wait, search "Toothache" to see clinics open now.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FINAL CTA ======================= -->
+<section class="sec final" aria-labelledby="final-h">
+  <aside class="fv"><b>Closing call to action</b>
+    <span><em>Why it is here:</em> a second chance to start a search after the visitor has read the page.</span>
+    <span><em>Searchability:</em> none needed.</span>
+    <span><em>Revenue:</em> the WhatsApp option carries a lead-routing fee in your Revenue Map (₹30–80 per lead). It acts like a commission, so it is your call whether to keep it.</span>
+    <span><em>Legal:</em> WhatsApp contact is opt-in only (DPDP).</span></aside>
+  <div class="wrap">
+    <h2 id="final-h">Your next dental visit starts with a search.</h2>
+    <p>Tell us what you need and where. It takes less than a minute.</p>
+    <div class="btns"><a class="btn btn--teal" href="#finder" data-focus-search>Find a dentist</a><a class="btn btn--ghost" href="https://wa.me/910000000000?text=Hi%20IDW"><svg class="i"><use href="#i-chat"/></svg>Message us on WhatsApp</a></div>
+    <small>We contact you on WhatsApp only if you message us first.</small>
+  </div>
+</section>
+</main>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="foot" role="contentinfo">
+  <div class="wrap" style="position:relative">
+    <div class="foot__grid">
+      <div class="foot__about">
+        <a class="logo" href="/"><svg viewBox="0 0 32 32" fill="none" stroke="#00C4A7" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M9 5c-3 0-5 2.2-5 5.4 0 3 1.4 4.6 2 7.4.5 2.4.6 7.2 3 7.2 1.8 0 1.6-5 3-5.8 1.2-.7 2.6-.7 3.8 0 1.4.8 1.2 5.8 3 5.8 2.4 0 2.5-4.8 3-7.2.6-2.8 2-4.4 2-7.4C28 7.2 26 5 23 5c-2.6 0-3.4 1.2-7 1.2S11.6 5 9 5z"/></svg><span>India<b>Dental</b>World</span></a>
+        <p>Verified dentists and clinics across India, for patients and for the people who run clinics.</p>
+        <form class="news" onsubmit="return false" aria-label="Dental health tips by email">
+          <div class="news__row"><label class="sr" for="nlEmail">Email address</label><input id="nlEmail" type="email" placeholder="Email address" autocomplete="email"><button id="nlBtn" type="submit" disabled>Subscribe</button></div>
+          <label class="consent"><input type="checkbox" id="nlConsent"> I agree to receive dental health tips from IndiaDentalWorld by email. I can unsubscribe at any time.</label>
+        </form>
+      </div>
+      <div><h4>Patients</h4><ul><li><a href="#finder">Find a dentist</a></li><li><a href="#needs">Treatments</a></li><li><a href="#cities">Cities</a></li><li><a href="/guides">Guides</a></li></ul></div>
+      <div><h4>For business</h4><ul><li><a href="/list-your-clinic">List your clinic</a></li><li><a href="/clinic-login">Clinic login</a></li><li><a href="/register/lab">Dental labs</a></li><li><a href="/register/vendor">Product vendors</a></li><li><a href="/register/institute">Institutes</a></li><li><a href="/plans">Plans</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="/about">About</a></li><li><a href="/careers">Careers</a></li><li><a href="/press">Press</a></li><li><a href="/contact">Contact</a></li></ul></div>
+      <div><h4>Legal</h4><ul><li><a href="/privacy">Privacy Policy</a></li><li><a href="/terms">Terms of Use</a></li><li><a href="/dpdp-notice">DPDP Notice</a></li><li><a href="/grievance-officer">Grievance Officer</a></li><li><a href="/advertising-policy">Advertising &amp; Sponsorship Policy</a></li><li><a href="/refunds">Refund Policy</a></li></ul></div>
+    </div>
+    <div class="legal">
+      <p><strong>In a dental emergency, call 112</strong> or go to the nearest hospital. IndiaDentalWorld does not give medical advice.</p>
+      <p>All prices are indicative only and are confirmed by the clinic after your examination. Clinic details are provided by clinics and checked as described in our verification policy.</p>
+      <p>© 2026 IndiaDentalWorld Pvt. Ltd. CIN: [to be added before launch]. Made in India.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- founder tools -->
+<button class="founder-btn" id="founderBtn" aria-pressed="false"><svg class="i"><use href="#i-star"/></svg><span id="founderTxt">Founder view: show revenue and legal map</span></button>
+<div class="proto">Prototype with sample data</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<div class="voice" id="voice" role="dialog" aria-modal="true" aria-label="Voice search">
+  <div class="voice__box">
+    <div class="ring"><svg class="i"><use href="#i-mic"/></svg></div>
+    <h2 id="voiceText">Listening…</h2>
+    <p>Say what is wrong or what you are looking for.</p>
+    <button class="btn btn--ghost" id="voiceCancel">Cancel</button>
+  </div>
+</div>
+
+<script>
+/* ---------- helpers ---------- */
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const slug=s=>s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+let toastTimer;
+function toast(html){const t=$('#toast');t.innerHTML=html;t.classList.add('on');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('on'),4200)}
+
+/* ---------- theme, nav, menu ---------- */
+const root=document.documentElement;
+function setTheme(t){root.setAttribute('data-theme',t);$('#themeBtn use').setAttribute('href',t==='dark'?'#i-sun':'#i-moon');$('meta[name=theme-color]').content=t==='dark'?'#0A1714':'#F2F6F5'}
+setTheme('dark');
+$('#themeBtn').addEventListener('click',()=>setTheme(root.getAttribute('data-theme')==='dark'?'light':'dark'));
+const nav=$('#nav');const onScroll=()=>nav.classList.toggle('is-solid',scrollY>12);onScroll();addEventListener('scroll',onScroll,{passive:true});
+
+(function(){const dds=$$('.dd');const closeAll=(except)=>dds.forEach(d=>{if(d!==except){d.classList.remove('on');d.querySelector('.dd__btn').setAttribute('aria-expanded','false')}});
+dds.forEach(d=>{const b=d.querySelector('.dd__btn');b.addEventListener('click',e=>{e.stopPropagation();const on=d.classList.toggle('on');b.setAttribute('aria-expanded',on);closeAll(d)})});
+document.addEventListener('click',e=>{if(!e.target.closest('.dd'))closeAll()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll()})})();
+$('#menuBtn').addEventListener('click',e=>{const p=$('#mobilePanel');const on=p.classList.toggle('on');document.body.classList.toggle('menu-open',on);e.currentTarget.setAttribute('aria-expanded',on)});
+$$('#mobilePanel a').forEach(a=>a.addEventListener('click',()=>{$('#mobilePanel').classList.remove('on');document.body.classList.remove('menu-open');$('#menuBtn').setAttribute('aria-expanded','false')}));
+$$('[data-focus-search]').forEach(a=>a.addEventListener('click',()=>setTimeout(()=>$('#whatInput').focus({preventScroll:true}),400)));
+$$('[data-focus-where]').forEach(a=>a.addEventListener('click',()=>setTimeout(()=>$('#whereInput').focus({preventScroll:true}),400)));
+
+/* ---------- founder view ---------- */
+$('#founderBtn').addEventListener('click',e=>{const on=document.body.classList.toggle('founder');e.currentTarget.setAttribute('aria-pressed',on);$('#founderTxt').textContent=on?'Founder view on: click to hide':'Founder view: show revenue and legal map'});
+
+/* ---------- newsletter consent (unchecked by default) ---------- */
+$('#nlConsent').addEventListener('change',e=>{$('#nlBtn').disabled=!e.target.checked});
+
+/* ======================= SMART SEARCH (approved workflow) ======================= */
+/* PROTOTYPE: GPS and voice are simulated as in the approved prototype. Build with real geolocation (opt-in) and speech-to-text. */
+const CLINICS=[
+ {init:'SC',name:'SmileCare Dental Clinic',loc:'Koramangala, Bengaluru',dist:'2.1 km',rating:'4.8',reviews:312,slot:'Today 5:30 PM',open:true,tags:['General','DCI Verified'],emergency:false},
+ {init:'PF',name:'PainFree Dental Clinic',loc:'Koramangala, Bengaluru',dist:'3.4 km',rating:'4.7',reviews:218,slot:'Today 5:00 PM',open:true,tags:['Emergency','DCI Verified'],emergency:true},
+ {init:'BD',name:'BrightDent Orthodontics',loc:'HSR Layout, Bengaluru',dist:'4.2 km',rating:'4.8',reviews:411,slot:'Tomorrow 10:00 AM',open:false,tags:['Orthodontics','Aligners'],emergency:false},
+ {init:'KF',name:'Kids First Paediatric Dental',loc:'JP Nagar, Bengaluru',dist:'5.1 km',rating:'4.9',reviews:287,slot:'Today 11:00 AM',open:true,tags:['Kids','Paediatric'],emergency:false},
+ {init:'ID',name:'Imperial Dental & Implants',loc:'Whitefield, Bengaluru',dist:'6.8 km',rating:'4.7',reviews:193,slot:'Tomorrow 9:00 AM',open:false,tags:['Implants','Specialist'],emergency:false}
+];
+const SPECIALTIES=[
+ {n:'Root canal specialist',s:'Endodontist, painless root canal treatment'},
+ {n:'Dental implants',s:'Oral surgery and replacement teeth'},
+ {n:'Orthodontics and aligners',s:'Braces, clear aligners'},
+ {n:"Children's dentist",s:'Paediatric dentistry, ages 2 to 16'},
+ {n:'General dentistry',s:'Check-up, cleaning, fillings'},
+ {n:'Gum and periodontal care',s:'Periodontist, deep cleaning'}
+];
+const LOCATIONS=[
+ {m:'Indiranagar',s:'Bengaluru East, Karnataka'},{m:'Koramangala',s:'Bengaluru South, Karnataka'},{m:'HSR Layout',s:'Bengaluru South, Karnataka'},
+ {m:'JP Nagar',s:'Bengaluru South, Karnataka'},{m:'Bandra West',s:'Mumbai, Maharashtra'},{m:'Andheri East',s:'Mumbai, Maharashtra'},{m:'Connaught Place',s:'New Delhi, Delhi'}
+];
+const INTENTS={toothache:'Emergency or pain relief',pain:'Emergency or pain relief',hurting:'Emergency or pain relief','root canal':'Root canal treatment',implant:'Implant surgery',brace:'Orthodontic treatment',aligner:'Orthodontic treatment',clean:'Preventive care and scaling',scaling:'Preventive care and scaling',whitening:'Cosmetic dentistry',kid:"Children's dentistry",child:"Children's dentistry",crown:'Restorative dentistry',filling:'Restorative dentistry'};
+const FILTERS=[
+ {k:'open',l:'Open now',p:'open=true'},{k:'sameday',l:'Same-day slot',p:'slot=today'},{k:'rating',l:'4.5 stars and above',p:'rating=4.5'},{k:'verified',l:'DCI verified',p:'verified=true'},{k:'upi',l:'Accepts UPI',p:'upi=true'},
+ {k:'female',l:'Female doctor',p:'doctor=female',ctx:/female|woman|lady/i},{k:'hindi',l:'Speaks Hindi',p:'lang=hi',ctx:/hindi/i},{k:'access',l:'Step-free access',p:'access=true',ctx:/wheelchair|access|disab/i},{k:'paed',l:"Children's dentist",p:'specialty=paediatric',ctx:/kid|child|paed|pedo/i}
+];
+const state={what:'',where:'',filters:new Set(),focus:null};
+const what=$('#whatInput'), where=$('#whereInput'), sug=$('#sug');
+
+const detect=q=>{q=q.toLowerCase();for(const k in INTENTS) if(q.includes(k)) return INTENTS[k];return null};
+function setExpanded(v){what.setAttribute('aria-expanded',v);where.setAttribute('aria-expanded',v)}
+function openSug(){sug.classList.add('open');setExpanded(true)}
+function hideSug(){sug.classList.remove('open');setExpanded(false)}
+function clinicOpt(c){
+  const tag=c.emergency?'<span class="tag tag--emerg">Emergency care</span>':(c.open?'<span class="tag tag--open">Open now</span>':'');
+  const later=c.slot.startsWith('Today')?'':' later';
+  return `<button type="button" class="opt" role="option" data-clinic="${esc(c.name)}"><span class="opt__glyph">${esc(c.init)}</span>
+    <span class="opt__main"><span class="opt__t">${esc(c.name)}${tag}</span><span class="opt__s">${c.rating} stars from ${c.reviews} reviews, ${esc(c.loc)}, ${c.dist}</span></span>
+    <span class="opt__r"><b class="${later.trim()}">${esc(c.slot)}</b>Next slot</span></button>`;
+}
+function specOpt(s){return `<button type="button" class="opt" role="option" data-spec="${esc(s.n)}"><span class="opt__glyph">${esc(s.n[0])}</span><span class="opt__main"><span class="opt__t">${esc(s.n)}</span><span class="opt__s">${esc(s.s)}</span></span></button>`}
+function renderWhat(val){
+  let h='';const intent=detect(val);
+  if(val.length>2&&intent) h+=`<div class="intent"><i></i><span>IDW understands: <strong>${esc(intent)}</strong></span><button type="button" data-go>Search this</button></div>`;
+  if(!val){h+='<div class="sug__h">Browse by specialty</div>'+SPECIALTIES.map(specOpt).join('')}
+  else{
+    const v=val.toLowerCase();
+    const sp=SPECIALTIES.filter(s=>s.n.toLowerCase().includes(v)||s.s.toLowerCase().includes(v));
+    if(sp.length) h+='<div class="sug__h">Specialties</div>'+sp.map(specOpt).join('');
+    const cl=CLINICS.filter(c=>c.name.toLowerCase().includes(v)||c.tags.some(t=>t.toLowerCase().includes(v)));
+    if(cl.length) h+=`<div class="sug__h">Clinics matching "${esc(val)}"</div>`+cl.slice(0,3).map(clinicOpt).join('');
+  }
+  if(!h) h=`<div class="sug__note">No results for "${esc(val)}". Try a symptom, a procedure or a doctor's name.</div>`;
+  sug.innerHTML=h;openSug();
+}
+function renderWhere(val){
+  const v=val.toLowerCase();
+  let h=`<button type="button" class="opt" role="option" data-gps><span class="opt__glyph"><svg class="i"><use href="#i-target"/></svg></span><span class="opt__main"><span class="opt__t">Use my current location</span><span class="opt__s">Finds your nearest clinics. Used only for this search and not stored.</span></span></button>`;
+  const list=v?LOCATIONS.filter(l=>l.m.toLowerCase().includes(v)||l.s.toLowerCase().includes(v)):LOCATIONS;
+  h+='<div class="sug__h">Localities and cities</div>'+list.map(l=>`<button type="button" class="opt" role="option" data-loc="${esc(l.m)}"><span class="opt__glyph"><svg class="i"><use href="#i-pin"/></svg></span><span class="opt__main"><span class="opt__t">${esc(l.m)}</span><span class="opt__s">${esc(l.s)}</span></span></button>`).join('');
+  sug.innerHTML=h;openSug();
+}
+what.addEventListener('focus',()=>{state.focus='what';renderWhat(what.value)});
+where.addEventListener('focus',()=>{state.focus='where';renderWhere(where.value)});
+what.addEventListener('input',()=>{state.what=what.value;$('#whatClear').classList.toggle('on',!!what.value);renderWhat(what.value);renderCtx()});
+where.addEventListener('input',()=>{state.where=where.value;$('#whereClear').classList.toggle('on',!!where.value);renderWhere(where.value)});
+$('#whatClear').addEventListener('click',e=>{e.preventDefault();what.value='';state.what='';e.currentTarget.classList.remove('on');$$('.chip').forEach(c=>c.setAttribute('aria-pressed','false'));renderCtx();what.focus()});
+$('#whereClear').addEventListener('click',e=>{e.preventDefault();where.value='';state.where='';e.currentTarget.classList.remove('on');where.focus()});
+
+sug.addEventListener('click',e=>{
+  const o=e.target.closest('[data-spec],[data-clinic],[data-loc],[data-gps],[data-go]');if(!o)return;
+  if(o.dataset.spec){what.value=o.dataset.spec;state.what=o.dataset.spec;$('#whatClear').classList.add('on');hideSug();renderCtx();where.focus()}
+  else if(o.dataset.clinic){what.value=o.dataset.clinic;state.what=o.dataset.clinic;doSearch()}
+  else if(o.dataset.loc){where.value=o.dataset.loc;state.where=o.dataset.loc;$('#whereClear').classList.add('on');hideSug()}
+  else if('gps' in o.dataset){where.value='Detecting location…';hideSug();setTimeout(()=>{where.value='Koramangala, Bengaluru (sample)';state.where=where.value;$('#whereClear').classList.add('on')},1100)}
+  else if('go' in o.dataset){doSearch()}
+});
+/* keyboard: arrows move through suggestions, Enter selects, Escape closes */
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){hideSug();$('#voice').classList.remove('on')}
+  if(!sug.classList.contains('open')) return;
+  const opts=$$('.opt',sug);const i=opts.indexOf(document.activeElement);
+  if(e.key==='ArrowDown'){e.preventDefault();(opts[i+1]||opts[0])?.focus()}
+  if(e.key==='ArrowUp'){e.preventDefault();(i>0?opts[i-1]:(state.focus==='where'?where:what)).focus()}
+});
+document.addEventListener('click',e=>{if(!$('#searchBox').contains(e.target)) hideSug()});
+
+/* intent chips: pre-fill and reveal relevant filters */
+$$('.chip').forEach(c=>c.addEventListener('click',()=>{
+  $$('.chip').forEach(x=>x.setAttribute('aria-pressed',x===c?'true':'false'));
+  what.value=c.dataset.q;state.what=c.dataset.q;$('#whatClear').classList.add('on');
+  if(c.dataset.q==='Toothache') state.filters.add('open');
+  renderCtx();hideSug();where.focus();
+}));
+/* contextual filters: appear only when relevant */
+function renderCtx(){
+  const box=$('#ctx');const q=what.value.trim();
+  if(!q){box.classList.remove('on');box.innerHTML='';return}
+  const list=FILTERS.filter(f=>!f.ctx||f.ctx.test(q));
+  box.innerHTML='<span class="ctx__t">Narrow it down</span>'+list.map(f=>`<button type="button" class="pill" data-f="${f.k}" aria-pressed="${state.filters.has(f.k)}">${esc(f.l)}</button>`).join('');
+  box.classList.add('on');
+}
+$('#ctx').addEventListener('click',e=>{const b=e.target.closest('[data-f]');if(!b)return;const k=b.dataset.f;state.filters.has(k)?state.filters.delete(k):state.filters.add(k);b.setAttribute('aria-pressed',state.filters.has(k))});
+
+/* search: no login gate, results are public. Prototype shows the destination URL. */
+function doSearch(){
+  hideSug();
+  const w=what.value.trim()||'General dentistry', c=where.value.replace(/\s*\(sample\)/,'').trim()||'Bengaluru';
+  const params=['what='+slug(w),'where='+slug(c)];
+  FILTERS.filter(f=>state.filters.has(f.k)).forEach(f=>params.push(f.p));
+  const url='/search?'+params.join('&');
+  toast('The results page opens here, with no sign-in:<br><code>'+esc(url)+'</code>');
+}
+
+/* voice search (simulated, as in the approved prototype) */
+let voiceRun=0;
+function startVoice(){
+  const v=$('#voice'),t=$('#voiceText');v.classList.add('on');t.textContent='Listening…';
+  const id=++voiceRun;const steps=[['My…',900],['My tooth…',1300],['My tooth is hurting badly',1900]];
+  steps.forEach(([txt,ms])=>setTimeout(()=>{if(id===voiceRun&&v.classList.contains('on'))t.textContent=txt},ms));
+  setTimeout(()=>{if(id!==voiceRun||!v.classList.contains('on'))return;v.classList.remove('on');what.value='My tooth is hurting badly';state.what=what.value;$('#whatClear').classList.add('on');renderCtx();what.focus();renderWhat(what.value)},2900);
+}
+$('#micBtn').addEventListener('click',e=>{e.preventDefault();startVoice()});
+$('#voiceCancel').addEventListener('click',()=>{voiceRun++;$('#voice').classList.remove('on')});
+</script>
+</body>
+</html>

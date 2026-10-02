@@ -1,0 +1,1507 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>IDW Revenue Map</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lora:wght@600&display=swap">
+
+<style>
+:root {
+  --bg: #0A1714;
+  --bg2: #0F1E1A;
+  --bg3: #162520;
+  --surface: #1A2E28;
+  --surface2: #213830;
+  --border: #2A4038;
+  --border2: #3A5048;
+  --teal: #00C4A7;
+  --teal-dim: rgba(0,196,167,0.12);
+  --teal-glow: rgba(0,196,167,0.25);
+  --rose: #F06A6A;
+  --rose-dim: rgba(240,106,106,0.12);
+  --amber: #F5A623;
+  --amber-dim: rgba(245,166,35,0.12);
+  --green: #34D399;
+  --green-dim: rgba(52,211,153,0.12);
+  --purple: #A78BFA;
+  --purple-dim: rgba(167,139,250,0.12);
+  --blue: #60A5FA;
+  --blue-dim: rgba(96,165,250,0.12);
+  --text: #E8F0EE;
+  --text2: #A8BDB8;
+  --text3: #6B8C85;
+  --heading-font: 'Lora', Georgia, serif;
+  --body-font: 'Plus Jakarta Sans', system-ui, sans-serif;
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #F0F7F5;
+    --bg2: #E8F2EF;
+    --bg3: #DFF0EC;
+    --surface: #FFFFFF;
+    --surface2: #F5FAF9;
+    --border: #C8DDD9;
+    --border2: #B0CECA;
+    --teal: #009985;
+    --teal-dim: rgba(0,153,133,0.08);
+    --teal-glow: rgba(0,153,133,0.15);
+    --rose: #D94F4F;
+    --rose-dim: rgba(217,79,79,0.08);
+    --amber: #C8830A;
+    --amber-dim: rgba(200,131,10,0.08);
+    --green: #1A9E72;
+    --green-dim: rgba(26,158,114,0.08);
+    --purple: #6D4FC4;
+    --purple-dim: rgba(109,79,196,0.08);
+    --blue: #2D72C4;
+    --blue-dim: rgba(45,114,196,0.08);
+    --text: #0D1F1C;
+    --text2: #3A5C56;
+    --text3: #6B8C85;
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #F0F7F5; --bg2: #E8F2EF; --bg3: #DFF0EC;
+  --surface: #FFFFFF; --surface2: #F5FAF9;
+  --border: #C8DDD9; --border2: #B0CECA;
+  --teal: #009985; --teal-dim: rgba(0,153,133,0.08); --teal-glow: rgba(0,153,133,0.15);
+  --rose: #D94F4F; --rose-dim: rgba(217,79,79,0.08);
+  --amber: #C8830A; --amber-dim: rgba(200,131,10,0.08);
+  --green: #1A9E72; --green-dim: rgba(26,158,114,0.08);
+  --purple: #6D4FC4; --purple-dim: rgba(109,79,196,0.08);
+  --blue: #2D72C4; --blue-dim: rgba(45,114,196,0.08);
+  --text: #0D1F1C; --text2: #3A5C56; --text3: #6B8C85;
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--body-font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 15px;
+  padding: 0;
+}
+
+/* ── Site header ── */
+.site-header {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 100;
+  background: rgba(10,23,20,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+:root[data-theme="light"] .site-header { background: rgba(240,247,245,0.92); }
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: -0.3px;
+}
+.logo-mark {
+  width: 28px; height: 28px;
+  background: var(--teal);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 800; color: #0A1714;
+}
+.logo-text { color: var(--text); }
+.logo-text span { color: var(--teal); }
+
+.header-right { display: flex; align-items: center; gap: 12px; }
+.version-badge {
+  font-size: 11px; font-weight: 600;
+  background: var(--teal-dim);
+  color: var(--teal);
+  border: 1px solid var(--teal-glow);
+  padding: 3px 8px; border-radius: 20px;
+  letter-spacing: 0.3px;
+}
+
+.theme-toggle {
+  width: 32px; height: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px;
+  transition: background 0.2s;
+}
+.theme-toggle:hover { background: var(--surface2); }
+
+/* ── Layout ── */
+.layout {
+  display: flex;
+  min-height: calc(100vh - 56px);
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background: var(--bg2);
+  border-right: 1px solid var(--border);
+  padding: 24px 0;
+  position: sticky;
+  top: 56px;
+  height: calc(100vh - 56px);
+  overflow-y: auto;
+}
+
+.sidebar-section-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text3);
+  padding: 0 16px 8px;
+  margin-top: 16px;
+}
+.sidebar-section-label:first-child { margin-top: 0; }
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text2);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: all 0.15s;
+}
+.sidebar-nav a:hover { color: var(--text); background: var(--surface); }
+.sidebar-nav a.active {
+  color: var(--teal);
+  border-left-color: var(--teal);
+  background: var(--teal-dim);
+}
+.sidebar-nav .nav-icon { font-size: 14px; opacity: 0.8; }
+
+/* ── Main content ── */
+.main {
+  flex: 1;
+  min-width: 0;
+  padding: 40px 48px;
+  max-width: 960px;
+}
+
+/* ── Hero ── */
+.hero {
+  margin-bottom: 48px;
+}
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 12px;
+}
+.hero-title {
+  font-family: var(--heading-font);
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 14px;
+  text-wrap: balance;
+}
+.hero-subtitle {
+  font-size: 16px;
+  color: var(--text2);
+  line-height: 1.7;
+  max-width: 620px;
+  margin-bottom: 24px;
+}
+
+.hero-principle {
+  background: var(--teal-dim);
+  border: 1px solid var(--teal-glow);
+  border-left: 4px solid var(--teal);
+  border-radius: 0 12px 12px 0;
+  padding: 16px 20px;
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.6;
+  max-width: 680px;
+}
+.hero-principle strong { color: var(--teal); }
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+.tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+.tag-teal { background: var(--teal-dim); color: var(--teal); border: 1px solid var(--teal-glow); }
+.tag-amber { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(245,166,35,0.3); }
+.tag-rose { background: var(--rose-dim); color: var(--rose); border: 1px solid rgba(240,106,106,0.3); }
+.tag-green { background: var(--green-dim); color: var(--green); border: 1px solid rgba(52,211,153,0.3); }
+.tag-purple { background: var(--purple-dim); color: var(--purple); border: 1px solid rgba(167,139,250,0.3); }
+.tag-blue { background: var(--blue-dim); color: var(--blue); border: 1px solid rgba(96,165,250,0.3); }
+
+/* ── Section ── */
+.doc-section {
+  margin-bottom: 60px;
+  scroll-margin-top: 72px;
+}
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.section-number {
+  width: 32px; height: 32px;
+  background: var(--teal);
+  color: #0A1714;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 800;
+  flex-shrink: 0;
+}
+.section-title {
+  font-family: var(--heading-font);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* ── Revenue tables ── */
+.rev-table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 24px; }
+.rev-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  font-variant-numeric: tabular-nums;
+}
+.rev-table thead {
+  background: var(--surface2);
+}
+.rev-table thead th {
+  padding: 11px 16px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--text3);
+  white-space: nowrap;
+}
+.rev-table tbody tr {
+  border-top: 1px solid var(--border);
+  transition: background 0.15s;
+}
+.rev-table tbody tr:hover { background: var(--surface); }
+.rev-table tbody td {
+  padding: 12px 16px;
+  color: var(--text2);
+  vertical-align: top;
+}
+.rev-table tbody td:first-child {
+  color: var(--text);
+  font-weight: 600;
+  width: 160px;
+}
+.rev-table tbody td .model-name {
+  color: var(--teal);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 2px;
+}
+.rev-table tbody td .model-desc { font-size: 12px; color: var(--text3); }
+.rev-table tbody td .user-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--green-dim);
+  color: var(--green);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.rev-table tbody td .warn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--amber-dim);
+  color: var(--amber);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* ── Tier summary table ── */
+.tier-table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 24px; }
+.tier-table { width: 100%; border-collapse: collapse; font-size: 13.5px; font-variant-numeric: tabular-nums; }
+.tier-table thead { background: var(--surface2); }
+.tier-table thead th { padding: 11px 16px; text-align: left; font-size: 11px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--text3); }
+.tier-table tbody tr { border-top: 1px solid var(--border); transition: background 0.15s; }
+.tier-table tbody tr:hover { background: var(--surface); }
+.tier-table tbody td { padding: 12px 16px; color: var(--text2); vertical-align: middle; }
+.tier-table tbody td:first-child { font-weight: 700; }
+
+.badge-core { background: var(--teal-dim); color: var(--teal); border: 1px solid var(--teal-glow); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; }
+.badge-growth { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(245,166,35,0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; }
+.badge-scale { background: var(--purple-dim); color: var(--purple); border: 1px solid rgba(167,139,250,0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; }
+
+/* ── Layer cards ── */
+.layer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.layer-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+.layer-card.l1 { border-top: 3px solid var(--teal); }
+.layer-card.l2 { border-top: 3px solid var(--amber); }
+.layer-card.l3 { border-top: 3px solid var(--purple); }
+.layer-num { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+.layer-card.l1 .layer-num { color: var(--teal); }
+.layer-card.l2 .layer-num { color: var(--amber); }
+.layer-card.l3 .layer-num { color: var(--purple); }
+.layer-name { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+.layer-body { font-size: 13px; color: var(--text2); line-height: 1.6; }
+
+/* ── Rules section ── */
+.rules-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.rule-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+.rule-block-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.rule-block-title .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+}
+.dot-teal { background: var(--teal); }
+.dot-amber { background: var(--amber); }
+.dot-blue { background: var(--blue); }
+.dot-green { background: var(--green); }
+
+.rule-list { list-style: none; }
+.rule-list li {
+  display: flex;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text2);
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.5;
+}
+.rule-list li:last-child { border-bottom: none; }
+.rule-list li::before {
+  content: '→';
+  color: var(--text3);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── Non-negotiable banner ── */
+.noneg-banner {
+  background: var(--rose-dim);
+  border: 1px solid rgba(240,106,106,0.3);
+  border-left: 4px solid var(--rose);
+  border-radius: 0 12px 12px 0;
+  padding: 14px 18px;
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.noneg-banner strong { color: var(--rose); }
+
+/* ── UX rules pills ── */
+.ux-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ux-rule {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--text2);
+}
+.ux-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+.ux-rule strong { color: var(--text); }
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .sidebar { display: none; }
+  .main { padding: 24px 20px; }
+  .hero-title { font-size: 26px; }
+  .layer-grid { grid-template-columns: 1fr; }
+  .rules-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Placement diagrams ── */
+.placement-heading {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin: 28px 0 12px;
+}
+.placement-diagram {
+  margin-top: 28px;
+  overflow-x: auto;
+}
+.placement-diagram svg {
+  width: 100%;
+  max-width: 580px;
+  display: block;
+}
+.placement-legend {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  margin-top: 12px;
+}
+.placement-legend th {
+  background: var(--surface2);
+  padding: 8px 12px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--text3);
+}
+.placement-legend td {
+  padding: 9px 12px;
+  color: var(--text2);
+  border-top: 1px solid var(--border);
+  vertical-align: top;
+}
+.placement-legend td:first-child {
+  color: var(--amber);
+  font-weight: 700;
+  width: 24px;
+  text-align: center;
+}
+.placement-legend td:nth-child(2) {
+  color: var(--text);
+  font-weight: 600;
+}
+</style>
+
+<!-- Site header -->
+<header class="site-header">
+  <div class="site-logo">
+    <div class="logo-mark">IDW</div>
+    <span class="logo-text">India<span>Dental</span>World</span>
+  </div>
+  <div class="header-right">
+    <span class="version-badge">v1.0 · Sep 2026</span>
+    <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
+  </div>
+</header>
+
+<div class="layout">
+  <!-- Sidebar nav -->
+  <nav class="sidebar sidebar-nav" id="sidebarNav">
+    <div class="sidebar-section-label">Revenue Map</div>
+    <a href="#homepage" class="active"><span class="nav-icon">🏠</span>Homepage</a>
+    <a href="#search"><span class="nav-icon">🔍</span>Search Results</a>
+    <a href="#clinic-profile"><span class="nav-icon">🏥</span>Clinic Profile</a>
+    <a href="#pro-hub"><span class="nav-icon">👩‍⚕️</span>/pro Hub</a>
+    <a href="#blog"><span class="nav-icon">📝</span>Blog / Education</a>
+    <a href="#patient-dash"><span class="nav-icon">👤</span>Patient Dashboard</a>
+
+    <div class="sidebar-section-label">Framework</div>
+    <a href="#tier-summary"><span class="nav-icon">📊</span>Revenue Tiers</a>
+    <a href="#layers"><span class="nav-icon">🔺</span>3-Layer Model</a>
+    <a href="#rules"><span class="nav-icon">⚖️</span>Non-Negotiables</a>
+  </nav>
+
+  <!-- Main content -->
+  <main class="main">
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-eyebrow">IDW Master Revenue Map</div>
+      <h1 class="hero-title">Win-Win-Win Revenue Framework</h1>
+      <p class="hero-subtitle">Every revenue stream mapped by page and section — with user benefit, best practice, and compliance status. Applied to every page we build.</p>
+      <div class="hero-principle">
+        Every revenue stream must simultaneously benefit the <strong>user</strong> (better experience, more value), the <strong>platform</strong> (sustainable income), and the <strong>advertiser/clinic</strong> (real ROI). Any revenue model that degrades user experience is rejected — it kills trust, kills SEO, and kills the platform long-term.
+      </div>
+      <div class="hero-tags">
+        <span class="tag tag-teal">GoI Compliant</span>
+        <span class="tag tag-amber">Google E-E-A-T</span>
+        <span class="tag tag-green">DPDP 2025</span>
+        <span class="tag tag-rose">ASCI Labelled</span>
+        <span class="tag tag-purple">LLM-Citable</span>
+        <span class="tag tag-blue">Investor Ready</span>
+      </div>
+    </div>
+
+    <!-- 1. Homepage -->
+    <section class="doc-section" id="homepage">
+      <div class="section-header">
+        <div class="section-number">1</div>
+        <h2 class="section-title">Homepage</h2>
+      </div>
+      <div class="rev-table-wrap">
+        <table class="rev-table">
+          <thead>
+            <tr>
+              <th>Section</th>
+              <th>Revenue Model</th>
+              <th>User Benefit</th>
+              <th>Best Practice</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Search bar</td>
+              <td><span class="model-name">Lead intent data</span><span class="model-desc">Anonymous, aggregated</span></td>
+              <td><span class="user-pill">✓ Faster, smarter results over time</span></td>
+              <td>Never sell individual search data (DPDP violation)</td>
+            </tr>
+            <tr>
+              <td>Featured clinics strip</td>
+              <td><span class="model-name">Sponsored listing</span><span class="model-desc">Clinic pays for placement</span></td>
+              <td><span class="user-pill">✓ Surfaces vetted premium clinics</span></td>
+              <td><span class="warn-pill">⚠ Must label "Sponsored"</span> Google policy: undisclosed = penalty</td>
+            </tr>
+            <tr>
+              <td>Treatment category tiles</td>
+              <td><span class="model-name">Category sponsorship</span><span class="model-desc">"Implants powered by Nobel Biocare"</span></td>
+              <td><span class="user-pill">✓ Surfaces trusted brands</span></td>
+              <td>One sponsor per category max</td>
+            </tr>
+            <tr>
+              <td>City tiles</td>
+              <td><span class="model-name">Regional clinic boosting</span><span class="model-desc">Clinics pay for priority by city</span></td>
+              <td><span class="user-pill">✓ Sees highly rated clinic first</span></td>
+              <td>Boost only clinics above 4.0 rating</td>
+            </tr>
+            <tr>
+              <td>Blog section</td>
+              <td><span class="model-name">Content partnerships</span><span class="model-desc">Dental brands co-author articles</span></td>
+              <td><span class="user-pill">✓ Expert content</span></td>
+              <td>Editorially independent. Google E-E-A-T requirement</td>
+            </tr>
+            <tr>
+              <td>WhatsApp CTA</td>
+              <td><span class="model-name">Lead routing fee</span><span class="model-desc">₹30–80 per qualified lead</span></td>
+              <td><span class="user-pill">✓ Instant connection, no friction</span></td>
+              <td>Transparent to clinic, invisible to patient</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Homepage Placement Diagram -->
+      <div class="placement-heading">📍 Revenue Placement Map</div>
+      <div class="placement-diagram">
+        <svg viewBox="0 0 580 620" xmlns="http://www.w3.org/2000/svg" font-family="var(--body-font)" aria-label="Homepage revenue placement diagram">
+          <!-- Background -->
+          <rect width="580" height="620" fill="var(--bg2)" rx="10"/>
+
+          <!-- Sticky Header -->
+          <rect x="10" y="10" width="560" height="36" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="26" y="33" fill="var(--teal)" font-size="10" font-weight="800">IDW</text>
+          <rect x="160" y="18" width="200" height="20" fill="var(--surface2)" stroke="var(--border)" rx="4"/>
+          <text x="260" y="32" fill="var(--text3)" font-size="9" text-anchor="middle">🔍 Search clinics, treatments…</text>
+          <text x="400" y="33" fill="var(--text2)" font-size="9">Login</text>
+
+          <!-- Hero search bar -->
+          <rect x="10" y="56" width="560" height="72" fill="var(--surface2)" stroke="var(--border)" rx="6"/>
+          <text x="290" y="78" fill="var(--text2)" font-size="10" text-anchor="middle" font-weight="600">Hero — Find the best dental clinic near you</text>
+          <rect x="80" y="86" width="360" height="28" fill="var(--surface)" stroke="var(--border)" rx="20"/>
+          <text x="260" y="105" fill="var(--text3)" font-size="9" text-anchor="middle">City / Treatment / Clinic name</text>
+          <rect x="444" y="86" width="60" height="28" fill="var(--teal)" rx="20"/>
+          <text x="474" y="105" fill="#0A1714" font-size="9" text-anchor="middle" font-weight="700">Search</text>
+
+          <!-- Specialty tiles row -->
+          <text x="20" y="148" fill="var(--text3)" font-size="9" font-weight="700" text-transform="uppercase">SPECIALTY CATEGORIES</text>
+          <rect x="10" y="156" width="100" height="48" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="60" y="176" fill="var(--text2)" font-size="9" text-anchor="middle">🦷 Implants</text>
+          <rect x="10" y="184" width="100" height="12" fill="rgba(245,166,35,0.15)" stroke="var(--amber)" stroke-dasharray="4,3" rx="3"/>
+          <text x="60" y="194" fill="var(--amber)" font-size="7.5" text-anchor="middle">Nobel Biocare</text>
+          <rect x="118" y="156" width="100" height="48" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="168" y="184" fill="var(--text2)" font-size="9" text-anchor="middle">😁 Braces</text>
+          <rect x="226" y="156" width="100" height="48" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="276" y="184" fill="var(--text2)" font-size="9" text-anchor="middle">🪥 Cleaning</text>
+          <rect x="334" y="156" width="100" height="48" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="384" y="184" fill="var(--text2)" font-size="9" text-anchor="middle">🦷 RCT</text>
+          <rect x="442" y="156" width="128" height="48" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="506" y="184" fill="var(--text2)" font-size="9" text-anchor="middle">+ More</text>
+          <!-- Callout 2 -->
+          <circle cx="117" cy="156" r="10" fill="var(--amber)"/>
+          <text x="117" y="160" fill="#0A1714" font-size="10" font-weight="800" text-anchor="middle" dominant-baseline="central">2</text>
+
+          <!-- Featured clinics strip -->
+          <text x="20" y="226" fill="var(--text3)" font-size="9" font-weight="700">FEATURED CLINICS</text>
+          <rect x="10" y="234" width="174" height="80" fill="rgba(245,166,35,0.15)" stroke="var(--amber)" stroke-dasharray="4,3" rx="6"/>
+          <text x="97" y="256" fill="var(--amber)" font-size="8" text-anchor="middle" font-weight="700">SPONSORED</text>
+          <text x="97" y="271" fill="var(--text2)" font-size="9" text-anchor="middle">Apollo Dental</text>
+          <text x="97" y="284" fill="var(--text3)" font-size="8" text-anchor="middle">⭐ 4.8 · Bandra, Mumbai</text>
+          <text x="97" y="298" fill="var(--teal)" font-size="8" text-anchor="middle">Book →</text>
+          <rect x="192" y="234" width="174" height="80" fill="rgba(245,166,35,0.15)" stroke="var(--amber)" stroke-dasharray="4,3" rx="6"/>
+          <text x="279" y="256" fill="var(--amber)" font-size="8" text-anchor="middle" font-weight="700">SPONSORED</text>
+          <text x="279" y="271" fill="var(--text2)" font-size="9" text-anchor="middle">Clove Dental</text>
+          <text x="279" y="284" fill="var(--text3)" font-size="8" text-anchor="middle">⭐ 4.7 · Koramangala</text>
+          <text x="279" y="298" fill="var(--teal)" font-size="8" text-anchor="middle">Book →</text>
+          <rect x="374" y="234" width="196" height="80" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="472" y="271" fill="var(--text2)" font-size="9" text-anchor="middle">Organic Clinic</text>
+          <text x="472" y="284" fill="var(--text3)" font-size="8" text-anchor="middle">⭐ 4.5 · Andheri</text>
+          <!-- Callout 1 -->
+          <circle cx="184" cy="234" r="10" fill="var(--amber)"/>
+          <text x="184" y="238" fill="#0A1714" font-size="10" font-weight="800" text-anchor="middle" dominant-baseline="central">1</text>
+
+          <!-- City tiles row -->
+          <text x="20" y="336" fill="var(--text3)" font-size="9" font-weight="700">EXPLORE BY CITY</text>
+          <rect x="10" y="344" width="88" height="52" fill="rgba(245,166,35,0.10)" stroke="var(--amber)" stroke-dasharray="4,3" rx="6"/>
+          <text x="54" y="368" fill="var(--text2)" font-size="9" text-anchor="middle">🏙 Mumbai</text>
+          <text x="54" y="381" fill="var(--amber)" font-size="7.5" text-anchor="middle">Priority</text>
+          <rect x="106" y="344" width="88" height="52" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="150" y="373" fill="var(--text2)" font-size="9" text-anchor="middle">🏙 Delhi</text>
+          <rect x="202" y="344" width="88" height="52" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="246" y="373" fill="var(--text2)" font-size="9" text-anchor="middle">🏙 Bengaluru</text>
+          <rect x="298" y="344" width="88" height="52" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="342" y="373" fill="var(--text2)" font-size="9" text-anchor="middle">🏙 Chennai</text>
+          <rect x="394" y="344" width="176" height="52" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="482" y="373" fill="var(--text2)" font-size="9" text-anchor="middle">+ More cities →</text>
+          <!-- Callout 3 -->
+          <circle cx="10" cy="344" r="10" fill="var(--amber)"/>
+          <text x="10" y="348" fill="#0A1714" font-size="10" font-weight="800" text-anchor="middle" dominant-baseline="central">3</text>
+
+          <!-- Blog section -->
+          <text x="20" y="416" fill="var(--text3)" font-size="9" font-weight="700">LATEST FROM THE IDW BLOG</text>
+          <rect x="10" y="424" width="270" height="68" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="145" y="446" fill="var(--text2)" font-size="9" text-anchor="middle" font-weight="600">5 Signs You Need a Root Canal</text>
+          <text x="145" y="459" fill="var(--text3)" font-size="8" text-anchor="middle">By Dr. Priya Shah · 5 min read</text>
+          <rect x="288" y="424" width="282" height="68" fill="rgba(245,166,35,0.10)" stroke="var(--amber)" stroke-dasharray="4,3" rx="6"/>
+          <text x="429" y="444" fill="var(--amber)" font-size="7.5" text-anchor="middle" font-weight="700">BRAND PARTNERSHIP</text>
+          <text x="429" y="458" fill="var(--text2)" font-size="9" text-anchor="middle">Invisalign Guide 2026</text>
+          <text x="429" y="471" fill="var(--text3)" font-size="8" text-anchor="middle">Supported by Align Technology</text>
+          <!-- Callout 4 -->
+          <circle cx="288" cy="424" r="10" fill="var(--amber)"/>
+          <text x="288" y="428" fill="#0A1714" font-size="10" font-weight="800" text-anchor="middle" dominant-baseline="central">4</text>
+
+          <!-- WhatsApp CTA strip -->
+          <rect x="10" y="504" width="560" height="44" fill="rgba(52,211,153,0.10)" stroke="var(--green)" rx="6"/>
+          <text x="200" y="521" fill="var(--text2)" font-size="9" text-anchor="middle">📱 Connect with a clinic on WhatsApp — instant, free</text>
+          <rect x="390" y="513" width="140" height="24" fill="var(--green)" rx="12"/>
+          <text x="460" y="529" fill="#0A1714" font-size="9" text-anchor="middle" font-weight="700">Chat Now →</text>
+          <!-- Callout 5 -->
+          <circle cx="10" cy="504" r="10" fill="var(--amber)"/>
+          <text x="10" y="508" fill="#0A1714" font-size="10" font-weight="800" text-anchor="middle" dominant-baseline="central">5</text>
+
+          <!-- Bottom banner Phase 2 -->
+          <rect x="10" y="558" width="560" height="50" fill="rgba(245,166,35,0.08)" stroke="var(--amber)" stroke-dasharray="4,3" rx="6"/>
+          <text x="50" y="575" fill="var(--amber)" font-size="7.5" font-weight="700">AD · Phase 2</text>
+          <text x="290" y="582" fill="var(--text3)" font-size="9" text-anchor="middle">Display banner — dental brands only — max 1 — clearly labelled</text>
+          <text x="290" y="597" fill="var(--text3)" font-size="8" text-anchor="middle">e.g. "Oral-B Electric Toothbrush — Shop Now"</text>
+          <!-- Callout 6 -->
+          <circle cx="570" cy="558" r="10" fill="var(--amber)"/>
+          <text x="570" y="562" fill="#0A1714" font-size="10" font-weight="800" text-anchor="middle" dominant-baseline="central">6</text>
+        </svg>
+
+        <table class="placement-legend">
+          <thead>
+            <tr><th>#</th><th>Placement</th><th>Revenue Model</th><th>Compliance Note</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Featured clinics strip</td><td>Sponsored listing — clinic pays ₹X/month</td><td>ASCI: must label "Sponsored" — Google policy: undisclosed = penalty</td></tr>
+            <tr><td>2</td><td>Specialty tile sponsor</td><td>"Implants by Nobel Biocare" category badge</td><td>1 sponsor per category max — no category exclusivity without contract</td></tr>
+            <tr><td>3</td><td>City tile boosting</td><td>Priority placement fee</td><td>Min 4.0 rating required — cannot buy placement without rating threshold</td></tr>
+            <tr><td>4</td><td>Blog sidebar / brand content</td><td>Brand content partnership</td><td>Editorial independence required — Google E-E-A-T: author must be identified</td></tr>
+            <tr><td>5</td><td>WhatsApp CTA strip</td><td>Lead routing fee ₹30–80/lead</td><td>Transparent to clinic, invisible to patient — DPDP: no individual data sold</td></tr>
+            <tr><td>6</td><td>Homepage bottom banner (Phase 2)</td><td>Display ad — dental brands only</td><td>Max 1 banner — clearly labelled "Ad" — no auto-play — Core Web Vitals must stay green</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 2. Search Results -->
+    <section class="doc-section" id="search">
+      <div class="section-header">
+        <div class="section-number">2</div>
+        <h2 class="section-title">Search Results Page</h2>
+      </div>
+      <div class="rev-table-wrap">
+        <table class="rev-table">
+          <thead>
+            <tr><th>Section</th><th>Revenue Model</th><th>User Benefit</th><th>Best Practice</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Top 2 results</td>
+              <td><span class="model-name">Sponsored listings</span><span class="model-desc">Clearly badged</span></td>
+              <td><span class="user-pill">✓ See premium clinics first</span></td>
+              <td><span class="warn-pill">⚠ Max 2 sponsored/page</span> Google ads policy standard</td>
+            </tr>
+            <tr>
+              <td>Filter sidebar</td>
+              <td><span class="model-name">Category ads</span><span class="model-desc">"Invisalign certified" filter by Align Tech</span></td>
+              <td><span class="user-pill">✓ Surfaces relevant options</span></td>
+              <td>Must add genuine filter value, not just a banner</td>
+            </tr>
+            <tr>
+              <td>Map pins</td>
+              <td><span class="model-name">Pin boosting</span><span class="model-desc">Teal pin vs grey for paid clinics</span></td>
+              <td><span class="user-pill">✓ Finds active, responsive clinics</span></td>
+              <td>Only verified profiles eligible</td>
+            </tr>
+            <tr>
+              <td>"Also consider" sidebar</td>
+              <td><span class="model-name">Affiliate treatment content</span><span class="model-desc">Internal blog CTAs</span></td>
+              <td><span class="user-pill">✓ Educated in context</span></td>
+              <td>Internal links only. No third-party ad networks here</td>
+            </tr>
+            <tr>
+              <td>Pagination / load more</td>
+              <td><span class="model-name">Native content cards</span><span class="model-desc">"Dental health tip" between results</span></td>
+              <td><span class="user-pill">✓ Value between results</span></td>
+              <td>Max 1 per 10 results. Clearly differentiated</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Search Results Placement Diagram -->
+      <div class="placement-heading">📍 Revenue Placement Map</div>
+      <div class="placement-diagram">
+        <svg viewBox="0 0 580 620" xmlns="http://www.w3.org/2000/svg" font-family="var(--body-font)" aria-label="Search results page revenue placement diagram">
+          <rect width="580" height="620" fill="var(--bg2)" rx="10"/>
+
+          <!-- Sticky search bar -->
+          <rect x="10" y="10" width="560" height="40" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="26" y="30" fill="var(--teal)" font-size="10" font-weight="800">IDW</text>
+          <rect x="70" y="16" width="340" height="26" fill="var(--surface2)" stroke="var(--border)" rx="20"/>
+          <text x="240" y="33" fill="var(--text3)" font-size="9" text-anchor="middle">🔍 Dental implants · Mumbai</text>
+          <rect x="416" y="16" width="70" height="26" fill="var(--teal)" rx="14"/>
+          <text x="451" y="33" fill="#0A1714" font-size="9" text-anchor="middle" font-weight="700">Search</text>
+          <rect x="492" y="18" width="70" height="22" fill="var(--surface2)" stroke="var(--border)" rx="11"/>
+          <text x="527" y="33" fill="var(--text2)" font-size="9" text-anchor="middle">🗺 Map</text>
+
+          <!-- Filter sidebar -->
+          <rect x="10" y="60" width="140" height="540" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="80" y="80" fill="var(--text3)" font-size="9" text-anchor="middle" font-weight="700">FILTERS</text>
+          <rect x="20" y="88" width="120" height="20" fill="var(--surface2)" stroke="var(--border)" rx="4"/>
+          <text x="80" y="102" fill="var(--text2)" font-size="8.5" text-anchor="middle">Rating 4.0+</text>
+          <rect x="20" y="114" width="120" height="20" fill="var(--surface2)" stroke="var(--border)" rx="4"/>
+          <text x="80" y="128" fill="var(--text2)" font-size="8.5" text-anchor="middle">Distance ≤5km</text>
+          <rect x="20" y="140" width="120" height="22" fill="rgba(245,166,35,0.15)" stroke="var(--amber)" stroke-dasharray="4,3" rx="4"/>
+          <text x="80" y="154" fill="var(--amber)" font-size="8" text-anchor="middle" font-weight="700">✓ Invisalign Certified</text>
+          <text x="80" y="167" fill="var(--text3)" font-size="7.5" text-anchor="middle">by Align Technology</text>
+          <rect x="20" y="172" width="120" height="20" fill="var(--surface2)" stroke="var(--border)" rx="4"/>
+          <text x="80" y="186" fill="var(--text2)" font-size="8.5" text-anchor="middle">Open Now</text>
+          <rect x="20" y="198" width="120" height="20" fill="var(--surface2)" stroke="var(--border)" rx="4"/>
+          <text x="80" y="212" fill="var(--text2)" font-size="8.5" text-anchor="middle">EMI Available</text>
+          <!-- Also consider widget -->
+          <rect x="20" y="280" width="120" height="80" fill="rgba(0,196,167,0.08)" stroke="var(--teal)" rx="6"/>
+          <text x="80" y="298" fill="var(--teal)" font-size="7.5" text-anchor="middle" font-weight="700">ALSO CONSIDER</text>
+          <text x="80" y="312" fill="var(--text2)" font-size="7.5" text-anchor="middle">Implants vs Bridges</text>
+          <text x="80" y="324" fill="var(--text2)" font-size="7.5" text-anchor="middle">Read our guide →</text>
+          <text x="80" y="340" fill="var(--text3)" font-size="7" text-anchor="middle">Internal blog CTAs only</text>
+          <!-- Callout 3 -->
+          <circle cx="140" cy="140" r="10" fill="var(--amber)"/>
+          <text x="140" y="144" fill="#0A1714" font-size="10" font-weight="800" text-anchor="middle" dominant-baseline="central">3</text>
+          <!-- Callout 5 -->
+          <circle cx="140" cy="280" r="10" fill="var(--amber)"/>
+          <text x="140" y="284" fill="#0A1714" font-size="10" font-weight="800" text-anchor="middle" dominant-baseline="central">5</text>
+
+          <!-- Results list -->
+          <!-- Sponsored result #1 at position 1 -->
+          <rect x="158" y="60" width="270" height="76" fill="rgba(245,166,35,0.15)" stroke="var(--amber)" stroke-dasharray="4,3" rx="6"/>
+          <text x="226" y="78" fill="var(--amber)" font-size="7.5" font-weight="700">SPONSORED</text>
+          <text x="226" y="93" fill="var(--text)" font-size="10" font-weight="700">Apollo Dental — Bandra</text>
+          <text x="168" y="108" fill="var(--text3)" font-size="8">⭐ 4.8 · 2.1km · Implants ✓</text>
+          <text x="168" y="122" fill="var(--teal)" font-size="8">Book appointment →</text>
+          <!-- Callout 1 -->
+          <circle cx="158" cy="60" r="10" fill="var(--amber)"/>
+          <text x="158" y="64" fill="#0A1714" font-size="10" font-weight="800" text-anchor="middle" dominant-baseline="central">1</text>
+
+          <!-- Organic result #2 -->
+          <rect x="158" y="144" width="270" height="68" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="168" y="162" fill="var(--text)" font-size="10" font-weight="600">Clove Dental — Andheri</text>
+          <text x="168" y="177" fill="var(--text3)" font-size="8">⭐ 4.6 · 3.4km · Implants ✓</text>
+          <text x="168" y="191" fill="var(--teal)" font-size="8">Book appointment →</text>
+
+          <!-- Organic #3 -->
+          <rect x="158" y="220" width="270" height="68" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="168" y="238" fill="var(--text)" font-size="10" font-weight="600">Smile Design Studio</text>
+          <text x="168" y="253" fill="var(--text3)" font-size="8">⭐ 4.5 · 4.0km</text>
+          <text x="168" y="267" fill="var(--teal)" font-size="8">Book appointment →</text>
+
+          <!-- Organic #4 -->
+          <rect x="158" y="296" width="270" height="68" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="168" y="314" fill="var(--text)" font-size="10" font-weight="600">White Pearl Dental</text>
+          <text x="168" y="329" fill="var(--text3)" font-size="8">⭐ 4.3 · 5.2km</text>
+          <text x="168" y="343" fill="var(--teal)" font-size="8">Book appointment →</text>
+
+          <!-- Sponsored result #2 at position 5 -->
+          <rect x="158" y="372" width="270" height="76" fill="rgba(245,166,35,0.15)" stroke="var(--amber)" stroke-dasharray="4,3" rx="6"/>
+          <text x="226" y="390" fill="var(--amber)" font-size="7.5" font-weight="700">SPONSORED</text>
+          <text x="226" y="405" fill="var(--text)" font-size="10" font-weight="700">MaxiCare Dental</text>
+          <text x="168" y="420" fill="var(--text3)" font-size="8">⭐ 4.7 · 3.8km · DCI Verified</text>
+          <text x="168" y="434" fill="var(--teal)" font-size="8">Book appointment →</text>
+          <!-- Callout 2 -->
+          <circle cx="158" cy="372" r="10" fill="var(--amber)"/>
+          <text x="158" y="376" fill="#0A1714" font-size="10" font-weight="800" text-anchor="middle" dominant-baseline="central">2</text>
+
+          <!-- Native content card -->
+          <rect x="158" y="456" width="270" height="52" fill="rgba(96,165,250,0.10)" stroke="var(--blue)" stroke-dasharray="4,3" rx="6"/>
+          <text x="293" y="474" fill="var(--blue)" font-size="8" text-anchor="middle" font-weight="700">DENTAL HEALTH TIP</text>
+          <text x="293" y="490" fill="var(--text2)" font-size="8.5" text-anchor="middle">How to care for implants: a 2026 guide</text>
+          <!-- Callout 6 -->
+          <circle cx="428" cy="456" r="10" fill="var(--amber)"/>
+          <text x="428" y="460" fill="#0A1714" font-size="10" font-weight="800" text-anchor="middle" dominant-baseline="central">6</text>
+
+          <!-- Pagination -->
+          <rect x="158" y="516" width="270" height="32" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="293" y="536" fill="var(--text2)" font-size="9" text-anchor="middle">← 1  2  3  4  5 →</text>
+
+          <!-- Map panel (right rail) -->
+          <rect x="436" y="60" width="134" height="200" fill="var(--surface2)" stroke="var(--border)" rx="6"/>
+          <text x="503" y="85" fill="var(--text3)" font-size="9" text-anchor="middle">🗺 Map View</text>
+          <!-- Teal paid pin -->
+          <circle cx="480" cy="130" r="7" fill="var(--teal)" opacity="0.9"/>
+          <text x="480" y="134" fill="#0A1714" font-size="7" text-anchor="middle" font-weight="800">$</text>
+          <!-- Grey organic pins -->
+          <circle cx="520" cy="110" r="6" fill="var(--text3)" opacity="0.6"/>
+          <circle cx="500" cy="160" r="6" fill="var(--text3)" opacity="0.6"/>
+          <circle cx="460" cy="170" r="6" fill="var(--text3)" opacity="0.6"/>
+          <text x="503" y="230" fill="var(--teal)" font-size="7.5" text-anchor="middle">Teal = paid boost</text>
+          <text x="503" y="243" fill="var(--text3)" font-size="7.5" text-anchor="middle">Grey = organic</text>
+          <!-- Callout 4 -->
+          <circle cx="436" cy="60" r="10" fill="var(--amber)"/>
+          <text x="436" y="64" fill="#0A1714" font-size="10" font-weight="800" text-anchor="middle" dominant-baseline="central">4</text>
+        </svg>
+
+        <table class="placement-legend">
+          <thead>
+            <tr><th>#</th><th>Placement</th><th>Revenue Model</th><th>Compliance Note</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Sponsored result #1 (position 1)</td><td>₹5,000–15,000/mo sponsored listing</td><td>ASCI Rule 18: "Sponsored" label mandatory — DCI verified clinics only</td></tr>
+            <tr><td>2</td><td>Sponsored result #2 (position 5)</td><td>Same rate as #1</td><td>Max 2 sponsored per page — never at positions 2, 3, or 4</td></tr>
+            <tr><td>3</td><td>Filter sidebar "Invisalign Certified"</td><td>Brand filter sponsorship</td><td>Must add genuine filter value — cannot be just a banner</td></tr>
+            <tr><td>4</td><td>Map pin boosting</td><td>Teal pin (paid) vs grey pin (organic)</td><td>Verified profiles only eligible — unverified clinics cannot buy boosted pin</td></tr>
+            <tr><td>5</td><td>"Also consider" sidebar widget</td><td>Internal blog CTAs only</td><td>No third-party ad networks — internal links only, editorially selected</td></tr>
+            <tr><td>6</td><td>Native content card (between results)</td><td>"Dental health tip" editorial card</td><td>Max 1 per 10 results — clearly differentiated from clinic cards</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 3. Clinic Profile -->
+    <section class="doc-section" id="clinic-profile">
+      <div class="section-header">
+        <div class="section-number">3</div>
+        <h2 class="section-title">Clinic Profile Page</h2>
+      </div>
+      <div class="rev-table-wrap">
+        <table class="rev-table">
+          <thead>
+            <tr><th>Section</th><th>Revenue Model</th><th>User Benefit</th><th>Best Practice</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Booking card</td>
+              <td><span class="model-name">Booking commission</span><span class="model-desc">5–10% or flat ₹50–150/booking</span></td>
+              <td><span class="user-pill">✓ Guaranteed slot, no phone tag</span></td>
+              <td>Core revenue. Disclosed to clinic in contract</td>
+            </tr>
+            <tr>
+              <td>"Patients also booked"</td>
+              <td><span class="model-name">Cross-referral</span><span class="model-desc">Nearby clinic pays for placement</span></td>
+              <td><span class="user-pill">✓ Always finds an option</span></td>
+              <td>Only show when primary clinic is fully booked</td>
+            </tr>
+            <tr>
+              <td>Treatment price table</td>
+              <td><span class="model-name">Finance widget</span><span class="model-desc">EMI calculator — Bajaj/HDFC affiliate</span></td>
+              <td><span class="user-pill">✓ Patient plans budget</span></td>
+              <td>Affiliate commission ~1–2% on EMI conversions</td>
+            </tr>
+            <tr>
+              <td>Review section</td>
+              <td><span class="model-name">Verified review badge</span><span class="model-desc">Clinic pays for "IDW Verified" upgrade</span></td>
+              <td><span class="user-pill">✓ Patient trusts reviews more</span></td>
+              <td>Reviews never paid. Only badge tier is paid</td>
+            </tr>
+            <tr>
+              <td>Doctor profiles</td>
+              <td><span class="model-name">Doctor spotlight</span><span class="model-desc">Individual doctor pays for enhanced profile</span></td>
+              <td><span class="user-pill">✓ Finds the right specialist</span></td>
+              <td>Must meet qualification verification requirement</td>
+            </tr>
+            <tr>
+              <td>FAQ section</td>
+              <td><span class="model-name">Sponsored answer</span><span class="model-desc">"Supported by [dental brand]"</span></td>
+              <td><span class="user-pill">✓ Expert-backed info</span></td>
+              <td><span class="warn-pill">⚠ Label clearly</span> E-E-A-T: author must be identified</td>
+            </tr>
+            <tr>
+              <td>Nearby clinics</td>
+              <td><span class="model-name">Placement fee</span><span class="model-desc">Nearby clinic pays to appear</span></td>
+              <td><span class="user-pill">✓ Patient always finds an option</span></td>
+              <td>Min 4.0 rating to be eligible</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Clinic Profile Placement Diagram -->
+      <div class="placement-heading">📍 Revenue Placement Map</div>
+      <div class="placement-diagram">
+        <svg viewBox="0 0 580 700" xmlns="http://www.w3.org/2000/svg" font-family="var(--body-font)" aria-label="Clinic profile page revenue placement diagram">
+          <rect width="580" height="700" fill="var(--bg2)" rx="10"/>
+
+          <!-- Photo hero header -->
+          <rect x="10" y="10" width="560" height="80" fill="var(--surface2)" stroke="var(--border)" rx="6"/>
+          <text x="290" y="40" fill="var(--text3)" font-size="9" text-anchor="middle">📸 Clinic Photo Gallery</text>
+          <text x="290" y="60" fill="var(--text)" font-size="13" font-weight="700" text-anchor="middle">Apollo Dental — Bandra, Mumbai</text>
+          <text x="290" y="78" fill="var(--teal)" font-size="9" text-anchor="middle">⭐ 4.8 · 312 reviews · DCI Verified</text>
+
+          <!-- Main content (left) -->
+          <!-- Doctor info -->
+          <rect x="10" y="100" width="340" height="60" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <circle cx="40" cy="130" r="18" fill="var(--surface2)" stroke="var(--border)"/>
+          <text x="40" y="134" fill="var(--text3)" font-size="9" text-anchor="middle">👤</text>
+          <text x="70" y="120" fill="var(--text)" font-size="10" font-weight="700">Dr. Sunita Patel, MDS</text>
+          <text x="70" y="134" fill="var(--text3)" font-size="8.5">Implantologist · 14 yrs exp · MH-DCI-2010</text>
+          <text x="70" y="148" fill="var(--amber)" font-size="8">★ IDW Doctor Spotlight</text>
+          <!-- Callout 4 -->
+          <circle cx="350" cy="100" r="10" fill="var(--amber)"/>
+          <text x="350" y="104" fill="#0A1714" font-size="10" font-weight="800" text-anchor="middle" dominant-baseline="central">4</text>
+
+          <!-- Treatment price table with EMI widget -->
+          <rect x="10" y="170" width="340" height="100" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="20" y="190" fill="var(--text3)" font-size="9" font-weight="700">TREATMENT PRICES</text>
+          <text x="20" y="207" fill="var(--text2)" font-size="9">Dental Implant (single)</text>
+          <text x="300" y="207" fill="var(--text)" font-size="9" text-anchor="end" font-weight="600">₹28,000</text>
+          <text x="20" y="222" fill="var(--text2)" font-size="9">Root Canal Treatment</text>
+          <text x="300" y="222" fill="var(--text)" font-size="9" text-anchor="end" font-weight="600">₹4,500</text>
+          <rect x="20" y="232" width="200" height="28" fill="rgba(0,196,167,0.10)" stroke="var(--teal)" rx="5"/>
+          <text x="30" y="244" fill="var(--teal)" font-size="8" font-weight="700">💳 EMI Calculator</text>
+          <text x="30" y="255" fill="var(--text3)" font-size="7.5">Bajaj Finserv / HDFC — from ₹1,200/mo</text>
+          <!-- Callout 2 -->
+          <circle cx="350" cy="232" r="10" fill="var(--amber)"/>
+          <text x="350" y="236" fill="#0A1714" font-size="10" font-weight="800" text-anchor="middle" dominant-baseline="central">2</text>
+
+          <!-- Review section -->
+          <rect x="10" y="280" width="340" height="90" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="20" y="300" fill="var(--text3)" font-size="9" font-weight="700">PATIENT REVIEWS</text>
+          <rect x="20" y="308" width="120" height="22" fill="rgba(0,196,167,0.12)" stroke="var(--teal)" rx="4"/>
+          <text x="80" y="323" fill="var(--teal)" font-size="8" text-anchor="middle" font-weight="700">✓ IDW Verified Reviews</text>
+          <text x="20" y="344" fill="var(--text2)" font-size="8.5">"Excellent implant — healed perfectly"</text>
+          <text x="20" y="358" fill="var(--text3)" font-size="7.5">— Priya M. · Verified patient ⭐⭐⭐⭐⭐</text>
+          <!-- Callout 3 -->
+          <circle cx="350" cy="308" r="10" fill="var(--amber)"/>
+          <text x="350" y="312" fill="#0A1714" font-size="10" font-weight="800" text-anchor="middle" dominant-baseline="central">3</text>
+
+          <!-- FAQ section -->
+          <rect x="10" y="380" width="340" height="90" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="20" y="400" fill="var(--text3)" font-size="9" font-weight="700">FREQUENTLY ASKED</text>
+          <text x="20" y="418" fill="var(--text2)" font-size="8.5">Q: How long does an implant last?</text>
+          <text x="20" y="432" fill="var(--text2)" font-size="8">A: 15–25 years with proper care…</text>
+          <rect x="20" y="442" width="200" height="18" fill="rgba(245,166,35,0.10)" stroke="var(--amber)" stroke-dasharray="4,3" rx="4"/>
+          <text x="25" y="455" fill="var(--amber)" font-size="7.5" font-weight="700">Sponsored by Nobel Biocare</text>
+          <!-- Callout 5 -->
+          <circle cx="350" cy="442" r="10" fill="var(--amber)"/>
+          <text x="350" y="446" fill="#0A1714" font-size="10" font-weight="800" text-anchor="middle" dominant-baseline="central">5</text>
+
+          <!-- Nearby/Patients also booked row -->
+          <rect x="10" y="480" width="560" height="70" fill="rgba(245,166,35,0.08)" stroke="var(--amber)" stroke-dasharray="4,3" rx="6"/>
+          <text x="20" y="500" fill="var(--amber)" font-size="9" font-weight="700">PATIENTS ALSO BOOKED  ·  shown only when primary clinic is fully booked</text>
+          <rect x="20" y="508" width="160" height="32" fill="var(--surface)" stroke="var(--border)" rx="5"/>
+          <text x="100" y="524" fill="var(--text2)" font-size="8.5" text-anchor="middle">Clove Dental · ⭐4.5</text>
+          <rect x="190" y="508" width="160" height="32" fill="var(--surface)" stroke="var(--border)" rx="5"/>
+          <text x="270" y="524" fill="var(--text2)" font-size="8.5" text-anchor="middle">Smile Studio · ⭐4.6</text>
+          <!-- Callout 6 -->
+          <circle cx="570" cy="480" r="10" fill="var(--amber)"/>
+          <text x="570" y="484" fill="#0A1714" font-size="10" font-weight="800" text-anchor="middle" dominant-baseline="central">6</text>
+
+          <!-- Booking card (right rail) -->
+          <rect x="358" y="100" width="212" height="260" fill="rgba(0,196,167,0.08)" stroke="var(--teal)" rx="8"/>
+          <text x="464" y="122" fill="var(--teal)" font-size="10" text-anchor="middle" font-weight="700">Book Appointment</text>
+          <rect x="372" y="130" width="184" height="22" fill="var(--surface2)" stroke="var(--border)" rx="4"/>
+          <text x="464" y="145" fill="var(--text2)" font-size="8.5" text-anchor="middle">📅 Select date</text>
+          <rect x="372" y="158" width="184" height="22" fill="var(--surface2)" stroke="var(--border)" rx="4"/>
+          <text x="464" y="173" fill="var(--text2)" font-size="8.5" text-anchor="middle">🕐 Select time slot</text>
+          <rect x="372" y="186" width="184" height="22" fill="var(--surface2)" stroke="var(--border)" rx="4"/>
+          <text x="464" y="201" fill="var(--text2)" font-size="8.5" text-anchor="middle">🦷 Treatment type</text>
+          <rect x="372" y="216" width="184" height="32" fill="var(--teal)" rx="6"/>
+          <text x="464" y="236" fill="#0A1714" font-size="10" text-anchor="middle" font-weight="800">Confirm Booking</text>
+          <text x="464" y="268" fill="var(--text3)" font-size="7.5" text-anchor="middle">Commission 5–10%</text>
+          <text x="464" y="280" fill="var(--text3)" font-size="7.5" text-anchor="middle">or flat ₹50–150/booking</text>
+          <text x="464" y="294" fill="var(--text3)" font-size="7.5" text-anchor="middle">Disclosed in clinic contract</text>
+          <!-- Callout 1 -->
+          <circle cx="358" cy="100" r="10" fill="var(--amber)"/>
+          <text x="358" y="104" fill="#0A1714" font-size="10" font-weight="800" text-anchor="middle" dominant-baseline="central">1</text>
+
+          <!-- Footer hint -->
+          <rect x="10" y="560" width="560" height="30" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="290" y="579" fill="var(--text3)" font-size="8.5" text-anchor="middle">© IndiaDentalWorld · MCI/DCI Verified · DPDP Compliant · ASCI Registered</text>
+        </svg>
+
+        <table class="placement-legend">
+          <thead>
+            <tr><th>#</th><th>Placement</th><th>Revenue Model</th><th>Compliance Note</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Booking card (right rail)</td><td>Commission 5–10% or flat ₹50–150/booking</td><td>Core revenue — disclosed in clinic contract — zero ads inside booking flow</td></tr>
+            <tr><td>2</td><td>EMI calculator widget</td><td>Finance affiliate — Bajaj Finserv / HDFC ERGO</td><td>1–2% commission on EMI conversions — affiliate relationship disclosed in T&amp;Cs</td></tr>
+            <tr><td>3</td><td>"IDW Verified" review badge</td><td>₹500/mo upgrade tier</td><td>Reviews never paid — only badge tier is paid — Google: incentivised reviews = deindex</td></tr>
+            <tr><td>4</td><td>Doctor spotlight upgrade</td><td>Individual doctor enhanced profile fee</td><td>Qualification verification required — MDS/BDS licence must be on file</td></tr>
+            <tr><td>5</td><td>FAQ "Sponsored by [brand]"</td><td>Brand answer sponsorship</td><td>ASCI: must disclose — E-E-A-T: author (qualified dentist) must be identified</td></tr>
+            <tr><td>6</td><td>"Patients also booked" / Nearby clinics</td><td>Placement fee — min 4.0 rating</td><td>Only shown when primary clinic is fully booked — cannot displace primary clinic</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 4. Pro Hub -->
+    <section class="doc-section" id="pro-hub">
+      <div class="section-header">
+        <div class="section-number">4</div>
+        <h2 class="section-title">/pro Professional Hub &amp; Registration</h2>
+      </div>
+      <div class="rev-table-wrap">
+        <table class="rev-table">
+          <thead>
+            <tr><th>Section</th><th>Revenue Model</th><th>User Benefit</th><th>Best Practice</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Clinic registration</td>
+              <td><span class="model-name">Freemium</span><span class="model-desc">Free basic · ₹999–2,999/mo premium</span></td>
+              <td><span class="user-pill">✓ Free tier lowers barrier</span></td>
+              <td>Never gate bookings behind paywall at launch</td>
+            </tr>
+            <tr>
+              <td>Lab directory</td>
+              <td><span class="model-name">Listing fee</span><span class="model-desc">₹500–1,500/mo</span></td>
+              <td><span class="user-pill">✓ Clinics find labs nearby</span></td>
+              <td>Verified labs only</td>
+            </tr>
+            <tr>
+              <td>Brand/product pages</td>
+              <td><span class="model-name">Brand hub subscription</span><span class="model-desc">₹5,000–25,000/mo</span></td>
+              <td><span class="user-pill">✓ Dentists discover products</span></td>
+              <td>No fake reviews or misleading claims</td>
+            </tr>
+            <tr>
+              <td>Dental college pages</td>
+              <td><span class="model-name">Recruitment ads</span><span class="model-desc">Colleges reach graduating dentists</span></td>
+              <td><span class="user-pill">✓ Students find jobs</span></td>
+              <td>Clearly labelled as recruitment content</td>
+            </tr>
+            <tr>
+              <td>Supplier directory</td>
+              <td><span class="model-name">Lead generation</span><span class="model-desc">Pay per qualified clinic inquiry</span></td>
+              <td><span class="user-pill">✓ Clinics find better suppliers</span></td>
+              <td>Opt-in only. No cold contact without consent (DPDP)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 5. Blog -->
+    <section class="doc-section" id="blog">
+      <div class="section-header">
+        <div class="section-number">5</div>
+        <h2 class="section-title">Blog / Education Pages</h2>
+      </div>
+      <div class="rev-table-wrap">
+        <table class="rev-table">
+          <thead>
+            <tr><th>Section</th><th>Revenue Model</th><th>User Benefit</th><th>Best Practice</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Article body</td>
+              <td><span class="model-name">Contextual content links</span><span class="model-desc">"Find implant clinics near you →" CTA</span></td>
+              <td><span class="user-pill">✓ Seamless path to booking</span></td>
+              <td>Internal links only. No third-party ad networks in editorial</td>
+            </tr>
+            <tr>
+              <td>Sidebar</td>
+              <td><span class="model-name">Brand sponsorship</span><span class="model-desc">"Article sponsored by 3M Oral Care"</span></td>
+              <td><span class="user-pill">✓ Credible brand association</span></td>
+              <td><span class="warn-pill">⚠ Must be disclosed</span> Sponsorship ≠ editorial control</td>
+            </tr>
+            <tr>
+              <td>End of article</td>
+              <td><span class="model-name">Treatment CTA</span><span class="model-desc">"Book root canal from ₹300"</span></td>
+              <td><span class="user-pill">✓ Direct action after education</span></td>
+              <td>Highest converting placement on content pages</td>
+            </tr>
+            <tr>
+              <td>Newsletter signup</td>
+              <td><span class="model-name">Email list (IDW owned)</span><span class="model-desc">Captive audience for promotions</span></td>
+              <td><span class="user-pill">✓ Dental health tips</span></td>
+              <td>Never sell the list. IDW promotions only</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 6. Patient Dashboard -->
+    <section class="doc-section" id="patient-dash">
+      <div class="section-header">
+        <div class="section-number">6</div>
+        <h2 class="section-title">Patient Dashboard (post-login)</h2>
+      </div>
+      <div class="rev-table-wrap">
+        <table class="rev-table">
+          <thead>
+            <tr><th>Section</th><th>Revenue Model</th><th>User Benefit</th><th>Best Practice</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Appointment reminders</td>
+              <td><span class="model-name">WhatsApp reminder service</span><span class="model-desc">Clinic pays ₹5–15/reminder sent</span></td>
+              <td><span class="user-pill">✓ Never misses appointment</span></td>
+              <td>Opt-in only. DPDP compliant</td>
+            </tr>
+            <tr>
+              <td>Treatment history</td>
+              <td><span class="model-name">Insurance integration</span><span class="model-desc">Star Health, HDFC ERGO affiliate</span></td>
+              <td><span class="user-pill">✓ Claims insurance easily</span></td>
+              <td>Affiliate commission on policy referrals</td>
+            </tr>
+            <tr>
+              <td>"Due for checkup" nudge</td>
+              <td><span class="model-name">Re-engagement booking</span><span class="model-desc">Drives repeat bookings</span></td>
+              <td><span class="user-pill">✓ Maintains dental health</span></td>
+              <td>6-month hygiene reminder is genuinely valuable</td>
+            </tr>
+            <tr>
+              <td>ABHA records</td>
+              <td><span class="model-name">ABDM transaction fee</span><span class="model-desc">Govt pays per linked record (Phase 2)</span></td>
+              <td><span class="user-pill">✓ Owns their health data</span></td>
+              <td>ABDM compliance required</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Patient Dashboard Placement Diagram -->
+      <div class="placement-heading">📍 Revenue Placement Map</div>
+      <div class="placement-diagram">
+        <svg viewBox="0 0 580 580" xmlns="http://www.w3.org/2000/svg" font-family="var(--body-font)" aria-label="Patient dashboard revenue placement diagram">
+          <rect width="580" height="580" fill="var(--bg2)" rx="10"/>
+
+          <!-- Greeting header -->
+          <rect x="10" y="10" width="560" height="52" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="26" y="33" fill="var(--text)" font-size="12" font-weight="700">Good morning, Priya 👋</text>
+          <text x="26" y="52" fill="var(--text3)" font-size="8.5">Your dental health snapshot · last updated today</text>
+          <rect x="440" y="18" width="120" height="30" fill="var(--teal-dim)" stroke="var(--teal)" rx="6"/>
+          <text x="500" y="37" fill="var(--teal)" font-size="9" text-anchor="middle" font-weight="700">+ Book Appointment</text>
+
+          <!-- Appointments card -->
+          <rect x="10" y="72" width="270" height="110" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="20" y="92" fill="var(--text3)" font-size="9" font-weight="700">UPCOMING APPOINTMENTS</text>
+          <rect x="20" y="100" width="250" height="38" fill="var(--surface2)" stroke="var(--border)" rx="5"/>
+          <text x="30" y="118" fill="var(--text)" font-size="9" font-weight="600">Apollo Dental — Oct 5, 10:30 AM</text>
+          <text x="30" y="131" fill="var(--text3)" font-size="8">Scaling &amp; Polishing · Dr. Patel</text>
+          <rect x="20" y="144" width="250" height="28" fill="rgba(52,211,153,0.10)" stroke="var(--green)" stroke-dasharray="4,3" rx="5"/>
+          <text x="30" y="155" fill="var(--green)" font-size="8" font-weight="700">📱 WhatsApp reminder — 24h before</text>
+          <text x="30" y="167" fill="var(--text3)" font-size="7.5">Clinic pays ₹5–15/reminder · opt-in only</text>
+          <!-- Callout 1 -->
+          <circle cx="280" cy="144" r="10" fill="var(--amber)"/>
+          <text x="280" y="148" fill="#0A1714" font-size="10" font-weight="800" text-anchor="middle" dominant-baseline="central">1</text>
+
+          <!-- Treatment history / Insurance -->
+          <rect x="10" y="192" width="270" height="110" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="20" y="212" fill="var(--text3)" font-size="9" font-weight="700">TREATMENT HISTORY</text>
+          <text x="20" y="230" fill="var(--text2)" font-size="8.5">Aug 2026 — Root Canal · ₹4,500</text>
+          <text x="20" y="246" fill="var(--text2)" font-size="8.5">Mar 2026 — Scaling · ₹800</text>
+          <rect x="20" y="256" width="250" height="36" fill="rgba(96,165,250,0.10)" stroke="var(--blue)" stroke-dasharray="4,3" rx="5"/>
+          <text x="30" y="270" fill="var(--blue)" font-size="8" font-weight="700">🏥 Insurance Integration</text>
+          <text x="30" y="283" fill="var(--text3)" font-size="7.5">Star Health / HDFC ERGO · affiliate commission</text>
+          <!-- Callout 2 -->
+          <circle cx="280" cy="256" r="10" fill="var(--amber)"/>
+          <text x="280" y="260" fill="#0A1714" font-size="10" font-weight="800" text-anchor="middle" dominant-baseline="central">2</text>
+
+          <!-- ABHA records section -->
+          <rect x="10" y="312" width="270" height="80" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="20" y="332" fill="var(--text3)" font-size="9" font-weight="700">ABHA HEALTH RECORDS</text>
+          <rect x="20" y="340" width="250" height="42" fill="rgba(167,139,250,0.10)" stroke="var(--purple)" stroke-dasharray="4,3" rx="5"/>
+          <text x="30" y="356" fill="var(--purple)" font-size="8" font-weight="700">🔗 Link ABHA ID (Phase 2)</text>
+          <text x="30" y="369" fill="var(--text3)" font-size="7.5">Govt ABDM fee per linked record · ABDM compliant</text>
+          <!-- Callout 4 -->
+          <circle cx="280" cy="340" r="10" fill="var(--amber)"/>
+          <text x="280" y="344" fill="#0A1714" font-size="10" font-weight="800" text-anchor="middle" dominant-baseline="central">4</text>
+
+          <!-- Dental score widget (right) -->
+          <rect x="298" y="72" width="272" height="110" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="308" y="92" fill="var(--text3)" font-size="9" font-weight="700">DENTAL HEALTH SCORE</text>
+          <text x="434" y="148" fill="var(--teal)" font-size="36" font-weight="800" text-anchor="middle">78</text>
+          <text x="434" y="168" fill="var(--text3)" font-size="8" text-anchor="middle">/ 100 · Good</text>
+
+          <!-- Due for checkup nudge card -->
+          <rect x="298" y="192" width="272" height="90" fill="rgba(240,106,106,0.10)" stroke="var(--rose)" rx="6"/>
+          <text x="308" y="212" fill="var(--rose)" font-size="9" font-weight="700">⏰ DUE FOR CHECKUP</text>
+          <text x="308" y="228" fill="var(--text2)" font-size="8.5">Your last cleaning was 6 months ago.</text>
+          <text x="308" y="243" fill="var(--text2)" font-size="8.5">Time for your hygiene appointment!</text>
+          <rect x="308" y="254" width="180" height="22" fill="var(--teal)" rx="11"/>
+          <text x="398" y="269" fill="#0A1714" font-size="9" text-anchor="middle" font-weight="700">Book Checkup Now →</text>
+          <!-- Callout 3 -->
+          <circle cx="298" cy="192" r="10" fill="var(--amber)"/>
+          <text x="298" y="196" fill="#0A1714" font-size="10" font-weight="800" text-anchor="middle" dominant-baseline="central">3</text>
+
+          <!-- Quick links panel -->
+          <rect x="298" y="292" width="272" height="100" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="308" y="312" fill="var(--text3)" font-size="9" font-weight="700">QUICK LINKS</text>
+          <text x="308" y="330" fill="var(--text2)" font-size="8.5">📋 Download dental summary PDF</text>
+          <text x="308" y="346" fill="var(--text2)" font-size="8.5">📞 Contact your clinic</text>
+          <text x="308" y="362" fill="var(--text2)" font-size="8.5">⚙️ Notification preferences</text>
+          <text x="308" y="378" fill="var(--text2)" font-size="8.5">🔒 Privacy &amp; data settings (DPDP)</text>
+
+          <!-- Footer -->
+          <rect x="10" y="402" width="560" height="30" fill="var(--surface)" stroke="var(--border)" rx="6"/>
+          <text x="290" y="421" fill="var(--text3)" font-size="8.5" text-anchor="middle">All reminders are opt-in · Data never sold · DPDP 2025 compliant</text>
+        </svg>
+
+        <table class="placement-legend">
+          <thead>
+            <tr><th>#</th><th>Placement</th><th>Revenue Model</th><th>Compliance Note</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>WhatsApp appointment reminder</td><td>Clinic pays ₹5–15/reminder sent</td><td>Opt-in only — DPDP 2025 compliant — patient can disable anytime in settings</td></tr>
+            <tr><td>2</td><td>Insurance integration widget</td><td>Star Health / HDFC ERGO affiliate commission</td><td>Commission on policy referrals — affiliate relationship disclosed in T&amp;Cs</td></tr>
+            <tr><td>3</td><td>"Due for checkup" nudge card</td><td>Re-engagement booking drive</td><td>6-month hygiene reminder — genuinely valuable, not a dark pattern — max 1/6mo</td></tr>
+            <tr><td>4</td><td>ABHA records section</td><td>ABDM transaction fee (Phase 2)</td><td>Govt pays per linked record — ABDM/NHA compliance required — Phase 2 only</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Revenue Tier Summary -->
+    <section class="doc-section" id="tier-summary">
+      <div class="section-header">
+        <div class="section-number" style="background:var(--amber);color:#0A1714;">7</div>
+        <h2 class="section-title">Revenue Tier Summary</h2>
+      </div>
+      <div class="tier-table-wrap">
+        <table class="tier-table">
+          <thead>
+            <tr>
+              <th>Tier</th>
+              <th>Revenue Stream</th>
+              <th>When to Launch</th>
+              <th>Est. Contribution</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge-core">Core</span></td>
+              <td>Booking commission (5–10%)</td>
+              <td>Day 1</td>
+              <td style="color:var(--teal);font-weight:700;">60% at scale</td>
+            </tr>
+            <tr>
+              <td><span class="badge-core">Core</span></td>
+              <td>Clinic premium listings (₹999–2,999/mo)</td>
+              <td>Month 2</td>
+              <td style="color:var(--teal);font-weight:700;">20% of revenue</td>
+            </tr>
+            <tr>
+              <td><span class="badge-growth">Growth</span></td>
+              <td>Sponsored search placements</td>
+              <td>Month 4 (50+ clinics)</td>
+              <td style="color:var(--amber);font-weight:700;">8% of revenue</td>
+            </tr>
+            <tr>
+              <td><span class="badge-growth">Growth</span></td>
+              <td>Lead routing fees</td>
+              <td>Month 3</td>
+              <td style="color:var(--amber);font-weight:700;">5% of revenue</td>
+            </tr>
+            <tr>
+              <td><span class="badge-scale">Scale</span></td>
+              <td>Brand/product subscriptions</td>
+              <td>Month 6</td>
+              <td style="color:var(--purple);font-weight:700;">4% of revenue</td>
+            </tr>
+            <tr>
+              <td><span class="badge-scale">Scale</span></td>
+              <td>Insurance &amp; EMI affiliates</td>
+              <td>Month 9</td>
+              <td style="color:var(--purple);font-weight:700;">2% of revenue</td>
+            </tr>
+            <tr>
+              <td><span class="badge-scale">Scale</span></td>
+              <td>ABDM transaction fees</td>
+              <td>Year 2</td>
+              <td style="color:var(--purple);font-weight:700;">1% (growing)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 3-Layer Model -->
+    <section class="doc-section" id="layers">
+      <div class="section-header">
+        <div class="section-number" style="background:var(--purple);color:#fff;">8</div>
+        <h2 class="section-title">The 3-Layer Revenue Model</h2>
+      </div>
+      <div class="layer-grid">
+        <div class="layer-card l1">
+          <div class="layer-num">Layer 1 — Transaction</div>
+          <div class="layer-name">Booking Commission</div>
+          <div class="layer-body">You earn when the patient books. Aligns your success with clinic success. <strong>This is the foundation.</strong> Build this first — everything else amplifies it.</div>
+        </div>
+        <div class="layer-card l2">
+          <div class="layer-num">Layer 2 — Subscription</div>
+          <div class="layer-name">Clinic Premium · Brand Pages</div>
+          <div class="layer-body">Predictable monthly recurring revenue. This is what makes you <strong>fundable</strong>. Investors look for this before writing a cheque.</div>
+        </div>
+        <div class="layer-card l3">
+          <div class="layer-num">Layer 3 — Advertising</div>
+          <div class="layer-name">Sponsored Listings · Partnerships</div>
+          <div class="layer-body">High margin, scales with traffic. This is what makes you a <strong>media business at scale</strong>. Valuable only once Layer 1 traffic proves it.</div>
+        </div>
+      </div>
+      <div class="noneg-banner">
+        <strong>⚠ Founder Warning:</strong> Most platforms rush to Layer 3 before Layer 1 is solid. The result is a cluttered, untrusted platform that loses on SEO and user retention. Build Layer 1 first. Layer 3 becomes enormously valuable once you have the traffic to prove it.
+      </div>
+    </section>
+
+    <!-- Non-Negotiables -->
+    <section class="doc-section" id="rules">
+      <div class="section-header">
+        <div class="section-number" style="background:var(--rose);color:#fff;">9</div>
+        <h2 class="section-title">Non-Negotiable Rules</h2>
+      </div>
+      <div class="rules-grid">
+        <div class="rule-block">
+          <div class="rule-block-title"><div class="dot dot-teal"></div>Google &amp; SEO Compliance</div>
+          <ul class="rule-list">
+            <li>Sponsored content always labelled — "Ad" or "Sponsored" — no exceptions</li>
+            <li>Reviews never incentivised — Google delists platforms that pay for reviews</li>
+            <li>Clinic data always accurate — wrong hours = local SEO penalty</li>
+            <li>Page speed always protected — no ad network adding 200ms+ load time</li>
+            <li>Core Web Vitals must stay green even with ads loaded</li>
+          </ul>
+        </div>
+        <div class="rule-block">
+          <div class="rule-block-title"><div class="dot dot-blue"></div>LLM &amp; AI Search Compliance</div>
+          <ul class="rule-list">
+            <li>Every page needs clear authorship — who wrote it, their qualification (E-E-A-T)</li>
+            <li>Structured data makes IDW citable by AI — schema.org/Dentist on every clinic page</li>
+            <li>FAQ schema on every clinic page = featured snippet and AI answer eligibility</li>
+            <li>Keep content factual, specific, sourced — AI prefers platforms with verifiable data</li>
+          </ul>
+        </div>
+        <div class="rule-block">
+          <div class="rule-block-title"><div class="dot dot-green"></div>GoI &amp; DPDP Compliance</div>
+          <ul class="rule-list">
+            <li>Never sell individual search data — DPDP 2025 violation</li>
+            <li>Opt-in only for all communications — no cold contact without consent</li>
+            <li>Affiliate commissions disclosed in T&amp;Cs and clinic contracts</li>
+            <li>GST 18% on commissions — included in clinic contract from Day 1</li>
+          </ul>
+        </div>
+        <div class="rule-block">
+          <div class="rule-block-title"><div class="dot dot-amber"></div>User Experience Rules</div>
+          <ul class="rule-list">
+            <li>No interstitial ads — pop-ups blocking content = instant Google penalty</li>
+            <li>No auto-play video ads — banned by Google Ad policy</li>
+            <li>Max 1 sponsored result per 5 organic results on search pages</li>
+            <li>Zero ads in booking flow — from "select slot" to "confirmed" is sacred</li>
+            <li>Mobile ad density — max 30% of screen at any time</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+// Theme toggle
+const toggle = document.getElementById('themeToggle');
+const root = document.documentElement;
+let dark = true;
+toggle.addEventListener('click', () => {
+  dark = !dark;
+  root.setAttribute('data-theme', dark ? 'dark' : 'light');
+  toggle.textContent = dark ? '🌙' : '☀️';
+});
+
+// Active sidebar nav on scroll
+const sections = document.querySelectorAll('.doc-section');
+const navLinks = document.querySelectorAll('.sidebar-nav a');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector(`.sidebar-nav a[href="#${entry.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { rootMargin: '-30% 0px -60% 0px' });
+sections.forEach(s => observer.observe(s));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+</body></html>
